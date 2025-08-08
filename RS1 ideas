@@ -29,5 +29,42 @@ FEASIBLE Elevation mapping robot,
 TOP RANKED
 Prey mimic
 Trail finder
-FIre extinguisher
+Fire extinguisher
 
+
+
+
+IDEAS BREAKDOWN:
+---------------------------
+Prey mimic - robot designed to imitate the behaviour of prey for recreational purposes. The idea for robot is to be designed for hunters to be shot at with airgun 
+while resembling the behaviour of wild animal (deer/ boar/ bear).
+
+Key challenges: 
+Constructing behaviour tree to imitate real animal
+Implementing rapid navigation in forest environment
+Creating robot model with four legs rather than wheels (maybe something like Spot from Boston Dynamics)
+Come up with sensing for the robot to affect behaviour. (I suppose animals mostly rely on smells and eyesight. Robot might have to use IR, LiDAR and Cameras to detect and avoid person)
+Create a human model that would trigger robot's sensing mechanisms.
+
+---------------------------
+Trail finder - robot that looks for trails in the wild forest for humans/ bikes or vehicles to go through. The target would be to create a map of forest with trail paths.
+
+Key challenges:
+Building complex forest environment with high elevation changes, rivers, thick bushes and other obstacles
+Coming up with sophisticated sensing mechanism to construct accurate map (perhaps accelerometer, altimeter, compass, LiDAR, probably more)
+Formulation of laws for defining a suitable trail (dimensions, elevation gradient, surface properties - mud / grass / water)
+Navigation in rough terrain. 
+Define how robot moves - flying/ riding/ walking
+
+---------------------------
+Fire eliminator - robot with a purpose to locate and eliminate forest fires. The main purpose is to identify the accurate location of fire in global coordinates,
+estimate fire's severity and put out the fire if possible.
+
+Key challenges:
+Might be a multi-robot solution - drone for locating fires and land robot with water tank to put them out.
+Identify how land robot refills the water tank - base spot with water supply/ nearby river/ etc.
+Precise sensing to identify location of fire - forest mapping with cameras, accelerometer, compass and more.
+Come up with fire detection - IR spectrum sensing? STL models?
+Figure out how to populate simulation with heat signatures.
+Investigate current firefighter techniques. Grades of forest fires.
+Estimation procedure - how can robot estimate if they fire can be eliminated? Extreme heat? Size?
