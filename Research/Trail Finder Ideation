@@ -1,0 +1,153 @@
+Project Use Cases
+    - Creation of New Trails
+        Robot explores untapped forest areas to identify and log potential walkable paths.
+
+    - Mapping of Existing Trails
+        Generates accurate GPS/SLAM-based maps of current trails for navigation apps and park management.
+
+    - Enhanced Trail Visualization
+        Future integration with a 3D viewer for immersive path exploration and planning.
+
+    - Trail Condition Assessment (added)
+        Monitors erosion, vegetation growth, and obstacle presence for maintenance planning.
+
+
+
+Challenges & Limitations
+    - Large Elevation Steps
+        Boulders, large rocks, or fallen logs may exceed the robot’s climbing ability.
+
+    - Dense Vegetation
+        High vegetation in many Australian forests could block progress unless the path is pre-cleared.
+
+    - Unexpected Obstacles
+        Robot can be stopped by unforeseen blockages if no prior path preparation is done.
+
+    - Water Crossings
+        Rivers or creeks require the robot to be fully waterproof or equipped with amphibious capabilities.
+
+    - Man-made Structures
+        Stairs or ladders on established trails may not be traversable by most ground robots.
+
+    - Cost vs. Human Labor
+        Could be more expensive than sending people who can also clear and maintain trails during mapping.
+
+    - Navigation Under Canopy (added)
+        GPS signal loss under dense tree cover makes reliable navigation harder without advanced SLAM.
+
+
+
+Potential Robot Platforms
+    - Quadruped Robot (Dog-like)
+        Example: Boston Dynamics Spot.
+        Pros: High mobility, can step over obstacles, adaptable to uneven terrain.
+        Cons: Expensive, limited battery life, payload constraints.
+
+    - Wheeled Rover with Large Wheels
+        Pros: Simple design, efficient on moderately rough terrain, cost-effective.
+        Cons: Struggles with very large obstacles and deep mud.
+
+    - Tracked Robot (Tank-like)
+        Pros: Excellent traction, stable on slopes, good in mud/snow.
+        Cons: Heavier, higher power consumption, less efficient on smooth paths.
+
+    - Hybrid Platforms (added)
+        Combination of wheels + tracks or leg-wheel hybrids for maximum adaptability.
+        
+
+
+1) Definition of a Valid Trail (Walkable Trail)
+
+A trail is considered valid if it meets the following criteria:
+    Height Clearance:
+        - Minimum 2 m clearance above the trail.
+        - Possible detection: upward-facing radar or LiDAR.
+
+    Trail Width:
+        - Minimum 1 m for comfortable walking.
+        - Detection: RGB-D camera or LiDAR-based width estimation.
+
+    Slope & Elevation Changes:
+        - Preferred slope: −15° to +15° incline.
+        - Short sections (max 5 m) can reach up to 24°.
+        - Detection: 6-axis IMU for pitch/roll measurement.
+
+    Surface Type:
+        - Should be walkable (e.g., compact soil, grass, rock).
+        - Avoid long stretches of mud, water, or unstable rock.
+        - Detection: RGB/RGB-D camera with AI model for surface classification (optional for MVP).
+
+    Position & Mapping:
+        - GPS (or GNSS + SLAM) for path recording and mapping.
+        - Generate trail map for later review.
+
+    Distance & Travel Time:
+        - Use odometry to measure precise trail length.
+        - Combine with speed to estimate travel time.
+
+    Step Height Limit:
+        - Define maximum vertical obstacle height robot can traverse (TBD based on platform).
+        - Detection: LiDAR or depth camera height profile analysis.
+        
+
+
+2) Drone-Assisted Trail Finding
+
+    Purpose:
+        - Drone flies ahead to scout trails and obstacles.
+        - Sends processed data to ground trail robot for navigation assistance.
+
+    Detection:
+        - Use RGB camera for aerial trail detection.
+        - Identify potential obstacles ahead.
+
+    Benefits:
+        - Faster navigation.
+        - Reduced risk of dead ends or impassable obstacles.
+        
+
+
+3) Test Environment Requirements
+
+General Layout:
+    Dense forest environment with:
+        - Many trees and bushes.
+        - Fallen branches and rocks.
+        - Natural dead ends and false trails.
+
+Terrain Features:
+    - Varying elevation (hills, valleys, slopes).
+    - Multiple elevation levels to simulate real-world forest.
+    - Both easy and difficult trail options.
+
+Trail Network:
+    - Length: 1–3 km total.
+    - Segments: 50–150 m each.
+    - Intersections: 1–3 per map.
+    - Obstructions: 2–5 per trail (fallen branches, shallow water, rock steps).
+
+Difficulty Variation:
+    - Easy trails: low slope, wide, few obstacles.
+    - Hard trails: higher slope, narrower, more obstacles.
+
+Generation Approach:
+    Consider procedural generation with rule-based distribution:
+        - Tree density ranges.
+        - Vegetation and bush distribution.
+        - Randomized rock placement.
+        - Streams or shallow water crossings.
+
+    Controlled randomness for repeatable tests (seeded generator).
+    
+
+4) Stakeholders for this project
+	- City councils (used to create walking trails in the region)
+	- National parks, park rangers
+	- AirBnb owners (sell it as a serivce)
+	- Hikers
+	- Professional Trail creaters
+	- Outdoor Recreation buisnesses
+	- Search and rescue teams (has map with detailed trails)
+ 
+ 
+ 
