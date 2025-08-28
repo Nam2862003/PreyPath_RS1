@@ -13,6 +13,8 @@
   <depend>ros_ign_interfaces</depend>
   <depend>ros_ign_gazebo</depend>
   <depend>ros_ign_bridge</depend>
+  <exec_depend>python3</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
 
   <!-- Other -->
   <depend>robot_localization</depend>
