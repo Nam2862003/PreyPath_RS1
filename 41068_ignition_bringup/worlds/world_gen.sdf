@@ -51,262 +51,4062 @@
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall1</name>
-      <pose>15.000 0.000 2.000 1.570796 0 -1.570796</pose>
+      <pose>100.000 0.000 2.000 1.570796 0 -1.570796</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall2</name>
-      <pose>15.000 -11.250 2.000 1.570796 0 -1.570796</pose>
+      <pose>100.000 -75.000 2.000 1.570796 0 -1.570796</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall3</name>
-      <pose>15.000 11.250 2.000 1.570796 0 -1.570796</pose>
+      <pose>100.000 75.000 2.000 1.570796 0 -1.570796</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall4</name>
-      <pose>-15.000 0.000 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 0.000 2.000 1.570796 0 1.570796</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall5</name>
-      <pose>-15.000 -11.250 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -75.000 2.000 1.570796 0 1.570796</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall6</name>
-      <pose>-15.000 11.250 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 75.000 2.000 1.570796 0 1.570796</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall7</name>
-      <pose>0.000 -15.000 2.000 1.570796 0 0</pose>
+      <pose>0.000 -100.000 2.000 1.570796 0 0</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall8</name>
-      <pose>-11.250 -15.000 2.000 1.570796 0 0</pose>
+      <pose>-75.000 -100.000 2.000 1.570796 0 0</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall9</name>
-      <pose>11.250 -15.000 2.000 1.570796 0 0</pose>
+      <pose>75.000 -100.000 2.000 1.570796 0 0</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall10</name>
-      <pose>0.000 15.000 2.000 1.570796 0 0</pose>
+      <pose>0.000 100.000 2.000 1.570796 0 0</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall11</name>
-      <pose>-11.250 15.000 2.000 1.570796 0 0</pose>
+      <pose>-75.000 100.000 2.000 1.570796 0 0</pose>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall12</name>
-      <pose>11.250 15.000 2.000 1.570796 0 0</pose>
+      <pose>75.000 100.000 2.000 1.570796 0 0</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_1</name>
-      <pose>11.858 -3.128 -0.300 0 0 2.226192</pose>
+      <pose>-73.551 -64.088 -0.300 0 0 0.974876</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_2</name>
-      <pose>-3.131 4.308 -0.300 0 0 -2.552794</pose>
+      <pose>-93.063 65.718 -0.300 0 0 1.570051</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_3</name>
-      <pose>11.894 4.099 -0.300 0 0 -1.458298</pose>
+      <pose>19.168 -82.983 -0.300 0 0 1.052229</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_4</name>
-      <pose>13.679 -5.388 -0.300 0 0 -2.797785</pose>
+      <pose>-10.374 44.630 -0.300 0 0 -2.777820</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_5</name>
-      <pose>-0.052 -13.576 -0.300 0 0 -2.043506</pose>
+      <pose>-62.152 -51.208 -0.300 0 0 2.386018</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_6</name>
-      <pose>-13.671 1.172 -0.300 0 0 0.263780</pose>
+      <pose>-56.381 -71.608 -0.300 0 0 -1.298512</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_7</name>
-      <pose>-0.123 -6.023 -0.300 0 0 -0.472252</pose>
+      <pose>59.504 -31.797 -0.300 0 0 2.530383</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_8</name>
-      <pose>-9.491 -0.041 -0.300 0 0 1.603852</pose>
+      <pose>-30.585 39.073 -0.300 0 0 -2.125106</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_9</name>
-      <pose>-11.845 5.004 -0.300 0 0 -1.464043</pose>
+      <pose>59.074 18.228 -0.300 0 0 0.443786</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_10</name>
-      <pose>12.061 12.935 -0.300 0 0 0.245598</pose>
+      <pose>-40.237 66.801 -0.300 0 0 0.627459</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_11</name>
+      <pose>55.810 -43.235 -0.300 0 0 -0.226291</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_12</name>
+      <pose>70.082 -26.962 -0.300 0 0 0.318319</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_13</name>
+      <pose>17.554 -88.023 -0.300 0 0 1.287551</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_14</name>
+      <pose>-81.543 6.171 -0.300 0 0 2.643325</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_15</name>
+      <pose>3.429 50.947 -0.300 0 0 2.557532</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_16</name>
+      <pose>73.235 80.991 -0.300 0 0 -1.847636</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_17</name>
+      <pose>54.353 43.966 -0.300 0 0 2.357617</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_18</name>
+      <pose>-4.072 -58.287 -0.300 0 0 -2.804779</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_19</name>
+      <pose>-58.879 86.533 -0.300 0 0 1.841775</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_20</name>
+      <pose>-6.633 -71.294 -0.300 0 0 2.078241</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_21</name>
+      <pose>-37.019 67.406 -0.300 0 0 -1.533602</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_22</name>
+      <pose>72.620 -66.271 -0.300 0 0 -0.835424</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_23</name>
+      <pose>0.798 -28.426 -0.300 0 0 2.946992</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_24</name>
+      <pose>88.053 -35.697 -0.300 0 0 -0.945263</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_25</name>
+      <pose>-52.165 -86.784 -0.300 0 0 1.408872</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_26</name>
+      <pose>-53.126 -31.663 -0.300 0 0 1.127322</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_27</name>
+      <pose>-18.507 71.556 -0.300 0 0 0.585371</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_28</name>
+      <pose>24.090 -61.814 -0.300 0 0 2.960803</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_29</name>
+      <pose>79.236 -20.581 -0.300 0 0 -1.972586</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_30</name>
+      <pose>7.081 -46.342 -0.300 0 0 0.666206</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_31</name>
+      <pose>17.988 87.715 -0.300 0 0 3.070578</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_32</name>
+      <pose>75.826 85.412 -0.300 0 0 2.127633</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_33</name>
+      <pose>21.285 23.408 -0.300 0 0 0.346141</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_34</name>
+      <pose>-63.083 56.687 -0.300 0 0 -1.282598</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_35</name>
+      <pose>-88.766 -98.217 -0.300 0 0 -2.681150</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_36</name>
+      <pose>-86.989 75.651 -0.300 0 0 1.964226</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_37</name>
+      <pose>2.131 65.464 -0.300 0 0 -1.446741</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_38</name>
+      <pose>28.576 -70.101 -0.300 0 0 2.651721</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_39</name>
+      <pose>83.436 -35.816 -0.300 0 0 -2.378935</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_40</name>
+      <pose>-14.941 -39.276 -0.300 0 0 1.543681</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_41</name>
+      <pose>17.898 -46.787 -0.300 0 0 2.304255</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_42</name>
+      <pose>-5.323 -35.934 -0.300 0 0 0.884250</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_43</name>
+      <pose>-98.685 22.350 -0.300 0 0 -1.511269</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_44</name>
+      <pose>96.463 81.066 -0.300 0 0 -1.555554</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_45</name>
+      <pose>78.917 -90.013 -0.300 0 0 -1.802047</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_46</name>
+      <pose>-17.708 -72.086 -0.300 0 0 1.589755</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_47</name>
+      <pose>-27.233 66.029 -0.300 0 0 0.366514</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_48</name>
+      <pose>10.509 -97.046 -0.300 0 0 2.569917</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_49</name>
+      <pose>-88.409 -91.411 -0.300 0 0 -3.008238</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_50</name>
+      <pose>-44.921 -21.049 -0.300 0 0 -3.075162</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_51</name>
+      <pose>-23.519 -80.933 -0.300 0 0 1.600639</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_52</name>
+      <pose>-64.285 29.481 -0.300 0 0 1.648444</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_53</name>
+      <pose>35.007 22.149 -0.300 0 0 -2.624886</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_54</name>
+      <pose>-38.641 -19.414 -0.300 0 0 2.471306</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_55</name>
+      <pose>-63.363 84.821 -0.300 0 0 1.173974</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_56</name>
+      <pose>14.668 -70.199 -0.300 0 0 -0.613400</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_57</name>
+      <pose>-69.091 14.942 -0.300 0 0 1.176483</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_58</name>
+      <pose>-99.536 52.271 -0.300 0 0 1.446389</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_59</name>
+      <pose>-23.207 30.045 -0.300 0 0 1.515213</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_60</name>
+      <pose>-96.601 -5.234 -0.300 0 0 -1.194159</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_61</name>
+      <pose>-58.602 -2.678 -0.300 0 0 -0.911207</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_62</name>
+      <pose>39.522 5.953 -0.300 0 0 -0.479620</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_63</name>
+      <pose>-12.175 -18.297 -0.300 0 0 1.991978</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_64</name>
+      <pose>28.545 36.407 -0.300 0 0 3.072449</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_65</name>
+      <pose>78.051 8.524 -0.300 0 0 1.767609</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_66</name>
+      <pose>70.760 -93.951 -0.300 0 0 2.789963</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_67</name>
+      <pose>-51.356 83.448 -0.300 0 0 -2.796216</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_68</name>
+      <pose>-31.912 -39.257 -0.300 0 0 0.495099</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_69</name>
+      <pose>-70.914 -88.660 -0.300 0 0 1.756534</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_70</name>
+      <pose>36.663 17.013 -0.300 0 0 3.043875</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_71</name>
+      <pose>-79.564 -26.765 -0.300 0 0 2.955766</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_72</name>
+      <pose>3.275 7.906 -0.300 0 0 -2.914530</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_73</name>
+      <pose>17.024 -28.368 -0.300 0 0 2.383464</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_74</name>
+      <pose>59.877 -91.784 -0.300 0 0 -2.450322</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_75</name>
+      <pose>29.404 95.160 -0.300 0 0 -2.816731</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_76</name>
+      <pose>-54.884 64.105 -0.300 0 0 2.674174</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_77</name>
+      <pose>66.044 26.438 -0.300 0 0 -0.305357</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_78</name>
+      <pose>-69.641 44.485 -0.300 0 0 2.281577</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_79</name>
+      <pose>16.340 49.680 -0.300 0 0 -2.560484</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_80</name>
+      <pose>-20.157 -69.265 -0.300 0 0 -0.015401</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_81</name>
+      <pose>-50.125 44.729 -0.300 0 0 -1.349393</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_82</name>
+      <pose>97.986 97.810 -0.300 0 0 2.667767</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_83</name>
+      <pose>-42.008 -69.094 -0.300 0 0 2.209019</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_84</name>
+      <pose>53.034 83.591 -0.300 0 0 -2.692088</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_85</name>
+      <pose>-44.626 -24.799 -0.300 0 0 -0.980265</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_86</name>
+      <pose>-45.217 89.090 -0.300 0 0 1.509499</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_87</name>
+      <pose>33.074 -11.088 -0.300 0 0 0.442307</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_88</name>
+      <pose>34.609 -86.969 -0.300 0 0 1.815191</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_89</name>
+      <pose>-32.782 -65.814 -0.300 0 0 -2.942279</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_90</name>
+      <pose>82.618 73.209 -0.300 0 0 1.166881</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_91</name>
+      <pose>-26.487 -4.085 -0.300 0 0 1.929863</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_92</name>
+      <pose>-67.844 54.756 -0.300 0 0 2.924519</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_93</name>
+      <pose>37.216 -62.299 -0.300 0 0 1.053371</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_94</name>
+      <pose>32.556 -55.768 -0.300 0 0 2.548477</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_95</name>
+      <pose>21.700 -53.169 -0.300 0 0 -1.317050</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_96</name>
+      <pose>82.639 -12.552 -0.300 0 0 -0.264062</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_97</name>
+      <pose>-62.660 14.923 -0.300 0 0 0.045511</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_98</name>
+      <pose>46.084 -79.946 -0.300 0 0 2.794540</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_99</name>
+      <pose>7.477 72.606 -0.300 0 0 -0.317106</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_100</name>
+      <pose>-77.333 14.584 -0.300 0 0 -1.803940</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_101</name>
+      <pose>-78.880 41.732 -0.300 0 0 -0.839788</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_102</name>
+      <pose>-62.645 22.308 -0.300 0 0 1.948143</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_103</name>
+      <pose>-7.986 25.020 -0.300 0 0 2.215235</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_104</name>
+      <pose>42.379 62.014 -0.300 0 0 2.935747</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_105</name>
+      <pose>-74.378 -59.924 -0.300 0 0 2.866884</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_106</name>
+      <pose>16.510 73.397 -0.300 0 0 -1.508734</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_107</name>
+      <pose>29.175 -11.385 -0.300 0 0 0.834801</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_108</name>
+      <pose>-59.699 -47.586 -0.300 0 0 -0.179959</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_109</name>
+      <pose>91.665 -97.780 -0.300 0 0 1.073922</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_110</name>
+      <pose>36.291 57.639 -0.300 0 0 -1.804583</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_111</name>
+      <pose>-79.228 -54.026 -0.300 0 0 -2.577968</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_112</name>
+      <pose>38.014 47.152 -0.300 0 0 0.805050</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_113</name>
+      <pose>93.904 7.680 -0.300 0 0 -3.117563</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_114</name>
+      <pose>-21.999 55.557 -0.300 0 0 -2.330945</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_115</name>
+      <pose>81.266 -92.340 -0.300 0 0 2.897095</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_116</name>
+      <pose>-78.360 32.251 -0.300 0 0 0.327161</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_117</name>
+      <pose>-75.400 -34.255 -0.300 0 0 -2.863325</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_118</name>
+      <pose>-4.051 -77.851 -0.300 0 0 -2.424703</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_119</name>
+      <pose>81.628 96.399 -0.300 0 0 -0.148498</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_120</name>
+      <pose>19.485 90.311 -0.300 0 0 -2.304692</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_121</name>
+      <pose>-22.458 -48.060 -0.300 0 0 -1.403314</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_122</name>
+      <pose>-71.476 84.552 -0.300 0 0 1.347670</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_123</name>
+      <pose>88.329 90.415 -0.300 0 0 1.060532</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_124</name>
+      <pose>28.228 -60.253 -0.300 0 0 1.291802</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_125</name>
+      <pose>-84.450 -45.911 -0.300 0 0 -2.382173</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_126</name>
+      <pose>-63.396 75.391 -0.300 0 0 1.185116</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_127</name>
+      <pose>-28.284 -87.892 -0.300 0 0 2.554991</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_128</name>
+      <pose>-54.126 74.512 -0.300 0 0 2.254229</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_129</name>
+      <pose>89.011 26.111 -0.300 0 0 -2.665947</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_130</name>
+      <pose>-4.388 -11.841 -0.300 0 0 -3.103338</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_131</name>
+      <pose>9.203 -71.112 -0.300 0 0 -2.911482</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_132</name>
+      <pose>20.822 -21.818 -0.300 0 0 -0.135086</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_133</name>
+      <pose>-83.738 -31.677 -0.300 0 0 -0.624347</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_134</name>
+      <pose>81.288 40.808 -0.300 0 0 1.298313</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_135</name>
+      <pose>-39.164 25.961 -0.300 0 0 -0.756823</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_136</name>
+      <pose>89.152 81.126 -0.300 0 0 -0.158469</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_137</name>
+      <pose>36.933 -83.982 -0.300 0 0 0.764544</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_138</name>
+      <pose>1.595 84.687 -0.300 0 0 -1.894534</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_139</name>
+      <pose>99.479 57.420 -0.300 0 0 -1.112470</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_140</name>
+      <pose>65.253 83.554 -0.300 0 0 -2.073135</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_141</name>
+      <pose>89.354 66.900 -0.300 0 0 -2.639831</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_142</name>
+      <pose>-19.494 -19.403 -0.300 0 0 -3.029175</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_143</name>
+      <pose>80.514 13.902 -0.300 0 0 2.572775</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_144</name>
+      <pose>-26.949 85.818 -0.300 0 0 2.468653</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_145</name>
+      <pose>67.126 -47.741 -0.300 0 0 0.271325</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_146</name>
+      <pose>8.342 -83.801 -0.300 0 0 0.629527</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_147</name>
+      <pose>86.685 -7.644 -0.300 0 0 -1.839031</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_148</name>
+      <pose>98.886 71.375 -0.300 0 0 -1.339324</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_149</name>
+      <pose>97.797 -71.711 -0.300 0 0 0.529627</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_150</name>
+      <pose>21.698 36.806 -0.300 0 0 -0.437053</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_151</name>
+      <pose>92.656 -70.856 -0.300 0 0 0.776762</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_152</name>
+      <pose>-36.614 30.815 -0.300 0 0 1.256859</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_153</name>
+      <pose>66.179 -70.093 -0.300 0 0 1.695967</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_154</name>
+      <pose>10.337 -54.337 -0.300 0 0 2.685050</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_155</name>
+      <pose>66.391 3.024 -0.300 0 0 -2.286211</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_156</name>
+      <pose>56.904 -64.575 -0.300 0 0 -3.077215</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_157</name>
+      <pose>-33.973 -84.957 -0.300 0 0 -0.488551</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_158</name>
+      <pose>-50.149 92.460 -0.300 0 0 1.498935</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_159</name>
+      <pose>-6.651 -76.369 -0.300 0 0 0.151754</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_160</name>
+      <pose>-92.564 7.186 -0.300 0 0 -0.435722</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_161</name>
+      <pose>67.465 -39.083 -0.300 0 0 1.599769</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_162</name>
+      <pose>-80.979 -19.148 -0.300 0 0 -0.909760</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_163</name>
+      <pose>27.260 -18.200 -0.300 0 0 -0.021063</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_164</name>
+      <pose>-84.827 -88.181 -0.300 0 0 1.498180</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_165</name>
+      <pose>90.538 57.704 -0.300 0 0 0.746342</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_166</name>
+      <pose>-60.978 12.928 -0.300 0 0 -0.965494</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_167</name>
+      <pose>-47.803 -84.156 -0.300 0 0 -2.232772</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_168</name>
+      <pose>-45.224 -30.184 -0.300 0 0 1.478133</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_169</name>
+      <pose>-10.842 55.501 -0.300 0 0 1.062693</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_170</name>
+      <pose>74.914 -84.950 -0.300 0 0 -1.132709</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_171</name>
+      <pose>4.259 -35.306 -0.300 0 0 -1.840180</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_172</name>
+      <pose>89.899 -0.040 -0.300 0 0 1.500847</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_173</name>
+      <pose>23.006 96.095 -0.300 0 0 -1.551135</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_174</name>
+      <pose>87.788 49.391 -0.300 0 0 0.036269</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_175</name>
+      <pose>-65.395 -21.377 -0.300 0 0 -2.294741</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_176</name>
+      <pose>-41.914 -23.146 -0.300 0 0 -1.264956</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_177</name>
+      <pose>-33.099 -32.393 -0.300 0 0 0.543117</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_178</name>
+      <pose>-99.387 -8.748 -0.300 0 0 -1.316025</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_179</name>
+      <pose>20.947 -62.486 -0.300 0 0 -0.910652</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_180</name>
+      <pose>56.202 10.260 -0.300 0 0 1.256015</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_181</name>
+      <pose>31.708 -50.565 -0.300 0 0 -0.479960</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_182</name>
+      <pose>-7.114 3.720 -0.300 0 0 2.033605</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_183</name>
+      <pose>-88.866 44.194 -0.300 0 0 2.338888</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_184</name>
+      <pose>-70.519 -3.949 -0.300 0 0 -1.481625</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_185</name>
+      <pose>82.743 -30.850 -0.300 0 0 -2.211801</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_186</name>
+      <pose>8.805 -36.795 -0.300 0 0 -2.148099</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_187</name>
+      <pose>42.806 -99.707 -0.300 0 0 -1.693649</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_188</name>
+      <pose>72.019 -83.544 -0.300 0 0 1.971270</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_189</name>
+      <pose>-93.140 -7.112 -0.300 0 0 -1.917699</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_190</name>
+      <pose>94.874 36.548 -0.300 0 0 -2.382712</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_191</name>
+      <pose>5.918 9.329 -0.300 0 0 2.184566</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_192</name>
+      <pose>95.579 83.589 -0.300 0 0 0.404404</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_193</name>
+      <pose>-70.421 -45.554 -0.300 0 0 2.996809</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_194</name>
+      <pose>-24.681 -49.506 -0.300 0 0 -0.391165</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_195</name>
+      <pose>88.653 -66.098 -0.300 0 0 1.002715</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_196</name>
+      <pose>-27.017 13.193 -0.300 0 0 -0.122809</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_197</name>
+      <pose>60.805 56.833 -0.300 0 0 -2.668983</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_198</name>
+      <pose>-97.939 -87.236 -0.300 0 0 -0.242344</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_199</name>
+      <pose>-60.979 73.947 -0.300 0 0 1.955235</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_200</name>
+      <pose>-69.502 -39.896 -0.300 0 0 1.409897</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_201</name>
+      <pose>-86.659 10.279 -0.300 0 0 -1.098831</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_202</name>
+      <pose>14.741 -25.774 -0.300 0 0 -2.559950</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_203</name>
+      <pose>-81.184 93.215 -0.300 0 0 -2.067457</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_204</name>
+      <pose>-31.733 67.662 -0.300 0 0 2.158493</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_205</name>
+      <pose>47.705 -74.296 -0.300 0 0 -1.708339</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_206</name>
+      <pose>-68.768 -7.400 -0.300 0 0 -0.703390</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_207</name>
+      <pose>-9.382 -64.492 -0.300 0 0 -1.660318</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_208</name>
+      <pose>-48.452 77.472 -0.300 0 0 2.941279</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_209</name>
+      <pose>24.955 -20.686 -0.300 0 0 -0.748847</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_210</name>
+      <pose>-54.472 11.316 -0.300 0 0 -2.567716</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_211</name>
+      <pose>36.368 83.930 -0.300 0 0 -1.486124</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_212</name>
+      <pose>-76.581 18.481 -0.300 0 0 0.452626</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_213</name>
+      <pose>57.793 59.196 -0.300 0 0 0.069418</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_214</name>
+      <pose>2.187 12.892 -0.300 0 0 -1.508973</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_215</name>
+      <pose>41.941 -93.579 -0.300 0 0 -1.552104</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_216</name>
+      <pose>56.313 -60.875 -0.300 0 0 -2.261743</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_217</name>
+      <pose>-55.281 97.128 -0.300 0 0 1.503764</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_218</name>
+      <pose>51.867 -18.984 -0.300 0 0 0.244270</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_219</name>
+      <pose>54.259 -7.847 -0.300 0 0 2.659782</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_220</name>
+      <pose>-83.808 28.300 -0.300 0 0 -0.527961</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_221</name>
+      <pose>55.807 -24.292 -0.300 0 0 -2.224631</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_222</name>
+      <pose>-73.258 16.648 -0.300 0 0 -0.614137</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_223</name>
+      <pose>-59.090 -77.278 -0.300 0 0 2.852848</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_224</name>
+      <pose>-57.978 -82.691 -0.300 0 0 0.155868</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_225</name>
+      <pose>-50.412 -75.146 -0.300 0 0 -1.225823</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_226</name>
+      <pose>62.013 -20.443 -0.300 0 0 -1.013865</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_227</name>
+      <pose>13.035 -65.604 -0.300 0 0 3.117522</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_228</name>
+      <pose>74.391 -45.833 -0.300 0 0 1.843491</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_229</name>
+      <pose>97.607 -50.274 -0.300 0 0 1.890725</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_230</name>
+      <pose>38.899 71.969 -0.300 0 0 -2.869509</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_231</name>
+      <pose>-7.380 55.591 -0.300 0 0 -0.586295</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_232</name>
+      <pose>66.137 -12.769 -0.300 0 0 0.662483</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_233</name>
+      <pose>73.285 94.193 -0.300 0 0 3.021421</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_234</name>
+      <pose>86.151 85.163 -0.300 0 0 -1.003845</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_235</name>
+      <pose>49.086 57.074 -0.300 0 0 1.312500</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_236</name>
+      <pose>41.946 35.456 -0.300 0 0 -1.737403</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_237</name>
+      <pose>-69.151 -61.389 -0.300 0 0 -2.935852</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_238</name>
+      <pose>-20.029 -7.437 -0.300 0 0 -2.030590</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_239</name>
+      <pose>-37.958 -42.654 -0.300 0 0 -3.069112</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_240</name>
+      <pose>-64.791 -43.934 -0.300 0 0 0.246854</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_241</name>
+      <pose>-17.726 33.359 -0.300 0 0 -2.550599</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_242</name>
+      <pose>17.287 -76.351 -0.300 0 0 0.733351</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_243</name>
+      <pose>-51.038 13.732 -0.300 0 0 -2.074514</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_244</name>
+      <pose>-66.772 15.986 -0.300 0 0 2.810977</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_245</name>
+      <pose>-81.654 -70.291 -0.300 0 0 2.490092</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_246</name>
+      <pose>70.788 11.760 -0.300 0 0 -0.738524</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_247</name>
+      <pose>28.654 53.254 -0.300 0 0 -0.251138</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_248</name>
+      <pose>64.896 38.342 -0.300 0 0 2.242777</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_249</name>
+      <pose>-18.770 -41.363 -0.300 0 0 0.426242</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_250</name>
+      <pose>-82.492 -62.701 -0.300 0 0 0.693579</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_251</name>
+      <pose>25.669 46.012 -0.300 0 0 -0.336114</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_252</name>
+      <pose>60.550 -36.666 -0.300 0 0 1.756753</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_253</name>
+      <pose>28.951 -3.848 -0.300 0 0 -1.879558</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_254</name>
+      <pose>-62.373 -61.489 -0.300 0 0 -1.848575</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_255</name>
+      <pose>45.530 -98.895 -0.300 0 0 -2.437186</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_256</name>
+      <pose>-3.240 -16.789 -0.300 0 0 -2.410859</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_257</name>
+      <pose>24.458 38.234 -0.300 0 0 -2.768745</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_258</name>
+      <pose>-6.669 75.866 -0.300 0 0 2.550216</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_259</name>
+      <pose>41.788 -76.950 -0.300 0 0 0.364327</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_260</name>
+      <pose>1.862 87.559 -0.300 0 0 -1.015373</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_261</name>
+      <pose>42.691 6.249 -0.300 0 0 -1.101065</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_262</name>
+      <pose>43.078 -5.835 -0.300 0 0 0.304469</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_263</name>
+      <pose>-87.978 34.837 -0.300 0 0 -1.434694</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_264</name>
+      <pose>40.636 -5.175 -0.300 0 0 -1.102548</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_265</name>
+      <pose>7.130 -92.509 -0.300 0 0 2.791409</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_266</name>
+      <pose>-40.218 80.108 -0.300 0 0 1.089923</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_267</name>
+      <pose>31.735 -84.025 -0.300 0 0 0.541373</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_268</name>
+      <pose>11.642 -23.458 -0.300 0 0 -1.166530</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_269</name>
+      <pose>-30.851 27.983 -0.300 0 0 2.820025</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_270</name>
+      <pose>-22.277 97.655 -0.300 0 0 1.677334</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_271</name>
+      <pose>43.643 -58.569 -0.300 0 0 2.935642</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_272</name>
+      <pose>-6.092 -93.909 -0.300 0 0 0.576512</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_273</name>
+      <pose>-72.655 -18.253 -0.300 0 0 0.554986</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_274</name>
+      <pose>-97.131 -59.654 -0.300 0 0 0.102680</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_275</name>
+      <pose>-29.113 3.022 -0.300 0 0 -0.186994</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_276</name>
+      <pose>-15.401 24.990 -0.300 0 0 2.984844</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_277</name>
+      <pose>27.628 39.182 -0.300 0 0 1.182416</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_278</name>
+      <pose>-0.136 49.765 -0.300 0 0 2.018761</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_279</name>
+      <pose>-10.464 16.297 -0.300 0 0 2.293028</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_280</name>
+      <pose>14.319 -79.580 -0.300 0 0 -2.634535</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_281</name>
+      <pose>-87.669 -40.663 -0.300 0 0 0.260101</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_282</name>
+      <pose>-36.620 -39.885 -0.300 0 0 -1.744589</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_283</name>
+      <pose>-41.317 11.653 -0.300 0 0 -0.600493</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_284</name>
+      <pose>86.579 -89.924 -0.300 0 0 1.123607</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_285</name>
+      <pose>2.222 -95.676 -0.300 0 0 -2.522314</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_286</name>
+      <pose>64.813 44.680 -0.300 0 0 -1.248202</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_287</name>
+      <pose>11.475 65.798 -0.300 0 0 1.695274</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_288</name>
+      <pose>-84.748 -56.520 -0.300 0 0 1.172087</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_289</name>
+      <pose>-1.362 -30.296 -0.300 0 0 -1.176676</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_290</name>
+      <pose>-15.297 70.967 -0.300 0 0 2.181128</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_291</name>
+      <pose>43.114 -71.791 -0.300 0 0 2.321389</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_292</name>
+      <pose>14.731 33.359 -0.300 0 0 -1.788951</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_293</name>
+      <pose>-42.095 6.001 -0.300 0 0 2.739616</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_294</name>
+      <pose>73.897 1.952 -0.300 0 0 2.568261</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_295</name>
+      <pose>75.415 13.023 -0.300 0 0 -0.530406</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_296</name>
+      <pose>-32.351 17.896 -0.300 0 0 2.858724</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_297</name>
+      <pose>40.225 -20.648 -0.300 0 0 -1.083164</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_298</name>
+      <pose>81.355 -48.323 -0.300 0 0 2.964202</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_299</name>
+      <pose>-19.973 12.798 -0.300 0 0 0.119149</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <name>oak_300</name>
+      <pose>91.219 78.511 -0.300 0 0 2.296479</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_1</name>
-      <pose>-14.477 8.859 0.000 0 0 -2.037595</pose>
+      <pose>99.887 -40.600 0.000 0 0 -0.280171</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_2</name>
-      <pose>4.145 -1.892 0.000 0 0 2.494757</pose>
+      <pose>16.534 -16.158 0.000 0 0 -1.731954</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_3</name>
-      <pose>5.087 5.407 0.000 0 0 -0.977023</pose>
+      <pose>89.967 23.219 0.000 0 0 -1.235104</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_4</name>
-      <pose>2.081 2.591 0.000 0 0 -2.218430</pose>
+      <pose>79.778 -71.393 0.000 0 0 0.948905</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_5</name>
-      <pose>-4.111 12.062 0.000 0 0 -0.425533</pose>
+      <pose>-38.347 88.108 0.000 0 0 -0.564123</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_6</name>
-      <pose>12.439 4.170 0.000 0 0 0.347597</pose>
+      <pose>37.232 75.088 0.000 0 0 -0.998652</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_7</name>
-      <pose>1.160 -5.508 0.000 0 0 2.542494</pose>
+      <pose>-95.899 -8.620 0.000 0 0 2.172250</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_8</name>
-      <pose>-13.670 -3.597 0.000 0 0 -2.210272</pose>
+      <pose>82.358 17.996 0.000 0 0 0.982731</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_9</name>
-      <pose>13.155 12.670 0.000 0 0 1.708655</pose>
+      <pose>2.368 -13.801 0.000 0 0 2.724764</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_10</name>
-      <pose>9.141 6.117 0.000 0 0 0.423445</pose>
+      <pose>57.389 87.808 0.000 0 0 -0.446121</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_11</name>
+      <pose>-98.747 68.943 0.000 0 0 1.585758</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_12</name>
+      <pose>-96.298 98.513 0.000 0 0 -0.345095</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_13</name>
+      <pose>58.812 50.250 0.000 0 0 2.989633</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_14</name>
+      <pose>59.529 -43.373 0.000 0 0 1.773001</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_15</name>
+      <pose>1.648 -32.691 0.000 0 0 -2.248858</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_16</name>
+      <pose>69.532 -34.177 0.000 0 0 -1.501123</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_17</name>
+      <pose>6.103 34.251 0.000 0 0 -0.057136</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_18</name>
+      <pose>82.526 51.722 0.000 0 0 0.854765</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_19</name>
+      <pose>4.892 -35.968 0.000 0 0 2.446122</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_20</name>
+      <pose>2.424 81.519 0.000 0 0 -2.130128</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_21</name>
+      <pose>8.321 -96.995 0.000 0 0 2.742463</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_22</name>
+      <pose>94.729 27.250 0.000 0 0 1.510518</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_23</name>
+      <pose>73.938 95.600 0.000 0 0 2.090340</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_24</name>
+      <pose>20.443 -60.080 0.000 0 0 0.157041</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_25</name>
+      <pose>67.386 -64.838 0.000 0 0 0.386133</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_26</name>
+      <pose>-44.533 -5.707 0.000 0 0 -0.389448</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_27</name>
+      <pose>98.543 58.373 0.000 0 0 -1.677877</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_28</name>
+      <pose>64.485 29.374 0.000 0 0 -0.803238</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_29</name>
+      <pose>-12.210 -57.448 0.000 0 0 -0.610411</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_30</name>
+      <pose>-99.563 4.000 0.000 0 0 -0.022998</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_31</name>
+      <pose>1.711 61.176 0.000 0 0 -1.639437</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_32</name>
+      <pose>-67.133 91.117 0.000 0 0 -0.585028</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_33</name>
+      <pose>-7.753 -33.940 0.000 0 0 -0.829500</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_34</name>
+      <pose>31.030 -91.093 0.000 0 0 1.219635</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_35</name>
+      <pose>81.105 89.228 0.000 0 0 -2.844155</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_36</name>
+      <pose>-27.010 -56.558 0.000 0 0 -1.657661</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_37</name>
+      <pose>2.566 66.760 0.000 0 0 -1.312836</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_38</name>
+      <pose>88.856 41.414 0.000 0 0 -1.665606</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_39</name>
+      <pose>87.985 -46.904 0.000 0 0 2.002416</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_40</name>
+      <pose>97.070 78.189 0.000 0 0 -1.948220</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_41</name>
+      <pose>-30.734 32.009 0.000 0 0 1.485827</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_42</name>
+      <pose>-67.494 -52.566 0.000 0 0 -1.161861</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_43</name>
+      <pose>-17.953 55.389 0.000 0 0 -2.312717</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_44</name>
+      <pose>95.908 -80.285 0.000 0 0 -3.045736</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_45</name>
+      <pose>-21.229 60.156 0.000 0 0 -2.545057</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_46</name>
+      <pose>61.877 -17.178 0.000 0 0 -1.834502</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_47</name>
+      <pose>-26.049 71.897 0.000 0 0 -1.199496</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_48</name>
+      <pose>31.262 -60.206 0.000 0 0 1.354602</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_49</name>
+      <pose>-66.084 -43.568 0.000 0 0 0.758618</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_50</name>
+      <pose>-68.753 -10.532 0.000 0 0 2.312385</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_51</name>
+      <pose>-1.180 -71.886 0.000 0 0 0.149804</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_52</name>
+      <pose>-23.009 -81.869 0.000 0 0 2.312324</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_53</name>
+      <pose>-53.015 4.229 0.000 0 0 1.616293</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_54</name>
+      <pose>-89.754 16.786 0.000 0 0 -1.067784</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_55</name>
+      <pose>32.899 -57.436 0.000 0 0 2.361999</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_56</name>
+      <pose>-96.498 -67.510 0.000 0 0 -0.856440</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_57</name>
+      <pose>-26.168 -5.728 0.000 0 0 -1.962597</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_58</name>
+      <pose>45.040 -19.378 0.000 0 0 -1.499815</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_59</name>
+      <pose>-28.175 -91.655 0.000 0 0 0.542232</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_60</name>
+      <pose>49.437 -60.128 0.000 0 0 1.773797</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_61</name>
+      <pose>94.357 -36.944 0.000 0 0 0.932746</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_62</name>
+      <pose>-66.813 4.705 0.000 0 0 2.545688</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_63</name>
+      <pose>65.352 -35.179 0.000 0 0 3.010900</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_64</name>
+      <pose>-46.944 -9.625 0.000 0 0 -1.756249</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_65</name>
+      <pose>46.236 -61.914 0.000 0 0 -0.620163</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_66</name>
+      <pose>0.763 95.407 0.000 0 0 0.159303</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_67</name>
+      <pose>-91.310 86.323 0.000 0 0 0.879131</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_68</name>
+      <pose>34.295 35.546 0.000 0 0 -2.817544</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_69</name>
+      <pose>82.305 -88.949 0.000 0 0 -2.611412</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_70</name>
+      <pose>-35.041 30.884 0.000 0 0 -0.102645</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_71</name>
+      <pose>-36.377 -42.418 0.000 0 0 -0.730108</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_72</name>
+      <pose>-77.424 34.472 0.000 0 0 -0.120359</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_73</name>
+      <pose>-28.655 -75.434 0.000 0 0 -1.547941</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_74</name>
+      <pose>13.842 -42.890 0.000 0 0 -0.331403</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_75</name>
+      <pose>-92.166 -31.217 0.000 0 0 -1.536891</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_76</name>
+      <pose>53.638 -89.814 0.000 0 0 -1.784145</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_77</name>
+      <pose>61.704 9.670 0.000 0 0 1.077362</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_78</name>
+      <pose>-33.190 -75.069 0.000 0 0 -3.084194</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_79</name>
+      <pose>41.205 85.362 0.000 0 0 2.285213</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_80</name>
+      <pose>85.202 90.095 0.000 0 0 1.251358</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_81</name>
+      <pose>-41.008 17.863 0.000 0 0 -2.747397</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_82</name>
+      <pose>-37.153 27.987 0.000 0 0 -1.099047</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_83</name>
+      <pose>46.782 76.212 0.000 0 0 -1.610450</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_84</name>
+      <pose>-78.591 70.577 0.000 0 0 -1.111162</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_85</name>
+      <pose>-14.823 -91.065 0.000 0 0 2.513740</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_86</name>
+      <pose>25.191 -51.767 0.000 0 0 2.984112</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_87</name>
+      <pose>91.742 51.494 0.000 0 0 0.881835</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_88</name>
+      <pose>82.629 28.045 0.000 0 0 3.038011</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_89</name>
+      <pose>-83.507 -42.190 0.000 0 0 -1.376796</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_90</name>
+      <pose>-12.626 34.061 0.000 0 0 1.135147</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_91</name>
+      <pose>34.801 62.188 0.000 0 0 -1.524864</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_92</name>
+      <pose>-54.094 73.362 0.000 0 0 1.226568</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_93</name>
+      <pose>57.212 -67.536 0.000 0 0 1.191414</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_94</name>
+      <pose>-43.778 90.011 0.000 0 0 0.025126</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_95</name>
+      <pose>6.272 -53.872 0.000 0 0 -0.744571</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_96</name>
+      <pose>99.684 -95.612 0.000 0 0 0.150638</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_97</name>
+      <pose>20.863 21.468 0.000 0 0 -1.423189</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_98</name>
+      <pose>87.411 67.395 0.000 0 0 -2.306451</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_99</name>
+      <pose>27.889 -31.487 0.000 0 0 2.238969</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_100</name>
+      <pose>6.451 68.114 0.000 0 0 1.893758</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_101</name>
+      <pose>36.391 11.696 0.000 0 0 -1.627162</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_102</name>
+      <pose>-65.526 -92.524 0.000 0 0 1.118813</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_103</name>
+      <pose>-23.266 92.401 0.000 0 0 -0.142544</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_104</name>
+      <pose>-61.542 -47.245 0.000 0 0 -1.119122</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_105</name>
+      <pose>71.518 -45.552 0.000 0 0 -1.566823</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_106</name>
+      <pose>-84.525 -61.543 0.000 0 0 0.108504</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_107</name>
+      <pose>-41.373 54.216 0.000 0 0 -0.266304</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_108</name>
+      <pose>-13.632 -97.536 0.000 0 0 -1.904085</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_109</name>
+      <pose>9.402 -9.655 0.000 0 0 2.024704</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_110</name>
+      <pose>-97.390 -6.429 0.000 0 0 2.658532</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_111</name>
+      <pose>5.613 48.864 0.000 0 0 0.896673</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_112</name>
+      <pose>37.580 60.880 0.000 0 0 -1.722980</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_113</name>
+      <pose>-10.853 -17.871 0.000 0 0 1.071373</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_114</name>
+      <pose>65.067 85.528 0.000 0 0 -2.399502</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_115</name>
+      <pose>-13.393 -9.513 0.000 0 0 1.443361</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_116</name>
+      <pose>-88.381 -40.057 0.000 0 0 -1.937394</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_117</name>
+      <pose>-47.245 -5.646 0.000 0 0 2.220691</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_118</name>
+      <pose>-62.461 33.919 0.000 0 0 0.392805</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_119</name>
+      <pose>60.029 4.990 0.000 0 0 0.297074</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_120</name>
+      <pose>78.981 -5.621 0.000 0 0 -0.149136</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_121</name>
+      <pose>11.474 -40.885 0.000 0 0 -0.671041</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_122</name>
+      <pose>-59.208 27.806 0.000 0 0 -2.923731</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_123</name>
+      <pose>45.927 86.106 0.000 0 0 1.936340</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_124</name>
+      <pose>23.106 23.506 0.000 0 0 -0.326395</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_125</name>
+      <pose>35.227 32.872 0.000 0 0 -0.670962</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_126</name>
+      <pose>49.766 -9.566 0.000 0 0 1.609500</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_127</name>
+      <pose>-29.708 39.845 0.000 0 0 -1.439648</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_128</name>
+      <pose>-86.274 44.172 0.000 0 0 0.492237</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_129</name>
+      <pose>-29.153 19.108 0.000 0 0 -2.376261</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_130</name>
+      <pose>7.306 59.565 0.000 0 0 2.352716</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_131</name>
+      <pose>-90.175 57.239 0.000 0 0 -1.929488</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_132</name>
+      <pose>8.737 82.174 0.000 0 0 1.535794</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_133</name>
+      <pose>-84.975 -58.851 0.000 0 0 -0.794799</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_134</name>
+      <pose>74.447 -13.940 0.000 0 0 2.357704</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_135</name>
+      <pose>61.134 46.259 0.000 0 0 2.016514</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_136</name>
+      <pose>-76.566 -53.677 0.000 0 0 -0.062137</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_137</name>
+      <pose>57.080 67.613 0.000 0 0 1.355572</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_138</name>
+      <pose>24.530 -24.343 0.000 0 0 -0.067652</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_139</name>
+      <pose>-30.267 -98.668 0.000 0 0 2.391996</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_140</name>
+      <pose>-64.702 -75.858 0.000 0 0 0.907119</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_141</name>
+      <pose>20.110 -62.980 0.000 0 0 1.244730</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_142</name>
+      <pose>-0.970 31.060 0.000 0 0 -1.079125</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_143</name>
+      <pose>-76.571 -37.655 0.000 0 0 -3.117094</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_144</name>
+      <pose>67.756 -72.882 0.000 0 0 1.139495</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_145</name>
+      <pose>-99.132 92.358 0.000 0 0 1.010335</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_146</name>
+      <pose>-65.992 27.258 0.000 0 0 -0.371553</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_147</name>
+      <pose>-3.539 -4.509 0.000 0 0 0.231342</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_148</name>
+      <pose>-44.440 -72.082 0.000 0 0 0.410053</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_149</name>
+      <pose>-59.265 50.956 0.000 0 0 0.673128</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_150</name>
+      <pose>93.327 44.797 0.000 0 0 1.194260</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_151</name>
+      <pose>-95.982 46.289 0.000 0 0 2.106015</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_152</name>
+      <pose>64.387 26.235 0.000 0 0 2.077736</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_153</name>
+      <pose>-79.643 -10.246 0.000 0 0 2.336186</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_154</name>
+      <pose>54.071 15.299 0.000 0 0 2.295031</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_155</name>
+      <pose>-58.392 -19.180 0.000 0 0 1.165907</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_156</name>
+      <pose>81.935 -48.868 0.000 0 0 0.900950</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_157</name>
+      <pose>38.658 -40.197 0.000 0 0 -1.944220</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_158</name>
+      <pose>0.701 74.502 0.000 0 0 0.829358</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_159</name>
+      <pose>-51.146 -30.654 0.000 0 0 0.187972</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_160</name>
+      <pose>66.259 -20.035 0.000 0 0 -2.152273</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_161</name>
+      <pose>-17.892 65.205 0.000 0 0 -0.260896</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_162</name>
+      <pose>6.785 -78.093 0.000 0 0 -0.577237</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_163</name>
+      <pose>-79.327 63.991 0.000 0 0 0.706717</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_164</name>
+      <pose>-44.639 -11.980 0.000 0 0 -2.493728</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_165</name>
+      <pose>65.057 -48.566 0.000 0 0 2.900545</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_166</name>
+      <pose>-1.733 -33.078 0.000 0 0 1.960549</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_167</name>
+      <pose>57.647 97.490 0.000 0 0 0.649402</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_168</name>
+      <pose>61.693 -37.547 0.000 0 0 0.421162</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_169</name>
+      <pose>86.916 -56.263 0.000 0 0 -0.815418</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_170</name>
+      <pose>12.768 -58.410 0.000 0 0 0.192734</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_171</name>
+      <pose>61.274 16.520 0.000 0 0 -2.515690</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_172</name>
+      <pose>-27.037 -9.025 0.000 0 0 1.568725</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_173</name>
+      <pose>-98.803 -56.461 0.000 0 0 2.534469</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_174</name>
+      <pose>36.493 71.089 0.000 0 0 1.252894</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_175</name>
+      <pose>-79.658 45.162 0.000 0 0 2.219037</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_176</name>
+      <pose>-32.154 -50.955 0.000 0 0 1.208801</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_177</name>
+      <pose>-3.707 19.706 0.000 0 0 -1.991565</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_178</name>
+      <pose>-37.238 70.553 0.000 0 0 -1.297780</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_179</name>
+      <pose>-64.949 -39.094 0.000 0 0 0.931543</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_180</name>
+      <pose>-66.379 99.147 0.000 0 0 -2.989480</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_181</name>
+      <pose>-89.209 -45.162 0.000 0 0 -0.828866</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_182</name>
+      <pose>60.389 32.520 0.000 0 0 -0.161986</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_183</name>
+      <pose>69.855 -67.315 0.000 0 0 -0.870480</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_184</name>
+      <pose>-6.832 7.559 0.000 0 0 -0.835357</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_185</name>
+      <pose>59.613 -21.824 0.000 0 0 1.743046</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_186</name>
+      <pose>-94.745 67.588 0.000 0 0 0.850309</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_187</name>
+      <pose>57.542 -49.694 0.000 0 0 -1.223730</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_188</name>
+      <pose>-40.145 -83.060 0.000 0 0 2.455921</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_189</name>
+      <pose>-75.626 41.391 0.000 0 0 1.853727</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_190</name>
+      <pose>-3.871 -65.176 0.000 0 0 -1.358234</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_191</name>
+      <pose>97.122 -7.185 0.000 0 0 -2.668487</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_192</name>
+      <pose>70.621 -13.192 0.000 0 0 -1.255395</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_193</name>
+      <pose>39.689 -91.900 0.000 0 0 -0.161283</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_194</name>
+      <pose>-78.992 -20.509 0.000 0 0 0.088535</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_195</name>
+      <pose>-98.410 -49.686 0.000 0 0 -0.746607</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_196</name>
+      <pose>19.604 -85.038 0.000 0 0 2.943955</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_197</name>
+      <pose>58.976 56.829 0.000 0 0 -0.600646</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_198</name>
+      <pose>-34.557 -3.441 0.000 0 0 1.923623</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_199</name>
+      <pose>27.742 -41.405 0.000 0 0 2.137905</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_200</name>
+      <pose>-20.592 -9.875 0.000 0 0 -1.612808</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_201</name>
+      <pose>-76.382 72.439 0.000 0 0 0.262931</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_202</name>
+      <pose>27.538 -28.559 0.000 0 0 -1.841115</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_203</name>
+      <pose>-4.430 -14.954 0.000 0 0 -1.126606</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_204</name>
+      <pose>67.207 8.793 0.000 0 0 -0.322419</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_205</name>
+      <pose>-70.965 61.002 0.000 0 0 -0.645332</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_206</name>
+      <pose>-98.057 85.790 0.000 0 0 0.115570</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_207</name>
+      <pose>-6.665 -51.941 0.000 0 0 -1.078376</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_208</name>
+      <pose>-10.189 -87.525 0.000 0 0 -1.861297</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_209</name>
+      <pose>33.279 -25.667 0.000 0 0 0.874284</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_210</name>
+      <pose>-29.951 -56.675 0.000 0 0 -2.014147</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_211</name>
+      <pose>-23.210 -73.862 0.000 0 0 3.113734</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_212</name>
+      <pose>-21.450 6.091 0.000 0 0 -0.472788</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_213</name>
+      <pose>-86.348 3.831 0.000 0 0 0.412588</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_214</name>
+      <pose>-30.373 1.473 0.000 0 0 1.995860</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_215</name>
+      <pose>-69.358 -3.091 0.000 0 0 -2.743754</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_216</name>
+      <pose>25.854 78.102 0.000 0 0 1.171465</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_217</name>
+      <pose>-27.123 61.658 0.000 0 0 -1.076847</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_218</name>
+      <pose>-98.858 51.881 0.000 0 0 0.451197</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_219</name>
+      <pose>87.373 -60.778 0.000 0 0 -1.123327</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_220</name>
+      <pose>86.994 -77.794 0.000 0 0 2.520593</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_221</name>
+      <pose>53.599 19.590 0.000 0 0 -0.566139</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_222</name>
+      <pose>52.010 32.126 0.000 0 0 0.052230</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_223</name>
+      <pose>-3.427 79.149 0.000 0 0 -2.032436</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_224</name>
+      <pose>-34.314 -13.412 0.000 0 0 -1.030014</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_225</name>
+      <pose>-75.444 97.440 0.000 0 0 1.657628</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_226</name>
+      <pose>-3.025 -23.151 0.000 0 0 3.036295</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_227</name>
+      <pose>10.061 7.952 0.000 0 0 -1.201816</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_228</name>
+      <pose>-55.339 68.453 0.000 0 0 -0.958195</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_229</name>
+      <pose>73.195 -72.879 0.000 0 0 -0.979565</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_230</name>
+      <pose>-5.519 16.006 0.000 0 0 1.483045</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_231</name>
+      <pose>-7.965 -30.812 0.000 0 0 0.248351</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_232</name>
+      <pose>-89.613 47.896 0.000 0 0 -0.494192</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_233</name>
+      <pose>-19.887 -63.540 0.000 0 0 2.240718</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_234</name>
+      <pose>-44.978 6.286 0.000 0 0 -1.325152</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_235</name>
+      <pose>34.261 -91.209 0.000 0 0 0.506861</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_236</name>
+      <pose>-22.445 50.976 0.000 0 0 0.702769</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_237</name>
+      <pose>-58.859 -85.260 0.000 0 0 3.021103</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_238</name>
+      <pose>72.060 11.185 0.000 0 0 1.451898</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_239</name>
+      <pose>41.663 -88.192 0.000 0 0 0.744078</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_240</name>
+      <pose>-11.711 24.194 0.000 0 0 -1.682519</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_241</name>
+      <pose>-16.712 79.569 0.000 0 0 -0.651520</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_242</name>
+      <pose>14.431 99.460 0.000 0 0 -2.248000</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_243</name>
+      <pose>83.696 -56.157 0.000 0 0 -1.768054</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_244</name>
+      <pose>-98.050 -62.950 0.000 0 0 1.156941</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_245</name>
+      <pose>99.103 -19.849 0.000 0 0 -1.154277</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_246</name>
+      <pose>-36.855 -52.217 0.000 0 0 -3.119148</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_247</name>
+      <pose>-94.626 -34.064 0.000 0 0 -1.845869</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_248</name>
+      <pose>-44.641 30.677 0.000 0 0 0.563802</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_249</name>
+      <pose>69.230 -48.102 0.000 0 0 1.029185</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_250</name>
+      <pose>-35.340 -87.641 0.000 0 0 2.208399</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_251</name>
+      <pose>25.615 17.639 0.000 0 0 -1.598974</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_252</name>
+      <pose>46.791 59.613 0.000 0 0 0.156406</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_253</name>
+      <pose>51.316 64.157 0.000 0 0 -2.404071</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_254</name>
+      <pose>-83.581 40.537 0.000 0 0 -2.607560</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_255</name>
+      <pose>-63.672 -10.334 0.000 0 0 -1.562153</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_256</name>
+      <pose>72.679 51.552 0.000 0 0 0.962001</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_257</name>
+      <pose>66.398 98.979 0.000 0 0 -2.490430</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_258</name>
+      <pose>6.039 -30.822 0.000 0 0 1.120934</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_259</name>
+      <pose>66.352 52.993 0.000 0 0 -0.038667</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_260</name>
+      <pose>10.427 -36.742 0.000 0 0 1.859021</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_261</name>
+      <pose>76.072 -40.520 0.000 0 0 0.696169</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_262</name>
+      <pose>29.982 -20.644 0.000 0 0 -2.551701</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_263</name>
+      <pose>77.196 -81.143 0.000 0 0 1.075790</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_264</name>
+      <pose>8.978 78.810 0.000 0 0 -1.144368</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_265</name>
+      <pose>15.043 3.053 0.000 0 0 -2.716723</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_266</name>
+      <pose>-89.565 -47.960 0.000 0 0 1.912733</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_267</name>
+      <pose>2.645 87.074 0.000 0 0 -2.739126</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_268</name>
+      <pose>-3.279 -38.720 0.000 0 0 2.195579</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_269</name>
+      <pose>24.585 71.163 0.000 0 0 -0.040278</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_270</name>
+      <pose>65.309 -9.384 0.000 0 0 -2.907279</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_271</name>
+      <pose>-41.989 24.347 0.000 0 0 -3.078392</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_272</name>
+      <pose>99.003 55.294 0.000 0 0 0.759464</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_273</name>
+      <pose>54.787 -57.505 0.000 0 0 2.367474</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_274</name>
+      <pose>94.902 81.632 0.000 0 0 -2.329823</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_275</name>
+      <pose>97.940 -82.851 0.000 0 0 -0.496748</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_276</name>
+      <pose>11.467 5.402 0.000 0 0 2.101281</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_277</name>
+      <pose>-70.413 77.419 0.000 0 0 -1.528717</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_278</name>
+      <pose>-91.498 95.781 0.000 0 0 2.761964</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_279</name>
+      <pose>62.436 -79.275 0.000 0 0 1.840810</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_280</name>
+      <pose>61.435 -53.844 0.000 0 0 0.506067</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_281</name>
+      <pose>-64.346 79.646 0.000 0 0 -1.361028</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_282</name>
+      <pose>83.578 65.970 0.000 0 0 2.450369</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_283</name>
+      <pose>75.985 -35.356 0.000 0 0 1.814528</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_284</name>
+      <pose>-29.918 -83.323 0.000 0 0 -2.031488</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_285</name>
+      <pose>-58.435 53.496 0.000 0 0 1.418461</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_286</name>
+      <pose>-47.146 -30.943 0.000 0 0 2.568010</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_287</name>
+      <pose>37.252 9.139 0.000 0 0 2.104785</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_288</name>
+      <pose>-50.567 95.579 0.000 0 0 -0.803192</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_289</name>
+      <pose>-78.373 -40.945 0.000 0 0 1.835601</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_290</name>
+      <pose>-31.000 67.432 0.000 0 0 1.406005</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_291</name>
+      <pose>-72.413 -78.763 0.000 0 0 -0.357006</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_292</name>
+      <pose>43.174 -21.823 0.000 0 0 0.622164</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_293</name>
+      <pose>25.098 -44.090 0.000 0 0 0.528201</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_294</name>
+      <pose>-93.583 88.197 0.000 0 0 2.526783</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_295</name>
+      <pose>93.774 68.298 0.000 0 0 1.835688</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_296</name>
+      <pose>-12.670 9.604 0.000 0 0 1.659576</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_297</name>
+      <pose>-19.882 -45.492 0.000 0 0 -3.110418</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_298</name>
+      <pose>-94.710 20.939 0.000 0 0 -1.798526</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_299</name>
+      <pose>61.848 -68.670 0.000 0 0 -1.397490</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <name>pine_300</name>
+      <pose>8.324 31.979 0.000 0 0 -0.770124</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
       <name>rock_1</name>
-      <pose>5.110 -8.767 0.000 0 0 -1.941005</pose>
+      <pose>-86.904 -42.168 0.000 0 0 -1.812733</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
       <name>rock_2</name>
-      <pose>7.587 4.986 0.000 0 0 3.097599</pose>
+      <pose>10.151 83.024 0.000 0 0 2.979011</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
       <name>rock_3</name>
-      <pose>-9.036 12.696 0.000 0 0 -2.426757</pose>
+      <pose>-94.956 53.167 0.000 0 0 -1.096482</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
       <name>rock_4</name>
-      <pose>3.367 10.635 0.000 0 0 -2.982226</pose>
+      <pose>25.545 3.496 0.000 0 0 2.551147</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
       <name>rock_5</name>
-      <pose>-1.684 3.366 0.000 0 0 -2.858365</pose>
+      <pose>-8.419 80.481 0.000 0 0 -1.193128</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
       <name>rock_6</name>
-      <pose>-14.361 6.210 0.000 0 0 2.896026</pose>
+      <pose>11.593 -34.021 0.000 0 0 -2.993242</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
       <name>rock_7</name>
-      <pose>11.437 1.755 0.000 0 0 2.519310</pose>
+      <pose>33.526 54.625 0.000 0 0 2.334576</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
       <name>rock_8</name>
-      <pose>3.911 8.038 0.000 0 0 -1.272751</pose>
+      <pose>10.556 -44.943 0.000 0 0 2.995062</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
       <name>rock_9</name>
-      <pose>-2.341 -6.692 0.000 0 0 2.699907</pose>
+      <pose>96.593 29.120 0.000 0 0 -0.296470</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
       <name>rock_10</name>
-      <pose>12.610 9.040 0.000 0 0 -2.748458</pose>
+      <pose>86.613 88.795 0.000 0 0 -0.371065</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
       <name>rock_11</name>
-      <pose>-7.285 -9.403 0.000 0 0 1.731392</pose>
+      <pose>-32.690 14.292 0.000 0 0 2.812856</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
       <name>rock_12</name>
-      <pose>-5.639 4.644 0.000 0 0 -2.789656</pose>
+      <pose>-9.625 -63.077 0.000 0 0 -1.335972</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
       <name>rock_13</name>
-      <pose>6.789 -14.506 0.000 0 0 0.269015</pose>
+      <pose>9.492 -62.561 0.000 0 0 0.366197</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
       <name>rock_14</name>
-      <pose>1.073 6.695 0.000 0 0 -0.146662</pose>
+      <pose>-2.793 -32.640 0.000 0 0 2.866795</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
       <name>rock_15</name>
-      <pose>8.093 -10.529 0.000 0 0 1.206412</pose>
+      <pose>83.759 89.005 0.000 0 0 0.167660</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
       <name>rock_16</name>
-      <pose>-4.527 2.577 0.000 0 0 -1.670366</pose>
+      <pose>-15.821 50.509 0.000 0 0 0.768275</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
       <name>rock_17</name>
-      <pose>-7.569 7.471 0.000 0 0 -1.342583</pose>
+      <pose>-28.078 49.297 0.000 0 0 -2.267414</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
       <name>rock_18</name>
-      <pose>13.525 13.140 0.000 0 0 -2.332786</pose>
+      <pose>-56.561 -12.386 0.000 0 0 2.379603</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
       <name>rock_19</name>
-      <pose>-10.515 4.849 0.000 0 0 2.237709</pose>
+      <pose>57.586 38.133 0.000 0 0 0.230036</pose>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
       <name>rock_20</name>
-      <pose>-13.967 10.699 0.000 0 0 -2.663390</pose>
+      <pose>-42.307 -2.090 0.000 0 0 -1.844694</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_21</name>
+      <pose>13.551 14.755 0.000 0 0 -2.597862</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_22</name>
+      <pose>-70.025 -83.054 0.000 0 0 0.850126</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_23</name>
+      <pose>-70.285 -41.405 0.000 0 0 2.029363</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_24</name>
+      <pose>-53.427 34.208 0.000 0 0 1.336980</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_25</name>
+      <pose>-33.585 -84.757 0.000 0 0 1.556773</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_26</name>
+      <pose>-1.478 -79.985 0.000 0 0 -2.542747</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_27</name>
+      <pose>11.944 39.067 0.000 0 0 1.665865</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_28</name>
+      <pose>-89.251 -5.597 0.000 0 0 -1.387763</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_29</name>
+      <pose>-3.474 -19.213 0.000 0 0 2.702576</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_30</name>
+      <pose>-43.024 -7.007 0.000 0 0 -2.852666</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_31</name>
+      <pose>36.618 -40.186 0.000 0 0 1.077177</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_32</name>
+      <pose>19.203 -63.058 0.000 0 0 -2.325098</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_33</name>
+      <pose>-14.900 -15.068 0.000 0 0 2.807358</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_34</name>
+      <pose>27.337 -46.015 0.000 0 0 -1.396147</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_35</name>
+      <pose>-84.979 -23.285 0.000 0 0 -0.711721</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_36</name>
+      <pose>14.736 -94.492 0.000 0 0 -0.306682</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_37</name>
+      <pose>-69.700 38.791 0.000 0 0 1.918011</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_38</name>
+      <pose>-96.826 -44.858 0.000 0 0 1.069038</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_39</name>
+      <pose>-47.942 50.066 0.000 0 0 2.145711</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_40</name>
+      <pose>-57.095 -37.310 0.000 0 0 -2.841191</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_41</name>
+      <pose>43.591 -2.875 0.000 0 0 3.045765</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_42</name>
+      <pose>1.514 -23.792 0.000 0 0 0.446902</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_43</name>
+      <pose>61.421 -68.777 0.000 0 0 -0.085695</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_44</name>
+      <pose>50.857 46.054 0.000 0 0 0.707501</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_45</name>
+      <pose>97.351 -44.401 0.000 0 0 2.369383</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_46</name>
+      <pose>21.721 73.172 0.000 0 0 -0.508805</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_47</name>
+      <pose>59.237 -23.291 0.000 0 0 1.541311</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_48</name>
+      <pose>-54.846 23.946 0.000 0 0 0.465632</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_49</name>
+      <pose>-90.971 -49.873 0.000 0 0 2.424535</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_50</name>
+      <pose>29.755 -13.932 0.000 0 0 2.514855</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_51</name>
+      <pose>37.275 -74.645 0.000 0 0 -1.033389</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_52</name>
+      <pose>46.022 -16.570 0.000 0 0 2.923135</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_53</name>
+      <pose>87.232 -60.728 0.000 0 0 -1.500622</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_54</name>
+      <pose>53.681 -35.073 0.000 0 0 2.981782</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_55</name>
+      <pose>-13.286 -58.847 0.000 0 0 1.925694</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_56</name>
+      <pose>88.320 -82.409 0.000 0 0 0.048950</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_57</name>
+      <pose>93.401 34.797 0.000 0 0 -2.430420</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_58</name>
+      <pose>-24.052 -76.136 0.000 0 0 -0.543521</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_59</name>
+      <pose>12.690 -1.671 0.000 0 0 0.921160</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_60</name>
+      <pose>9.924 81.263 0.000 0 0 -1.678363</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_61</name>
+      <pose>69.336 -88.599 0.000 0 0 -1.136361</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_62</name>
+      <pose>-95.364 -14.270 0.000 0 0 1.474290</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_63</name>
+      <pose>72.643 51.284 0.000 0 0 1.336438</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_64</name>
+      <pose>-76.500 -55.972 0.000 0 0 -0.078874</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_65</name>
+      <pose>70.193 -0.429 0.000 0 0 -1.349135</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_66</name>
+      <pose>64.426 -4.453 0.000 0 0 -0.471492</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_67</name>
+      <pose>88.180 82.781 0.000 0 0 -1.735503</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_68</name>
+      <pose>-30.444 24.842 0.000 0 0 2.597764</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_69</name>
+      <pose>89.251 -53.371 0.000 0 0 1.814873</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_70</name>
+      <pose>28.416 -27.685 0.000 0 0 2.684692</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_71</name>
+      <pose>-14.178 20.703 0.000 0 0 -1.304053</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_72</name>
+      <pose>82.940 86.266 0.000 0 0 1.391112</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_73</name>
+      <pose>42.538 -96.830 0.000 0 0 -0.325543</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_74</name>
+      <pose>-3.083 22.234 0.000 0 0 -2.864194</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_75</name>
+      <pose>8.410 98.712 0.000 0 0 1.074427</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_76</name>
+      <pose>-6.625 91.802 0.000 0 0 1.543805</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_77</name>
+      <pose>2.428 -68.738 0.000 0 0 2.295337</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_78</name>
+      <pose>-8.698 -16.686 0.000 0 0 -2.097694</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_79</name>
+      <pose>24.288 -8.173 0.000 0 0 -0.539320</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_80</name>
+      <pose>-48.790 -13.179 0.000 0 0 0.506863</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_81</name>
+      <pose>51.742 19.050 0.000 0 0 1.076459</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_82</name>
+      <pose>-16.750 -92.734 0.000 0 0 2.748977</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_83</name>
+      <pose>61.818 -81.168 0.000 0 0 1.166440</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_84</name>
+      <pose>-16.767 -73.375 0.000 0 0 2.911977</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_85</name>
+      <pose>67.369 24.248 0.000 0 0 -2.002092</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_86</name>
+      <pose>-94.495 48.352 0.000 0 0 0.388150</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_87</name>
+      <pose>-95.448 2.738 0.000 0 0 2.010350</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_88</name>
+      <pose>-52.420 35.793 0.000 0 0 -0.372161</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_89</name>
+      <pose>-37.953 35.802 0.000 0 0 -1.955380</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_90</name>
+      <pose>-8.412 82.808 0.000 0 0 1.343319</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_91</name>
+      <pose>-87.641 -32.939 0.000 0 0 0.619800</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_92</name>
+      <pose>8.489 -64.719 0.000 0 0 -1.560355</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_93</name>
+      <pose>-19.867 -25.641 0.000 0 0 2.052985</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_94</name>
+      <pose>18.184 -27.119 0.000 0 0 2.291931</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_95</name>
+      <pose>-18.062 22.443 0.000 0 0 -2.759601</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_96</name>
+      <pose>-59.296 28.082 0.000 0 0 0.497405</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_97</name>
+      <pose>21.779 67.311 0.000 0 0 -0.343974</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_98</name>
+      <pose>13.558 45.168 0.000 0 0 -2.082044</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_99</name>
+      <pose>-60.843 -66.833 0.000 0 0 1.545319</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_100</name>
+      <pose>90.184 -37.076 0.000 0 0 2.536719</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_101</name>
+      <pose>46.752 -3.623 0.000 0 0 -0.104458</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_102</name>
+      <pose>-55.931 -42.955 0.000 0 0 1.714175</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_103</name>
+      <pose>20.265 47.617 0.000 0 0 -2.115582</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_104</name>
+      <pose>32.230 -90.267 0.000 0 0 -2.912848</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_105</name>
+      <pose>76.571 36.904 0.000 0 0 0.932076</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_106</name>
+      <pose>-55.363 -69.480 0.000 0 0 1.701437</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_107</name>
+      <pose>-39.970 -5.269 0.000 0 0 -0.504897</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_108</name>
+      <pose>-60.671 93.629 0.000 0 0 -1.490090</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_109</name>
+      <pose>-51.405 -30.314 0.000 0 0 1.554496</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_110</name>
+      <pose>68.330 -7.341 0.000 0 0 1.485626</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_111</name>
+      <pose>-88.249 -37.190 0.000 0 0 -3.023934</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_112</name>
+      <pose>-30.254 43.627 0.000 0 0 -2.044083</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_113</name>
+      <pose>-66.541 -0.566 0.000 0 0 -0.380984</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_114</name>
+      <pose>63.421 52.359 0.000 0 0 3.060124</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_115</name>
+      <pose>41.068 -55.721 0.000 0 0 -0.571724</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_116</name>
+      <pose>-51.922 -88.192 0.000 0 0 -2.813925</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_117</name>
+      <pose>-34.033 -19.540 0.000 0 0 2.930994</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_118</name>
+      <pose>-31.896 -80.854 0.000 0 0 2.613901</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_119</name>
+      <pose>-75.612 64.150 0.000 0 0 -0.322314</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_120</name>
+      <pose>-21.737 -82.599 0.000 0 0 0.094364</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_121</name>
+      <pose>-2.078 -50.406 0.000 0 0 -1.228138</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_122</name>
+      <pose>-28.176 36.082 0.000 0 0 1.298456</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_123</name>
+      <pose>-34.590 -6.511 0.000 0 0 -1.282872</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_124</name>
+      <pose>10.623 23.070 0.000 0 0 2.092550</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_125</name>
+      <pose>28.517 -52.847 0.000 0 0 0.231356</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_126</name>
+      <pose>10.156 8.825 0.000 0 0 -1.345353</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_127</name>
+      <pose>61.876 72.460 0.000 0 0 2.180652</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_128</name>
+      <pose>-71.414 96.266 0.000 0 0 0.413320</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_129</name>
+      <pose>-79.122 -85.488 0.000 0 0 0.055158</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_130</name>
+      <pose>48.889 53.877 0.000 0 0 1.638668</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_131</name>
+      <pose>77.650 -95.852 0.000 0 0 1.334906</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_132</name>
+      <pose>61.853 -88.025 0.000 0 0 -2.482183</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_133</name>
+      <pose>73.957 96.113 0.000 0 0 0.760069</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_134</name>
+      <pose>-74.713 8.419 0.000 0 0 2.871535</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_135</name>
+      <pose>97.831 -13.398 0.000 0 0 1.693442</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_136</name>
+      <pose>-68.368 20.196 0.000 0 0 -0.394683</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_137</name>
+      <pose>89.795 4.016 0.000 0 0 1.938049</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_138</name>
+      <pose>91.497 -2.682 0.000 0 0 1.921802</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_139</name>
+      <pose>-38.790 -40.865 0.000 0 0 -2.287913</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_140</name>
+      <pose>-31.817 73.261 0.000 0 0 -2.275366</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_141</name>
+      <pose>23.573 45.192 0.000 0 0 -1.138314</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_142</name>
+      <pose>-11.347 -60.036 0.000 0 0 -0.412081</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_143</name>
+      <pose>-38.668 46.042 0.000 0 0 -2.073923</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_144</name>
+      <pose>56.063 55.284 0.000 0 0 0.671071</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_145</name>
+      <pose>28.624 46.055 0.000 0 0 -0.310994</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_146</name>
+      <pose>9.261 47.612 0.000 0 0 -1.934402</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_147</name>
+      <pose>-28.186 15.350 0.000 0 0 -2.668244</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_148</name>
+      <pose>-76.777 74.439 0.000 0 0 -1.926884</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_149</name>
+      <pose>-75.890 55.487 0.000 0 0 1.678158</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_150</name>
+      <pose>93.165 74.161 0.000 0 0 2.621260</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_151</name>
+      <pose>98.950 34.611 0.000 0 0 0.405448</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_152</name>
+      <pose>-51.383 -12.401 0.000 0 0 1.072564</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_153</name>
+      <pose>-4.442 92.587 0.000 0 0 -2.489070</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_154</name>
+      <pose>82.083 -18.389 0.000 0 0 0.994731</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_155</name>
+      <pose>3.363 55.311 0.000 0 0 -1.698679</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_156</name>
+      <pose>78.794 27.629 0.000 0 0 0.858729</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_157</name>
+      <pose>56.485 29.509 0.000 0 0 2.025961</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_158</name>
+      <pose>20.102 -36.384 0.000 0 0 -1.974850</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_159</name>
+      <pose>17.713 -64.957 0.000 0 0 2.692074</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_160</name>
+      <pose>-50.447 -23.507 0.000 0 0 1.231985</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_161</name>
+      <pose>-13.817 1.663 0.000 0 0 1.218706</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_162</name>
+      <pose>14.148 -91.268 0.000 0 0 -1.039767</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_163</name>
+      <pose>2.579 -35.774 0.000 0 0 2.947562</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_164</name>
+      <pose>86.073 16.113 0.000 0 0 2.321479</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_165</name>
+      <pose>-75.532 -26.547 0.000 0 0 -0.922345</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_166</name>
+      <pose>-69.179 -8.352 0.000 0 0 1.250899</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_167</name>
+      <pose>92.580 -30.078 0.000 0 0 -1.565490</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_168</name>
+      <pose>-13.674 27.564 0.000 0 0 0.319116</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_169</name>
+      <pose>94.992 -40.996 0.000 0 0 0.942742</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_170</name>
+      <pose>-78.211 -15.625 0.000 0 0 3.011321</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_171</name>
+      <pose>79.605 -37.208 0.000 0 0 0.283021</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_172</name>
+      <pose>60.281 -67.578 0.000 0 0 0.018392</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_173</name>
+      <pose>73.965 -21.643 0.000 0 0 2.480795</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_174</name>
+      <pose>-68.933 -28.983 0.000 0 0 2.325320</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_175</name>
+      <pose>32.422 -50.279 0.000 0 0 -1.642228</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_176</name>
+      <pose>-5.098 -50.514 0.000 0 0 2.301059</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_177</name>
+      <pose>-86.462 -85.347 0.000 0 0 1.863081</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_178</name>
+      <pose>-90.584 -14.337 0.000 0 0 0.465260</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_179</name>
+      <pose>-66.916 -71.027 0.000 0 0 2.882736</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_180</name>
+      <pose>73.275 -99.000 0.000 0 0 1.994444</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_181</name>
+      <pose>67.991 -70.504 0.000 0 0 0.512336</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_182</name>
+      <pose>58.787 95.541 0.000 0 0 2.224311</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_183</name>
+      <pose>54.351 -6.137 0.000 0 0 1.159624</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_184</name>
+      <pose>-18.297 -26.893 0.000 0 0 -2.335666</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_185</name>
+      <pose>-25.935 -61.839 0.000 0 0 2.587794</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_186</name>
+      <pose>-63.520 -13.034 0.000 0 0 -3.081867</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_187</name>
+      <pose>-90.754 79.586 0.000 0 0 -0.958810</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_188</name>
+      <pose>-80.242 17.364 0.000 0 0 2.825685</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_189</name>
+      <pose>-59.737 50.234 0.000 0 0 -0.663289</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_190</name>
+      <pose>-62.623 -24.045 0.000 0 0 -0.962500</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_191</name>
+      <pose>-7.646 -57.437 0.000 0 0 2.068562</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_192</name>
+      <pose>73.607 -88.436 0.000 0 0 2.292146</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_193</name>
+      <pose>4.573 -11.253 0.000 0 0 2.191945</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_194</name>
+      <pose>92.808 -87.067 0.000 0 0 -0.913110</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+      <name>rock_195</name>
+      <pose>8.734 38.591 0.000 0 0 -2.234267</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+      <name>rock_196</name>
+      <pose>-78.741 72.990 0.000 0 0 -1.994251</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+      <name>rock_197</name>
+      <pose>28.362 -42.054 0.000 0 0 1.695995</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
+      <name>rock_198</name>
+      <pose>-75.055 79.621 0.000 0 0 -0.786283</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+      <name>rock_199</name>
+      <pose>-61.075 -32.554 0.000 0 0 -2.498135</pose>
+    </include>
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+      <name>rock_200</name>
+      <pose>69.093 53.984 0.000 0 0 -0.629773</pose>
     </include>
     <!-- Debug info -->
     <model name="seed_marker" static="true">
