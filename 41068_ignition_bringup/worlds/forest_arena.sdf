@@ -72,7 +72,7 @@
     <include><uri>model://forest_wall</uri><name>forest_wall16</name><pose>6.5 0 2 1.570796 0 -1.570796</pose></include>
     <include><uri>model://forest_wall</uri><name>forest_wall17</name><pose>-6.5 0 2 1.570796 0 -1.570796</pose></include>
 
-    <!-- Trees (kept, a bit rebalanced) -->
+    <!-- Trees (kept, a bit rebalanced) --> 
     <!-- Oaks -->
     <include><uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri><name>oak1</name><pose>-4.77393 12.2995 -0.3 0 0 0</pose></include>
     <include><uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri><name>oak2</name><pose>2.2 -5.8 -0.3 0 0 0.6</pose></include>
