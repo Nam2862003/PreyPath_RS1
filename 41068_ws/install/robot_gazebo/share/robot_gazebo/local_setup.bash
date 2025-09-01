@@ -1,0 +1,1 @@
+/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.bash

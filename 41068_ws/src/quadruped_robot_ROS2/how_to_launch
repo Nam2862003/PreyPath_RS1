@@ -1,0 +1,16 @@
+Execute "colcon build" in this directory.
+
+# To start gazebo (terminal1)
+$ source quadruped_robot_ROS2/install/setup.bash
+$ ros2 launch robot_gazebo main.launch.py 
+
+# To start controller (terminal2)
+$ cd quadruped_robot_ROS2/UI
+$ python3 controller.py
+
+# Some required libraries
+$ sudo apt install ros-jazzy-tf-transformations
+$ pip3 install transforms3d --break-system-packages
+
+ROS2 Jazzy
+Gazebo Harmonic
