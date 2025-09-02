@@ -311,58 +311,58 @@ message(STATUS "Execute custom install script")
 # begin of custom install code
 
 # install(DIRECTORY "scripts" "launch" "DESTINATION" "share/robot_control/")
-ament_cmake_symlink_install_directory("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" DIRECTORY "scripts" "launch" "DESTINATION" "share/robot_control/")
+ament_cmake_symlink_install_directory("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" DIRECTORY "scripts" "launch" "DESTINATION" "share/robot_control/")
 
 # install(PROGRAMS "scripts/robot_controller_gazebo.py" "scripts/ramped_joypad.py" "launch/robot_control.launch.py" "DESTINATION" "lib/robot_control")
-ament_cmake_symlink_install_programs("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" PROGRAMS "scripts/robot_controller_gazebo.py" "scripts/ramped_joypad.py" "launch/robot_control.launch.py" "DESTINATION" "lib/robot_control")
+ament_cmake_symlink_install_programs("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" PROGRAMS "scripts/robot_controller_gazebo.py" "scripts/ramped_joypad.py" "launch/robot_control.launch.py" "DESTINATION" "lib/robot_control")
 
 # install(PROGRAMS "scripts/RoboticsUtilities/Transformations.py" "DESTINATION" "lib/robot_control/RoboticsUtilities/")
-ament_cmake_symlink_install_programs("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" PROGRAMS "scripts/RoboticsUtilities/Transformations.py" "DESTINATION" "lib/robot_control/RoboticsUtilities/")
+ament_cmake_symlink_install_programs("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" PROGRAMS "scripts/RoboticsUtilities/Transformations.py" "DESTINATION" "lib/robot_control/RoboticsUtilities/")
 
 # install(PROGRAMS "scripts/RobotController/CrawlGaitController.py" "scripts/RobotController/GaitController.py" "scripts/RobotController/PIDController.py" "scripts/RobotController/RobotController.py" "scripts/RobotController/StandController.py" "scripts/RobotController/StateCommand.py" "scripts/RobotController/TrotGaitController.py" "DESTINATION" "lib/robot_control/RobotController/")
-ament_cmake_symlink_install_programs("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" PROGRAMS "scripts/RobotController/CrawlGaitController.py" "scripts/RobotController/GaitController.py" "scripts/RobotController/PIDController.py" "scripts/RobotController/RobotController.py" "scripts/RobotController/StandController.py" "scripts/RobotController/StateCommand.py" "scripts/RobotController/TrotGaitController.py" "DESTINATION" "lib/robot_control/RobotController/")
+ament_cmake_symlink_install_programs("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" PROGRAMS "scripts/RobotController/CrawlGaitController.py" "scripts/RobotController/GaitController.py" "scripts/RobotController/PIDController.py" "scripts/RobotController/RobotController.py" "scripts/RobotController/StandController.py" "scripts/RobotController/StateCommand.py" "scripts/RobotController/TrotGaitController.py" "DESTINATION" "lib/robot_control/RobotController/")
 
 # install(PROGRAMS "scripts/InverseKinematics/robot_IK.py" "DESTINATION" "lib/robot_control/InverseKinematics/")
-ament_cmake_symlink_install_programs("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" PROGRAMS "scripts/InverseKinematics/robot_IK.py" "DESTINATION" "lib/robot_control/InverseKinematics/")
+ament_cmake_symlink_install_programs("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" PROGRAMS "scripts/InverseKinematics/robot_IK.py" "DESTINATION" "lib/robot_control/InverseKinematics/")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_control" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robot_control" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robot_control" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robot_control" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robot_control/environment")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robot_control/environment")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robot_control/environment")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robot_control/environment")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robot_control/environment")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robot_control/environment")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robot_control/environment")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robot_control/environment")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robot_control/environment")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robot_control/environment")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robot_control/environment")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robot_control/environment")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robot_control")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robot_control")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robot_control")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robot_control")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robot_control")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robot_control")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robot_control")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robot_control")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robot_control")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robot_control")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robot_control")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robot_control")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robot_control")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robot_control")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robot_control")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/packages/robot_control" "DESTINATION" "share/ament_index/resource_index/packages")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/packages/robot_control" "DESTINATION" "share/ament_index/resource_index/packages")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_index/share/ament_index/resource_index/packages/robot_control" "DESTINATION" "share/ament_index/resource_index/packages")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_core/robot_controlConfig.cmake" "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_core/robot_controlConfig-version.cmake" "DESTINATION" "share/robot_control/cmake")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_core/robot_controlConfig.cmake" "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_core/robot_controlConfig-version.cmake" "DESTINATION" "share/robot_control/cmake")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_core/robot_controlConfig.cmake" "/home/student/git/PreyPath_RS1/41068_ws/build/robot_control/ament_cmake_core/robot_controlConfig-version.cmake" "DESTINATION" "share/robot_control/cmake")
 
-# install(FILES "/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control/package.xml" "DESTINATION" "share/robot_control")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control/package.xml" "DESTINATION" "share/robot_control")
+# install(FILES "/home/student/git/PreyPath_RS1/41068_ws/src/robot_control/package.xml" "DESTINATION" "share/robot_control")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_control" FILES "/home/student/git/PreyPath_RS1/41068_ws/src/robot_control/package.xml" "DESTINATION" "share/robot_control")

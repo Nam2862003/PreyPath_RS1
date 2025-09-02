@@ -1,0 +1,48 @@
+[1.499s] Invoking command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/git/PreyPath_RS1/41068_ws/build/robot_description -- -j8 -l8
+[1.922s] Invoked command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/git/PreyPath_RS1/41068_ws/build/robot_description -- -j8 -l8
+[1.924s] Invoking command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/git/PreyPath_RS1/41068_ws/build/robot_description
+[1.936s] -- Install configuration: ""
+[1.937s] -- Execute custom install script
+[1.939s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/base/base.gazebo
+[1.939s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/base/base.xacro
+[1.939s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/left_thigh/left_thigh.gazebo
+[1.940s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/left_thigh/left_thigh.xacro
+[1.940s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/leg_joint/leg_joint.gazebo
+[1.940s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/leg_joint/leg_joint.xacro
+[1.940s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/right_thigh/right_thigh.gazebo
+[1.941s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/right_thigh/right_thigh.xacro
+[1.941s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/shin/shin.gazebo
+[1.941s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/parts/shin/shin.xacro
+[1.942s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/robot.xacro
+[1.942s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//robot/robot_control_gazebo.xacro
+[1.943s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/DAE/base/base_link.dae
+[1.943s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/DAE/left_thigh/left_thigh.dae
+[1.943s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/DAE/leg_joint/leg_joint.dae
+[1.944s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/DAE/nuckle/knuckle.dae
+[1.944s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/DAE/right_thigh/right_thigh.dae
+[1.944s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/DAE/shin/shin.dae
+[1.944s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/DAE/wheel/wheel.dae
+[1.944s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/STL/base/base_link.stl
+[1.945s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/STL/base/base_link_old.stl
+[1.945s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/STL/knuckle/knuckle.stl
+[1.945s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/STL/left_thigh/left_thigh.stl
+[1.945s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/STL/leg_joint/leg_joint.stl
+[1.945s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/STL/right_thigh/right_thigh.stl
+[1.945s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//meshes/STL/shin/shin.stl
+[1.946s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description//config/robot_controller.yaml
+[1.946s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/ament_index/resource_index/package_run_dependencies/robot_description
+[1.946s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/ament_index/resource_index/parent_prefix_path/robot_description
+[1.947s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/environment/ament_prefix_path.sh
+[1.947s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/environment/ament_prefix_path.dsv
+[1.947s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/environment/path.sh
+[1.947s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/environment/path.dsv
+[1.947s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/local_setup.bash
+[1.947s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/local_setup.sh
+[1.947s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/local_setup.zsh
+[1.947s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/local_setup.dsv
+[1.947s] -- Symlinking: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/package.dsv
+[1.953s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/ament_index/resource_index/packages/robot_description
+[1.953s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/cmake/robot_descriptionConfig.cmake
+[1.953s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/cmake/robot_descriptionConfig-version.cmake
+[1.953s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_description/share/robot_description/package.xml
+[7.961s] Invoked command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/git/PreyPath_RS1/41068_ws/build/robot_description

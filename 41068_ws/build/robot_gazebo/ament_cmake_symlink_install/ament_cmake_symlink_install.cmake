@@ -311,46 +311,46 @@ message(STATUS "Execute custom install script")
 # begin of custom install code
 
 # install(DIRECTORY "launch" "worlds" "DESTINATION" "share/robot_gazebo")
-ament_cmake_symlink_install_directory("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" DIRECTORY "launch" "worlds" "DESTINATION" "share/robot_gazebo")
+ament_cmake_symlink_install_directory("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" DIRECTORY "launch" "worlds" "DESTINATION" "share/robot_gazebo")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/parent_prefix_path")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robot_gazebo/environment")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robot_gazebo/environment")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh" "DESTINATION" "share/robot_gazebo/environment")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robot_gazebo/environment")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robot_gazebo/environment")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/ament_prefix_path.dsv" "DESTINATION" "share/robot_gazebo/environment")
 
 # install(FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robot_gazebo/environment")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robot_gazebo/environment")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh" "DESTINATION" "share/robot_gazebo/environment")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robot_gazebo/environment")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robot_gazebo/environment")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/path.dsv" "DESTINATION" "share/robot_gazebo/environment")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robot_gazebo")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robot_gazebo")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.bash" "DESTINATION" "share/robot_gazebo")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robot_gazebo")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robot_gazebo")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.sh" "DESTINATION" "share/robot_gazebo")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robot_gazebo")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robot_gazebo")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.zsh" "DESTINATION" "share/robot_gazebo")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robot_gazebo")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robot_gazebo")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/local_setup.dsv" "DESTINATION" "share/robot_gazebo")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robot_gazebo")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robot_gazebo")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_environment_hooks/package.dsv" "DESTINATION" "share/robot_gazebo")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/packages")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/packages")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_index/share/ament_index/resource_index/packages/robot_gazebo" "DESTINATION" "share/ament_index/resource_index/packages")
 
 # install(FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_core/robot_gazeboConfig.cmake" "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_core/robot_gazeboConfig-version.cmake" "DESTINATION" "share/robot_gazebo/cmake")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_core/robot_gazeboConfig.cmake" "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_core/robot_gazeboConfig-version.cmake" "DESTINATION" "share/robot_gazebo/cmake")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_core/robot_gazeboConfig.cmake" "/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo/ament_cmake_core/robot_gazeboConfig-version.cmake" "DESTINATION" "share/robot_gazebo/cmake")
 
-# install(FILES "/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo/package.xml" "DESTINATION" "share/robot_gazebo")
-ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo/package.xml" "DESTINATION" "share/robot_gazebo")
+# install(FILES "/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/package.xml" "DESTINATION" "share/robot_gazebo")
+ament_cmake_symlink_install_files("/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo" FILES "/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/package.xml" "DESTINATION" "share/robot_gazebo")

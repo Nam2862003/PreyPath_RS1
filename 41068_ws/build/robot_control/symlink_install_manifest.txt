@@ -1,3 +1,4 @@
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/InverseKinematics/__pycache__/robot_IK.cpython-310.pyc
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/InverseKinematics/robot_IK.py
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/CrawlGaitController.py
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/GaitController.py
@@ -6,7 +7,15 @@
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/StandController.py
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/StateCommand.py
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/TrotGaitController.py
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/CrawlGaitController.cpython-310.pyc
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/GaitController.cpython-310.pyc
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/PIDController.cpython-310.pyc
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/RobotController.cpython-310.pyc
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/StandController.cpython-310.pyc
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/StateCommand.cpython-310.pyc
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/TrotGaitController.cpython-310.pyc
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RoboticsUtilities/Transformations.py
+/home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RoboticsUtilities/__pycache__/Transformations.cpython-310.pyc
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/ramped_joypad.py
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/robot_controller_gazebo.py
 /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//launch/robot_control.launch.py

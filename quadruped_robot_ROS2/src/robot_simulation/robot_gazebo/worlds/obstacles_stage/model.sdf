@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="obstacles_stage">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://obstacles_stage/meshes/spot_stage.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>100000</kp>
+              <kd>1</kd>
+              <max_vel>0.01</max_vel>
+              <minDepth>0</minDepth>
+              <contact_surface_layer>0</contact_surface_layer>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+      <sensor name='sensor_contact' type='contact'>
+        <contact>
+          <collision>collision</collision>
+        </contact>
+      </sensor>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://obstacles_stage/meshes/spot_stage.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <plugin filename="gz-sim-touchplugin-system"
+            name="gz::sim::systems::TouchPlugin">
+        <target>front_left_shin_link</target>
+        <namespace>front_left_shin_link</namespace>
+        <time>0.001</time>
+        <enabled>true</enabled>
+    </plugin>
+  </model>
+</sdf>

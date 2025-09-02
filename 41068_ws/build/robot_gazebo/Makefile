@@ -57,7 +57,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo
+CMAKE_SOURCE_DIR = /home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo

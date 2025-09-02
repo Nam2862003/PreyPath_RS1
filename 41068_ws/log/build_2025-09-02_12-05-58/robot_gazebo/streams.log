@@ -1,0 +1,43 @@
+[1.602s] Invoking command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo -- -j8 -l8
+[10.657s] Invoked command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo -- -j8 -l8
+[10.658s] Invoking command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo
+[10.658s] -- Install configuration: ""
+[10.658s] -- Execute custom install script
+[10.658s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/launch/main.launch.py
+[10.658s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/ground_plane/model-1_2.sdf
+[10.658s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/ground_plane/model-1_3.sdf
+[10.658s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/ground_plane/model-1_4.sdf
+[10.658s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/ground_plane/model.config
+[10.658s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/ground_plane/model.sdf
+[10.658s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/obstacles.sdf
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/obstacles_stage/meshes/spot_stage.dae
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/obstacles_stage/meshes/spot_stage.stl
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/obstacles_stage/model.config
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/obstacles_stage/model.sdf
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/path_tracking.sdf
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/path_tracking_stage/meshes/path_tracking_stage.dae
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/path_tracking_stage/meshes/path_tracking_stage.stl
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/path_tracking_stage/meshes/stage.png
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/path_tracking_stage/model.config
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/path_tracking_stage/model.sdf
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/sun/model-1_2.sdf
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/sun/model-1_3.sdf
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/sun/model-1_4.sdf
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/sun/model.config
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/worlds/sun/model.sdf
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/ament_index/resource_index/package_run_dependencies/robot_gazebo
+[10.659s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/ament_index/resource_index/parent_prefix_path/robot_gazebo
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/environment/ament_prefix_path.sh
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/environment/ament_prefix_path.dsv
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/environment/path.sh
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/environment/path.dsv
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/local_setup.bash
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/local_setup.sh
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/local_setup.zsh
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/local_setup.dsv
+[10.660s] -- Symlinking: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/package.dsv
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/ament_index/resource_index/packages/robot_gazebo
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/cmake/robot_gazeboConfig.cmake
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/cmake/robot_gazeboConfig-version.cmake
+[10.660s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_gazebo/share/robot_gazebo/package.xml
+[10.660s] Invoked command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/git/PreyPath_RS1/41068_ws/build/robot_gazebo

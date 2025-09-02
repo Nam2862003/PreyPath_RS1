@@ -1,1 +1,1 @@
-/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_control/scripts/RobotController/GaitController.py
+/home/student/git/PreyPath_RS1/41068_ws/src/robot_control/scripts/RobotController/GaitController.py

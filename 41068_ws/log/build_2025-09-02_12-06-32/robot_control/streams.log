@@ -1,0 +1,54 @@
+[1.296s] Invoking command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/git/PreyPath_RS1/41068_ws/build/robot_control -- -j8 -l8
+[2.110s] Invoked command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/git/PreyPath_RS1/41068_ws/build/robot_control -- -j8 -l8
+[2.112s] Invoking command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/git/PreyPath_RS1/41068_ws/build/robot_control
+[2.121s] -- Install configuration: ""
+[2.122s] -- Execute custom install script
+[2.124s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/InverseKinematics/__pycache__/robot_IK.cpython-310.pyc
+[2.124s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/InverseKinematics/robot_IK.py
+[2.125s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/CrawlGaitController.py
+[2.126s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/GaitController.py
+[2.126s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/PIDController.py
+[2.126s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/RobotController.py
+[2.128s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/StandController.py
+[2.128s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/StateCommand.py
+[2.128s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/TrotGaitController.py
+[2.129s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/CrawlGaitController.cpython-310.pyc
+[2.129s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/GaitController.cpython-310.pyc
+[2.129s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/PIDController.cpython-310.pyc
+[2.129s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/RobotController.cpython-310.pyc
+[2.130s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/StandController.cpython-310.pyc
+[2.131s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/StateCommand.cpython-310.pyc
+[2.131s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RobotController/__pycache__/TrotGaitController.cpython-310.pyc
+[2.131s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RoboticsUtilities/Transformations.py
+[2.131s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/RoboticsUtilities/__pycache__/Transformations.cpython-310.pyc
+[2.131s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/ramped_joypad.py
+[2.132s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//scripts/robot_controller_gazebo.py
+[2.132s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control//launch/robot_control.launch.py
+[2.133s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/robot_controller_gazebo.py
+[2.133s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/ramped_joypad.py
+[2.133s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/robot_control.launch.py
+[2.134s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/RoboticsUtilities//Transformations.py
+[2.134s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/RobotController//CrawlGaitController.py
+[2.134s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/RobotController//GaitController.py
+[2.134s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/RobotController//PIDController.py
+[2.134s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/RobotController//RobotController.py
+[2.134s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/RobotController//StandController.py
+[2.134s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/RobotController//StateCommand.py
+[2.135s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/RobotController//TrotGaitController.py
+[2.135s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/lib/robot_control/InverseKinematics//robot_IK.py
+[2.136s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/ament_index/resource_index/package_run_dependencies/robot_control
+[2.136s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/ament_index/resource_index/parent_prefix_path/robot_control
+[2.136s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.sh
+[2.136s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/environment/ament_prefix_path.dsv
+[2.137s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/environment/path.sh
+[2.138s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/environment/path.dsv
+[2.138s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/local_setup.bash
+[2.138s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/local_setup.sh
+[2.138s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/local_setup.zsh
+[2.138s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/local_setup.dsv
+[2.138s] -- Symlinking: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/package.dsv
+[2.143s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/ament_index/resource_index/packages/robot_control
+[2.144s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/cmake/robot_controlConfig.cmake
+[2.144s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/cmake/robot_controlConfig-version.cmake
+[2.145s] -- Up-to-date symlink: /home/student/git/PreyPath_RS1/41068_ws/install/robot_control/share/robot_control/package.xml
+[5.398s] Invoked command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/git/PreyPath_RS1/41068_ws/build/robot_control

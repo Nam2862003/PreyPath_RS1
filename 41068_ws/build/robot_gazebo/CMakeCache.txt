@@ -314,6 +314,12 @@ ament_cmake_xmllint_DIR:PATH=/opt/ros/humble/share/ament_cmake_xmllint/cmake
 ament_copyright_BIN:FILEPATH=/opt/ros/humble/bin/ament_copyright
 
 //Path to a program.
+ament_cppcheck_BIN:FILEPATH=/opt/ros/humble/bin/ament_cppcheck
+
+//Path to a program.
+ament_cpplint_BIN:FILEPATH=/opt/ros/humble/bin/ament_cpplint
+
+//Path to a program.
 ament_flake8_BIN:FILEPATH=/opt/ros/humble/bin/ament_flake8
 
 //The directory containing a CMake configuration file for ament_lint_auto.
@@ -329,6 +335,9 @@ ament_lint_common_DIR:PATH=/opt/ros/humble/share/ament_lint_common/cmake
 ament_pep257_BIN:FILEPATH=/opt/ros/humble/bin/ament_pep257
 
 //Path to a program.
+ament_uncrustify_BIN:FILEPATH=/opt/ros/humble/bin/ament_uncrustify
+
+//Path to a program.
 ament_xmllint_BIN:FILEPATH=/opt/ros/humble/bin/ament_xmllint
 
 //The directory containing a CMake configuration file for rclpy.
@@ -341,7 +350,7 @@ robot_gazebo_BINARY_DIR:STATIC=/home/student/git/PreyPath_RS1/41068_ws/build/rob
 robot_gazebo_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-robot_gazebo_SOURCE_DIR:STATIC=/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo
+robot_gazebo_SOURCE_DIR:STATIC=/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo
 
 //The directory containing a CMake configuration file for xacro.
 xacro_DIR:PATH=/opt/ros/humble/share/xacro/cmake
@@ -434,7 +443,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_gazebo
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

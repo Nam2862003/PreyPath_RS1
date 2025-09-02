@@ -325,6 +325,12 @@ ament_cmake_xmllint_DIR:PATH=/opt/ros/humble/share/ament_cmake_xmllint/cmake
 //Path to a program.
 ament_copyright_BIN:FILEPATH=/opt/ros/humble/bin/ament_copyright
 
+//Path to a program.
+ament_cppcheck_BIN:FILEPATH=/opt/ros/humble/bin/ament_cppcheck
+
+//Path to a program.
+ament_cpplint_BIN:FILEPATH=/opt/ros/humble/bin/ament_cpplint
+
 //The directory containing a CMake configuration file for ament_index_cpp.
 ament_index_cpp_DIR:PATH=/opt/ros/humble/share/ament_index_cpp/cmake
 
@@ -336,6 +342,9 @@ ament_lint_cmake_BIN:FILEPATH=/opt/ros/humble/bin/ament_lint_cmake
 
 //The directory containing a CMake configuration file for ament_lint_common.
 ament_lint_common_DIR:PATH=/opt/ros/humble/share/ament_lint_common/cmake
+
+//Path to a program.
+ament_uncrustify_BIN:FILEPATH=/opt/ros/humble/bin/ament_uncrustify
 
 //Path to a program.
 ament_xmllint_BIN:FILEPATH=/opt/ros/humble/bin/ament_xmllint
@@ -368,7 +377,7 @@ robot_description_BINARY_DIR:STATIC=/home/student/git/PreyPath_RS1/41068_ws/buil
 robot_description_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-robot_description_SOURCE_DIR:STATIC=/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_description
+robot_description_SOURCE_DIR:STATIC=/home/student/git/PreyPath_RS1/41068_ws/src/robot_description
 
 //The directory containing a CMake configuration file for tinyxml2_vendor.
 tinyxml2_vendor_DIR:PATH=/opt/ros/humble/share/tinyxml2_vendor/cmake
@@ -473,7 +482,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_description
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/student/git/PreyPath_RS1/41068_ws/src/robot_description
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

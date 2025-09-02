@@ -1,4 +1,4 @@
-# Install script for directory: /home/student/git/PreyPath_RS1/41068_ws/src/quadruped_robot_ROS2/src/robot_simulation/robot_description
+# Install script for directory: /home/student/git/PreyPath_RS1/41068_ws/src/robot_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
