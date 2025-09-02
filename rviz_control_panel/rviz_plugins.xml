@@ -1,0 +1,8 @@
+<library path="rviz_control_panel">
+  <class
+    name="rviz_control_panel/ControlPanel"
+    type="rviz_control_panel::ControlPanel"
+    base_class_type="rviz_common::Panel">
+    <description>Minimal control panel with E-stop and Return-to-Base.</description>
+  </class>
+</library>

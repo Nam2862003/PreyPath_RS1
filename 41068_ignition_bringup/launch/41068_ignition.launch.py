@@ -27,7 +27,7 @@ def generate_launch_description():
     ld.add_action(use_sim_time_launch_arg)
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz',
-        default_value='False',
+        default_value='True',
         description='Flag to launch RViz'
     )
     ld.add_action(rviz_launch_arg)
@@ -112,7 +112,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}],
         arguments=['-d', PathJoinSubstitution([config_path,
-                                               '41068.rviz'])],
+                                               'user_view.rviz'])],
         condition=IfCondition(LaunchConfiguration('rviz'))
     )
     ld.add_action(rviz_node)
@@ -128,5 +128,16 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('nav2'))
     )
     ld.add_action(nav2)
+
+    # GUI DEV - Hello World Marker
+    hello_marker = Node(
+        package='41068_ignition_bringup',
+        executable='hello_marker.py',
+        name='hello_marker',
+        output='screen',
+        parameters=[{'use_sim_time': use_sim_time}],
+        prefix='python3 '
+    )
+    ld.add_action(hello_marker)
 
     return ld
