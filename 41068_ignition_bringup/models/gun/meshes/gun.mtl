@@ -1,0 +1,52 @@
+# Blender 4.5.2 LTS MTL File: 'uploads_files_4878377_Gewehr1888.blend'
+# www.blender.org
+
+newmtl Material.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd ../texturues/gewehrTexture.png
+
+newmtl Material.003
+Ns 253.952515
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 49.549999
+d 1.000000
+illum 1
+map_Kd ../texturues/gewehrTexture.png
+
+newmtl Material.005
+Ns 89.528168
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd ../texturues/gewehrTexture.png
+
+newmtl Material.007
+Ns 358.112732
+Ka 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd ../texturues/gewehrTexture.png
+
+newmtl Material.011
+Ns 491.102997
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 0.000000
+d 1.000000
+illum 3
+map_Kd ../texturues/gewehrTexture.png
