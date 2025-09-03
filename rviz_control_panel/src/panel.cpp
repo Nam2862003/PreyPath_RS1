@@ -6,26 +6,15 @@ namespace rviz_control_panel
     ControlPanel::ControlPanel(QWidget *parent)
         : rviz_common::Panel(parent)
     {
-        // auto *root = new QWidget(this);
-        // auto *v = new QVBoxLayout(root);
+        // Give the panel a unique object name for scoping
+        this->setObjectName("ControlPanelRoot");
 
-        // status_ = new QLabel("Status: idle");
-        // btn_estop_ = new QPushButton("E-stop");
-        // btn_rtb_ = new QPushButton("Return to Base");
-
-        // v->addWidget(status_);
-        // v->addWidget(btn_estop_);
-        // v->addWidget(btn_rtb_);
-        // v->addStretch(1);
-        // setLayout(v);
-
-        auto *root = new QWidget(this);
-        auto *vbox = new QVBoxLayout(root);
+        // Build layout
+        auto *vbox = new QVBoxLayout(this);
 
         auto *hbox = new QHBoxLayout();
-
         auto *status_label = new QLabel("Status: ");
-        status_label->setStyleSheet("font-weight: bold;");
+        status_label->setObjectName("StatusLabel");
 
         status_ = new QLabel("-");
         status_->setMinimumWidth(200);
@@ -33,12 +22,12 @@ namespace rviz_control_panel
         hbox->addWidget(status_label);
         hbox->addWidget(status_);
         hbox->addStretch(1);
-
         vbox->addLayout(hbox);
 
+        // Buttons
         btn_estop_ = new QPushButton("E-STOP");
+        btn_estop_->setObjectName("Estop"); // special styling
         btn_estop_->setMinimumHeight(200);
-        btn_estop_->setStyleSheet("font-weight: bold; font-size: 8; color: black; background-color: red;");
         btn_estop_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
 
         btn_rtb_ = new QPushButton("Return to Base");
@@ -50,24 +39,13 @@ namespace rviz_control_panel
         vbox->addWidget(btn_rtb_);
         vbox->addSpacing(150);
 
+        // Manual control checkbox
         cb_manual_control_ = new QCheckBox("Enable Manual Control");
-
         cb_manual_control_->setChecked(false);
-
-        cb_manual_control_->setStyleSheet(R"(
-            QCheckBox::indicator {
-                width: 60px;
-                height: 60px;
-            }
-            QCheckBox {
-                font-size: 30px;
-                font-weight: bold;
-            }
-        )");
-
         vbox->addWidget(cb_manual_control_);
         vbox->addSpacing(20);
 
+        // Manual control grid
         auto *grid = new QGridLayout();
         btn_forward_ = new QPushButton("↑");
         btn_backward_ = new QPushButton("↓");
@@ -79,12 +57,12 @@ namespace rviz_control_panel
         btn_b_left_ = new QPushButton("↙");
         btn_b_right_ = new QPushButton("↘");
 
-        for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_, btn_stop_, btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
+        for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_,
+                         btn_stop_, btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
         {
             btn->setMinimumHeight(150);
             btn->setMinimumWidth(150);
             btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-            btn->setStyleSheet("font-weight: bold; font-size: 16;");
             btn->setEnabled(false);
         }
 
@@ -103,9 +81,61 @@ namespace rviz_control_panel
 
         setLayout(vbox);
 
+        // Connectors
         connect(btn_estop_, &QPushButton::clicked, this, &ControlPanel::onEstopClicked);
         connect(btn_rtb_, &QPushButton::clicked, this, &ControlPanel::onReturnBaseClicked);
         connect(cb_manual_control_, &QCheckBox::toggled, this, &ControlPanel::onManualControlToggled);
+
+        // --- Scoped stylesheet applied to this panel only ---
+        this->setStyleSheet(R"(
+        #ControlPanelRoot QPushButton {
+            background-color: #3a86ff;
+            color: white;
+            font-size: 32px;
+            font-weight: 600;
+            border-radius: 12px;
+            padding: 8px;
+        }
+        #ControlPanelRoot QPushButton:hover {
+            background-color: #2e6dcc;
+        }
+        #ControlPanelRoot QPushButton:disabled {
+            background-color:rgb(136, 174, 231);
+        }
+        #ControlPanelRoot QPushButton:pressed {
+            background-color: #244f99;
+        }
+        #ControlPanelRoot QPushButton#Estop {
+            background-color: #d00000;
+        }
+        #ControlPanelRoot QPushButton#Estop:hover {
+            background-color: #a60000;
+        }
+
+        #ControlPanelRoot QCheckBox {
+            font-size: 40px;
+            font-weight: bold;
+        }
+        #ControlPanelRoot QCheckBox::indicator {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            border: 2px solid gray;
+            background: white;
+        }
+        #ControlPanelRoot QCheckBox::indicator:checked {
+            background-color: #3a86ff;
+            border-color: #3a86ff;
+        }
+
+        #ControlPanelRoot QLabel {
+            color: #e6e6e6;
+            font-size: 28px;
+        }
+        #ControlPanelRoot QLabel#StatusLabel {
+            font-weight: 700;
+        }
+    )");
     }
 
     void ControlPanel::onInitialize()
