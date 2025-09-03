@@ -1,34 +1,111 @@
 #include "panel.hpp"
 
-#include <QHBoxLayout>
-#include <QGridLayout>
-#include <QVariant>
-
-#include <rviz_common/display_context.hpp>
-#include <rviz_common/ros_integration/ros_node_abstraction_iface.hpp>
-#include <pluginlib/class_list_macros.hpp>
-
 namespace rviz_control_panel
 {
 
     ControlPanel::ControlPanel(QWidget *parent)
         : rviz_common::Panel(parent)
     {
+        // auto *root = new QWidget(this);
+        // auto *v = new QVBoxLayout(root);
+
+        // status_ = new QLabel("Status: idle");
+        // btn_estop_ = new QPushButton("E-stop");
+        // btn_rtb_ = new QPushButton("Return to Base");
+
+        // v->addWidget(status_);
+        // v->addWidget(btn_estop_);
+        // v->addWidget(btn_rtb_);
+        // v->addStretch(1);
+        // setLayout(v);
+
         auto *root = new QWidget(this);
-        auto *v = new QVBoxLayout(root);
+        auto *vbox = new QVBoxLayout(root);
 
-        status_ = new QLabel("Status: idle");
-        btn_estop_ = new QPushButton("E-stop");
+        auto *hbox = new QHBoxLayout();
+
+        auto *status_label = new QLabel("Status: ");
+        status_label->setStyleSheet("font-weight: bold;");
+
+        status_ = new QLabel("-");
+        status_->setMinimumWidth(200);
+
+        hbox->addWidget(status_label);
+        hbox->addWidget(status_);
+        hbox->addStretch(1);
+
+        vbox->addLayout(hbox);
+
+        btn_estop_ = new QPushButton("E-STOP");
+        btn_estop_->setMinimumHeight(200);
+        btn_estop_->setStyleSheet("font-weight: bold; font-size: 8; color: black; background-color: red;");
+        btn_estop_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
         btn_rtb_ = new QPushButton("Return to Base");
+        btn_rtb_->setMinimumHeight(100);
 
-        v->addWidget(status_);
-        v->addWidget(btn_estop_);
-        v->addWidget(btn_rtb_);
-        v->addStretch(1);
-        setLayout(v);
+        vbox->addSpacing(50);
+        vbox->addWidget(btn_estop_);
+        vbox->addSpacing(20);
+        vbox->addWidget(btn_rtb_);
+        vbox->addSpacing(150);
+
+        cb_manual_control_ = new QCheckBox("Enable Manual Control");
+
+        cb_manual_control_->setChecked(false);
+
+        cb_manual_control_->setStyleSheet(R"(
+            QCheckBox::indicator {
+                width: 60px;
+                height: 60px;
+            }
+            QCheckBox {
+                font-size: 30px;
+                font-weight: bold;
+            }
+        )");
+
+        vbox->addWidget(cb_manual_control_);
+        vbox->addSpacing(20);
+
+        auto *grid = new QGridLayout();
+        btn_forward_ = new QPushButton("↑");
+        btn_backward_ = new QPushButton("↓");
+        btn_left_ = new QPushButton("←");
+        btn_right_ = new QPushButton("→");
+        btn_stop_ = new QPushButton("■");
+        btn_f_left_ = new QPushButton("↖");
+        btn_f_right_ = new QPushButton("↗");
+        btn_b_left_ = new QPushButton("↙");
+        btn_b_right_ = new QPushButton("↘");
+
+        for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_, btn_stop_, btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
+        {
+            btn->setMinimumHeight(150);
+            btn->setMinimumWidth(150);
+            btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+            btn->setStyleSheet("font-weight: bold; font-size: 16;");
+            btn->setEnabled(false);
+        }
+
+        grid->addWidget(btn_forward_, 0, 1);
+        grid->addWidget(btn_left_, 1, 0);
+        grid->addWidget(btn_stop_, 1, 1);
+        grid->addWidget(btn_right_, 1, 2);
+        grid->addWidget(btn_backward_, 2, 1);
+        grid->addWidget(btn_f_left_, 0, 0);
+        grid->addWidget(btn_f_right_, 0, 2);
+        grid->addWidget(btn_b_left_, 2, 0);
+        grid->addWidget(btn_b_right_, 2, 2);
+
+        vbox->addLayout(grid);
+        vbox->addStretch(1);
+
+        setLayout(vbox);
 
         connect(btn_estop_, &QPushButton::clicked, this, &ControlPanel::onEstopClicked);
         connect(btn_rtb_, &QPushButton::clicked, this, &ControlPanel::onReturnBaseClicked);
+        connect(cb_manual_control_, &QCheckBox::toggled, this, &ControlPanel::onManualControlToggled);
     }
 
     void ControlPanel::onInitialize()
@@ -84,6 +161,16 @@ namespace rviz_control_panel
         nav_client_->async_send_goal(goal, send_goal_options);
 
         status_->setText("Status: RTB goal sent");
+    }
+
+    void ControlPanel::onManualControlToggled(bool enabled)
+    {
+        for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_, btn_stop_, btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
+        {
+            btn->setEnabled(enabled);
+        }
+
+        // TODO: Notify ROS about manual control, e.g. send cmd vel to stop autonomous navigation
     }
 
     void ControlPanel::save(rviz_common::Config config) const
