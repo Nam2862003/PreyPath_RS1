@@ -1,0 +1,5 @@
+When exproting a model from bledner, make sure that the axis
+are selected to be
+    - Forward axis = Y
+    - Up axis = Z
+
