@@ -151,35 +151,35 @@
       <pose>0 0 0 0 0 0</pose>
     </include>
 
-    <include>
+    <!-- <include>
       <uri>
         model://tree_lowpoly
       </uri>
       <name>tree_lowpoly</name>
       <pose>0 0 0 0 0 0</pose>
-    </include>
+    </include> -->
 
-    <include>
+    <!-- <include>
       <uri>
         https://fuel.gazebosim.org/1.0/shrijitsingh99/models/Juniper%20Tree
       </uri>
       <name>juniper_tree</name>
       <pose>1 1 0 0 0 0</pose>
-    </include>
+    </include> -->
 
 
     <include>
       <uri>https://fuel.gazebosim.org/1.0/facugu123/models/Tree</uri>
-      <name>actor_man</name>
-      <pose>-1 -1 0 0 0 0</pose>
+      <name>random_tree</name>
+      <pose>1 1 0 0 0 0</pose>
     </include>
 
 
-    <include>
+    <!-- <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Walking%20person</uri>
       <name>actor_man</name>
       <pose>0 0 0 0 0 0</pose>
-    </include>
+    </include> -->
 
 
     <!-- Oak trees -->
