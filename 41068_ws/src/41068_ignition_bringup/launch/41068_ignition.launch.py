@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, ExecuteProcess
 from launch.conditions import IfCondition
 from launch.substitutions import (Command, LaunchConfiguration,
                                   PathJoinSubstitution)
@@ -12,12 +12,15 @@ def generate_launch_description():
 
     ld = LaunchDescription()
 
-    # Get paths to directories
+    # -----------------------
+    # Get paths
+    # -----------------------
     pkg_path = FindPackageShare('41068_ignition_bringup')
-    config_path = PathJoinSubstitution([pkg_path,
-                                       'config'])
+    config_path = PathJoinSubstitution([pkg_path, 'config'])
 
-    # Additional command line arguments
+    # -----------------------
+    # Launch arguments
+    # -----------------------
     use_sim_time_launch_arg = DeclareLaunchArgument(
         'use_sim_time',
         default_value='True',
@@ -25,76 +28,142 @@ def generate_launch_description():
     )
     use_sim_time = LaunchConfiguration('use_sim_time')
     ld.add_action(use_sim_time_launch_arg)
+
     rviz_launch_arg = DeclareLaunchArgument(
         'rviz',
         default_value='False',
         description='Flag to launch RViz'
     )
     ld.add_action(rviz_launch_arg)
+
     nav2_launch_arg = DeclareLaunchArgument(
         'nav2',
-        default_value='True',
+        default_value='False',   # disable by default when testing both
         description='Flag to launch Nav2'
     )
     ld.add_action(nav2_launch_arg)
 
-    # Load robot_description and start robot_state_publisher
-    robot_description_content = ParameterValue(
-        Command(['xacro ',
-                 PathJoinSubstitution([pkg_path,
-                                       'urdf',
-                                       'husky.urdf.xacro'])]),
-        value_type=str)
-    robot_state_publisher_node = Node(package='robot_state_publisher',
-                                      executable='robot_state_publisher',
-                                      parameters=[{
-                                          'robot_description': robot_description_content,
-                                          'use_sim_time': use_sim_time
-                                      }])
-    ld.add_action(robot_state_publisher_node)
-
-    # Publish odom -> base_link transform **using robot_localization**
-    robot_localization_node = Node(
-        package='robot_localization',
-        executable='ekf_node',
-        name='robot_localization',
-        output='screen',
-        parameters=[PathJoinSubstitution([config_path,
-                                          'robot_localization.yaml']),
-                    {'use_sim_time': use_sim_time}]
-    )
-    ld.add_action(robot_localization_node)
-
-    # Start Gazebo to simulate the robot in the chosen world
     world_launch_arg = DeclareLaunchArgument(
         'world',
         default_value='simple_trees',
         description='Which world to load',
         choices=['simple_trees', 'large_demo']
     )
+    world = LaunchConfiguration('world')
     ld.add_action(world_launch_arg)
-    gazebo = IncludeLaunchDescription(
-        PathJoinSubstitution([FindPackageShare('ros_ign_gazebo'),
-                             'launch', 'ign_gazebo.launch.py']),
-        launch_arguments={
-            'ign_args': [PathJoinSubstitution([pkg_path,
-                                               'worlds',
-                                               [LaunchConfiguration('world'), '.sdf']]),
-                         ' -r']}.items()
-    )
-    ld.add_action(gazebo)
 
-    # Spawn robot in Gazebo
-    robot_spawner = Node(
+    # -----------------------
+    # Husky description
+    # -----------------------
+    husky_description = ParameterValue(
+        Command(['xacro ',
+                 PathJoinSubstitution([pkg_path,
+                                       'urdf', 'Husky_URDF',
+                                       'husky.urdf.xacro'])]),
+        value_type=str
+    )
+
+    husky_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        namespace='husky',
+        parameters=[{'robot_description': husky_description,
+                     'use_sim_time': use_sim_time}]
+    )
+    ld.add_action(husky_state_publisher)
+
+    husky_spawner = Node(
         package='ros_ign_gazebo',
         executable='create',
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}],
-        arguments=['-topic', '/robot_description', '-z', '0.4']
+        arguments=['-topic', '/husky/robot_description',
+                   '-entity', 'husky',
+                   '-z', '0.4',
+                   '-x', '0.0', '-y', '1.0']
     )
-    ld.add_action(robot_spawner)
+    ld.add_action(husky_spawner)
 
-    # Bridge topics between gazebo and ROS2
+    # -----------------------
+    # Quadruped description
+    # -----------------------
+    quadruped_description = ParameterValue(
+        Command(['xacro ',
+                 PathJoinSubstitution([pkg_path,
+                                       'urdf', 'Quadruped_URDF',
+                                       'robot.xacro'])]),
+        value_type=str
+    )
+
+    quadruped_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        namespace='quadruped',
+        parameters=[{'robot_description': quadruped_description,
+                     'use_sim_time': use_sim_time}]
+    )
+    ld.add_action(quadruped_state_publisher)
+
+    quadruped_spawner = Node(
+        package='ros_ign_gazebo',
+        executable='create',
+        output='screen',
+        parameters=[{'use_sim_time': use_sim_time}],
+        arguments=['-topic', '/quadruped/robot_description',
+                   '-entity', 'quadruped',
+                   '-z', '0.4',
+                   '-x', '0.0', '-y', '-1.0']
+    )
+    ld.add_action(quadruped_spawner)
+
+    # -----------------------
+    # Quadruped Controllers
+    # -----------------------
+    # -----------------------
+# Quadruped Controllers
+# -----------------------
+    load_joint_state_broadcaster = ExecuteProcess(
+        cmd=[
+            'ros2', 'control', 'load_controller',
+            '--set-state', 'active',
+            'joint_state_broadcaster',
+            '--controller-manager', '/quadruped/controller_manager'
+        ],
+        output='screen'
+    )
+
+    load_forward_position_controller = ExecuteProcess(
+        cmd=[
+            'ros2', 'control', 'load_controller',
+            '--set-state', 'active',
+            'forward_position_controller',
+            '--controller-manager', '/quadruped/controller_manager'
+        ],
+        output='screen'
+    )
+
+    ld.add_action(load_joint_state_broadcaster)
+    ld.add_action(load_forward_position_controller)
+
+
+    # -----------------------
+    # Ignition Gazebo
+    # -----------------------
+    gazebo = IncludeLaunchDescription(
+        PathJoinSubstitution([FindPackageShare('ros_ign_gazebo'),
+                              'launch', 'ign_gazebo.launch.py']),
+        launch_arguments={
+            'ign_args': [PathJoinSubstitution([pkg_path,
+                                               'worlds',
+                                               [world, '.sdf']]),
+                         ' -r']
+        }.items()
+    )
+    ld.add_action(gazebo)
+
+    # -----------------------
+    # Gazebo bridge
+    # -----------------------
     gazebo_bridge = Node(
         package='ros_ign_bridge',
         executable='parameter_bridge',
@@ -104,26 +173,25 @@ def generate_launch_description():
     )
     ld.add_action(gazebo_bridge)
 
-    # rviz2 visualises data
+    # -----------------------
+    # RViz (optional)
+    # -----------------------
     rviz_node = Node(
         package='rviz2',
         executable='rviz2',
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}],
-        arguments=['-d', PathJoinSubstitution([config_path,
-                                               '41068.rviz'])],
+        arguments=['-d', PathJoinSubstitution([config_path, '41068.rviz'])],
         condition=IfCondition(LaunchConfiguration('rviz'))
     )
     ld.add_action(rviz_node)
 
-    # Nav2 enables mapping and waypoint following
+    # -----------------------
+    # Nav2 (optional)
+    # -----------------------
     nav2 = IncludeLaunchDescription(
-        PathJoinSubstitution([pkg_path,
-                              'launch',
-                              '41068_navigation.launch.py']),
-        launch_arguments={
-            'use_sim_time': use_sim_time
-        }.items(),
+        PathJoinSubstitution([pkg_path, 'launch', '41068_navigation.launch.py']),
+        launch_arguments={'use_sim_time': use_sim_time}.items(),
         condition=IfCondition(LaunchConfiguration('nav2'))
     )
     ld.add_action(nav2)
