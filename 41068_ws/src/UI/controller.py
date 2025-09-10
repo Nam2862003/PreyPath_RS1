@@ -17,62 +17,69 @@ import rclpy
 from rclpy.node import Node
 import math
 from sensor_msgs.msg import Imu, Joy
-#from std_msgs.msg import String
+# from std_msgs.msg import String
+
 
 class GraphicsScene(QGraphicsScene):
 
     pressed = False
 
     def __init__(self, parent=None):
-        QGraphicsScene.__init__(self, 0, 0, 150, 150, parent = None) 
+        QGraphicsScene.__init__(self, 0, 0, 150, 150, parent=None)
         self.opt = ""
 
     def setOption(self, opt):
         self.opt = opt
 
-    def mouseReleaseEvent(self,event):
+    def mouseReleaseEvent(self, event):
         self.pressed = False
         window.repaint(75, 75)
-        window.cmd_Joy.axes = [0,0,0,0,0,0,0,0]
+        window.cmd_Joy.axes = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
-    def mousePressEvent(self,event):
+    def mousePressEvent(self, event):
         self.pressed = True
 
-    def mouseMoveEvent(self,event):
-        if(self.pressed == True):
+    def mouseMoveEvent(self, event):
+        if self.pressed:
             x = event.scenePos().x()
             y = event.scenePos().y()
-            if(((x - 75)**2 + (y - 75)**2) < 60**2):
-                if((x-75) != 0):
-                    theta = math.atan2((75-y),(x-75))
+            if ((x - 75) ** 2 + (y - 75) ** 2) < 60 ** 2:
+                if (x - 75) != 0:
+                    theta = math.atan2((75 - y), (x - 75))
                 else:
                     theta = 0
 
-                if(window.ui.crab_radioButton.isChecked()):
-                    window.cmd_Joy.axes = [0, 0, 0, -(math.sqrt((x - 75)**2 + (y - 75)**2)/60)*math.cos(theta),
-                                           (math.sqrt((x - 75)**2 + (y - 75)**2)/60)*math.sin(theta), 0, 0, 0]
+                if window.ui.crab_radioButton.isChecked():
+                    window.cmd_Joy.axes = [
+                        0.0, 0.0, 0.0,
+                        -(math.sqrt((x - 75) ** 2 + (y - 75) ** 2) / 60) * math.cos(theta),
+                        (math.sqrt((x - 75) ** 2 + (y - 75) ** 2) / 60) * math.sin(theta),
+                        0.0, 0.0, 0.0
+                    ]
                 else:
-                    window.cmd_Joy.axes = [-(math.sqrt((x - 75)**2 + (y - 75)**2)/60)*math.cos(theta) , 0, 0,
-                                            0, (math.sqrt((x - 75)**2 + (y - 75)**2)/60)*math.sin(theta), 0, 0, 0]
+                    window.cmd_Joy.axes = [
+                        -(math.sqrt((x - 75) ** 2 + (y - 75) ** 2) / 60) * math.cos(theta),
+                        0.0, 0.0, 0.0,
+                        (math.sqrt((x - 75) ** 2 + (y - 75) ** 2) / 60) * math.sin(theta),
+                        0.0, 0.0, 0.0
+                    ]
                 window.repaint(x, y)
-            #print("x : " + str(x) + ", y : " + str(y))
 
 
 class GUI(QDialog):
 
     first_time = True
     enable_stand_up = False
-    stand = False
-    crawl = False
-    trot = False
+    is_standing = False
+    is_crawling = False
+    is_trotting = False
     normal_mode = False
     crab_mode = False
     IMU = False
-    #use_IMU = True
     cnt = 0
     cnt_imu = 0
 
-    def __init__(self,parent=None):
+    def __init__(self, parent=None):
         # GUI
         super(GUI, self).__init__(parent)
         self.ui = Ui_Form()
@@ -84,41 +91,39 @@ class GUI(QDialog):
 
         self.repaint(75, 75)
 
-        #ROS
+        # ROS
         self.cmd_Joy = Joy()
-        self.cmd_Joy.axes = [0,0,0,0,0,0,0,0]
-        self.cmd_Joy.buttons = [0,0,0,0,0,0,0,0,0,0,0]
+        self.cmd_Joy.axes = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+        self.cmd_Joy.buttons = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         rclpy.init(args=None)
         self.pub_node = Node('pub_path')
         self.pub_Joy = self.pub_node.create_publisher(Joy, '/joy', 10)
- 
 
     def repaint(self, x, y):
-        if(self.first_time):
+        if self.first_time:
             self.scene = GraphicsScene()
             self.first_time = False
         self.ui.graphicsView_2.setScene(self.scene)
-        self.scene.addEllipse(0, 0, 150, 150, QPen(QColor(0,182,110)), QBrush(QColor(0,182,110)))
+        self.scene.addEllipse(0, 0, 150, 150, QPen(QColor(0, 182, 110)), QBrush(QColor(0, 182, 110)))
         self.scene.addEllipse(x - 15, y - 15, 30, 30, QPen(Qt.red), QBrush(Qt.red))
 
     def update(self):
-
-        if(self.stand):
+        if self.is_standing:
             self.cmd_Joy.buttons[0] = 1
             self.cmd_Joy.buttons[1] = 0
             self.cmd_Joy.buttons[2] = 0
             self.cnt += 1
-        elif(self.trot):
+        elif self.is_trotting:
             self.cmd_Joy.buttons[0] = 0
             self.cmd_Joy.buttons[1] = 1
             self.cmd_Joy.buttons[2] = 0
             self.cnt += 1
-        elif(self.crawl):
+        elif self.is_crawling:
             self.cmd_Joy.buttons[0] = 0
             self.cmd_Joy.buttons[1] = 0
             self.cmd_Joy.buttons[2] = 1
             self.cnt += 1
-        elif(self.enable_stand_up):
+        elif self.enable_stand_up:
             self.cmd_Joy.buttons[6] = 1
             self.cnt += 1
         else:
@@ -127,42 +132,43 @@ class GUI(QDialog):
             self.cmd_Joy.buttons[2] = 0
             self.cmd_Joy.buttons[6] = 0
 
-        if(self.IMU):
+        if self.IMU:
             self.cmd_Joy.buttons[7] = 1
         else:
             self.cmd_Joy.buttons[7] = 0
 
-        if(self.cnt >= 50):
+        if self.cnt >= 50:
             self.enable_stand_up = False
-            self.stand = False
-            self.crawl = False
-            self.trot = False
+            self.is_standing = False
+            self.is_crawling = False
+            self.is_trotting = False
             self.cnt = 0
 
-        #print(self.cmd_Joy.buttons)
         self.pub_Joy.publish(self.cmd_Joy)
 
+    # Button callbacks
     def stand_up(self):
         print("stand up!")
         self.enable_stand_up = True
-            
+
     def stand(self):
         print("stand")
-        self.stand = True
+        self.is_standing = True
 
     def crawl(self):
         print("crawl")
-        self.crawl = True
+        self.is_crawling = True
 
     def trot(self):
         print("trot")
-        self.trot = True
+        self.is_trotting = True
 
     def IMU_ON(self):
         self.IMU = True
 
     def IMU_OFF(self):
         self.IMU = False
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

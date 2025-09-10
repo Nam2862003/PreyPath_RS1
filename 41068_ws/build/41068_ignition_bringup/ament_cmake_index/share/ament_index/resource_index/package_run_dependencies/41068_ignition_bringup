@@ -1,1 +1,1 @@
-ros_ign_interfaces;ros_ign_gazebo;ros_ign_bridge;robot_localization;ament_lint_auto;ament_lint_common
+ros_ign_interfaces;ros_ign_gazebo;ros_ign_bridge;ament_cmake;rclcpp;rclpy;gazebo_ros;robot_localization;gazebo_ros_pkgs;ros2launch;ament_lint_auto;ament_lint_common

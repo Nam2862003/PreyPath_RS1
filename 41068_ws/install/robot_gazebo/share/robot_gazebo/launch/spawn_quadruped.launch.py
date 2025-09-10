@@ -1,1 +1,0 @@
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/launch/spawn_quadruped.launch.py

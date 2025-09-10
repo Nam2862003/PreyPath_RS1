@@ -56,109 +56,109 @@ def generate_launch_description():
     world = LaunchConfiguration('world')
     ld.add_action(world_launch_arg)
 
-    # -----------------------
-    # Husky description
-    # -----------------------
-    husky_description = ParameterValue(
-        Command([
-            'xacro ',
-            PathJoinSubstitution([pkg_path, 'urdf', 'Husky_URDF', 'husky.urdf.xacro'])
-        ]),
-        value_type=str
-    )
+    # # -----------------------
+    # # Husky description
+    # # -----------------------
+    # husky_description = ParameterValue(
+    #     Command([
+    #         'xacro ',
+    #         PathJoinSubstitution([pkg_path, 'urdf', 'Husky_URDF', 'husky.urdf.xacro'])
+    #     ]),
+    #     value_type=str
+    # )
 
-    robot_state_publisher_node = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        parameters=[{
-            'robot_description': husky_description,
-            'use_sim_time': use_sim_time
-        }]
-    )
-    ld.add_action(robot_state_publisher_node)
+    # robot_state_publisher_node = Node(
+    #     package='robot_state_publisher',
+    #     executable='robot_state_publisher',
+    #     parameters=[{
+    #         'robot_description': husky_description,
+    #         'use_sim_time': use_sim_time
+    #     }]
+    # )
+    # ld.add_action(robot_state_publisher_node)
 
-    # (Manual control only -> EKF removed)
+    # # (Manual control only -> EKF removed)
 
-    # Spawn Husky in Gazebo
-    husky_spawner = Node(
-        package='ros_ign_gazebo',
-        executable='create',
-        output='screen',
-        parameters=[{'use_sim_time': use_sim_time}],
-        arguments=['-topic', '/robot_description', '-z', '0.4']
-    )
-    ld.add_action(husky_spawner)
+    # # Spawn Husky in Gazebo
+    # husky_spawner = Node(
+    #     package='ros_ign_gazebo',
+    #     executable='create',
+    #     output='screen',
+    #     parameters=[{'use_sim_time': use_sim_time}],
+    #     arguments=['-topic', '/robot_description', '-z', '0.4']
+    # )
+    # ld.add_action(husky_spawner)
 
     # -----------------------
     # Quadruped description
     # -----------------------
-    quadruped_description = ParameterValue(
-        Command([
-            'xacro ',
-            PathJoinSubstitution([pkg_path, 'urdf', 'Quadruped_URDF', 'robot.xacro']),
-            ' controller_config:=',
-            PathJoinSubstitution([config_path, 'robot_controller.yaml'])
-        ]),
-        value_type=str
-    )
+    # quadruped_description = ParameterValue(
+    #     Command([
+    #         'xacro ',
+    #         PathJoinSubstitution([pkg_path, 'urdf', 'Quadruped_URDF', 'robot.xacro']),
+    #         ' controller_config:=',
+    #         PathJoinSubstitution([config_path, 'robot_controller.yaml'])
+    #     ]),
+    #     value_type=str
+    # )
 
-    quadruped_state_publisher = Node(
-        package='robot_state_publisher',
-        executable='robot_state_publisher',
-        namespace='quadruped',
-        parameters=[{'robot_description': quadruped_description,
-                     'use_sim_time': use_sim_time}]
-    )
-    ld.add_action(quadruped_state_publisher)
+    # quadruped_state_publisher = Node(
+    #     package='robot_state_publisher',
+    #     executable='robot_state_publisher',
+    #     namespace='quadruped',
+    #     parameters=[{'robot_description': quadruped_description,
+    #                  'use_sim_time': use_sim_time}]
+    # )
+    # ld.add_action(quadruped_state_publisher)
 
-    quadruped_spawner = Node(
-        package='ros_ign_gazebo',
-        executable='create',
-        output='screen',
-        parameters=[{'use_sim_time': use_sim_time}],
-        arguments=['-topic', '/quadruped/robot_description',
-                   '-entity', 'quadruped',
-                   '-z', '0.4',
-                   '-x', '0.0', '-y', '-1.0']
-    )
-    ld.add_action(quadruped_spawner)
+    # quadruped_spawner = Node(
+    #     package='ros_ign_gazebo',
+    #     executable='create',
+    #     output='screen',
+    #     parameters=[{'use_sim_time': use_sim_time}],
+    #     arguments=['-topic', '/quadruped/robot_description',
+    #                '-entity', 'quadruped',
+    #                '-z', '0.4',
+    #                '-x', '0.0', '-y', '-1.0']
+    # )
+    # ld.add_action(quadruped_spawner)
 
-    # -----------------------
-    # Quadruped Controllers (load after spawn)
-    # -----------------------
-    load_joint_state_broadcaster = ExecuteProcess(
-        cmd=[
-            'ros2', 'control', 'load_controller',
-            '--set-state', 'active',
-            'joint_state_broadcaster',
-            '--controller-manager', '/quadruped/controller_manager'
-        ],
-        output='screen'
-    )
+    # # -----------------------
+    # # Quadruped Controllers (load after spawn)
+    # # -----------------------
+    # load_joint_state_broadcaster = ExecuteProcess(
+    #     cmd=[
+    #         'ros2', 'control', 'load_controller',
+    #         '--set-state', 'active',
+    #         'joint_state_broadcaster',
+    #         '--controller-manager', '/quadruped/controller_manager'
+    #     ],
+    #     output='screen'
+    # )
 
-    load_forward_position_controller = ExecuteProcess(
-        cmd=[
-            'ros2', 'control', 'load_controller',
-            '--set-state', 'active',
-            'forward_position_controller',
-            '--controller-manager', '/quadruped/controller_manager'
-        ],
-        output='screen'
-    )
+    # load_forward_position_controller = ExecuteProcess(
+    #     cmd=[
+    #         'ros2', 'control', 'load_controller',
+    #         '--set-state', 'active',
+    #         'forward_position_controller',
+    #         '--controller-manager', '/quadruped/controller_manager'
+    #     ],
+    #     output='screen'
+    # )
 
-    # Ensure sequential startup
-    ld.add_action(RegisterEventHandler(
-        OnProcessExit(
-            target_action=quadruped_spawner,
-            on_exit=[load_joint_state_broadcaster],
-        )
-    ))
-    ld.add_action(RegisterEventHandler(
-        OnProcessExit(
-            target_action=load_joint_state_broadcaster,
-            on_exit=[load_forward_position_controller],
-        )
-    ))
+    # # Ensure sequential startup
+    # ld.add_action(RegisterEventHandler(
+    #     OnProcessExit(
+    #         target_action=quadruped_spawner,
+    #         on_exit=[load_joint_state_broadcaster],
+    #     )
+    # ))
+    # ld.add_action(RegisterEventHandler(
+    #     OnProcessExit(
+    #         target_action=load_joint_state_broadcaster,
+    #         on_exit=[load_forward_position_controller],
+    #     )
+    # ))
 
     # -----------------------
     # Ignition Gazebo
