@@ -1,0 +1,4 @@
+Invoking command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/git/PreyPath_RS1/41068_ws/build/robot_control -- -j8 -l8
+Invoked command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/student/git/PreyPath_RS1/41068_ws/build/robot_control -- -j8 -l8
+Invoking command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/git/PreyPath_RS1/41068_ws/build/robot_control
+Invoked command in '/home/student/git/PreyPath_RS1/41068_ws/build/robot_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/student/git/PreyPath_RS1/41068_ws/build/robot_control
