@@ -15,58 +15,23 @@ Tip: call this from your launch *before* starting Gazebo, then load the file:
 
 import argparse, os, sys, math, random
 from pathlib import Path
+from model_list import *
+
+# import files from directory
 try:
     from ament_index_python.packages import get_package_share_directory
 except Exception:
     get_package_share_directory = None  # fallback handled below
 
-# ----- Assets (Fuel + local models) -----
-OAK_URI  = "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree"
-PINE_URI = "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree"
-ROCK_URIS = [
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206",
-]
-FOREST_PLANE_URI = "models://forest_plane"
-FOREST_WALL_URI  = "models://forest_wall"   # set --walls to place a ring
 
 # ---------- helpers ----------
 def resolve_worlds_dir(package: str) -> Path:
-    """
-    Prefer installed/share worlds dir; fallback to source tree worlds/; then ~/.ros.
-    """
-    # 1) installed/share
-    if get_package_share_directory:
-        try:
-            share = Path(get_package_share_directory(package))
-            worlds = share / "worlds"
-            worlds.mkdir(parents=True, exist_ok=True)
-            (worlds / ".write_test").write_text("")  # test write
-            (worlds / ".write_test").unlink(missing_ok=True)
-            return worlds
-        except Exception:
-            pass
-
-    # 2) source: scripts/.. -> worlds/
+    """Return the worlds directory in the source tree."""
     here = Path(__file__).resolve()
     src_worlds = here.parent.parent / "worlds"
-    try:
-        src_worlds.mkdir(parents=True, exist_ok=True)
-        (src_worlds / ".write_test").write_text("")
-        (src_worlds / ".write_test").unlink(missing_ok=True)
-        return src_worlds
-    except Exception:
-        pass
+    src_worlds.mkdir(parents=True, exist_ok=True)
+    return src_worlds
 
-    # 3) fallback: ~/.ros/generated_worlds
-    fallback = Path.home() / ".ros" / "generated_worlds"
-    fallback.mkdir(parents=True, exist_ok=True)
-    print(f"[world_gen] WARN: using fallback dir {fallback}", file=sys.stderr)
-    return fallback
 
 def sample_points(n, half_size, min_dist, keepouts=None, max_tries=10000):
     """ Rejection sampling with minimum spacing (approx Poisson disk). """
@@ -96,13 +61,41 @@ def sample_points(n, half_size, min_dist, keepouts=None, max_tries=10000):
             pts.append((x, y))
     return pts
 
-def include_block(uri, name, x, y, z=0.0, yaw=0.0):
+
+def include_block(uri, name, x, y, z=0.0, yaw=0.0, static=True):
     return f"""
     <include>
       <uri>{uri}</uri>
       <name>{name}</name>
       <pose>{x:.3f} {y:.3f} {z:.3f} 0 0 {yaw:.6f}</pose>
+      {'<static>true</static>' if static else '<static>false</static>'}
+      <self_collide>false</self_collide>
+      <allow_auto_disable>true</allow_auto_disable>
     </include>"""
+
+
+def create_ground(size):
+  n = int(math.ceil(size / PLANE_SIZE))
+
+  if n % 2 == 0:
+    n += 1
+
+  half_plane_itterations = n // 2
+  pieces = []
+
+  for horiz in range((-half_plane_itterations), half_plane_itterations + 1): 
+    for verical in range((-half_plane_itterations), half_plane_itterations + 1): 
+      x = PLANE_SIZE * horiz 
+      y = PLANE_SIZE * verical 
+      yaw = (math.pi / 2.0) if ((horiz + verical) % 2) else 0.0
+      pieces.append(f""" <include> 
+                          <uri>{FOREST_PLANE_URI}</uri> 
+                          <name>forest_plane{horiz}_{verical}</name>
+                          <pose>{x:.3f} {y:.3f} 0 0 0 {yaw:.6f}</pose> 
+                          </include>""")
+    
+  return "".join(pieces)
+
 
 def build_world_xml(size, oaks, pines, rocks, md_oak, md_pine, md_rock,
                     walls, clearing_half, seed):
@@ -121,8 +114,8 @@ def build_world_xml(size, oaks, pines, rocks, md_oak, md_pine, md_rock,
 
     # --- world header ---
     xml = f"""<?xml version="1.0"?>
-<sdf version="1.8">
-  <world name="world_gen">
+    <sdf version="1.8">
+    <world name="world_gen">
     <!-- Core systems -->
     <plugin name="ignition::gazebo::systems::Physics" filename="ignition-gazebo-physics-system"/>
     <plugin name="ignition::gazebo::systems::UserCommands" filename="ignition-gazebo-user-commands-system"/>
@@ -163,13 +156,10 @@ def build_world_xml(size, oaks, pines, rocks, md_oak, md_pine, md_rock,
       <surface_model>EARTH_WGS84</surface_model>
     </spherical_coordinates>
 
-    <!-- Ground -->
-    <include>
-      <uri>{FOREST_PLANE_URI}</uri>
-      <name>forest_plane</name>
-      <pose>0 0 0 0 0 0</pose>
-    </include>
-"""
+
+""" 
+    # Ground creation
+    xml += create_ground(size)
 
     # Boundary walls (optional ring like your demo)
     if walls:
