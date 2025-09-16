@@ -51,6 +51,7 @@ namespace rviz_control_panel
         QPushButton *btn_b_right_{nullptr};
 
         QCheckBox *cb_manual_control_{nullptr};
+        QWidget *manual_control_group_{nullptr};
 
         // ROS
         rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr estop_pub_;
