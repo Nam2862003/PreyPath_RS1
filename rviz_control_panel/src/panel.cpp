@@ -46,7 +46,8 @@ namespace rviz_control_panel
         vbox->addSpacing(20);
 
         // Manual control grid
-        auto *grid = new QGridLayout();
+        manual_control_group_ = new QWidget(this);
+        auto *grid = new QGridLayout(manual_control_group_);
         btn_forward_ = new QPushButton("↑");
         btn_backward_ = new QPushButton("↓");
         btn_left_ = new QPushButton("←");
@@ -65,6 +66,7 @@ namespace rviz_control_panel
             btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
             btn->setEnabled(false);
         }
+        manual_control_group_->setVisible(false);
 
         grid->addWidget(btn_forward_, 0, 1);
         grid->addWidget(btn_left_, 1, 0);
@@ -76,7 +78,7 @@ namespace rviz_control_panel
         grid->addWidget(btn_b_left_, 2, 0);
         grid->addWidget(btn_b_right_, 2, 2);
 
-        vbox->addLayout(grid);
+        vbox->addWidget(manual_control_group_);
         vbox->addStretch(1);
 
         setLayout(vbox);
@@ -129,7 +131,7 @@ namespace rviz_control_panel
         }
 
         #ControlPanelRoot QLabel {
-            color: #e6e6e6;
+            color:rgb(0, 0, 0);
             font-size: 28px;
         }
         #ControlPanelRoot QLabel#StatusLabel {
@@ -158,7 +160,7 @@ namespace rviz_control_panel
         std_msgs::msg::Bool msg;
         msg.data = true;
         estop_pub_->publish(msg);
-        status_->setText("Status: E-stop sent");
+        status_->setText("E-stop sent");
     }
 
     void ControlPanel::onReturnBaseClicked()
@@ -186,11 +188,11 @@ namespace rviz_control_panel
         send_goal_options.result_callback = [this](auto)
         {
             QMetaObject::invokeMethod(status_, [this]()
-                                      { status_->setText("Status: RTB goal done"); });
+                                      { status_->setText("RTB goal reached"); });
         };
         nav_client_->async_send_goal(goal, send_goal_options);
 
-        status_->setText("Status: RTB goal sent");
+        status_->setText("RTB goal sent");
     }
 
     void ControlPanel::onManualControlToggled(bool enabled)
@@ -199,6 +201,15 @@ namespace rviz_control_panel
         {
             btn->setEnabled(enabled);
         }
+
+        manual_control_group_->setVisible(enabled);
+
+        if (!estop_pub_)
+            return;
+        std_msgs::msg::Bool msg;
+        msg.data = true;
+        estop_pub_->publish(msg);
+        status_->setText("Manual control activated");
 
         // TODO: Notify ROS about manual control, e.g. send cmd vel to stop autonomous navigation
     }
