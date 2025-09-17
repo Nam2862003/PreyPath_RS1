@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+    <sdf version="1.8">
+      <model name="forest_tile_2" static="true">
+        <pose>0 0 0 0 0 0</pose>
+        
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_1</name>
+        <pose>0.541 -9.076 0.000 0 0 0.708505</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_2</name>
+        <pose>8.823 -9.219 0.000 0 0 2.246776</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_3</name>
+        <pose>-14.779 12.989 0.000 0 0 -1.594054</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_4</name>
+        <pose>-24.084 -11.503 0.000 0 0 0.769446</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_5</name>
+        <pose>23.429 17.877 0.000 0 0 0.466212</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_6</name>
+        <pose>22.054 0.772 0.000 0 0 1.635161</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_7</name>
+        <pose>-12.375 -3.414 0.000 0 0 -1.531132</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_8</name>
+        <pose>-6.657 -16.896 0.000 0 0 1.135886</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_9</name>
+        <pose>22.768 -23.047 0.000 0 0 0.924761</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+        <name>oak_10</name>
+        <pose>-10.656 3.867 0.000 0 0 -0.722370</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_1</name>
+        <pose>0.432 -11.564 0.000 0 0 -1.211102</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_2</name>
+        <pose>24.501 -2.209 0.000 0 0 1.803496</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_3</name>
+        <pose>24.665 -13.802 0.000 0 0 3.070693</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_4</name>
+        <pose>-4.690 -21.355 0.000 0 0 -1.082034</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_5</name>
+        <pose>-3.644 21.138 0.000 0 0 1.937821</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_6</name>
+        <pose>-19.809 -16.189 0.000 0 0 -0.029662</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_7</name>
+        <pose>-0.460 4.937 0.000 0 0 1.070706</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_8</name>
+        <pose>-20.015 -23.202 0.000 0 0 -0.086443</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_9</name>
+        <pose>1.806 1.270 0.000 0 0 -2.734471</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+        <name>pine_10</name>
+        <pose>11.478 19.648 0.000 0 0 1.659185</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
+        <name>rock_1</name>
+        <pose>14.978 -0.963 0.000 0 0 0.255933</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
+        <name>rock_2</name>
+        <pose>4.483 18.655 0.000 0 0 0.542581</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
+        <name>rock_3</name>
+        <pose>3.170 -2.263 0.000 0 0 0.046486</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
+        <name>rock_4</name>
+        <pose>-21.615 11.636 0.000 0 0 0.770594</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
+        <name>rock_5</name>
+        <pose>9.184 7.082 0.000 0 0 0.208401</pose>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        <allow_auto_disable>true</allow_auto_disable>
+      </include>
+      </model>
+    </sdf>
+    

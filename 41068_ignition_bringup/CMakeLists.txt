@@ -24,6 +24,9 @@ install(
 install(
   PROGRAMS
     scripts/world_gen.py
+    scripts/model_list.py
+    scripts/tile_gen.py
+    scripts/tile_world_gen.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
