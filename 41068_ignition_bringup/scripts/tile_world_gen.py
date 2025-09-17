@@ -36,6 +36,68 @@ def create_ground(size):
             )
     return "".join(pieces)
 
+
+def create_perimeter_walls(size,
+                           seg_len=9.32,   # wall length along local X
+                           height=4.0,     # wall height
+                           uri=FOREST_WALL_URI,
+                           name_prefix="forest_wall"):
+    """
+    Build a closed rectangle of wall segments centered at (0,0),
+    with world half-extent = size/2.
+    Each segment is assumed to lie along its local X axis.
+    """
+    half = size / 2.0
+    z = height / 2.0      # place center so the wall sits on z=0
+    n = int(math.ceil(size / seg_len))  # segments per side
+    step = size / n                      # center-to-center spacing
+    centers = [-half + (i + 0.5) * step for i in range(n)]
+    angle90 = math.pi / 2.0
+
+    pieces = []
+
+    # Top (+y) and bottom (-y) edges: walls run along X (yaw = 0)
+    for i, x in enumerate(centers):
+        # top
+        pieces.append(f"""
+    <include>
+      <uri>{uri}</uri>
+      <name>{name_prefix}_top_{i}</name>
+      <pose>{x:.3f} {half:.3f} {z:.3f} {angle90:.6f} 0 0</pose>
+      <static>true</static>
+    </include>""")
+        # bottom
+        pieces.append(f"""
+    <include>
+      <uri>{uri}</uri>
+      <name>{name_prefix}_bot_{i}</name>
+      <pose>{x:.3f} {-half:.3f} {z:.3f} {angle90:.6f} 0 0</pose>
+      <static>true</static>
+    </include>""")
+
+    # Right (+x) and left (-x) edges: rotate 90° so walls run along Y (yaw = π/2)
+
+    for i, y in enumerate(centers):
+        # right
+        pieces.append(f"""
+    <include>
+      <uri>{uri}</uri>
+      <name>{name_prefix}_right_{i}</name>
+      <pose>{half:.3f} {y:.3f} {z:.3f} {angle90:.6f} 0 {angle90:.6f}</pose>
+      <static>true</static>
+    </include>""")
+        # left
+        pieces.append(f"""
+    <include>
+      <uri>{uri}</uri>
+      <name>{name_prefix}_left_{i}</name>
+      <pose>{-half:.3f} {y:.3f} {z:.3f} {angle90:.6f} 0 {angle90:.6f}</pose>
+      <static>true</static>
+    </include>""")
+
+    return "".join(pieces)
+
+
 # ---------- tiles ----------
 def make_tiles(variant_names, size):
     xs = tile_indices_to_cover(size)
@@ -70,11 +132,12 @@ def make_world_xml(variants, size, add_sun=True):
 """
     ground = create_ground(size)
     tiles  = make_tiles(variants, size)
+    walls = create_perimeter_walls(size)
     footer = """
   </world>
 </sdf>
 """
-    return header + ground + tiles + footer
+    return header + ground + tiles + walls + footer
 
 def main():
     ap = argparse.ArgumentParser(description="Assemble a world with ground planes + forest tiles")
