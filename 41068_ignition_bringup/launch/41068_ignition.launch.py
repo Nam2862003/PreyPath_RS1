@@ -129,15 +129,15 @@ def generate_launch_description():
     )
     ld.add_action(nav2)
 
-    # GUI DEV - Hello World Marker
-    hello_marker = Node(
-        package='41068_ignition_bringup',
-        executable='hello_marker.py',
-        name='hello_marker',
-        output='screen',
-        parameters=[{'use_sim_time': use_sim_time}],
-        prefix='python3 '
-    )
-    ld.add_action(hello_marker)
+    # # GUI DEV - Hello World Marker
+    # hello_marker = Node(
+    #     package='41068_ignition_bringup',
+    #     executable='hello_marker.py',
+    #     name='hello_marker',
+    #     output='screen',
+    #     parameters=[{'use_sim_time': use_sim_time}],
+    #     prefix='python3 '
+    # )
+    # ld.add_action(hello_marker)
 
     return ld
