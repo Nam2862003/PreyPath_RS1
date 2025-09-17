@@ -228,9 +228,12 @@ global_costmap:
       robot_base_frame: base_link
       use_sim_time: True
       footprint: "[ [0.5, 0.5], [0.5, -0.5], [-0.5, -0.5], [-0.5, 0.5] ]"
-      resolution: 0.1
+      resolution: 0.2
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
+      #rolling_window: true
+      #width: 50
+      #height: 50
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
