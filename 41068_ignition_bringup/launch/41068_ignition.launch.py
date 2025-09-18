@@ -42,7 +42,7 @@ def generate_launch_description():
     robot_description_content = ParameterValue(
         Command(['xacro ',
                  PathJoinSubstitution([pkg_path,
-                                       'urdf',
+                                       'urdf','Husky_URDF',
                                        'husky.urdf.xacro'])]),
         value_type=str)
     robot_state_publisher_node = Node(package='robot_state_publisher',

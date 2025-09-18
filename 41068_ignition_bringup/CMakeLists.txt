@@ -7,8 +7,9 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-
 find_package(ros_ign_interfaces REQUIRED)
+find_package(xacro REQUIRED)
+find_package(rclpy REQUIRED)
 
 install(
   DIRECTORY config launch models urdf worlds
