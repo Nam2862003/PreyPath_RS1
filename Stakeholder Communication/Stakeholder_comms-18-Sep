@@ -1,0 +1,17 @@
+Tutor / stakeholder feedback from 18 of September class
+
+We asked tutors the questions and concerns raised in RS brief
+
+Tutor was consulted with solution ideas from Maksim.
+
+1. Validating lidar invalid readings for empty cells in occupancy grid
+This solution was not recomended, as it is likely to cause collisions. 
+
+2. Pre-loading global costmap with all cells as free space in the dimensions of environment
+This concept is worth trying out, especially as it solves two problems at once: first, robot will be able to receive goals in big range, that would normally be outside of SLAM generated global costmap. Secondly, it should ease navigation of robot through the environment, as it would give robot more freedom in path planning. The important concern that tutor raised, is that it can only be implemented along with strong collision detection mechanism, that would reassure that robot will not drive into obstacles, which would not be shown on pre-loaded map. SLAM and nav2 might not be efficient enough, to update map and change path to avoid colision, which mean the algorythm might heavily rely on LiDar.
+
+
+Besides navigation, tutor was consulted regarding environment simulation.
+As they are already aware of our hardships of running large worlds, tutor pointed out that it is totally fine to downscale our world, as we need to prioritise the functionale of our robotic system. We might settle for now with 100 by 100 or 150 by 150 world to run simulation in.
+
+Overall, the tutor liked the progress that our team is making.
