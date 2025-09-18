@@ -130,8 +130,8 @@ def create_perimeter_walls(size,
         pieces.append(f"""
     <include>
       <uri>{uri}</uri>
-      <name>{name_prefix}_bot_{i}</name>
-      <pose>{x:.3f} {-half:.3f} {z:.3f} {angle90:.6f} 0 0</pose>
+      <name>{name_prefix}_bottom_{i}</name>
+      <pose>{x:.3f} {-half:.3f} {z:.3f} {angle90:.6f} 0 {math.pi}</pose>
       <static>true</static>
     </include>""")
 
@@ -143,7 +143,7 @@ def create_perimeter_walls(size,
     <include>
       <uri>{uri}</uri>
       <name>{name_prefix}_right_{i}</name>
-      <pose>{half:.3f} {y:.3f} {z:.3f} {angle90:.6f} 0 {angle90:.6f}</pose>
+      <pose>{half:.3f} {y:.3f} {z:.3f} {angle90:.6f} 0 {-angle90:.6f}</pose>
       <static>true</static>
     </include>""")
         # left
@@ -223,30 +223,6 @@ def build_world_xml(size, oaks, pines, rocks, md_oak, md_pine, md_rock,
     # Ground creation
     xml += create_ground(size)
     xml += create_perimeter_walls(size)
-
-    # Boundary walls (optional ring like your demo)
-    if walls:
-        wall_poses = [
-            ( size/2,    0.0,   2, 1.570796, 0, -1.570796),
-            ( size/2, -0.75*size/2, 2, 1.570796, 0, -1.570796),
-            ( size/2,  0.75*size/2, 2, 1.570796, 0, -1.570796),
-            (-size/2,    0.0,   2, 1.570796, 0,  1.570796),
-            (-size/2, -0.75*size/2, 2, 1.570796, 0,  1.570796),
-            (-size/2,  0.75*size/2, 2, 1.570796, 0,  1.570796),
-            ( 0.0, -size/2,      2, 1.570796, 0,  0),
-            (-0.75*size/2, -size/2, 2, 1.570796, 0,  0),
-            ( 0.75*size/2, -size/2, 2, 1.570796, 0,  0),
-            ( 0.0,  size/2,      2, 1.570796, 0,  0),
-            (-0.75*size/2, size/2, 2, 1.570796, 0,  0),
-            ( 0.75*size/2, size/2, 2, 1.570796, 0,  0),
-        ]
-        for i, (x,y,z,rr,pp,yy) in enumerate(wall_poses, 1):
-            xml += f"""
-    <include>
-      <uri>{FOREST_WALL_URI}</uri>
-      <name>forest_wall{i}</name>
-      <pose>{x:.3f} {y:.3f} {z:.3f} {rr} {pp} {yy}</pose>
-    </include>"""
 
     # Trees
     for i, (x,y) in enumerate(oak_pts, 1):

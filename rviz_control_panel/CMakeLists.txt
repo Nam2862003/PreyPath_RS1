@@ -40,9 +40,9 @@ install(TARGETS ${PROJECT_NAME}
   LIBRARY DESTINATION lib
 )
 
-install(DIRECTORY include/
-  DESTINATION include
-)
+# install(DIRECTORY include/
+#   DESTINATION include
+# )
 
 install(FILES rviz_plugins.xml
   DESTINATION share/${PROJECT_NAME}
