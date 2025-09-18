@@ -6,6 +6,20 @@ from model_list import *   # must define PLANE_SIZE, FOREST_PLANE_URI
 
 TILE_SIZE = 50.0  # must match how tiles were generated
 
+
+def resolve_worlds_dir(package: str) -> Path:
+    """
+    Return <pkg_source_root>/worlds, creating it if needed.
+    Works whether you run from source or from an installed env.
+    """
+    here = Path(__file__).resolve()
+    # script is typically <pkg>/scripts/world_gen.py  -> parents[1] is <pkg>
+    pkg_root = here.parents[1]
+    worlds = pkg_root / "worlds"
+    worlds.mkdir(parents=True, exist_ok=True)
+    return worlds
+
+
 def tile_indices_to_cover(size_m):
     n = int(math.ceil(size_m / TILE_SIZE))
     if n % 2 == 0:
@@ -147,16 +161,21 @@ def main():
                     help="Tile model names (without model://). Defaults to forest_tile_0..2")
     ap.add_argument("--outfile", default=None,
                     help="Output SDF (default: <pkg>/worlds/world_gen.sdf)")
+    # NEW: optional package name (not strictly used by resolver, but handy for clarity)
+    ap.add_argument("--package", default="41068_ignition_bringup",
+                    help="ROS 2 package (source) to place worlds/ into")
     args = ap.parse_args()
 
     variants = args.variants or ["forest_tile_0", "forest_tile_1", "forest_tile_2"]
     xml = make_world_xml(variants, args.size)
 
-    pkg_root = Path(__file__).resolve().parents[1]
-    out = Path(args.outfile) if args.outfile else (pkg_root / "worlds" / "world_gen.sdf")
+    # >>> CHANGED: write into <pkg>/worlds via the helper
+    worlds_dir = resolve_worlds_dir(args.package)
+    out = Path(args.outfile) if args.outfile else (worlds_dir / "world_gen.sdf")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(xml)
     print(f"[world] wrote {out} using variants: {variants}")
+
 
 if __name__ == "__main__":
     sys.exit(main())

@@ -261,649 +261,529 @@
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_0</name>
-      <pose>-120.370 125.000 2.000 1.570796 0 0</pose>
+      <pose>-95.455 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_0</name>
-      <pose>-120.370 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-95.455 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_1</name>
-      <pose>-111.111 125.000 2.000 1.570796 0 0</pose>
+      <pose>-86.364 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_1</name>
-      <pose>-111.111 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-86.364 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_2</name>
-      <pose>-101.852 125.000 2.000 1.570796 0 0</pose>
+      <pose>-77.273 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_2</name>
-      <pose>-101.852 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-77.273 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_3</name>
-      <pose>-92.593 125.000 2.000 1.570796 0 0</pose>
+      <pose>-68.182 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_3</name>
-      <pose>-92.593 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-68.182 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_4</name>
-      <pose>-83.333 125.000 2.000 1.570796 0 0</pose>
+      <pose>-59.091 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_4</name>
-      <pose>-83.333 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-59.091 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_5</name>
-      <pose>-74.074 125.000 2.000 1.570796 0 0</pose>
+      <pose>-50.000 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_5</name>
-      <pose>-74.074 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-50.000 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_6</name>
-      <pose>-64.815 125.000 2.000 1.570796 0 0</pose>
+      <pose>-40.909 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_6</name>
-      <pose>-64.815 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-40.909 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_7</name>
-      <pose>-55.556 125.000 2.000 1.570796 0 0</pose>
+      <pose>-31.818 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_7</name>
-      <pose>-55.556 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-31.818 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_8</name>
-      <pose>-46.296 125.000 2.000 1.570796 0 0</pose>
+      <pose>-22.727 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_8</name>
-      <pose>-46.296 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-22.727 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_9</name>
-      <pose>-37.037 125.000 2.000 1.570796 0 0</pose>
+      <pose>-13.636 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_9</name>
-      <pose>-37.037 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-13.636 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_10</name>
-      <pose>-27.778 125.000 2.000 1.570796 0 0</pose>
+      <pose>-4.545 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_10</name>
-      <pose>-27.778 -125.000 2.000 1.570796 0 0</pose>
+      <pose>-4.545 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_11</name>
-      <pose>-18.519 125.000 2.000 1.570796 0 0</pose>
+      <pose>4.545 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_11</name>
-      <pose>-18.519 -125.000 2.000 1.570796 0 0</pose>
+      <pose>4.545 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_12</name>
-      <pose>-9.259 125.000 2.000 1.570796 0 0</pose>
+      <pose>13.636 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_12</name>
-      <pose>-9.259 -125.000 2.000 1.570796 0 0</pose>
+      <pose>13.636 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_13</name>
-      <pose>0.000 125.000 2.000 1.570796 0 0</pose>
+      <pose>22.727 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_13</name>
-      <pose>0.000 -125.000 2.000 1.570796 0 0</pose>
+      <pose>22.727 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_14</name>
-      <pose>9.259 125.000 2.000 1.570796 0 0</pose>
+      <pose>31.818 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_14</name>
-      <pose>9.259 -125.000 2.000 1.570796 0 0</pose>
+      <pose>31.818 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_15</name>
-      <pose>18.519 125.000 2.000 1.570796 0 0</pose>
+      <pose>40.909 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_15</name>
-      <pose>18.519 -125.000 2.000 1.570796 0 0</pose>
+      <pose>40.909 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_16</name>
-      <pose>27.778 125.000 2.000 1.570796 0 0</pose>
+      <pose>50.000 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_16</name>
-      <pose>27.778 -125.000 2.000 1.570796 0 0</pose>
+      <pose>50.000 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_17</name>
-      <pose>37.037 125.000 2.000 1.570796 0 0</pose>
+      <pose>59.091 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_17</name>
-      <pose>37.037 -125.000 2.000 1.570796 0 0</pose>
+      <pose>59.091 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_18</name>
-      <pose>46.296 125.000 2.000 1.570796 0 0</pose>
+      <pose>68.182 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_18</name>
-      <pose>46.296 -125.000 2.000 1.570796 0 0</pose>
+      <pose>68.182 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_19</name>
-      <pose>55.556 125.000 2.000 1.570796 0 0</pose>
+      <pose>77.273 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_19</name>
-      <pose>55.556 -125.000 2.000 1.570796 0 0</pose>
+      <pose>77.273 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_20</name>
-      <pose>64.815 125.000 2.000 1.570796 0 0</pose>
+      <pose>86.364 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_20</name>
-      <pose>64.815 -125.000 2.000 1.570796 0 0</pose>
+      <pose>86.364 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_21</name>
-      <pose>74.074 125.000 2.000 1.570796 0 0</pose>
+      <pose>95.455 100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bot_21</name>
-      <pose>74.074 -125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_top_22</name>
-      <pose>83.333 125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_bot_22</name>
-      <pose>83.333 -125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_top_23</name>
-      <pose>92.593 125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_bot_23</name>
-      <pose>92.593 -125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_top_24</name>
-      <pose>101.852 125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_bot_24</name>
-      <pose>101.852 -125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_top_25</name>
-      <pose>111.111 125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_bot_25</name>
-      <pose>111.111 -125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_top_26</name>
-      <pose>120.370 125.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_bot_26</name>
-      <pose>120.370 -125.000 2.000 1.570796 0 0</pose>
+      <pose>95.455 -100.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_0</name>
-      <pose>125.000 -120.370 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -95.455 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_0</name>
-      <pose>-125.000 -120.370 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -95.455 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_1</name>
-      <pose>125.000 -111.111 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -86.364 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_1</name>
-      <pose>-125.000 -111.111 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -86.364 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_2</name>
-      <pose>125.000 -101.852 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -77.273 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_2</name>
-      <pose>-125.000 -101.852 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -77.273 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_3</name>
-      <pose>125.000 -92.593 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -68.182 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_3</name>
-      <pose>-125.000 -92.593 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -68.182 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_4</name>
-      <pose>125.000 -83.333 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -59.091 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_4</name>
-      <pose>-125.000 -83.333 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -59.091 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_5</name>
-      <pose>125.000 -74.074 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -50.000 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_5</name>
-      <pose>-125.000 -74.074 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -50.000 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_6</name>
-      <pose>125.000 -64.815 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -40.909 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_6</name>
-      <pose>-125.000 -64.815 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -40.909 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_7</name>
-      <pose>125.000 -55.556 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -31.818 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_7</name>
-      <pose>-125.000 -55.556 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -31.818 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_8</name>
-      <pose>125.000 -46.296 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -22.727 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_8</name>
-      <pose>-125.000 -46.296 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -22.727 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_9</name>
-      <pose>125.000 -37.037 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -13.636 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_9</name>
-      <pose>-125.000 -37.037 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -13.636 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_10</name>
-      <pose>125.000 -27.778 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 -4.545 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_10</name>
-      <pose>-125.000 -27.778 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 -4.545 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_11</name>
-      <pose>125.000 -18.519 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 4.545 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_11</name>
-      <pose>-125.000 -18.519 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 4.545 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_12</name>
-      <pose>125.000 -9.259 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 13.636 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_12</name>
-      <pose>-125.000 -9.259 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 13.636 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_13</name>
-      <pose>125.000 0.000 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 22.727 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_13</name>
-      <pose>-125.000 0.000 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 22.727 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_14</name>
-      <pose>125.000 9.259 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 31.818 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_14</name>
-      <pose>-125.000 9.259 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 31.818 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_15</name>
-      <pose>125.000 18.519 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 40.909 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_15</name>
-      <pose>-125.000 18.519 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 40.909 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_16</name>
-      <pose>125.000 27.778 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 50.000 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_16</name>
-      <pose>-125.000 27.778 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 50.000 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_17</name>
-      <pose>125.000 37.037 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 59.091 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_17</name>
-      <pose>-125.000 37.037 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 59.091 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_18</name>
-      <pose>125.000 46.296 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 68.182 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_18</name>
-      <pose>-125.000 46.296 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 68.182 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_19</name>
-      <pose>125.000 55.556 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 77.273 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_19</name>
-      <pose>-125.000 55.556 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 77.273 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_20</name>
-      <pose>125.000 64.815 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 86.364 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_20</name>
-      <pose>-125.000 64.815 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 86.364 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_21</name>
-      <pose>125.000 74.074 2.000 1.570796 0 1.570796</pose>
+      <pose>100.000 95.455 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_21</name>
-      <pose>-125.000 74.074 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_right_22</name>
-      <pose>125.000 83.333 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_left_22</name>
-      <pose>-125.000 83.333 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_right_23</name>
-      <pose>125.000 92.593 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_left_23</name>
-      <pose>-125.000 92.593 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_right_24</name>
-      <pose>125.000 101.852 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_left_24</name>
-      <pose>-125.000 101.852 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_right_25</name>
-      <pose>125.000 111.111 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_left_25</name>
-      <pose>-125.000 111.111 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_right_26</name>
-      <pose>125.000 120.370 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>models://forest_wall</uri>
-      <name>forest_wall_left_26</name>
-      <pose>-125.000 120.370 2.000 1.570796 0 1.570796</pose>
+      <pose>-100.000 95.455 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
   </world>
