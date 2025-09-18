@@ -1,9 +1,0 @@
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/uninstall.dir
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/robot_gazebo_uninstall.dir
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/test.dir
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/edit_cache.dir
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/rebuild_cache.dir
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/list_install_components.dir
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/install.dir
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/install/local.dir
-/home/student/git/PreyPath_RS1/41068_ws/src/robot_gazebo/build/CMakeFiles/install/strip.dir
