@@ -12,7 +12,6 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     ld = LaunchDescription()
     pkg_path = FindPackageShare('41068_ignition_bringup')
-
     # sim time arg
     use_sim_time = LaunchConfiguration('use_sim_time')
     ld.add_action(DeclareLaunchArgument(
@@ -26,9 +25,7 @@ def generate_launch_description():
     ld.add_action(DeclareLaunchArgument('nav2', default_value='false', description='Launch Nav2'))
     # Package paths
     ignition_pkg = get_package_share_directory('41068_ignition_bringup')
-    gazebo_pkg = get_package_share_directory('gazebo_sim')
-
-    # 1. Forest world (master RViz + Nav2)
+    # 1. Forest world
     forest_world = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(ignition_pkg, 'launch', 'forest_world.launch.py')
@@ -42,35 +39,15 @@ def generate_launch_description():
     # 2. Quadruped spawn only (no RViz/Nav2)
     quadruped_spawn = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(gazebo_pkg, 'launch', 'gazebo_multi_nav2_world.launch.py')
+            os.path.join(ignition_pkg, 'launch', 'quadruped_setup.launch.py')
         ),
         launch_arguments={
             'use_sim_time': LaunchConfiguration('use_sim_time'),
-            'with_rviz': 'False',
-            'with_nav2': 'False',
             'namespace': 'robot1'
         }.items()
     )
     ld.add_action(quadruped_spawn)
-
-    # # 3. EKF localization for quadruped
-    # ekf_config = os.path.join(gazebo_pkg, 'config', 'ekf.yaml')
-    # quad_ekf = Node(
-    #     package='robot_localization',
-    #     executable='ekf_node',
-    #     name='ekf_filter_node',
-    #     namespace='robot1',
-    #     output='screen',
-    #     parameters=[ekf_config, {'use_sim_time': LaunchConfiguration('use_sim_time')}]
-    # )
-    # ld.add_action(quad_ekf)
-    #4 . Rviz and Nav2 with SLAM Toolbox
-    # flags for rviz/nav2
-    # rviz = LaunchConfiguration('rviz')
-    # nav2 = LaunchConfiguration('nav2')
-    # ld.add_action(DeclareLaunchArgument('rviz', default_value='false', description='Launch RViz'))
-    # ld.add_action(DeclareLaunchArgument('nav2', default_value='false', description='Launch Nav2'))
-
+    # 3. Rviz and Nav2 with SLAM 
     # navigation stack
     navigation = IncludeLaunchDescription(
         PathJoinSubstitution([pkg_path, 'launch', '41068_navigation.launch.py']),
@@ -80,12 +57,12 @@ def generate_launch_description():
     ld.add_action(navigation)
 
     # # rviz2
-    rviz_node = Node(
+    rviz = Node(
         package='rviz2',
         executable='rviz2',
         arguments=['-d', PathJoinSubstitution([pkg_path, 'config', '41068.rviz'])],
         parameters=[{'use_sim_time': use_sim_time}],
         condition=IfCondition(rviz)
     )
-    ld.add_action(rviz_node)
+    ld.add_action(rviz)
     return ld

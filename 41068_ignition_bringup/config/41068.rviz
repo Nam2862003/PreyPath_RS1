@@ -59,7 +59,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /robot1/robot_description
+        Value: /robot_description
       Enabled: true
       Links:
         All Links Enabled: true
@@ -67,61 +67,69 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        base_scan:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        camera_depth_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        camera_depth_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        camera_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        camera_rgb_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        camera_rgb_optical_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        front_left_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_right_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        imu_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        rear_left_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_right_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
+      #   base_link:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #     Value: true
+      #   base_scan:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #     Value: true
+      #   camera_depth_frame:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #   camera_depth_optical_frame:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #   camera_link:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #     Value: true
+      #   camera_rgb_frame:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #   camera_rgb_optical_frame:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #   front_left_wheel_link:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #     Value: true
+      #   front_right_wheel_link:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #     Value: true
+      #   imu_link:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #   rear_left_wheel_link:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #     Value: true
+      #   rear_right_wheel_link:
+      #     Alpha: 1
+      #     Show Axes: false
+      #     Show Trail: false
+      #     Value: true
+      # Mass Properties:
+      #   Inertia: false
+      #   Mass: false
+      # Name: RobotModel
+      # TF Prefix: ""
+      # Update Interval: 0
+      # Value: true
+
       Mass Properties:
         Inertia: false
         Mass: false
@@ -129,6 +137,95 @@ Visualization Manager:
       TF Prefix: ""
       Update Interval: 0
       Value: true
+      Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Filter (blacklist): ""
+      Filter (whitelist): ""
+      Frame Timeout: 15
+      Frames:
+        All Enabled: false
+        base_link:
+          Value: true
+        imu_link:
+          Value: true
+        laser_frame:
+          Value: true
+        lf_foot_link:
+          Value: true
+        lf_hip_link:
+          Value: true
+        lf_lower_leg_link:
+          Value: true
+        lf_upper_leg_link:
+          Value: true
+        lh_foot_link:
+          Value: true
+        lh_hip_link:
+          Value: true
+        lh_lower_leg_link:
+          Value: true
+        lh_upper_leg_link:
+          Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
+        rf_foot_link:
+          Value: true
+        rf_hip_link:
+          Value: true
+        rf_lower_leg_link:
+          Value: true
+        rf_upper_leg_link:
+          Value: true
+        rh_foot_link:
+          Value: true
+        rh_hip_link:
+          Value: true
+        rh_lower_leg_link:
+          Value: true
+        rh_upper_leg_link:
+          Value: true
+        trunk:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: false
+      Show Names: false
+      Tree:
+        map:
+          odom:
+            base_link:
+              imu_link:
+                {}
+              laser_frame:
+                {}
+              trunk:
+                lf_hip_link:
+                  lf_upper_leg_link:
+                    lf_lower_leg_link:
+                      lf_foot_link:
+                        {}
+                lh_hip_link:
+                  lh_upper_leg_link:
+                    lh_lower_leg_link:
+                      lh_foot_link:
+                        {}
+                rf_hip_link:
+                  rf_upper_leg_link:
+                    rf_lower_leg_link:
+                      rf_foot_link:
+                        {}
+                rh_hip_link:
+                  rh_upper_leg_link:
+                    rh_lower_leg_link:
+                      rh_foot_link:
+                        {}
+      Update Interval: 0
+      Value: true
+      # -----------------------------------Fixed for quadruped not husky------
       Visual Enabled: true
     - Alpha: 1
       Autocompute Intensity Bounds: true
@@ -334,7 +431,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: map
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:

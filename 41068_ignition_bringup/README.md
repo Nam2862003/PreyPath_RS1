@@ -124,6 +124,9 @@ source install/setup.bash
 
 #### To Launch the robot with simple world
 ros2 launch 41068_ignition_bringup 41068_quadruped.launch.py
+
+#### With Newest version of quadruped
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py
 #### TO Launch the robot with large world 
 ros2 launch 41068_ignition_bringup 41068_quadruped.launch.py world:=large_demo
 
@@ -132,6 +135,12 @@ ros2 launch 41068_ignition_bringup 41068_quadruped.launch.py world:=large_demo
 cd src/UI
 python3 controller.py
 
+
+
+#### With Newest version of quadruped
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py world:=large_demo
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py slam:=true nav2:=true rviz:=true
 ```bash
 export QT_QPA_PLATFORM=xcb
 ```
