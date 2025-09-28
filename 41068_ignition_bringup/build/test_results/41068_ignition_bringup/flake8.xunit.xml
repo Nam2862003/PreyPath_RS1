@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="41068_ignition_bringup.flake8"
+  tests="30"
+  errors="0"
+  failures="30"
+  time="0.420"
+>
+  <testcase
+    name="E302 (./launch/quadruped_setupV2.launch.py:13:1)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="expected 2 blank lines, found 1:&#10;def generate_launch_description():&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/quadruped_setupV2.launch.py:28:23)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    # Robot basic info &#10;"/>
+  </testcase>
+  <testcase
+    name="E231 (./launch/41068_ignition.launch.py:45:46)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="missing whitespace after ',':&#10;                                       'urdf','Husky_URDF',&#10;"/>
+  </testcase>
+  <testcase
+    name="W292 (./launch/41068_ignition.launch.py:131:14)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="no newline at end of file:&#10;    return ld"/>
+  </testcase>
+  <testcase
+    name="F811 (./launch/spawn_quadruped_forest.launch.py:9:1)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="redefinition of unused 'Node' from line 7:&#10;from launch_ros.actions import Node&#10;"/>
+  </testcase>
+  <testcase
+    name="E302 (./launch/spawn_quadruped_forest.launch.py:12:1)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="expected 2 blank lines, found 1:&#10;def generate_launch_description():&#10;"/>
+  </testcase>
+  <testcase
+    name="E114 (./launch/spawn_quadruped_forest.launch.py:21:8)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="indentation is not a multiple of 4 (comment):&#10;       # flags for rviz/nav2&#10;"/>
+  </testcase>
+  <testcase
+    name="E116 (./launch/spawn_quadruped_forest.launch.py:21:8)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="unexpected indentation (comment):&#10;       # flags for rviz/nav2&#10;"/>
+  </testcase>
+  <testcase
+    name="E114 (./launch/spawn_quadruped_forest.launch.py:62:6)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="indentation is not a multiple of 4 (comment):&#10;     # 4. Nav2 with SLAM &#10;"/>
+  </testcase>
+  <testcase
+    name="E116 (./launch/spawn_quadruped_forest.launch.py:62:6)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="unexpected indentation (comment):&#10;     # 4. Nav2 with SLAM &#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/spawn_quadruped_forest.launch.py:62:25)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="trailing whitespace:&#10;     # 4. Nav2 with SLAM &#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/quadruped_setup.launch.py:5:1)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="'launch.actions.ExecuteProcess' imported but unused:&#10;from launch.actions import (&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/quadruped_setup.launch.py:10:1)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="'launch.substitutions.Command' imported but unused:&#10;from launch.substitutions import (Command, LaunchConfiguration,&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/quadruped_setup.launch.py:10:1)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="'launch.substitutions.PathJoinSubstitution' imported but unused:&#10;from launch.substitutions import (Command, LaunchConfiguration,&#10;"/>
+  </testcase>
+  <testcase
+    name="F401 (./launch/quadruped_setup.launch.py:14:1)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="'launch_ros.substitutions.FindPackageShare' imported but unused:&#10;from launch_ros.substitutions import FindPackageShare&#10;"/>
+  </testcase>
+  <testcase
+    name="E302 (./launch/quadruped_setup.launch.py:16:1)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="expected 2 blank lines, found 1:&#10;def generate_launch_description():&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/quadruped_setup.launch.py:31:23)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="trailing whitespace:&#10;    # Robot basic info &#10;"/>
+  </testcase>
+  <testcase
+    name="E114 (./launch/quadruped_setup.launch.py:41:4)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="indentation is not a multiple of 4 (comment):&#10;   # Base remappings for robot nodes&#10;"/>
+  </testcase>
+  <testcase
+    name="F841 (./launch/quadruped_setup.launch.py:48:5)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="local variable 'remaps_tf' is assigned to but never used:&#10;    remaps_tf = [('tf', '/tf'), ('tf_static', '/tf_static'), (&quot;/scan&quot;, &quot;scan&quot;)]&#10;"/>
+  </testcase>
+  <testcase
+    name="F541 (./launch/quadruped_setup.launch.py:181:32)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="f-string is missing placeholders:&#10;                'clock_topic': f'/clock',&#10;"/>
+  </testcase>
+  <testcase
+    name="E501 (./launch/quadruped_setup.launch.py:201:100)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="line too long (118 &gt; 99 characters):&#10;    #         &quot;{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ''}, voltage: 24.0, percentage: 0.8, capacity: 10.0}&quot;,&#10;"/>
+  </testcase>
+  <testcase
+    name="E116 (./launch/41068_navigation_v2.launch.py:25:9)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="unexpected indentation (comment):&#10;        # Start Simultaneous Localisation and Mapping (SLAM)&#10;"/>
+  </testcase>
+  <testcase
+    name="W291 (./launch/41068_navigation_v2.launch.py:31:28)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="trailing whitespace:&#10;        namespace='robot1', &#10;"/>
+  </testcase>
+  <testcase
+    name="E128 (./launch/41068_navigation_v2.launch.py:34:13)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message='continuation line under-indented for visual indent:&#10;            # "odom_frame": "odom",&#10;'/>
+  </testcase>
+  <testcase
+    name="E128 (./launch/41068_navigation_v2.launch.py:35:13)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message='continuation line under-indented for visual indent:&#10;            # "map_frame": "map",&#10;'/>
+  </testcase>
+  <testcase
+    name="E128 (./launch/41068_navigation_v2.launch.py:36:13)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message='continuation line under-indented for visual indent:&#10;            # "base_frame": "base_link",&#10;'/>
+  </testcase>
+  <testcase
+    name="E128 (./launch/41068_navigation_v2.launch.py:37:13)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message='continuation line under-indented for visual indent:&#10;            # "scan_topic": "/robot1/scan",&#10;'/>
+  </testcase>
+  <testcase
+    name="E128 (./launch/41068_navigation_v2.launch.py:38:13)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message='continuation line under-indented for visual indent:&#10;            # "odom_topic": "/odometry/filtered"&#10;'/>
+  </testcase>
+  <testcase
+    name="E124 (./launch/41068_navigation_v2.launch.py:39:13)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="closing bracket does not match visual indentation:&#10;            },&#10;"/>
+  </testcase>
+  <testcase
+    name="E303 (./launch/41068_navigation_v2.launch.py:49:5)"
+    classname="41068_ignition_bringup.flake8"
+  >
+      <failure message="too many blank lines (2):&#10;    # Nav2 core nodes (explicit, not via nav2_bringup)&#10;"/>
+  </testcase>
+  <system-out>Checked files:
+* ./launch/41068_navigation.launch.py
+* ./launch/quadruped_setupV2.launch.py
+* ./launch/forest_world.launch.py
+* ./launch/41068_ignition.launch.py
+* ./launch/spawn_quadruped_forest.launch.py
+* ./launch/quadruped_setup.launch.py
+* ./launch/41068_navigation_v2.launch.py</system-out>
+</testsuite>

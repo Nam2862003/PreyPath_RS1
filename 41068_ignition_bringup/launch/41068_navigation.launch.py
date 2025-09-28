@@ -2,7 +2,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
-
+from launch_ros.actions import Node
 
 def generate_launch_description():
 
@@ -18,7 +18,24 @@ def generate_launch_description():
         description='Flag to enable use_sim_time'
     )
 
-    # Start Simultaneous Localisation and Mapping (SLaM)
+    # slam = Node(
+    #     package="slam_toolbox",
+    #     executable="async_slam_toolbox_node",
+    #     name="slam_toolbox",
+    #     output="screen",
+    #     namespace="robot1",   # keep consistent namespace
+    #     parameters=[
+    #         {"use_sim_time": use_sim_time},
+    #         PathJoinSubstitution([config_path, "slam_params.yaml"])
+    #     ],
+    #     remappings=[
+    #         ("/scan", "/robot1/scan"),
+    #         ("/odom", "/robot1/odometry")   # matches EKF output
+    #     ]
+    # )
+
+
+       # Start Simultaneous Localisation and Mapping (SLaM)
     slam = IncludeLaunchDescription(
         PathJoinSubstitution([FindPackageShare('slam_toolbox'),
                              'launch', 'online_async_launch.py']),
@@ -27,7 +44,6 @@ def generate_launch_description():
             'slam_params_file': PathJoinSubstitution([config_path, 'slam_params.yaml'])
         }.items()
     )
-
     # Start Navigation Stack
     navigation = IncludeLaunchDescription(
         PathJoinSubstitution([FindPackageShare('nav2_bringup'), 'launch', 'navigation_launch.py']),

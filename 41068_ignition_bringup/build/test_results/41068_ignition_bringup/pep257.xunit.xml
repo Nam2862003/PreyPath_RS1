@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="41068_ignition_bringup.pep257"
+  tests="7"
+  errors="0"
+  failures="0"
+  time="0.148"
+>
+  <testcase
+    name="./launch/41068_ignition.launch.py"
+    classname="41068_ignition_bringup.pep257"/>
+  <testcase
+    name="./launch/41068_navigation.launch.py"
+    classname="41068_ignition_bringup.pep257"/>
+  <testcase
+    name="./launch/41068_navigation_v2.launch.py"
+    classname="41068_ignition_bringup.pep257"/>
+  <testcase
+    name="./launch/forest_world.launch.py"
+    classname="41068_ignition_bringup.pep257"/>
+  <testcase
+    name="./launch/quadruped_setup.launch.py"
+    classname="41068_ignition_bringup.pep257"/>
+  <testcase
+    name="./launch/quadruped_setupV2.launch.py"
+    classname="41068_ignition_bringup.pep257"/>
+  <testcase
+    name="./launch/spawn_quadruped_forest.launch.py"
+    classname="41068_ignition_bringup.pep257"/>
+  <system-out>Checked files:
+* ./launch/41068_ignition.launch.py
+* ./launch/41068_navigation.launch.py
+* ./launch/41068_navigation_v2.launch.py
+* ./launch/forest_world.launch.py
+* ./launch/quadruped_setup.launch.py
+* ./launch/quadruped_setupV2.launch.py
+* ./launch/spawn_quadruped_forest.launch.py</system-out>
+</testsuite>

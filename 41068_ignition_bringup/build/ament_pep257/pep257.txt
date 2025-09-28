@@ -1,0 +1,15 @@
+-- run_test.py: invoking following command in '/home/student/git/PreyPath_RS1/41068_ignition_bringup':
+ - /opt/ros/humble/bin/ament_pep257 --xunit-file /home/student/git/PreyPath_RS1/41068_ignition_bringup/build/test_results/41068_ignition_bringup/pep257.xunit.xml
+
+checking ./launch/41068_ignition.launch.py
+checking ./launch/41068_navigation.launch.py
+checking ./launch/41068_navigation_v2.launch.py
+checking ./launch/forest_world.launch.py
+checking ./launch/quadruped_setup.launch.py
+checking ./launch/quadruped_setupV2.launch.py
+checking ./launch/spawn_quadruped_forest.launch.py
+No problems found
+
+
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/student/git/PreyPath_RS1/41068_ignition_bringup/build/test_results/41068_ignition_bringup/pep257.xunit.xml'

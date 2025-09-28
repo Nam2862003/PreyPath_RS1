@@ -8,12 +8,13 @@ slam_toolbox:
     ceres_trust_strategy: LEVENBERG_MARQUARDT
     ceres_dogleg_type: TRADITIONAL_DOGLEG
     ceres_loss_function: None
-
+    
     # ROS Parameters
     odom_frame: odom
     map_frame: map
     base_frame: base_link
-    scan_topic: /scan
+    scan_topic: /robot1/scan     # keep or switch to /scan per section B
+    # odom_topic: /robot1/odometry
     use_map_saver: true
     mode: mapping #localization
 
@@ -23,7 +24,7 @@ slam_toolbox:
     #map_file_name: test_steve
     # map_start_pose: [0.0, 0.0, 0.0]
     #map_start_at_dock: true
-
+    
     debug_logging: false
     throttle_scans: 1
     transform_publish_period: 0.02 #if 0 never publishes odometry

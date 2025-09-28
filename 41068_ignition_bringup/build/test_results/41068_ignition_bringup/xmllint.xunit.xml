@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite
+  name="41068_ignition_bringup.xmllint"
+  tests="12"
+  errors="0"
+  failures="1"
+  time="1.042"
+>
+  <testcase
+    name="package.xml"
+    classname="41068_ignition_bringup.xmllint"
+  >
+      <failure message="Diff with 315 lines"><![CDATA[/home/student/git/PreyPath_RS1/41068_ignition_bringup/package.xml:4: element name: Schemas validity error : Element 'name': [facet 'pattern'] The value '41068_ignition_bringup' is not accepted by the pattern '[a-z](_?[a-z0-9]+)*'.
+/home/student/git/PreyPath_RS1/41068_ignition_bringup/package.xml fails to validate
+]]></failure>
+  </testcase>
+  <testcase
+    name="build/Testing/20250925-1031/Test.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/Testing/20250926-0038/Test.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/Testing/20250927-0319/Test.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/test_results/41068_ignition_bringup/copyright.xunit.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/test_results/41068_ignition_bringup/cppcheck.xunit.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/test_results/41068_ignition_bringup/cpplint.xunit.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/test_results/41068_ignition_bringup/flake8.xunit.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/test_results/41068_ignition_bringup/lint_cmake.xunit.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/test_results/41068_ignition_bringup/pep257.xunit.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/test_results/41068_ignition_bringup/uncrustify.xunit.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <testcase
+    name="build/test_results/41068_ignition_bringup/xmllint.xunit.xml"
+    classname="41068_ignition_bringup.xmllint"/>
+  <system-out>Checked files:
+* package.xml
+* build/Testing/20250925-1031/Test.xml
+* build/Testing/20250926-0038/Test.xml
+* build/Testing/20250927-0319/Test.xml
+* build/test_results/41068_ignition_bringup/copyright.xunit.xml
+* build/test_results/41068_ignition_bringup/cppcheck.xunit.xml
+* build/test_results/41068_ignition_bringup/cpplint.xunit.xml
+* build/test_results/41068_ignition_bringup/flake8.xunit.xml
+* build/test_results/41068_ignition_bringup/lint_cmake.xunit.xml
+* build/test_results/41068_ignition_bringup/pep257.xunit.xml
+* build/test_results/41068_ignition_bringup/uncrustify.xunit.xml
+* build/test_results/41068_ignition_bringup/xmllint.xunit.xml</system-out>
+</testsuite>

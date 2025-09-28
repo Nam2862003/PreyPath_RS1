@@ -1,0 +1,34 @@
+-- run_test.py: invoking following command in '/home/student/git/PreyPath_RS1/41068_ignition_bringup':
+ - /opt/ros/humble/bin/ament_xmllint --xunit-file /home/student/git/PreyPath_RS1/41068_ignition_bringup/build/test_results/41068_ignition_bringup/xmllint.xunit.xml
+
+File 'package.xml' is invalid:
+/home/student/git/PreyPath_RS1/41068_ignition_bringup/package.xml:4: element name: Schemas validity error : Element 'name': [facet 'pattern'] The value '41068_ignition_bringup' is not accepted by the pattern '[a-z](_?[a-z0-9]+)*'.
+/home/student/git/PreyPath_RS1/41068_ignition_bringup/package.xml fails to validate
+
+1 files are invalid
+File 'build/Testing/20250925-1031/Test.xml' is valid
+
+File 'build/Testing/20250926-0038/Test.xml' is valid
+
+File 'build/Testing/20250927-0319/Test.xml' is valid
+
+File 'build/test_results/41068_ignition_bringup/copyright.xunit.xml' is valid
+
+File 'build/test_results/41068_ignition_bringup/cppcheck.xunit.xml' is valid
+
+File 'build/test_results/41068_ignition_bringup/cpplint.xunit.xml' is valid
+
+File 'build/test_results/41068_ignition_bringup/flake8.xunit.xml' is valid
+
+File 'build/test_results/41068_ignition_bringup/lint_cmake.xunit.xml' is valid
+
+File 'build/test_results/41068_ignition_bringup/pep257.xunit.xml' is valid
+
+File 'build/test_results/41068_ignition_bringup/uncrustify.xunit.xml' is valid
+
+File 'build/test_results/41068_ignition_bringup/xmllint.xunit.xml' is valid
+
+
+
+-- run_test.py: return code 1
+-- run_test.py: verify result file '/home/student/git/PreyPath_RS1/41068_ignition_bringup/build/test_results/41068_ignition_bringup/xmllint.xunit.xml'

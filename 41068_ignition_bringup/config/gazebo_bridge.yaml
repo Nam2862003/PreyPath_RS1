@@ -68,23 +68,4 @@
   gz_type_name: "ignition.msgs.PointCloudPacked"
   direction: GZ_TO_ROS
 
-  # Quadruped joint states
-- ros_topic_name: '/quadruped/joint_states'
-  gz_topic_name: '/model/quadruped/joint_states'
-  ros_type_name: 'sensor_msgs/msg/JointState'
-  gz_type_name: 'ignition.msgs.Model'
-  direction: GZ_TO_ROS
 
-# Quadruped command interface
-- ros_topic_name: '/quadruped/cmd_vel'
-  gz_topic_name: '/model/quadruped/cmd_vel'
-  ros_type_name: 'geometry_msgs/msg/Twist'
-  gz_type_name: 'ignition.msgs.Twist'
-  direction: ROS_TO_GZ
-
-# Quadruped IMU
-- ros_topic_name: '/quadruped/imu'
-  gz_topic_name: '/model/quadruped/imu'
-  ros_type_name: 'sensor_msgs/msg/Imu'
-  gz_type_name: 'ignition.msgs.IMU'
-  direction: GZ_TO_ROS

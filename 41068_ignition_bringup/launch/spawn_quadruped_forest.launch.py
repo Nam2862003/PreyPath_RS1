@@ -43,7 +43,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             'use_sim_time': LaunchConfiguration('use_sim_time'),
-            'namespace': 'robot1'
+            # 'namespace': 'robot1'
         }.items()
     )
     ld.add_action(quadruped_spawn)

@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /TF1
       Splitter Ratio: 0.5
     Tree Height: 627
   - Class: rviz_common/Selection
@@ -67,68 +68,115 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-      #   base_link:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #     Value: true
-      #   base_scan:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #     Value: true
-      #   camera_depth_frame:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #   camera_depth_optical_frame:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #   camera_link:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #     Value: true
-      #   camera_rgb_frame:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #   camera_rgb_optical_frame:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #   front_left_wheel_link:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #     Value: true
-      #   front_right_wheel_link:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #     Value: true
-      #   imu_link:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #   rear_left_wheel_link:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #     Value: true
-      #   rear_right_wheel_link:
-      #     Alpha: 1
-      #     Show Axes: false
-      #     Show Trail: false
-      #     Value: true
-      # Mass Properties:
-      #   Inertia: false
-      #   Mass: false
-      # Name: RobotModel
-      # TF Prefix: ""
-      # Update Interval: 0
-      # Value: true
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        laser_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        trunk:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+
+        # --- Left Front Leg ---
+        lf_hip_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lf_upper_leg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lf_lower_leg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lf_foot_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+
+        # --- Left Hind Leg ---
+        lh_hip_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lh_upper_leg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lh_lower_leg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lh_foot_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+
+        # --- Right Front Leg ---
+        rf_hip_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rf_upper_leg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rf_lower_leg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rf_foot_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+
+        # --- Right Hind Leg ---
+        rh_hip_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rh_upper_leg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rh_lower_leg_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rh_foot_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+
 
       Mass Properties:
         Inertia: false
@@ -245,7 +293,7 @@ Visualization Manager:
       Max Intensity: 0
       Min Color: 0; 0; 0
       Min Intensity: 0
-      Name: Lidar
+      Name: LaserScan
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
@@ -431,7 +479,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: odom
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
