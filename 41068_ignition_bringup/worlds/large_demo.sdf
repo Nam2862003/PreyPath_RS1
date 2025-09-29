@@ -53,6 +53,7 @@
       <pose>0 0 0 0 0 0</pose>
     </include>
 
+
     <!-- Forest wall -->
     <include>
       <uri>
@@ -131,6 +132,7 @@
       <name>forest_wall11</name>
       <pose>-9.32 12.5 2 1.570796 0 0</pose>
     </include>
+
     <include>
       <uri>
         model://forest_wall
@@ -138,6 +140,43 @@
       <name>forest_wall12</name>
       <pose>+9.32 12.5 2 1.570796 0 0</pose>
     </include>
+
+
+    <!--Custom made models (test part) --> 
+    <include>
+      <uri>
+        model://gun
+      </uri>
+      <name>gun1</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/facugu123/models/Tree</uri>
+      <name>random_tree</name>
+      <pose>1 1 0 0 0 0</pose>
+    </include>
+
+
+    <model name="actor_man_hot">
+      <pose>1 0 0 0 0 0</pose>
+
+      <!-- Bring in the walking person actor -->
+      <include>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Walking%20person</uri>
+        <name>actor_man_hot_inner</name>
+        <!-- Optional: you can set a pose here too, relative to the parent model -->
+        <!-- <pose>0 0 0 0 0 0</pose> -->
+      </include>
+
+      <!-- Assign temperature so a thermal camera can see it -->
+      <plugin
+        filename="gz-sim-thermal-system"
+        name="gz::sim::systems::Thermal">
+        <temperature>310.0</temperature>  <!-- ~37°C -->
+      </plugin>
+    </model>
 
     <!-- Oak trees -->
     <include>
@@ -147,6 +186,7 @@
       <name>oak1</name>
       <pose>-4.77393 12.2995 -0.3 0 -0 0</pose>
     </include>
+
     <include>
       <uri>
         https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree

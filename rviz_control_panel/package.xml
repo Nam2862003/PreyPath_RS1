@@ -1,0 +1,24 @@
+<package format="3">
+  <name>rviz_control_panel</name>
+  <version>0.0.1</version>
+  <description>Minimal RViz2 panel with E-stop and Return-to-Base buttons</description>
+  <maintainer email="you@example.com">You</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>rviz_common</depend>
+  <depend>pluginlib</depend>
+  <depend>std_msgs</depend>
+  <depend>nav2_msgs</depend>
+
+  <!-- RViz on Humble uses Qt5; if you’re on a Qt6 distro, switch to qtbase5-dev/Qt6 accordingly. -->
+  <build_depend>qtbase5-dev</build_depend>
+  <exec_depend>qtbase5-dev</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+    <rviz_common plugin="${prefix}/rviz_plugins.xml"/>
+  </export>
+</package>
