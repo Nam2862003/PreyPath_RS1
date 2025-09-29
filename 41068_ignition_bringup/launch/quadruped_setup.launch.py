@@ -189,26 +189,26 @@ def generate_launch_description():
         output='screen',
         # remappings=remaps_tf
     )
-    # odom = Node(
-    #     package='quadropted_controller',
-    #     executable='QuadrupedOdometryNode.py',
-    #     name='odom',
-    #     namespace=namespace,
-    #     output='screen',
-    #     parameters=[{
-    #             "verbose": False,
-    #             'publish_rate': 50,
-    #             'open_loop': False,
-    #             'has_imu_heading': True,
-    #             'is_gazebo': True,
-    #             'imu_topic': f'/{namespace}/imu_plugin/out',
-    #             'base_frame_id': "base_link",
-    #             'odom_frame_id': "odom",
-    #             'clock_topic': f'/clock',
-    #             'enable_odom_tf': False,
-    #         }],
-    #     # remappings=remaps_tf
-    # )
+    odom = Node(
+        package='quadropted_controller',
+        executable='QuadrupedOdometryNode.py',
+        name='odom',
+        namespace=namespace,
+        output='screen',
+        parameters=[{
+                "verbose": False,
+                'publish_rate': 50,
+                'open_loop': False,
+                'has_imu_heading': True,
+                'is_gazebo': True,
+                'imu_topic': f'/{namespace}/imu',
+                'base_frame_id': "base_link",
+                'odom_frame_id': "odom",
+                'clock_topic': f'/clock',
+                'enable_odom_tf': False,
+            }],
+        # remappings=remaps_tf
+    )
 
     cmd_vel_pub = Node(
         package='quadropted_controller',
@@ -247,7 +247,7 @@ def generate_launch_description():
         joint_group_controller,
         controller,
         cmd_vel_pub,
-        # odom,
+        odom,
         robot_localization_node,
         # fake_bms,
     ])
