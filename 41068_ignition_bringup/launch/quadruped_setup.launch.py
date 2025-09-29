@@ -217,8 +217,23 @@ def generate_launch_description():
         name='cmd_vel_pub',
         output='screen',
         # remappings=remaps_tf
+    #      remappings=[
+    #     ('cmd_vel', '/cmd_vel_nav'),   # <-- key line
+    # ]
+    )
+    relay_nav2_cmd = Node(
+    package="topic_tools",
+    executable="relay",
+    arguments=["/cmd_vel_nav", f"/{namespace}/cmd_vel"],   # Nav2 → robot1/cmd_vel
+    output="screen"
     )
 
+    relay_teleop_cmd = Node(
+        package="topic_tools",
+        executable="relay",
+        arguments=["/cmd_vel", f"/{namespace}/cmd_vel"],       # Teleop → robot1/cmd_vel
+        output="screen"
+    )
     # # Fake battery state
     # fake_bms = ExecuteProcess(
     #     cmd=[
@@ -249,6 +264,8 @@ def generate_launch_description():
         cmd_vel_pub,
         odom,
         robot_localization_node,
+        relay_nav2_cmd,
+        relay_teleop_cmd,
         # fake_bms,
     ])
 
