@@ -143,13 +143,13 @@
 
 
     <!--Custom made models (test part) --> 
-    <include>
+    <!-- <include>
       <uri>
         model://gun
       </uri>
       <name>gun1</name>
       <pose>0 0 0 0 0 0</pose>
-    </include>
+    </include> -->
 
 
     <include>

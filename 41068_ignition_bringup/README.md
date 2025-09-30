@@ -15,7 +15,8 @@ ctrl + alt + l + backspace - disable copilot line completion
 
 # 41068 Ignition Bringup
 
-Bringup for *41068 Robotics Studio I*. Launches a Husky robot in a custom simulation world with trees and grass. We use **ROS2 Humble** and **Ignition Gazebo Fortress**.
+Bringup for *41068 Robotics Studio I*. Launches a Husky robot in a custom simulation world with trees and grass. We use **ROS2 Humble** and **Ignition Gazebo Fortress**.ros2 run 41068_ignition_bringup world_gen.py --size 30 --oaks 12 --pines 10 --rocks 8 --walls
+
 
 Worlds are build from [Gazebo Fuel](https://app.gazebosim.org/fuel/models).
 
