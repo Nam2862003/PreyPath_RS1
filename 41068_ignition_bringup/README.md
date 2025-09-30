@@ -1,18 +1,62 @@
-
-Creation of random map with set parameters
+# World Generation
+## Creation of random map with set parameters
+```bash
 ros2 run 41068_ignition_bringup world_gen.py --size 30 --oaks 12 --pines 10 --rocks 8 --walls
-
-Creation of world from pre-made tiles with forest
+```
+## Creation of world from pre-made tiles with forest
+```bash
 ros2 run 41068_ignition_bringup tile_gen.py --variants 3 --oaks 50 --pines 50 --rocks 5
-
+```
+```bash
 ros2 run 41068_ignition_bringup tile_world_gen.py --size 250 --variants forest_tile_0 forest_tile_1 forest_tile_2
-
-
-
+```
 ctrl + alt + l - enable copilot line completion
 ctrl + alt + l + backspace - disable copilot line completion
 
+# Quadruped Robot Setup and Launch
+## Dependencies
+Check if you have installed these?
+```bash
+ros2 pkg list | grep ros_gz_sim
+ros2 pkg list | grep ros_gz_bridge
+ros2 pkg list | grep ros2_control
+ros2 pkg list | grep joint_state_broadcaster
+ros2 pkg list | grep forward_command_controller
+ros2 pkg list | grep joy
+ros2 pkg list | grep xacro
+```
+If you miss one of them, pls follow:
+```bash
+sudo apt update
+sudo apt install \
+  ros-humble-ros-gz-sim \
+  ros-humble-ros-gz-bridge \
+  ros-humble-gz-ros2-control \
+  ros-humble-ros2-control \
+  ros-humble-ros2-controllers \
+  ros-humble-joint-state-broadcaster \
+  ros-humble-forward-command-controller \
+  ros-humble-joy \
+  ros-humble-xacro
+```
+Install topic_tools
+```bash
+sudo apt update
+sudo apt install ros-<ros2-distro>-topic-tools
+```
+Replace <ros2-distro> with your installed ROS 2 distribution (e.g., humble, jazzy).
 
+## Launch Quadruped Robot
+```bash
+colcon build --symlink-install
+source install/setup.bash
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py slam:=true nav2:=true rviz:=true
+```
+## To use the teleop (keyboard to control)
+```bash
+source install/local_setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/robot1/cmd_vel
+```
 # 41068 Ignition Bringup
 
 Bringup for *41068 Robotics Studio I*. Launches a Husky robot in a custom simulation world with trees and grass. We use **ROS2 Humble** and **Ignition Gazebo Fortress**.ros2 run 41068_ignition_bringup world_gen.py --size 30 --oaks 12 --pines 10 --rocks 8 --walls
