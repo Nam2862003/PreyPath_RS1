@@ -1,9 +1,0 @@
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/uninstall.dir
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/gazebo_sim_uninstall.dir
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/test.dir
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/edit_cache.dir
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/rebuild_cache.dir
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/list_install_components.dir
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/install.dir
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/install/local.dir
-/home/student/go_sim/src/gazebo_sim/build/CMakeFiles/install/strip.dir
