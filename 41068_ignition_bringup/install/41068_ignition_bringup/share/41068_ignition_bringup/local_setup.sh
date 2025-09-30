@@ -1,0 +1,1 @@
+/home/jonathan/git/PreyPath_RS1/41068_ignition_bringup/build/41068_ignition_bringup/ament_cmake_environment_hooks/local_setup.sh

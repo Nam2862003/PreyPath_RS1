@@ -1,0 +1,50 @@
+[0.487s] Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam': /usr/bin/cmake /home/jonathan/git/PreyPath_RS1/sensor/src/preypath_slam -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam
+[0.598s] -- The C compiler identification is GNU 11.4.0
+[0.712s] -- The CXX compiler identification is GNU 11.4.0
+[0.727s] -- Detecting C compiler ABI info
+[0.849s] -- Detecting C compiler ABI info - done
+[0.863s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.863s] -- Detecting C compile features
+[0.864s] -- Detecting C compile features - done
+[0.868s] -- Detecting CXX compiler ABI info
+[0.998s] -- Detecting CXX compiler ABI info - done
+[1.009s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.009s] -- Detecting CXX compile features
+[1.010s] -- Detecting CXX compile features - done
+[1.014s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.223s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.423s] -- Configuring done
+[1.426s] -- Generating done
+[1.427s] [33mCMake Warning:
+[1.427s]   Manually-specified variables were not used by the project:
+[1.427s] 
+[1.427s]     CATKIN_INSTALL_INTO_PREFIX_ROOT
+[1.427s]     CATKIN_SYMLINK_INSTALL
+[1.427s] 
+[1.427s] [0m
+[1.428s] -- Build files have been written to: /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam
+[1.434s] Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam' returned '0': /usr/bin/cmake /home/jonathan/git/PreyPath_RS1/sensor/src/preypath_slam -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam
+[1.437s] Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam': /usr/bin/cmake --build /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam -- -j8 -l8
+[1.487s] Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam' returned '0': /usr/bin/cmake --build /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam -- -j8 -l8
+[1.500s] Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam': /usr/bin/cmake --install /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam
+[1.510s] -- Install configuration: ""
+[1.510s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/launch
+[1.510s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/launch/slam2d_stub.launch.py
+[1.510s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/config
+[1.510s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/config/README.md
+[1.511s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/ament_index/resource_index/package_run_dependencies/preypath_slam
+[1.511s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/ament_index/resource_index/parent_prefix_path/preypath_slam
+[1.511s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/environment/ament_prefix_path.sh
+[1.511s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/environment/ament_prefix_path.dsv
+[1.511s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/environment/path.sh
+[1.512s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/environment/path.dsv
+[1.512s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/local_setup.bash
+[1.512s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/local_setup.sh
+[1.513s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/local_setup.zsh
+[1.513s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/local_setup.dsv
+[1.513s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/package.dsv
+[1.514s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/ament_index/resource_index/packages/preypath_slam
+[1.514s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/cmake/preypath_slamConfig.cmake
+[1.514s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/cmake/preypath_slamConfig-version.cmake
+[1.514s] -- Installing: /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam/share/preypath_slam/package.xml
+[1.518s] Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam' returned '0': /usr/bin/cmake --install /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam

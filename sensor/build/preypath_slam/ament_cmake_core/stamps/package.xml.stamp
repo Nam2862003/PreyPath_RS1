@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>preypath_slam</name>
+  <version>0.0.1</version>
+  <description>SLAM launch/config package for PreyPath</description>
+  <maintainer email="you@example.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- runtime dependencies -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+</package>
+

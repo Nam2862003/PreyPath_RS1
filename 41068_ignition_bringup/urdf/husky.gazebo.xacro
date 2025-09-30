@@ -177,5 +177,6 @@
       <gz_frame_id>camera_link</gz_frame_id>
     </sensor>
   </gazebo>
+  
 
 </robot>

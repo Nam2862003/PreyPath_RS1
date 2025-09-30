@@ -1,0 +1,17 @@
+[0.650s] Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_sensors': PYTHONPATH=/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_sensors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jonathan/git/PreyPath_RS1/sensor/install/preypath_sensors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_sensors/build --no-deps symlink_data
+[0.888s] running develop
+[1.041s] running egg_info
+[1.041s] writing preypath_sensors.egg-info/PKG-INFO
+[1.041s] writing dependency_links to preypath_sensors.egg-info/dependency_links.txt
+[1.042s] writing entry points to preypath_sensors.egg-info/entry_points.txt
+[1.042s] writing requirements to preypath_sensors.egg-info/requires.txt
+[1.042s] writing top-level names to preypath_sensors.egg-info/top_level.txt
+[1.044s] reading manifest file 'preypath_sensors.egg-info/SOURCES.txt'
+[1.044s] writing manifest file 'preypath_sensors.egg-info/SOURCES.txt'
+[1.046s] running build_ext
+[1.046s] Creating /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_sensors/lib/python3.10/site-packages/preypath-sensors.egg-link (link to .)
+[1.047s] Installing heartbeat script to /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_sensors/lib/preypath_sensors
+[1.047s] 
+[1.047s] Installed /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_sensors
+[1.047s] running symlink_data
+[1.098s] Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_sensors' returned '0': PYTHONPATH=/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_sensors/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jonathan/git/PreyPath_RS1/sensor/install/preypath_sensors/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_sensors/build --no-deps symlink_data
