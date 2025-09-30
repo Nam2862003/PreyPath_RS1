@@ -139,6 +139,78 @@
       <pose>+9.32 12.5 2 1.570796 0 0</pose>
     </include>
 
+
+
+    <!-- Walking person actor (visible in RGB, animated) -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Walking%20person</uri>
+      <name>walking_person</name>
+      <pose>1 0 0 0 0 0</pose>
+    </include>
+
+    <!-- Invisible thermal “skin” model (same position) -->
+    <model name="walking_person_heat">
+      <pose>1 0 0 0 0 0</pose>
+      <static>true</static>
+
+      <link name="thermal_body">
+        <visual name="thermal_mesh">
+          <!-- Use a simple capsule (whole body) or swap in a human mesh if you want -->
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>3</length>
+            </cylinder>
+          </geometry>
+
+          <!-- Make it invisible in RGB but present for thermal -->
+          <material>
+            <ambient>0 0 0 0</ambient>
+            <diffuse>0 0 0 0</diffuse>
+            <specular>0 0 0 0</specular>
+            <transparency>1.0</transparency>
+          </material>
+
+          <!-- Thermal plugin attaches heat -->
+          <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
+            <temperature>300</temperature>   <!-- ~37 °C -->
+            <emissivity>0.95</emissivity>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+
+
+
+        <!-- Person B (offset + hotter) -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Walking%20person</uri>
+      <name>walking_person_B</name>
+      <pose>1 3 0 0 0 0</pose>  <!-- moved +2 m in X from A -->
+    </include>
+
+    <model name="walking_person_B_heat">
+      <pose>1 1 0 0 0 0</pose>  <!-- match the actor pose -->
+      <static>true</static>
+      <link name="thermal_body">
+        <visual name="thermal_mesh">
+          <geometry><cylinder><radius>0.3</radius><length>3</length></cylinder></geometry>
+          <material><transparency>1.0</transparency></material>
+          <plugin filename="ignition-gazebo-thermal-system"
+                  name="ignition::gazebo::systems::Thermal">
+            <temperature>340</temperature>   <!-- ~42 °C (different heat) -->
+            <emissivity>0.95</emissivity>
+          </plugin>
+        </visual>
+      </link>
+    </model>
+
+
+
+
+
+
+
     <!-- Oak trees -->
     <include>
       <uri>
@@ -293,6 +365,23 @@
       <name>rock6</name>
       <pose>-14 -12 0 0 0 0</pose>
     </include>
+
+    <atmosphere type="adiabatic">
+      <temperature>100</temperature>
+      <!--
+        This is a more exaggerated temperature gradient, which produces a
+        temperature range of ~11.5 kelvin for objects in the thermal camera
+        view that don't have a user-specified temperature.
+        Typical temperature gradient is -0.0065 K/m which produces a
+        temperature range of 0.75 kelvin.
+      -->
+      <temperature_gradient>0.1</temperature_gradient>
+    </atmosphere>
+
+
+
+
+   
 
   </world>
 </sdf>
