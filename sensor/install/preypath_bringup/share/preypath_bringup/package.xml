@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>preypath_bringup</name>
+  <version>0.0.1</version>
+  <description>Bring-up and orchestration package for PreyPath robot</description>
+  <maintainer email="you@example.com">Your Name</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>preypath_sensors</exec_depend>
+  <exec_depend>preypath_slam</exec_depend>
+</package>
+

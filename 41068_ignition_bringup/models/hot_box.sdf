@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+  <model name="hot_box">
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 0.5 0 0 0</pose>
+      <visual name="vis">
+        <geometry><box><size>0.3 0.3 0.3</size></box></geometry>
+        <material><ambient>1 0 0 1</ambient></material>
+      </visual>
+      <!-- Give it heat that the ThermalSensor system can read -->
+      <plugin
+        filename="ignition-gazebo-thermal-sensor-system"
+        name="ignition::gazebo::systems::ThermalSensor">
+        <temperature>320.0</temperature>   <!-- ~47 °C -->
+      </plugin>
+    </link>
+  </model>
+</sdf>
+

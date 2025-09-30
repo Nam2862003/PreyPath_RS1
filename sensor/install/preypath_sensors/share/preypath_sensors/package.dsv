@@ -1,0 +1,9 @@
+source;share/preypath_sensors/hook/pythonpath.ps1
+source;share/preypath_sensors/hook/pythonpath.dsv
+source;share/preypath_sensors/hook/pythonpath.sh
+source;share/preypath_sensors/hook/ament_prefix_path.ps1
+source;share/preypath_sensors/hook/ament_prefix_path.dsv
+source;share/preypath_sensors/hook/ament_prefix_path.sh
+source;../../build/preypath_sensors/share/preypath_sensors/hook/pythonpath_develop.ps1
+source;../../build/preypath_sensors/share/preypath_sensors/hook/pythonpath_develop.dsv
+source;../../build/preypath_sensors/share/preypath_sensors/hook/pythonpath_develop.sh

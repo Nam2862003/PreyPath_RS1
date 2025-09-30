@@ -181,8 +181,7 @@
   </joint>
   <link name="camera_depth_optical_frame"/>
 
-
-  <link name="thermal_link">
+<link name="thermal_link">
   <visual>
     <geometry>
       <box>

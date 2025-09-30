@@ -1,0 +1,15 @@
+running develop
+running egg_info
+writing preypath_sensors.egg-info/PKG-INFO
+writing dependency_links to preypath_sensors.egg-info/dependency_links.txt
+writing entry points to preypath_sensors.egg-info/entry_points.txt
+writing requirements to preypath_sensors.egg-info/requires.txt
+writing top-level names to preypath_sensors.egg-info/top_level.txt
+reading manifest file 'preypath_sensors.egg-info/SOURCES.txt'
+writing manifest file 'preypath_sensors.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_sensors/lib/python3.10/site-packages/preypath-sensors.egg-link (link to .)
+Installing heartbeat script to /home/jonathan/git/PreyPath_RS1/sensor/install/preypath_sensors/lib/preypath_sensors
+
+Installed /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_sensors
+running symlink_data
