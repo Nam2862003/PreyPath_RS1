@@ -65,12 +65,13 @@ def generate_launch_description():
     )
     ld.add_action(robot_localization_node)
 
+
     # Start Gazebo to simulate the robot in the chosen world
     world_launch_arg = DeclareLaunchArgument(
         'world',
         default_value='simple_trees',
-        description='Which world to load',
-        choices=['simple_trees', 'large_demo']
+        description='Which static world to load',
+        choices=['simple_trees', 'large_demo', 'forest_arena', 'world_gen']   # ← add this
     )
     ld.add_action(world_launch_arg)
     gazebo = IncludeLaunchDescription(
@@ -127,5 +128,16 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('nav2'))
     )
     ld.add_action(nav2)
+
+    # # GUI DEV - Hello World Marker
+    # hello_marker = Node(
+    #     package='41068_ignition_bringup',
+    #     executable='hello_marker.py',
+    #     name='hello_marker',
+    #     output='screen',
+    #     parameters=[{'use_sim_time': use_sim_time}],
+    #     prefix='python3 '
+    # )
+    # ld.add_action(hello_marker)
 
     return ld

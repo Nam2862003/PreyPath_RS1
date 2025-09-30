@@ -1,3 +1,18 @@
+
+Creation of random map with set parameters
+ros2 run 41068_ignition_bringup world_gen.py --size 30 --oaks 12 --pines 10 --rocks 8 --walls
+
+Creation of world from pre-made tiles with forest
+ros2 run 41068_ignition_bringup tile_gen.py --variants 3 --oaks 50 --pines 50 --rocks 5
+
+ros2 run 41068_ignition_bringup tile_world_gen.py --size 250 --variants forest_tile_0 forest_tile_1 forest_tile_2
+
+
+
+ctrl + alt + l - enable copilot line completion
+ctrl + alt + l + backspace - disable copilot line completion
+
+
 # 41068 Ignition Bringup
 
 Bringup for *41068 Robotics Studio I*. Launches a Husky robot in a custom simulation world with trees and grass. We use **ROS2 Humble** and **Ignition Gazebo Fortress**.

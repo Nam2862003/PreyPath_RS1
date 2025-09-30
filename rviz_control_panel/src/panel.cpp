@@ -1,158 +1,262 @@
 #include "panel.hpp"
+#include <pluginlib/class_list_macros.hpp>
+#include <cmath>
 
 namespace rviz_control_panel
 {
-
   ControlPanel::ControlPanel(QWidget *parent)
       : rviz_common::Panel(parent)
   {
-    // Give the panel a unique object name for scoping
+    // Scope styles to this panel only
     this->setObjectName("ControlPanelRoot");
 
-    // Build layout
-    auto *vbox = new QVBoxLayout(this);
+    auto *vbox_total = new QVBoxLayout(this);
 
-    auto *hbox = new QHBoxLayout();
-    auto *status_label = new QLabel("Status: ");
-    status_label->setObjectName("StatusLabel");
-
-    status_ = new QLabel("-");
-    status_->setMinimumWidth(150);
-
-    hbox->addWidget(status_label);
-    hbox->addWidget(status_);
-    hbox->addStretch(1);
-    vbox->addLayout(hbox);
-
-    // Buttons
-    btn_estop_ = new QPushButton("E-STOP");
-    btn_estop_->setObjectName("Estop"); // special styling
-    btn_estop_->setMinimumHeight(100);
-    btn_estop_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    btn_rtb_ = new QPushButton("Return to Base");
-    btn_rtb_->setMinimumHeight(50);
-
-    vbox->addSpacing(20);
-    vbox->addWidget(btn_estop_);
-    vbox->addSpacing(5);
-    vbox->addWidget(btn_rtb_);
-    vbox->addSpacing(20);
-
-    // Manual control checkbox
-    cb_manual_control_ = new QCheckBox("Enable Manual Control");
-    cb_manual_control_->setChecked(false);
-    vbox->addWidget(cb_manual_control_);
-    vbox->addSpacing(20);
-
-    // Manual control grid
-    manual_control_group_ = new QWidget(this);
-    auto *grid = new QGridLayout(manual_control_group_);
-    btn_forward_ = new QPushButton("↑");
-    btn_backward_ = new QPushButton("↓");
-    btn_left_ = new QPushButton("←");
-    btn_right_ = new QPushButton("→");
-    btn_stop_ = new QPushButton("■");
-    btn_f_left_ = new QPushButton("↖");
-    btn_f_right_ = new QPushButton("↗");
-    btn_b_left_ = new QPushButton("↙");
-    btn_b_right_ = new QPushButton("↘");
-
-    for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_,
-                     btn_stop_, btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
+    // ---- Status reports ----
     {
-      btn->setMinimumHeight(50);
-      btn->setMinimumWidth(50);
-      btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-      btn->setEnabled(false);
+      auto *grid = new QGridLayout();
+      // auto *hbox = new QHBoxLayout();
+      auto *status_label = new QLabel("Status: ");
+      status_label->setObjectName("StatusLabel");
+      status_ = new QLabel("-");
+      status_->setMinimumWidth(200);
+
+      auto *comms_label = new QLabel("Comms: ");
+      comms_label->setObjectName("StatusLabel");
+      comms_ = new QLabel("Simulation started.");
+      comms_->setMinimumWidth(200);
+
+      auto *detection_label = new QLabel("Detection: ");
+      detection_label->setObjectName("StatusLabel");
+      detection_ = new QLabel("No people detected.");
+      detection_->setMinimumWidth(200);
+
+      grid->addWidget(status_label, 0, 0);
+      grid->addWidget(status_, 0, 1);
+      grid->addWidget(comms_label, 1, 0);
+      grid->addWidget(comms_, 1, 1);
+      grid->addWidget(detection_label, 2, 0);
+      grid->addWidget(detection_, 2, 1);
+
+      grid->setColumnStretch(1, 1); // stretch second column
+
+      auto *group = new QGroupBox("Status reports"); // title on the frame
+      group->setLayout(grid);
+      vbox_total->addWidget(group);
+      vbox_total->addSpacing(10);
     }
-    manual_control_group_->setVisible(false);
 
-    grid->addWidget(btn_forward_, 0, 1);
-    grid->addWidget(btn_left_, 1, 0);
-    grid->addWidget(btn_stop_, 1, 1);
-    grid->addWidget(btn_right_, 1, 2);
-    grid->addWidget(btn_backward_, 2, 1);
-    grid->addWidget(btn_f_left_, 0, 0);
-    grid->addWidget(btn_f_right_, 0, 2);
-    grid->addWidget(btn_b_left_, 2, 0);
-    grid->addWidget(btn_b_right_, 2, 2);
+    // ---- Patrol settings ----
+    {
 
-    vbox->addWidget(manual_control_group_);
-    vbox->addStretch(1);
+      auto *vbox = new QVBoxLayout();
+      auto *title = new QLabel("Send for patrol to X,Y in map frame (meters):");
+      vbox->addWidget(title);
 
-    setLayout(vbox);
+      auto *hbox_patrol = new QHBoxLayout();
 
-    // Connectors
-    connect(btn_estop_, &QPushButton::clicked, this, &ControlPanel::onEstopClicked);
-    connect(btn_rtb_, &QPushButton::clicked, this, &ControlPanel::onReturnBaseClicked);
-    connect(cb_manual_control_, &QCheckBox::toggled, this, &ControlPanel::onManualControlToggled);
+      // numeric validator (allows “-” and “.”, no sci notation)
+      num_validator_ = new QDoubleValidator(this);
+      num_validator_->setNotation(QDoubleValidator::StandardNotation);
 
-    // --- Scoped stylesheet applied to this panel only ---
+      auto *grid = new QGridLayout();
+      auto *lbl_x = new QLabel("X:");
+      auto *lbl_y = new QLabel("Y:");
+      auto *lbl_r = new QLabel("R:");
+      lbl_x->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+      lbl_y->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+      lbl_r->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+      edit_x_ = new QLineEdit();
+      edit_y_ = new QLineEdit();
+      edit_r_ = new QLineEdit();
+      edit_x_->setPlaceholderText("global coordiantes");
+      edit_y_->setPlaceholderText("global coordiantes");
+      edit_r_->setPlaceholderText("patrol radius");
+      edit_x_->setValidator(num_validator_);
+      edit_y_->setValidator(num_validator_);
+      edit_r_->setValidator(num_validator_);
+      edit_x_->setMinimumWidth(150);
+      edit_y_->setMinimumWidth(150);
+      edit_r_->setMinimumWidth(150);
+
+      grid->addWidget(lbl_x, 0, 0);
+      grid->addWidget(edit_x_, 0, 1);
+      grid->addWidget(lbl_y, 1, 0);
+      grid->addWidget(edit_y_, 1, 1);
+      grid->addWidget(lbl_r, 2, 0);
+      grid->addWidget(edit_r_, 2, 1);
+
+      hbox_patrol->addLayout(grid);
+      hbox_patrol->addSpacing(10);
+
+      btn_inspect_exec_ = new QPushButton("Execute");
+      btn_inspect_exec_->setMinimumHeight(40);
+      btn_inspect_exec_->setMinimumWidth(120);
+      btn_inspect_exec_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+      vbox->addSpacing(10);
+      // hbox_patrol->addWidget(btn_inspect_exec_, /*stretch*/ 0, Qt::AlignHCenter);
+      hbox_patrol->addWidget(btn_inspect_exec_);
+
+      vbox->addLayout(hbox_patrol);
+
+      // UX: pressing Enter in either box triggers execute
+      connect(edit_x_, &QLineEdit::returnPressed, this, &ControlPanel::onInspectExecute);
+      connect(edit_y_, &QLineEdit::returnPressed, this, &ControlPanel::onInspectExecute);
+      connect(btn_inspect_exec_, &QPushButton::clicked, this, &ControlPanel::onInspectExecute);
+
+      auto *group = new QGroupBox("Patrol Settings"); // title on the frame
+      group->setLayout(vbox);
+      vbox_total->addWidget(group);
+      vbox_total->addSpacing(10);
+    }
+
+    // ---- Override ----
+
+    {
+
+      auto *vbox = new QVBoxLayout();
+
+      auto *hbox = new QHBoxLayout();
+      btn_estop_ = new QPushButton("E-STOP");
+      btn_estop_->setObjectName("Estop");
+      btn_estop_->setMinimumHeight(80);
+      btn_estop_->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+
+      btn_rtb_ = new QPushButton("Return to Base");
+      // btn_rtb_->setMinimumHeight(50);
+      btn_rtb_->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+
+      hbox->addWidget(btn_rtb_);
+      hbox->addSpacing(10);
+      hbox->addWidget(btn_estop_);
+      vbox->addLayout(hbox);
+      vbox->addSpacing(20);
+
+      // ---- Manual control block (unchanged) ----
+      cb_manual_control_ = new QCheckBox("Enable Manual Control");
+      cb_manual_control_->setChecked(false);
+      vbox->addWidget(cb_manual_control_);
+
+      manual_control_group_ = new QWidget(this);
+      auto *mgrid = new QGridLayout(manual_control_group_);
+      btn_forward_ = new QPushButton("↑");
+      btn_backward_ = new QPushButton("↓");
+      btn_left_ = new QPushButton("←");
+      btn_right_ = new QPushButton("→");
+      btn_stop_ = new QPushButton("■");
+      btn_f_left_ = new QPushButton("↖");
+      btn_f_right_ = new QPushButton("↗");
+      btn_b_left_ = new QPushButton("↙");
+      btn_b_right_ = new QPushButton("↘");
+      for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_, btn_stop_,
+                       btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
+      {
+        btn->setMinimumHeight(50);
+        btn->setMinimumWidth(50);
+        btn->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        btn->setEnabled(false);
+      }
+
+      mgrid->addWidget(btn_forward_, 0, 1);
+      mgrid->addWidget(btn_left_, 1, 0);
+      mgrid->addWidget(btn_stop_, 1, 1);
+      mgrid->addWidget(btn_right_, 1, 2);
+      mgrid->addWidget(btn_backward_, 2, 1);
+      mgrid->addWidget(btn_f_left_, 0, 0);
+      mgrid->addWidget(btn_f_right_, 0, 2);
+      mgrid->addWidget(btn_b_left_, 2, 0);
+      mgrid->addWidget(btn_b_right_, 2, 2);
+
+      mgrid->setContentsMargins(0, 0, 0, 0);
+      mgrid->setHorizontalSpacing(2); // or 0 if you want them touching
+      mgrid->setVerticalSpacing(2);
+      mgrid->setSizeConstraint(QLayout::SetFixedSize);
+
+      manual_control_group_->setVisible(false);
+      manual_control_group_->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+
+      vbox->addWidget(manual_control_group_, /*stretch*/ 0, Qt::AlignHCenter);
+      vbox->addStretch(1);
+      setLayout(vbox);
+
+      auto *group = new QGroupBox("User override"); // title on the frame
+      group->setLayout(vbox);
+
+      vbox_total->addWidget(group);
+      vbox_total->addSpacing(10);
+
+      // --- Signals ---
+      connect(btn_estop_, &QPushButton::clicked, this, &ControlPanel::onEstopClicked);
+      connect(btn_rtb_, &QPushButton::clicked, this, &ControlPanel::onReturnBaseClicked);
+      connect(cb_manual_control_, &QCheckBox::toggled, this, &ControlPanel::onManualControlToggled);
+    }
+
+    // --- Styles (add inputs + keep your existing look) ---
     this->setStyleSheet(R"(
-    #ControlPanelRoot QPushButton {
-        background-color: #3a86ff;
-        color: white;
-        font-size: 16px;          /* 32 → 16 */
-        font-weight: 600;
-        border-radius: 6px;       /* 12 → 6 */
-        padding: 4px;             /* 8 → 4 */
-    }
-    #ControlPanelRoot QPushButton:hover {
-        background-color: #2e6dcc;
-    }
-    #ControlPanelRoot QPushButton:disabled {
-        background-color:rgb(136, 174, 231);
-    }
-    #ControlPanelRoot QPushButton:pressed {
-        background-color: #244f99;
-    }
-    #ControlPanelRoot QPushButton#Estop {
-        background-color: #d00000;
-    }
-    #ControlPanelRoot QPushButton#Estop:hover {
-        background-color: #a60000;
-    }
+#ControlPanelRoot QPushButton {
+  background-color: #3a86ff;
+  color: white;
+  font-size: 16px;          /* 32 → 16 */
+  font-weight: 600;
+  border-radius: 6px;       /* 12 → 6 */
+  padding: 4px;             /* 8 → 4 */
+}
+#ControlPanelRoot QPushButton:hover { background-color: #2e6dcc; }
+#ControlPanelRoot QPushButton:disabled { background-color: rgb(136,174,231); }
+#ControlPanelRoot QPushButton:pressed { background-color: #244f99; }
+#ControlPanelRoot QPushButton#Estop { background-color: #d00000; }
+#ControlPanelRoot QPushButton#Estop:hover { background-color: #a60000; }
 
-    #ControlPanelRoot QCheckBox {
-        font-size: 20px;          /* 40 → 20 */
-        font-weight: bold;
-    }
-    #ControlPanelRoot QCheckBox::indicator {
-        width: 14px;              /* 28 → 14 */
-        height: 14px;             /* 28 → 14 */
-        border-radius: 3px;       /* 6 → 3 */
-        border: 1px solid gray;   /* 2 → 1 */
-        background: white;
-    }
-    #ControlPanelRoot QCheckBox::indicator:checked {
-        background-color: #3a86ff;
-        border-color: #3a86ff;
-    }
+#ControlPanelRoot QLineEdit {
+  font-size: 14px;          /* 28 → 14 */
+  padding: 4px 6px;         /* 8x12 → 4x6 */
+  border: 1px solid #222;   /* 2 → 1 */
+  border-radius: 5px;       /* 10 → 5 */
+  min-height: 22px;         /* 44 → 22 */
+}
+#ControlPanelRoot QLabel {
+  color: black;
+  font-size: 14px;          /* 28 → 14 */
+}
+#ControlPanelRoot QLabel#StatusLabel { font-weight: 700; }
+#ControlPanelRoot QCheckBox {
+  font-size: 20px;          /* 40 → 20 */
+  font-weight: bold;
+}
+#ControlPanelRoot QCheckBox::indicator {
+  width: 14px;              /* 28 → 14 */
+  height: 14px;             /* 28 → 14 */
+  border-radius: 3px;       /* 6 → 3 */
+  border: 1px solid gray;   /* 2 → 1 */
+  background: white;
+}
+#ControlPanelRoot QCheckBox::indicator:checked {
+  background-color: #3a86ff;
+  border-color: #3a86ff;
+}
 
-    #ControlPanelRoot QLabel {
-        color:rgb(0, 0, 0);
-        font-size: 14px;          /* 28 → 14 */
-    }
-    #ControlPanelRoot QLabel#StatusLabel {
-        font-weight: 700;
-    }
+#ControlPanelRoot QGroupBox {
+  font-size: 14px;          /* 32 → 16 */
+  font-weight: bold;
+  border: 2px solid gray;   /* 4 → 2 */
+  border-radius: 6px;       /* 12 → 6 */
+  margin-top: 10px;
+}
 )");
   }
 
   void ControlPanel::onInitialize()
   {
-    // Get RViz’s shared rclcpp::Node
-    auto ros_node_abstraction = getDisplayContext()->getRosNodeAbstraction().lock();
-    auto raw_node = ros_node_abstraction->get_raw_node();
+    // Use RViz's shared node so we don't spin our own
+    auto node_abs = getDisplayContext()->getRosNodeAbstraction().lock();
+    auto node = node_abs->get_raw_node();
 
-    // Publisher for E-stop
-    estop_pub_ = raw_node->create_publisher<std_msgs::msg::Bool>("/estop", 10);
-
-    // Nav2 NavigateToPose action client
-    nav_client_ = rclcpp_action::create_client<NavigateToPose>(raw_node, "navigate_to_pose");
+    estop_pub_ = node->create_publisher<std_msgs::msg::Bool>("/estop", 10);
+    nav_client_ = rclcpp_action::create_client<NavigateToPose>(node, "navigate_to_pose");
   }
 
+  // --- E-Stop: publish Bool(true) ---
   void ControlPanel::onEstopClicked()
   {
     if (!estop_pub_)
@@ -160,58 +264,98 @@ namespace rviz_control_panel
     std_msgs::msg::Bool msg;
     msg.data = true;
     estop_pub_->publish(msg);
-    status_->setText("E-stop sent");
+    comms_->setText("E-stop sent");
   }
 
+  // --- Return-to-Base: sends stored home_x_, home_y_, home_yaw_deg_ ---
   void ControlPanel::onReturnBaseClicked()
   {
-    if (!nav_client_)
-      return;
-
-    if (!nav_client_->wait_for_action_server(std::chrono::milliseconds(50)))
+    if (!nav_client_ || !nav_client_->wait_for_action_server(std::chrono::milliseconds(50)))
     {
-      status_->setText("Status: Nav2 action server not ready");
+      comms_->setText("Nav2 action server not ready");
       return;
     }
 
     NavigateToPose::Goal goal;
     goal.pose.header.frame_id = "map";
-    goal.pose.header.stamp = getDisplayContext()->getRosNodeAbstraction().lock()->get_raw_node()->get_clock()->now();
+    goal.pose.header.stamp =
+        getDisplayContext()->getRosNodeAbstraction().lock()->get_raw_node()->get_clock()->now();
     goal.pose.pose.position.x = home_x_;
     goal.pose.pose.position.y = home_y_;
-    // yaw->quat (Z-only)
-    double yaw_rad = home_yaw_deg_ * M_PI / 180.0;
-    goal.pose.pose.orientation.z = std::sin(yaw_rad * 0.5);
-    goal.pose.pose.orientation.w = std::cos(yaw_rad * 0.5);
+    double yaw = home_yaw_deg_ * M_PI / 180.0;
+    goal.pose.pose.orientation.z = std::sin(yaw * 0.5);
+    goal.pose.pose.orientation.w = std::cos(yaw * 0.5);
 
-    auto send_goal_options = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
-    send_goal_options.result_callback = [this](auto)
+    auto opts = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
+    opts.result_callback = [this](auto)
     {
-      QMetaObject::invokeMethod(status_, [this]()
-                                { status_->setText("RTB goal reached"); });
+      QMetaObject::invokeMethod(comms_, [this]
+                                { comms_->setText("RTB goal reached"); });
     };
-    nav_client_->async_send_goal(goal, send_goal_options);
-
-    status_->setText("RTB goal sent");
+    nav_client_->async_send_goal(goal, opts);
+    comms_->setText("RTB goal sent");
   }
 
+  // --- Manual control toggle (unchanged) ---
   void ControlPanel::onManualControlToggled(bool enabled)
   {
-    for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_, btn_stop_, btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
-    {
+    for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_,
+                     btn_stop_, btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
       btn->setEnabled(enabled);
-    }
 
     manual_control_group_->setVisible(enabled);
 
-    if (!estop_pub_)
-      return;
-    std_msgs::msg::Bool msg;
-    msg.data = true;
-    estop_pub_->publish(msg);
-    status_->setText("Manual control activated");
+    if (estop_pub_)
+    {
+      std_msgs::msg::Bool msg;
+      msg.data = true;
+      estop_pub_->publish(msg);
+    }
+    comms_->setText("Manual control " + QString(enabled ? "activated" : "disabled"));
+  }
 
-    // TODO: Notify ROS about manual control, e.g. send cmd vel to stop autonomous navigation
+  // --- New: Send Nav2 goal to (x,y) from the input boxes ---
+  void ControlPanel::onInspectExecute()
+  {
+    if (!nav_client_)
+    {
+      comms_->setText("Nav2 client not initialized");
+      return;
+    }
+    if (!nav_client_->wait_for_action_server(std::chrono::milliseconds(100)))
+    {
+      comms_->setText("Nav2 action server not ready");
+      return;
+    }
+
+    bool okx = false, oky = false;
+    const double x = edit_x_->text().toDouble(&okx);
+    const double y = edit_y_->text().toDouble(&oky);
+    if (!okx || !oky)
+    {
+      comms_->setText("Enter valid X/Y (meters in map)");
+      return;
+    }
+
+    NavigateToPose::Goal goal;
+    goal.pose.header.frame_id = "map"; // Assumes inputs are in map frame
+    goal.pose.header.stamp =
+        getDisplayContext()->getRosNodeAbstraction().lock()->get_raw_node()->get_clock()->now();
+    goal.pose.pose.position.x = x;
+    goal.pose.pose.position.y = y;
+    // Face forward (yaw=0). You can add a third input later if you want yaw.
+    goal.pose.pose.orientation.z = 0.0;
+    goal.pose.pose.orientation.w = 1.0;
+
+    auto opts = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
+    opts.result_callback = [this](auto)
+    {
+      QMetaObject::invokeMethod(comms_, [this]
+                                { comms_->setText("Inspect goal reached"); });
+    };
+    nav_client_->async_send_goal(goal, opts);
+
+    comms_->setText(QString("Navigating to (%1, %2)").arg(x, 0, 'f', 2).arg(y, 0, 'f', 2));
   }
 
   void ControlPanel::save(rviz_common::Config config) const
@@ -220,6 +364,10 @@ namespace rviz_control_panel
     config.mapSetValue("home_x", home_x_);
     config.mapSetValue("home_y", home_y_);
     config.mapSetValue("home_yaw_deg", home_yaw_deg_);
+
+    // Persist last typed inspect coordinates for convenience
+    config.mapSetValue("inspect_x", edit_x_ ? edit_x_->text() : "");
+    config.mapSetValue("inspect_y", edit_y_ ? edit_y_->text() : "");
   }
 
   void ControlPanel::load(const rviz_common::Config &config)
@@ -232,8 +380,13 @@ namespace rviz_control_panel
       home_y_ = v;
     if (config.mapGetFloat("home_yaw_deg", &v))
       home_yaw_deg_ = v;
-  }
 
+    QString sx, sy;
+    if (config.mapGetString("inspect_x", &sx) && edit_x_)
+      edit_x_->setText(sx);
+    if (config.mapGetString("inspect_y", &sy) && edit_y_)
+      edit_y_->setText(sy);
+  }
 } // namespace rviz_control_panel
 
 PLUGINLIB_EXPORT_CLASS(rviz_control_panel::ControlPanel, rviz_common::Panel)

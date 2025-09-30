@@ -4,6 +4,11 @@
   ros_type_name: 'rosgraph_msgs/msg/Clock'
   gz_type_name: 'gz.msgs.Clock'
   direction: GZ_TO_ROS
+  qos:
+    reliability: best_effort
+    durability: volatile
+    history: keep_last
+    depth: 1
 
 # Position of joints [ie. wheels] (published by ignition::gazebo::systems::JointStatePublisher)
 - ros_topic_name: '/joint_states'
