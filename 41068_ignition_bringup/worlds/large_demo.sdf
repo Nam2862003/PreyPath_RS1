@@ -142,32 +142,11 @@
     </include>
 
 
-<<<<<<< HEAD
-    <!--Custom made models (test part) --> 
-    <!-- <include>
-      <uri>
-        model://gun
-      </uri>
-      <name>gun1</name>
-      <pose>0 0 0 0 0 0</pose>
-    </include> -->
-
-
-    <include>
-      <uri>https://fuel.gazebosim.org/1.0/facugu123/models/Tree</uri>
-      <name>random_tree</name>
-      <pose>1 1 0 0 0 0</pose>
-    </include>
-
-
-    <model name="actor_man_hot">
-=======
 
     <!-- Walking person actor (visible in RGB, animated) -->
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Walking%20person</uri>
       <name>walking_person</name>
->>>>>>> a2dbce9c518f6693f61e5a690b228795d22ccb62
       <pose>1 0 0 0 0 0</pose>
     </include>
 
