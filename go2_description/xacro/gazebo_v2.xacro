@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+  <xacro:macro name="robot_gazebo_sensors" params="robot_name">
+
+    <!-- ROS2 Control -->
+    <gazebo>
+      <plugin name="gz_ros2_control::GazeboSimROS2ControlPlugin" filename="libgz_ros2_control-system.so">
+        <ros>
+          <namespace>/${robot_name}</namespace>
+        </ros>
+        <parameters>$(find go2_description)/config/ros_control.yaml</parameters>
+      </plugin>
+    </gazebo>
+
+    <ros2_control name="${robot_name}_GazeboSystem" type="system">
+      <hardware>
+        <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+      </hardware>
+      <!-- joints definitions -->
+      <joint name="lf_hip_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="lf_upper_leg_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="lf_lower_leg_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="rf_hip_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="rf_upper_leg_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="rf_lower_leg_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="lh_hip_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="lh_upper_leg_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="lh_lower_leg_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="rh_hip_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="rh_upper_leg_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+      <joint name="rh_lower_leg_joint">
+        <command_interface name="position"/>
+        <state_interface name="position"/>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+    </ros2_control>
+
+    <!-- IMU -->
+    <gazebo reference="imu_link">
+      <sensor name="imu_sensor" type="imu">
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <visualize>false</visualize>
+        <topic>model/${robot_name}/imu</topic>
+        <plugin filename="libgz-sim-imu-system.so" name="gz::sim::systems::Imu"/>
+        <pose>0 0 0 0 0 0</pose>
+        <gz_frame_id>imu_link</gz_frame_id>
+      </sensor>
+    </gazebo>
+
+    <!-- LIDAR -->
+<gazebo>
+  <plugin filename="libignition-gazebo-sensors-system.so"
+          name="ignition::gazebo::systems::Sensors"/>
+</gazebo>
+
+<gazebo reference="laser_frame">
+  <sensor name="laser" type="gpu_lidar">
+    <pose>0 0 0 0 0 0</pose>
+    <visualize>false</visualize>
+    <update_rate>10</update_rate>
+    <always_on>true</always_on>
+    <topic>/model/${robot_name}/scan</topic>
+    <gz_frame_id>laser_frame</gz_frame_id>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>360</samples>
+          <resolution>1</resolution>
+          <min_angle>-3.14</min_angle>
+          <max_angle>3.14</max_angle>
+        </horizontal>
+      </scan>
+      <range>
+        <min>0.05</min>
+        <max>24</max>
+        <resolution>0.01</resolution>
+      </range>
+      <noise>
+        <type>gaussian</type>
+        <mean>0.0</mean>
+        <stddev>0.01</stddev>
+      </noise>
+    </ray>
+  </sensor>
+</gazebo>
+
+
+    <!-- CAMERA -->
+    <!-- RGB camera sensor -->
+<gazebo reference="camera_link">
+  <sensor name="rgbd_camera" type="rgbd_camera">
+    <camera>
+      <horizontal_fov>1.5</horizontal_fov> <!-- can adjust -->
+      <image>
+        <width>640</width>
+        <height>480</height>
+        <format>R8G8B8</format>
+      </image>
+      <clip>
+        <near>0.05</near>
+        <far>10</far>
+      </clip>
+      <depth_camera>
+        <clip>
+          <near>0.05</near>
+          <far>10</far>
+        </clip>
+      </depth_camera>
+    </camera>
+    <always_on>1</always_on>
+    <update_rate>10</update_rate>
+    <visualize>true</visualize>
+    <topic>/model/${robot_name}/camera</topic>
+    <gz_frame_id>camera_link</gz_frame_id>
+  </sensor>
+</gazebo>
+
+
+
+    <!-- ✅ ODOMETRY
+    <gazebo>
+      <plugin filename="ignition-gazebo-odometry-publisher-system"
+              name="ignition::gazebo::systems::OdometryPublisher">
+        <topic>model/${robot_name}/odometry</topic>
+        <odom_publish_frequency>20</odom_publish_frequency>
+        <odom_frame>odom</odom_frame>
+        <robot_base_frame>base_link</robot_base_frame>
+      </plugin>
+    </gazebo> -->
+
+    <!-- ✅ CMD_VEL VELOCITY CONTROL -->
+    <!-- <gazebo>
+      <plugin
+        filename="ignition-gazebo-velocity-control-system"
+        name="ignition::gazebo::systems::VelocityControl">
+        <topic>model/${robot_name}/cmd_vel</topic>
+      </plugin>
+    </gazebo> -->
+
+    <!-- TRUNK friction -->
+    <gazebo reference="trunk">
+      <mu1>0.2</mu1>
+      <mu2>0.2</mu2>
+      <kp>10000.0</kp>
+      <kd>1.0</kd>
+    </gazebo>
+
+    <!-- <gazebo reference="stick_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo> -->
+
+        <!-- <gazebo reference="imu_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo> -->
+
+        <!-- FL leg -->
+        <gazebo reference="lf_hip_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+
+        </gazebo>
+        <gazebo reference="lf_upper_leg_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <self_collide>1</self_collide>
+            <kp>10000.0</kp>
+            <kd>1.0</kd>
+        </gazebo>
+        <gazebo reference="lf_lower_leg_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <self_collide>1</self_collide>
+        </gazebo>
+        <gazebo reference="lf_foot_link">
+            <mu1>0.6</mu1>
+            <mu2>0.6</mu2>
+            <self_collide>1</self_collide>
+            <kp>10000.0</kp>
+            <kd>1.0</kd>
+        </gazebo>
+
+        <!-- FR leg -->
+        <gazebo reference="rf_hip">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+        <gazebo reference="rf_upper_leg_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <self_collide>1</self_collide>
+            <kp>10000.0</kp>
+            <kd>1.0</kd>
+        </gazebo>
+        <gazebo reference="rf_lower_leg_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <self_collide>1</self_collide>
+        </gazebo>
+        <gazebo reference="rf_foot_link">
+            <mu1>0.6</mu1>
+            <mu2>0.6</mu2>
+            <self_collide>1</self_collide>
+            <kp>10000.0</kp>
+            <kd>1.0</kd>
+        </gazebo>
+
+        <!-- RL leg -->
+        <gazebo reference="lh_hip">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+        <gazebo reference="lh_upper_leg_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <self_collide>1</self_collide>
+            <kp>10000.0</kp>
+            <kd>1.0</kd>
+        </gazebo>
+        <gazebo reference="lh_lower_leg_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <self_collide>1</self_collide>
+        </gazebo>
+        <gazebo reference="lh_foot_link">
+            <mu1>0.6</mu1>
+            <mu2>0.6</mu2>
+            <self_collide>1</self_collide>
+            <kp>10000.0</kp>
+            <kd>1.0</kd>
+        </gazebo>
+
+        <!-- RR leg -->
+        <gazebo reference="rh_hip">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+        </gazebo>
+        <gazebo reference="rh_upper_leg_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <self_collide>1</self_collide>
+            <kp>10000.0</kp>
+            <kd>1.0</kd>
+        </gazebo>
+        <gazebo reference="rh_lower_leg_link">
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <self_collide>1</self_collide>
+        </gazebo>
+        <gazebo reference="rh_foot_link">
+            <mu1>0.6</mu1>
+            <mu2>0.6</mu2>
+            <self_collide>1</self_collide>
+            <kp>10000.0</kp>
+            <kd>1.0</kd>
+        </gazebo>
+
+  </xacro:macro>
+</robot>

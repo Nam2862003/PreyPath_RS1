@@ -110,6 +110,52 @@ If you get an error like:
 
 I found [this thread](https://robotics.stackexchange.com/questions/111547/gazebo-crashes-immediately-segmentation-fault-address-not-mapped-to-object-0) which suggests to set a bash variable before launching Gazebo:
 
+
+## Quaruped Robot
+Currently, in this project, 4 packages need to be integrated into 41068_ws/src including 41068_ignition_bringup, robot_control, robot_description, UI. A new launch python file is created to launch the quadruped robot + controller with forest sim
+### First step: Install some neccessary stuffs support for the quadruped robot in ros2 Humble
+
+sudo apt update
+sudo apt install \
+  ros-humble-ros-gz-sim \
+  ros-humble-ros-gz-bridge \
+  ros-humble-gz-ros2-control \
+  ros-humble-ros2-control \
+  ros-humble-ros2-controllers \
+  ros-humble-joint-state-broadcaster \
+  ros-humble-forward-command-controller \
+  ros-humble-joy \
+  ros-humble-xacro
+
+  pip3 install --user tf-transformations transforms3d
+
+### Second Step: Launch robot model and its controller (I have not installed the rviz yet)
+
+cd git/PreyPath_RS1/41068_ws/src
+source /opt/ros/humble/setup.bash
+cd ..
+colcon build --symlink-install
+source install/setup.bash
+
+#### To Launch the robot with simple world
+ros2 launch 41068_ignition_bringup 41068_quadruped.launch.py
+
+#### With Newest version of quadruped
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py
+#### TO Launch the robot with large world 
+ros2 launch 41068_ignition_bringup 41068_quadruped.launch.py world:=large_demo
+
+### Thrid Step: Launch GUI (In new terminal) (I would like to import this GUI into the rviz, right now it work seperately)
+
+cd src/UI
+python3 controller.py
+
+
+
+#### With Newest version of quadruped
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py world:=large_demo
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py slam:=true nav2:=true rviz:=true
 ```bash
 export QT_QPA_PLATFORM=xcb
 ```
