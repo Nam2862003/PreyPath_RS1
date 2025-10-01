@@ -22,7 +22,7 @@ def generate_launch_description():
     rviz = LaunchConfiguration('rviz')
     nav2 = LaunchConfiguration('nav2')
     ld.add_action(DeclareLaunchArgument('rviz', default_value='false', description='Launch RViz'))
-    ld.add_action(DeclareLaunchArgument('nav2', default_value='false', description='Launch Nav2'))
+    ld.add_action(DeclareLaunchArgument('nav2', default_value='true', description='Launch Nav2'))
     # Package paths
     ignition_pkg = get_package_share_directory('41068_ignition_bringup')
     # 1. Forest world

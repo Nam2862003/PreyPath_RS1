@@ -98,7 +98,7 @@
         <always_on>true</always_on>
         <update_rate>100</update_rate>
         <visualize>false</visualize>
-        <topic>model/${robot_name}/imu</topic>
+        <topic>model/${robot_name}/imu_plugin/out</topic>
         <plugin filename="libgz-sim-imu-system.so" name="gz::sim::systems::Imu"/>
         <pose>0 0 0 0 0 0</pose>
         <gz_frame_id>imu_link</gz_frame_id>
@@ -110,7 +110,6 @@
   <plugin filename="libignition-gazebo-sensors-system.so"
           name="ignition::gazebo::systems::Sensors"/>
 </gazebo>
-
 <gazebo reference="laser_frame">
   <sensor name="laser" type="gpu_lidar">
     <pose>0 0 0 0 0 0</pose>
@@ -141,6 +140,7 @@
     </ray>
   </sensor>
 </gazebo>
+
 
 
     <!-- CAMERA -->

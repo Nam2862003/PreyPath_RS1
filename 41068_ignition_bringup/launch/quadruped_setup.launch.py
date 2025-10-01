@@ -201,7 +201,7 @@ def generate_launch_description():
                 'open_loop': False,
                 'has_imu_heading': True,
                 'is_gazebo': True,
-                'imu_topic': f'/{namespace}/imu',
+                'imu_topic': f'/{namespace}/imu_plugin/out',
                 'base_frame_id': "base_link",
                 'odom_frame_id': "odom",
                 'clock_topic': f'/clock',

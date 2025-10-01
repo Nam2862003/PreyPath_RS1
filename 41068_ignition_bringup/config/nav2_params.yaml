@@ -417,7 +417,7 @@ velocity_smoother:
     deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
      # Accept Nav2 + Teleop
-    source_topics: ["/cmd_vel", "/teleop_cmd_vel"]
+    # source_topics: ["/cmd_vel", "/teleop_cmd_vel"]
 
-    # Always output here
-    cmd_vel_topic: "/robot1/cmd_vel"
+    # # Always output here
+    # cmd_vel_topic: "/robot1/cmd_vel"

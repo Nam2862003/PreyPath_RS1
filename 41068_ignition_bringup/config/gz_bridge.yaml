@@ -19,8 +19,8 @@
 # ==========================
 # IMU
 # ==========================
-- ros_topic_name: "/robot1/imu"
-  gz_topic_name: "/model/robot1/imu"
+- ros_topic_name: "/robot1/imu_plugin/out"
+  gz_topic_name: "/model/robot1/imu_plugin/out"
   ros_type_name: "sensor_msgs/msg/Imu"
   gz_type_name: "gz.msgs.IMU"
   direction: GZ_TO_ROS
