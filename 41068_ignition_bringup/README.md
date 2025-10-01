@@ -39,6 +39,12 @@ sudo apt install \
   ros-humble-joy \
   ros-humble-xacro
 ```
+Tranformation for Controller
+```bash
+sudo apt update
+sudo apt install python3-pip -y
+pip3 install --user tf-transformations transforms3d
+```
 Install topic_tools
 ```bash
 sudo apt update
