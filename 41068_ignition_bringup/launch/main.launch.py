@@ -25,7 +25,7 @@ def generate_launch_description():
     rviz_flag = LaunchConfiguration('rviz')
     nav2_flag = LaunchConfiguration('nav2')
     ld.add_action(DeclareLaunchArgument('rviz', default_value='false', description='Launch RViz'))
-    ld.add_action(DeclareLaunchArgument('nav2', default_value='false', description='Launch Nav2'))
+    ld.add_action(DeclareLaunchArgument('nav2', default_value='true', description='Launch Nav2'))
 
     # -------------------
     # 1. Forest world
@@ -77,7 +77,7 @@ def generate_launch_description():
     rviz = Node(
         package='rviz2',
         executable='rviz2',
-        arguments=['-d', PathJoinSubstitution([pkg_path, 'config', 'quadruped.rviz'])],
+        arguments=['-d', PathJoinSubstitution([pkg_path, 'config', 'quadruped_GUI.rviz'])],
         parameters=[{'use_sim_time': use_sim_time}],
         condition=IfCondition(rviz_flag)
     )
