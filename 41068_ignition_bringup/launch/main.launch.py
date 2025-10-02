@@ -25,7 +25,7 @@ def generate_launch_description():
     rviz_flag = LaunchConfiguration('rviz')
     nav2_flag = LaunchConfiguration('nav2')
     ld.add_action(DeclareLaunchArgument('rviz', default_value='false', description='Launch RViz'))
-    ld.add_action(DeclareLaunchArgument('nav2', default_value='true', description='Launch Nav2'))
+    ld.add_action(DeclareLaunchArgument('nav2', default_value='false', description='Launch Nav2'))
 
     # -------------------
     # 1. Forest world
@@ -83,7 +83,7 @@ def generate_launch_description():
     )
     # Delay RViz a bit more (Nav2 gets 10s, so give RViz 12s)
     rviz_delayed = TimerAction(
-        period=20.0,  # Nav2 gets 10s, RViz starts a bit later
+        period=12.0,  # Nav2 gets 10s, RViz starts a bit later
         actions=[rviz]
     )
     ld.add_action(rviz_delayed)
