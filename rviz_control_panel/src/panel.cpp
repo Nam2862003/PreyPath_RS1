@@ -256,6 +256,7 @@ namespace rviz_control_panel
     nav_client_ = rclcpp_action::create_client<NavigateToPose>(node, "navigate_to_pose");
     // New: publisher to behavior controller for traverse goals
     traverse_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/traverse_goal", 10);
+  rtb_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/return_to_base", 10);
     behavior_status_sub_ = node->create_subscription<std_msgs::msg::String>(
         "/behavior/status", 10, [this](std_msgs::msg::String::ConstSharedPtr msg)
         { QMetaObject::invokeMethod(comms_, [this, msg]
@@ -276,30 +277,22 @@ namespace rviz_control_panel
   // --- Return-to-Base: sends stored home_x_, home_y_, home_yaw_deg_ ---
   void ControlPanel::onReturnBaseClicked()
   {
-    if (!nav_client_ || !nav_client_->wait_for_action_server(std::chrono::milliseconds(50)))
+    if (!rtb_pub_)
     {
-      comms_->setText("Nav2 action server not ready");
+      comms_->setText("RTB publisher not ready");
       return;
     }
-
-    NavigateToPose::Goal goal;
-    goal.pose.header.frame_id = "map";
-    goal.pose.header.stamp =
+    geometry_msgs::msg::PoseStamped pose;
+    pose.header.frame_id = "map";
+    pose.header.stamp =
         getDisplayContext()->getRosNodeAbstraction().lock()->get_raw_node()->get_clock()->now();
-    goal.pose.pose.position.x = home_x_;
-    goal.pose.pose.position.y = home_y_;
+    pose.pose.position.x = home_x_;
+    pose.pose.position.y = home_y_;
     double yaw = home_yaw_deg_ * M_PI / 180.0;
-    goal.pose.pose.orientation.z = std::sin(yaw * 0.5);
-    goal.pose.pose.orientation.w = std::cos(yaw * 0.5);
-
-    auto opts = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
-    opts.result_callback = [this](auto)
-    {
-      QMetaObject::invokeMethod(comms_, [this]
-                                { comms_->setText("RTB goal reached"); });
-    };
-    nav_client_->async_send_goal(goal, opts);
-    comms_->setText("RTB goal sent");
+    pose.pose.orientation.z = std::sin(yaw * 0.5);
+    pose.pose.orientation.w = std::cos(yaw * 0.5);
+    rtb_pub_->publish(pose);
+    comms_->setText("RTB goal published to controller");
   }
 
   // --- Manual control toggle (unchanged) ---

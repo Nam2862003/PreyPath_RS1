@@ -79,6 +79,8 @@ namespace rviz_control_panel
   // Behavior controller interface (new): publish traverse goals & receive status
   rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr traverse_pub_;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr behavior_status_sub_;
+  // New: Return-to-base publisher (PoseStamped) handled by behavior controller
+  rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr rtb_pub_;
 
     // -------- Settings (persisted to RViz config) --------
     double home_x_{0.0};
