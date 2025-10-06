@@ -190,6 +190,21 @@ namespace rviz_control_panel
       connect(btn_estop_, &QPushButton::clicked, this, &ControlPanel::onEstopClicked);
       connect(btn_rtb_, &QPushButton::clicked, this, &ControlPanel::onReturnBaseClicked);
       connect(cb_manual_control_, &QCheckBox::toggled, this, &ControlPanel::onManualControlToggled);
+
+      // Manual movement button bindings (single-shot commands)
+      const double V = 0.4;  // linear speed m/s
+      const double W = 1.0;  // angular speed rad/s
+      const double VF = 0.7 * V; // diagonal blend
+      const double WF = 0.7 * W;
+      connect(btn_forward_, &QPushButton::clicked, this, [this, V]{ publishManualCmd(V, 0.0); });
+      connect(btn_backward_, &QPushButton::clicked, this, [this, V]{ publishManualCmd(-V, 0.0); });
+      connect(btn_left_, &QPushButton::clicked, this, [this, W]{ publishManualCmd(0.0, +W); });
+      connect(btn_right_, &QPushButton::clicked, this, [this, W]{ publishManualCmd(0.0, -W); });
+      connect(btn_stop_, &QPushButton::clicked, this, [this]{ publishManualCmd(0.0, 0.0); });
+      connect(btn_f_left_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(VF, +WF); });
+      connect(btn_f_right_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(VF, -WF); });
+      connect(btn_b_left_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(-VF, +WF); });
+      connect(btn_b_right_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(-VF, -WF); });
     }
 
     // --- Styles (add inputs + keep your existing look) ---
@@ -256,7 +271,9 @@ namespace rviz_control_panel
     nav_client_ = rclcpp_action::create_client<NavigateToPose>(node, "navigate_to_pose");
     // New: publisher to behavior controller for traverse goals
     traverse_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/traverse_goal", 10);
-  rtb_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/return_to_base", 10);
+    rtb_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/return_to_base", 10);
+    manual_enable_pub_ = node->create_publisher<std_msgs::msg::Bool>("/behavior/manual_enable", 10);
+    manual_cmd_pub_ = node->create_publisher<geometry_msgs::msg::Twist>("/behavior/manual_cmd", 10);
     behavior_status_sub_ = node->create_subscription<std_msgs::msg::String>(
         "/behavior/status", 10, [this](std_msgs::msg::String::ConstSharedPtr msg)
         { QMetaObject::invokeMethod(comms_, [this, msg]
@@ -303,14 +320,22 @@ namespace rviz_control_panel
       btn->setEnabled(enabled);
 
     manual_control_group_->setVisible(enabled);
-
-    if (estop_pub_)
+    // Publish manual enable flag
+    if (manual_enable_pub_)
     {
-      std_msgs::msg::Bool msg;
-      msg.data = true;
-      estop_pub_->publish(msg);
+      std_msgs::msg::Bool b; b.data = enabled; manual_enable_pub_->publish(b);
     }
+    // Safety: send zero twist when disabling
+    if (!enabled)
+      publishManualCmd(0.0, 0.0);
     comms_->setText("Manual control " + QString(enabled ? "activated" : "disabled"));
+  }
+
+  void ControlPanel::publishManualCmd(double lin, double ang)
+  {
+    if (!manual_cmd_pub_ || !cb_manual_control_ || !cb_manual_control_->isChecked())
+      return; // Only send if manual enabled
+    geometry_msgs::msg::Twist t; t.linear.x = lin; t.angular.z = ang; manual_cmd_pub_->publish(t);
   }
 
   // --- New: Send Nav2 goal to (x,y) from the input boxes ---

@@ -18,6 +18,7 @@
 #include <rclcpp_action/rclcpp_action.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <std_msgs/msg/string.hpp>
+#include <geometry_msgs/msg/twist.hpp>
 
 // (Keep the pluginlib include in the .cpp where you EXPORT_CLASS)
 #include <pluginlib/class_list_macros.hpp>
@@ -81,6 +82,12 @@ namespace rviz_control_panel
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr behavior_status_sub_;
   // New: Return-to-base publisher (PoseStamped) handled by behavior controller
   rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr rtb_pub_;
+  // Manual control publishers
+  rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr manual_enable_pub_;
+  rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr manual_cmd_pub_;
+
+  // Helper to publish a manual velocity command
+  void publishManualCmd(double lin_x, double ang_z);
 
     // -------- Settings (persisted to RViz config) --------
     double home_x_{0.0};
