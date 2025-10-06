@@ -12,6 +12,7 @@
   <depend>pluginlib</depend>
   <depend>std_msgs</depend>
   <depend>nav2_msgs</depend>
+  <depend>geometry_msgs</depend>
 
   <!-- RViz on Humble uses Qt5; if you’re on a Qt6 distro, switch to qtbase5-dev/Qt6 accordingly. -->
   <build_depend>qtbase5-dev</build_depend>

@@ -254,6 +254,12 @@ namespace rviz_control_panel
 
     estop_pub_ = node->create_publisher<std_msgs::msg::Bool>("/estop", 10);
     nav_client_ = rclcpp_action::create_client<NavigateToPose>(node, "navigate_to_pose");
+    // New: publisher to behavior controller for traverse goals
+    traverse_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/traverse_goal", 10);
+    behavior_status_sub_ = node->create_subscription<std_msgs::msg::String>(
+        "/behavior/status", 10, [this](std_msgs::msg::String::ConstSharedPtr msg)
+        { QMetaObject::invokeMethod(comms_, [this, msg]
+                                    { comms_->setText(QString::fromStdString(msg->data)); }); });
   }
 
   // --- E-Stop: publish Bool(true) ---
@@ -317,17 +323,6 @@ namespace rviz_control_panel
   // --- New: Send Nav2 goal to (x,y) from the input boxes ---
   void ControlPanel::onInspectExecute()
   {
-    if (!nav_client_)
-    {
-      comms_->setText("Nav2 client not initialized");
-      return;
-    }
-    if (!nav_client_->wait_for_action_server(std::chrono::milliseconds(100)))
-    {
-      comms_->setText("Nav2 action server not ready");
-      return;
-    }
-
     bool okx = false, oky = false;
     const double x = edit_x_->text().toDouble(&okx);
     const double y = edit_y_->text().toDouble(&oky);
@@ -336,26 +331,21 @@ namespace rviz_control_panel
       comms_->setText("Enter valid X/Y (meters in map)");
       return;
     }
-
-    NavigateToPose::Goal goal;
-    goal.pose.header.frame_id = "map"; // Assumes inputs are in map frame
-    goal.pose.header.stamp =
-        getDisplayContext()->getRosNodeAbstraction().lock()->get_raw_node()->get_clock()->now();
-    goal.pose.pose.position.x = x;
-    goal.pose.pose.position.y = y;
-    // Face forward (yaw=0). You can add a third input later if you want yaw.
-    goal.pose.pose.orientation.z = 0.0;
-    goal.pose.pose.orientation.w = 1.0;
-
-    auto opts = rclcpp_action::Client<NavigateToPose>::SendGoalOptions();
-    opts.result_callback = [this](auto)
+    if (!traverse_pub_)
     {
-      QMetaObject::invokeMethod(comms_, [this]
-                                { comms_->setText("Inspect goal reached"); });
-    };
-    nav_client_->async_send_goal(goal, opts);
-
-    comms_->setText(QString("Navigating to (%1, %2)").arg(x, 0, 'f', 2).arg(y, 0, 'f', 2));
+      comms_->setText("Traverse publisher not ready");
+      return;
+    }
+    geometry_msgs::msg::PoseStamped pose;
+    pose.header.frame_id = "map";
+    pose.header.stamp =
+        getDisplayContext()->getRosNodeAbstraction().lock()->get_raw_node()->get_clock()->now();
+    pose.pose.position.x = x;
+    pose.pose.position.y = y;
+    pose.pose.orientation.z = 0.0;
+    pose.pose.orientation.w = 1.0;
+    traverse_pub_->publish(pose);
+    comms_->setText(QString("Traverse goal published (%1, %2)").arg(x, 0, 'f', 2).arg(y, 0, 'f', 2));
   }
 
   void ControlPanel::save(rviz_common::Config config) const

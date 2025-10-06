@@ -16,6 +16,8 @@
 #include <std_msgs/msg/bool.hpp>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
+#include <geometry_msgs/msg/pose_stamped.hpp>
+#include <std_msgs/msg/string.hpp>
 
 // (Keep the pluginlib include in the .cpp where you EXPORT_CLASS)
 #include <pluginlib/class_list_macros.hpp>
@@ -73,6 +75,10 @@ namespace rviz_control_panel
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr estop_pub_;
     using NavigateToPose = nav2_msgs::action::NavigateToPose;
     rclcpp_action::Client<NavigateToPose>::SharedPtr nav_client_;
+
+  // Behavior controller interface (new): publish traverse goals & receive status
+  rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr traverse_pub_;
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr behavior_status_sub_;
 
     // -------- Settings (persisted to RViz config) --------
     double home_x_{0.0};

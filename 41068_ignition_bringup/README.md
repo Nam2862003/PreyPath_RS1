@@ -1,3 +1,6 @@
+ros2 run robot_behavior_controller behavior_controller_node
+
+
 # World Generation
 ## Creation of random map with set parameters
 ```bash
