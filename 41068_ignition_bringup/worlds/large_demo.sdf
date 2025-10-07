@@ -175,7 +175,7 @@
 
           <!-- Thermal plugin attaches heat -->
           <plugin filename="gz-sim-thermal-system" name="gz::sim::systems::Thermal">
-            <temperature>300</temperature>   <!-- ~37 °C -->
+            <temperature>310.15</temperature>   <!-- ~37 °C -->
             <emissivity>0.95</emissivity>
           </plugin>
         </visual>
@@ -200,7 +200,7 @@
           <material><transparency>1.0</transparency></material>
           <plugin filename="ignition-gazebo-thermal-system"
                   name="ignition::gazebo::systems::Thermal">
-            <temperature>340</temperature>   <!-- ~42 °C (different heat) -->
+            <temperature>311.65</temperature>   <!-- ~42 °C (different heat) -->
             <emissivity>0.95</emissivity>
           </plugin>
         </visual>
@@ -364,7 +364,7 @@
     </include>
 
     <atmosphere type="adiabatic">
-      <temperature>100</temperature>
+      <temperature>273.15</temperature>
       <!--
         This is a more exaggerated temperature gradient, which produces a
         temperature range of ~11.5 kelvin for objects in the thermal camera
@@ -372,7 +372,7 @@
         Typical temperature gradient is -0.0065 K/m which produces a
         temperature range of 0.75 kelvin.
       -->
-      <temperature_gradient>0.1</temperature_gradient>
+      <temperature_gradient>0.0</temperature_gradient>
     </atmosphere>
 
 

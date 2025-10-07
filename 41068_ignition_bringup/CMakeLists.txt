@@ -27,12 +27,9 @@ install(
     scripts/model_list.py
     scripts/tile_gen.py
     scripts/tile_world_gen.py
-<<<<<<< HEAD
     scripts/thermal_classifier.py
   DESTINATION lib/${PROJECT_NAME}
-=======
-    DESTINATION lib/${PROJECT_NAME}
->>>>>>> main
+
 )
 
 
