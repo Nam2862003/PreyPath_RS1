@@ -2,7 +2,7 @@
   controller_manager:
     ros__parameters:
       update_rate: 100 #Hz
-
+      controller_manager_timeout: 10.0  # Give more time to activate controllers 
       joint_state_broadcaster:
         type: joint_state_broadcaster/JointStateBroadcaster
 

@@ -6,8 +6,6 @@
     <plugin name='ignition::gazebo::systems::UserCommands' filename='ignition-gazebo-user-commands-system' />
     <plugin name='ignition::gazebo::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system' />
     <plugin name='ignition::gazebo::systems::Contact' filename='ignition-gazebo-contact-system' />
-
-    <!-- Sun -->
     <light name="sun" type="directional">
       <cast_shadows>1</cast_shadows>
       <pose>0 0 10 0 -0 0</pose>
@@ -21,17 +19,14 @@
       </attenuation>
       <direction>-0.5 0.1 -0.9</direction>
     </light>
-
-    <!-- Physics -->
     <gravity>0 0 -9.81</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type="adiabatic"/>
-    <physics name="default_physics" type="ode">
-      <max_step_size>0.001</max_step_size>   <!-- 1 ms timestep (1 kHz) -->
-      <real_time_update_rate>1000</real_time_update_rate>
+    <physics name="default_physics" type="ignored">
+      <max_step_size>0.01</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>100</real_time_update_rate>
     </physics>
-
-    <!-- Scene -->
     <scene>
       <ambient>1.0 1.0 1.0</ambient>
       <background>0.8 0.8 0.8</background>
@@ -47,55 +42,50 @@
       <surface_model>EARTH_WGS84</surface_model>
     </spherical_coordinates>
 
-    <!-- Visual grass plane -->
+    <!-- Small ground plane with grass texture -->
     <include>
-      <uri>model://grass_plane</uri>
+      <uri>
+        model://grass_plane
+      </uri>
       <name>grass_plane</name>
       <pose>0 0 0 0 0 0</pose>
     </include>
 
-    <!-- Invisible collision plane (physics only) -->
-    <model name="ground_collision">
-      <static>true</static>
+    <model name="grass_plane_override">
+      <pose>0 0 0 0 0 0</pose>
       <link name="link">
-        <collision name="collision">
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-        </collision>
-        <!-- Transparent visual so you don't see it -->
-        <visual name="visual">
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-          <material>
-            <ambient>0 0 0 0</ambient>
-            <diffuse>0 0 0 0</diffuse>
-            <specular>0 0 0 0</specular>
-            <emissive>0 0 0 0</emissive>
-          </material>
-          <transparency>1.0</transparency>
-        </visual>
+        <thermal>
+          <temperature>295</temperature> <!-- 22 °C -->
+        </thermal>
       </link>
-    </model>
+    </model>    
 
     <!-- Oak tree -->
     <include>
-      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
+      <uri>
+        https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree
+      </uri>
       <name>oak1</name>
       <pose>0 3.0 0 0 0 0</pose>
     </include>
 
 
+    <model name="oak1_override">
+      <pose>0 3.0 0 0 0 0</pose>
+      <link name="link">
+        <thermal>
+          <temperature>310</temperature> <!-- 37 °C -->
+        </thermal>
+      </link>
+    </model>
+
+  
+    
     <!-- Pine tree -->
     <include>
-      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
+      <uri>
+        https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree
+      </uri>
       <name>pine1</name>
       <pose>5.0 0.0 0 0 0 0</pose>
     </include>
