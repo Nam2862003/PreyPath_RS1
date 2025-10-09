@@ -204,8 +204,8 @@
     <plugin
       filename="ignition-gazebo-thermal-sensor-system"
       name="ignition::gazebo::systems::ThermalSensor">
-      <min_temp>300</min_temp>  <!-- 0 °C -->
-      <max_temp>700</max_temp>  <!-- 100 °C -->
+      <min_temp>293</min_temp>  <!-- 0 °C -->
+      <max_temp>400</max_temp>  <!-- 100 °C -->
       <resolution>0.1</resolution>
     </plugin>
   </sensor>

@@ -114,6 +114,10 @@ def generate_launch_description():
         arguments=['-d', PathJoinSubstitution([config_path,
                                                'user_view.rviz'])],
         condition=IfCondition(LaunchConfiguration('rviz'))
+        
+        # arguments=['-d', PathJoinSubstitution([config_path,
+        #                                        '41068.rviz'])],
+        # condition=IfCondition(LaunchConfiguration('rviz'))
     )
     ld.add_action(rviz_node)
 

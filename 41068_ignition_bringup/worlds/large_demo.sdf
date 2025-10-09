@@ -364,7 +364,7 @@
     </include>
 
     <atmosphere type="adiabatic">
-      <temperature>273.15</temperature>
+      <temperature>293</temperature>
       <!--
         This is a more exaggerated temperature gradient, which produces a
         temperature range of ~11.5 kelvin for objects in the thermal camera
