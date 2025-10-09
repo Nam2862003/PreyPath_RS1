@@ -24,7 +24,7 @@ def generate_launch_description():
                              'launch', 'online_async_launch.py']),
         launch_arguments={
             'use_sim_time': use_sim_time,
-            'slam_params_file': PathJoinSubstitution([config_path, 'slam_params.yaml'])
+            'slam_params_file': PathJoinSubstitution([config_path, 'husky_slam_params.yaml'])
         }.items()
     )
 
@@ -33,7 +33,7 @@ def generate_launch_description():
         PathJoinSubstitution([FindPackageShare('nav2_bringup'), 'launch', 'navigation_launch.py']),
         launch_arguments={
             'use_sim_time': use_sim_time,
-            'params_file': PathJoinSubstitution([config_path, 'nav2_params.yaml'])
+            'params_file': PathJoinSubstitution([config_path, 'husky_nav2_params.yaml'])
         }.items()
     )
 

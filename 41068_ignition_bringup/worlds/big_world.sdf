@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
     <sdf version="1.8">
-    <world name="world_gen">
+    <world name="big_world">
     <!-- Core systems -->
     <plugin name="ignition::gazebo::systems::Physics" filename="ignition-gazebo-physics-system"/>
     <plugin name="ignition::gazebo::systems::UserCommands" filename="ignition-gazebo-user-commands-system"/>
@@ -1951,4 +1951,8 @@
       </link>
     </model>
   </world>
+<<<<<<< HEAD
 </sdf>
+=======
+</sdf>
+>>>>>>> main

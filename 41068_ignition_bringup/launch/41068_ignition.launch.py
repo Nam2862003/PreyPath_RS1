@@ -60,7 +60,7 @@ def generate_launch_description():
         name='robot_localization',
         output='screen',
         parameters=[PathJoinSubstitution([config_path,
-                                          'robot_localization.yaml']),
+                                          'husky_localization.yaml']),
                     {'use_sim_time': use_sim_time}]
     )
     ld.add_action(robot_localization_node)
@@ -100,7 +100,7 @@ def generate_launch_description():
         package='ros_ign_bridge',
         executable='parameter_bridge',
         parameters=[{'config_file': PathJoinSubstitution([config_path,
-                                                          'gazebo_bridge.yaml']),
+                                                          'husky_gazebo_bridge.yaml']),
                     'use_sim_time': use_sim_time}]
     )
     ld.add_action(gazebo_bridge)
@@ -112,7 +112,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}],
         arguments=['-d', PathJoinSubstitution([config_path,
-                                               'user_view.rviz'])],
+                                               'husky.rviz'])],
         condition=IfCondition(LaunchConfiguration('rviz'))
         
         # arguments=['-d', PathJoinSubstitution([config_path,
@@ -132,6 +132,7 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('nav2'))
     )
     ld.add_action(nav2)
+
 
     # # GUI DEV - Hello World Marker
     # hello_marker = Node(

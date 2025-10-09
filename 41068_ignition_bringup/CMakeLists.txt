@@ -7,10 +7,17 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+
 find_package(ros_ign_interfaces REQUIRED)  # ok to keep even if not used directly
 
 # ---- Install data folders (used at runtime) ----
 # Add 'maps' if you will generate PGM/YAML maps. Keep a .gitkeep inside empty dirs.
+
+find_package(ros_ign_interfaces REQUIRED)
+find_package(xacro REQUIRED)
+find_package(rclpy REQUIRED)
+
+
 install(
   DIRECTORY config launch models urdf worlds
   DESTINATION share/${PROJECT_NAME}
