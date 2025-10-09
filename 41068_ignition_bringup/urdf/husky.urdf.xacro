@@ -181,7 +181,7 @@
   </joint>
   <link name="camera_depth_optical_frame"/>
 
-  <!-- <link name="thermal_link">
+  <link name="thermal_link">
     <visual>
       <geometry>
         <box>
@@ -198,7 +198,7 @@
     <parent link="base_link"/>
     <child link="thermal_link"/>
     <origin xyz="0.2 0 0.3" rpy="0 0 0"/>
-  </joint> -->
+  </joint>
 
 
 </robot>
