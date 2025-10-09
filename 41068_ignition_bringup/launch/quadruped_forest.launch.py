@@ -16,7 +16,7 @@ def generate_launch_description():
     ld.add_action(DeclareLaunchArgument(
         'world', default_value='simple_trees',
         description='Which world to load',
-        choices=['simple_trees', 'large_demo','forest_arena', 'world_gen']
+        choices=['simple_trees', 'large_demo','forest_arena', 'world_gen','big_world']
     ))
 
     # launch Ignition with chosen forest world
