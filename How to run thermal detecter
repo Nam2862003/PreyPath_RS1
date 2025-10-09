@@ -1,0 +1,7 @@
+run the world with the usual one
+
+use a different terminal
+ros2 run 41068_ignition_bringup thermal_classifier.py   --ros-args   -p image_topic:=/thermal/image   -p human_temp_k:=310.15   -p animal_temp_k:=311.65   -p tol_k:=1.0   -p min_area_px:=40
+
+
+(this will show human like or animal like)

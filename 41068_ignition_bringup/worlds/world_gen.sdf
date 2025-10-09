@@ -44,6 +44,7 @@
 
  <include> 
                           <uri>models://forest_plane</uri> 
+<<<<<<< HEAD
                           <name>forest_plane-2_-2</name>
                           <pose>-100.000 -100.000 0 0 0 0.000000</pose> 
                           </include> <include> 
@@ -142,52 +143,85 @@
                           <uri>models://forest_plane</uri> 
                           <name>forest_plane2_2</name>
                           <pose>100.000 100.000 0 0 0 0.000000</pose> 
+=======
+                          <name>forest_plane0_0</name>
+                          <pose>0.000 0.000 0 0 0 0.000000</pose> 
+>>>>>>> main
                           </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_0</name>
+<<<<<<< HEAD
       <pose>-120.370 125.000 2.000 1.570796 0 0</pose>
+=======
+      <pose>-11.250 15.000 2.000 1.570796 0 0</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bottom_0</name>
+<<<<<<< HEAD
       <pose>-120.370 -125.000 2.000 1.570796 0 3.141592653589793</pose>
+=======
+      <pose>-11.250 -15.000 2.000 1.570796 0 3.141592653589793</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_1</name>
+<<<<<<< HEAD
       <pose>-111.111 125.000 2.000 1.570796 0 0</pose>
+=======
+      <pose>-3.750 15.000 2.000 1.570796 0 0</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bottom_1</name>
+<<<<<<< HEAD
       <pose>-111.111 -125.000 2.000 1.570796 0 3.141592653589793</pose>
+=======
+      <pose>-3.750 -15.000 2.000 1.570796 0 3.141592653589793</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_2</name>
+<<<<<<< HEAD
       <pose>-101.852 125.000 2.000 1.570796 0 0</pose>
+=======
+      <pose>3.750 15.000 2.000 1.570796 0 0</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bottom_2</name>
+<<<<<<< HEAD
       <pose>-101.852 -125.000 2.000 1.570796 0 3.141592653589793</pose>
+=======
+      <pose>3.750 -15.000 2.000 1.570796 0 3.141592653589793</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_top_3</name>
+<<<<<<< HEAD
       <pose>-92.593 125.000 2.000 1.570796 0 0</pose>
+=======
+      <pose>11.250 15.000 2.000 1.570796 0 0</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_bottom_3</name>
+<<<<<<< HEAD
       <pose>-92.593 -125.000 2.000 1.570796 0 3.141592653589793</pose>
       <static>true</static>
     </include>
@@ -465,53 +499,85 @@
       <uri>models://forest_wall</uri>
       <name>forest_wall_bottom_26</name>
       <pose>120.370 -125.000 2.000 1.570796 0 3.141592653589793</pose>
+=======
+      <pose>11.250 -15.000 2.000 1.570796 0 3.141592653589793</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_0</name>
+<<<<<<< HEAD
       <pose>125.000 -120.370 2.000 1.570796 0 -1.570796</pose>
+=======
+      <pose>15.000 -11.250 2.000 1.570796 0 -1.570796</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_0</name>
+<<<<<<< HEAD
       <pose>-125.000 -120.370 2.000 1.570796 0 1.570796</pose>
+=======
+      <pose>-15.000 -11.250 2.000 1.570796 0 1.570796</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_1</name>
+<<<<<<< HEAD
       <pose>125.000 -111.111 2.000 1.570796 0 -1.570796</pose>
+=======
+      <pose>15.000 -3.750 2.000 1.570796 0 -1.570796</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_1</name>
+<<<<<<< HEAD
       <pose>-125.000 -111.111 2.000 1.570796 0 1.570796</pose>
+=======
+      <pose>-15.000 -3.750 2.000 1.570796 0 1.570796</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_2</name>
+<<<<<<< HEAD
       <pose>125.000 -101.852 2.000 1.570796 0 -1.570796</pose>
+=======
+      <pose>15.000 3.750 2.000 1.570796 0 -1.570796</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_2</name>
+<<<<<<< HEAD
       <pose>-125.000 -101.852 2.000 1.570796 0 1.570796</pose>
+=======
+      <pose>-15.000 3.750 2.000 1.570796 0 1.570796</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_right_3</name>
+<<<<<<< HEAD
       <pose>125.000 -92.593 2.000 1.570796 0 -1.570796</pose>
+=======
+      <pose>15.000 11.250 2.000 1.570796 0 -1.570796</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_3</name>
+<<<<<<< HEAD
       <pose>-125.000 -92.593 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
@@ -789,12 +855,19 @@
       <uri>models://forest_wall</uri>
       <name>forest_wall_left_26</name>
       <pose>-125.000 120.370 2.000 1.570796 0 1.570796</pose>
+=======
+      <pose>-15.000 11.250 2.000 1.570796 0 1.570796</pose>
+>>>>>>> main
       <static>true</static>
     </include>
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_1</name>
+<<<<<<< HEAD
       <pose>77.119 -99.175 -0.300 0 0 2.420442</pose>
+=======
+      <pose>12.690 -9.044 -0.300 0 0 1.865563</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -802,7 +875,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_2</name>
+<<<<<<< HEAD
       <pose>-19.570 -106.308 -0.300 0 0 -0.172146</pose>
+=======
+      <pose>5.300 -4.579 -0.300 0 0 -1.605331</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -810,7 +887,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_3</name>
+<<<<<<< HEAD
       <pose>-12.620 -58.917 -0.300 0 0 -2.581043</pose>
+=======
+      <pose>13.091 -12.687 -0.300 0 0 -2.416367</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -818,7 +899,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_4</name>
+<<<<<<< HEAD
       <pose>-7.938 68.397 -0.300 0 0 0.606507</pose>
+=======
+      <pose>-5.507 5.411 -0.300 0 0 0.593050</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -826,7 +911,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_5</name>
+<<<<<<< HEAD
       <pose>-110.565 -109.409 -0.300 0 0 1.318613</pose>
+=======
+      <pose>4.111 11.300 -0.300 0 0 -0.214070</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -834,7 +923,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_6</name>
+<<<<<<< HEAD
       <pose>-27.011 -1.070 -0.300 0 0 -1.338035</pose>
+=======
+      <pose>-8.498 13.040 -0.300 0 0 0.651133</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -842,7 +935,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_7</name>
+<<<<<<< HEAD
       <pose>40.903 -5.638 -0.300 0 0 -2.276846</pose>
+=======
+      <pose>2.386 -0.870 -0.300 0 0 2.258425</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -850,7 +947,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_8</name>
+<<<<<<< HEAD
       <pose>-83.071 86.266 -0.300 0 0 -1.758058</pose>
+=======
+      <pose>-1.512 8.919 -0.300 0 0 -0.849901</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -858,7 +959,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_9</name>
+<<<<<<< HEAD
       <pose>19.562 -60.473 -0.300 0 0 -0.971995</pose>
+=======
+      <pose>-0.554 12.263 -0.300 0 0 2.909586</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -866,7 +971,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_10</name>
+<<<<<<< HEAD
       <pose>45.351 13.687 -0.300 0 0 0.823050</pose>
+=======
+      <pose>-13.950 9.559 -0.300 0 0 -1.464917</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -874,7 +983,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_11</name>
+<<<<<<< HEAD
       <pose>-25.543 -31.608 -0.300 0 0 -0.999715</pose>
+=======
+      <pose>7.025 -9.495 -0.300 0 0 -2.418662</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -882,6 +995,7 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_12</name>
+<<<<<<< HEAD
       <pose>109.619 19.271 -0.300 0 0 2.067653</pose>
       <static>true</static>
       <self_collide>false</self_collide>
@@ -1187,6 +1301,9 @@
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree</uri>
       <name>oak_50</name>
       <pose>-122.541 -17.811 -0.300 0 0 0.462250</pose>
+=======
+      <pose>9.270 12.364 -0.300 0 0 -1.172032</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1194,7 +1311,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_1</name>
+<<<<<<< HEAD
       <pose>68.069 44.059 0.000 0 0 -1.327406</pose>
+=======
+      <pose>-10.177 4.901 0.000 0 0 0.507772</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1202,7 +1323,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_2</name>
+<<<<<<< HEAD
       <pose>107.083 -79.746 0.000 0 0 -1.726008</pose>
+=======
+      <pose>0.138 7.698 0.000 0 0 -1.774574</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1210,7 +1335,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_3</name>
+<<<<<<< HEAD
       <pose>-116.782 59.441 0.000 0 0 2.614121</pose>
+=======
+      <pose>3.254 11.086 0.000 0 0 2.067998</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1218,7 +1347,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_4</name>
+<<<<<<< HEAD
       <pose>-58.240 -57.821 0.000 0 0 -0.847602</pose>
+=======
+      <pose>-13.661 8.504 0.000 0 0 -2.527128</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1226,7 +1359,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_5</name>
+<<<<<<< HEAD
       <pose>61.026 -57.532 0.000 0 0 2.455484</pose>
+=======
+      <pose>3.095 -1.452 0.000 0 0 1.412656</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1234,7 +1371,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_6</name>
+<<<<<<< HEAD
       <pose>22.294 -114.097 0.000 0 0 -1.212695</pose>
+=======
+      <pose>14.333 -11.769 0.000 0 0 -0.628728</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1242,7 +1383,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_7</name>
+<<<<<<< HEAD
       <pose>-34.904 118.280 0.000 0 0 -3.047807</pose>
+=======
+      <pose>5.932 -11.975 0.000 0 0 2.109376</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1250,7 +1395,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_8</name>
+<<<<<<< HEAD
       <pose>-39.889 48.380 0.000 0 0 1.899346</pose>
+=======
+      <pose>13.182 0.050 0.000 0 0 2.540349</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1258,7 +1407,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_9</name>
+<<<<<<< HEAD
       <pose>68.243 78.127 0.000 0 0 0.871603</pose>
+=======
+      <pose>8.425 -10.330 0.000 0 0 -0.223477</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1266,6 +1419,7 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_10</name>
+<<<<<<< HEAD
       <pose>70.354 24.641 0.000 0 0 1.699638</pose>
       <static>true</static>
       <self_collide>false</self_collide>
@@ -1587,6 +1741,9 @@
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree</uri>
       <name>pine_50</name>
       <pose>37.615 75.494 0.000 0 0 2.116716</pose>
+=======
+      <pose>-4.544 -4.574 0.000 0 0 0.547097</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1594,7 +1751,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
       <name>rock_1</name>
+<<<<<<< HEAD
       <pose>-61.137 -39.617 0.000 0 0 -0.084590</pose>
+=======
+      <pose>11.845 1.265 0.000 0 0 -0.903281</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1602,7 +1763,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
       <name>rock_2</name>
+<<<<<<< HEAD
       <pose>-69.767 -44.801 0.000 0 0 2.615590</pose>
+=======
+      <pose>-14.242 10.821 0.000 0 0 1.392397</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1610,7 +1775,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203</uri>
       <name>rock_3</name>
+<<<<<<< HEAD
       <pose>54.797 -43.159 0.000 0 0 0.926459</pose>
+=======
+      <pose>14.623 9.524 0.000 0 0 2.768444</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1618,7 +1787,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204</uri>
       <name>rock_4</name>
+<<<<<<< HEAD
       <pose>82.294 -104.453 0.000 0 0 -2.468086</pose>
+=======
+      <pose>-9.506 -6.059 0.000 0 0 -0.406341</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1626,7 +1799,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205</uri>
       <name>rock_5</name>
+<<<<<<< HEAD
       <pose>63.849 -67.360 0.000 0 0 -2.439529</pose>
+=======
+      <pose>-7.597 13.096 0.000 0 0 2.967060</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1634,7 +1811,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206</uri>
       <name>rock_6</name>
+<<<<<<< HEAD
       <pose>-108.802 33.793 0.000 0 0 1.509557</pose>
+=======
+      <pose>-13.951 4.658 0.000 0 0 1.212357</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1642,7 +1823,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201</uri>
       <name>rock_7</name>
+<<<<<<< HEAD
       <pose>34.297 -96.251 0.000 0 0 -2.857856</pose>
+=======
+      <pose>-2.787 -1.403 0.000 0 0 0.063466</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -1650,7 +1835,11 @@
     <include>
       <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202</uri>
       <name>rock_8</name>
+<<<<<<< HEAD
       <pose>113.329 30.913 0.000 0 0 2.928589</pose>
+=======
+      <pose>9.505 -11.288 0.000 0 0 -2.795322</pose>
+>>>>>>> main
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
