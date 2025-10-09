@@ -192,15 +192,15 @@
     </include>
 
     <model name="walking_person_B_heat">
-      <pose>1 1 0 0 0 0</pose>  <!-- match the actor pose -->
+      <pose>1 3 0 0 0 0</pose>  <!-- match the actor pose -->
       <static>true</static>
       <link name="thermal_body">
         <visual name="thermal_mesh">
-          <geometry><cylinder><radius>0.3</radius><length>3</length></cylinder></geometry>
+          <geometry><cylinder><radius>1</radius><length>1</length></cylinder></geometry>
           <material><transparency>1.0</transparency></material>
           <plugin filename="ignition-gazebo-thermal-system"
                   name="ignition::gazebo::systems::Thermal">
-            <temperature>311.65</temperature>   <!-- ~42 °C (different heat) -->
+            <temperature>320</temperature>   <!-- ~42 °C (different heat) -->
             <emissivity>0.95</emissivity>
           </plugin>
         </visual>
