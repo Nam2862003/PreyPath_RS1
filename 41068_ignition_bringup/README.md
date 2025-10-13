@@ -1,6 +1,11 @@
+# Path for dowloaded models ( Fixed Thermal Camera )
+```bash
+export GZ_SIM_RESOURCE_PATH=~/41068_ws/src/41068_ignition_bringup/models
+```
+# Manual Controller
+```bash
 ros2 run robot_behavior_controller behavior_controller_node
-
-
+```
 # World Generation
 ## Creation of random map with set parameters
 ```bash
