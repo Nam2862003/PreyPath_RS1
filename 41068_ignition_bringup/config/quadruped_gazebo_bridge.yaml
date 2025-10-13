@@ -75,3 +75,11 @@
 #   ros_type_name: "geometry_msgs/msg/Twist"
 #   gz_type_name: "gz.msgs.Twist"
 #   direction: ROS_TO_GZ
+# ==========================
+# Thermal Camera
+# ==========================
+- ros_topic_name: "/robot1/thermal/image"
+  gz_topic_name: "/model/robot1/thermal/image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "ignition.msgs.Image"
+  direction: GZ_TO_ROS
