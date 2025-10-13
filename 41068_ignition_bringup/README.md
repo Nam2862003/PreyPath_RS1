@@ -61,13 +61,7 @@ sudo apt install ros-<ros2-distro>-topic-tools
 Replace <ros2-distro> with your installed ROS 2 distribution (e.g., humble, jazzy).
 
 ## Launch Quadruped Robot 
-if you are in branch: feature_navigation
-```bash
-colcon build --symlink-install
-source install/setup.bash
-ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py slam:=true nav2:=true rviz:=true
-```
-if you are in branch: controller
+if you are in branch: controller, main
 ```bash
 ros2 launch 41068_ignition_bringup main.launch.py rviz:=true
 ```
