@@ -1,199 +1,226 @@
-# Unitree go2, go1 simulation in Gazebo Sim
-
-This repository allows you to run dog robots in the GAZEBO simulator. The robot can walk, rotate with 12 degrees of freedom, and features a `robot_msgs` interface. The robot moves using inverse kinematics, and its odometry is based on direct kinematics. Additionally, all functionalities are developed in Python.
-
-
-## Run from docker 
-
-> **Note:** BUILDED AND TESTED WITH NVIDIA GPU.
-
-### setup docker, docker compose and nvidia container toolkit
-[docker install](https://docs.docker.com/engine/install/ubuntu/)
-
-[nvidia-container-toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-### build docker :
-
+# Path for dowloaded models ( Fixed Thermal Camera )
 ```bash
-mkdir -p ~/go_sim/src
-cd ~/go_sim/src/docker
-docker compose -f compose.yml build simulator
-xhost +local:docker
-docker compose -f compose.yml up simulator
+export GZ_SIM_RESOURCE_PATH=~/41068_ws/src/41068_ignition_bringup/models
+```
+# Manual Controller
+```bash
+ros2 run robot_behavior_controller behavior_controller_node
+```
+# World Generation
+## Creation of random map with set parameters
+```bash
+ros2 run 41068_ignition_bringup world_gen.py --size 30 --oaks 12 --pines 10 --rocks 8 --walls
+```
+## Creation of world from pre-made tiles with forest
+```bash
+ros2 run 41068_ignition_bringup tile_gen.py --variants 3 --oaks 50 --pines 50 --rocks 5
+```
+```bash
+ros2 run 41068_ignition_bringup tile_world_gen.py --size 250 --variants forest_tile_0 forest_tile_1 forest_tile_2
+```
+ctrl + alt + l - enable copilot line completion
+ctrl + alt + l + backspace - disable copilot line completion
+
+# Quadruped Robot Setup and Launch
+## Dependencies
+Check if you have installed these?
+```bash
+ros2 pkg list | grep ros_gz_sim
+ros2 pkg list | grep ros_gz_bridge
+ros2 pkg list | grep ros2_control
+ros2 pkg list | grep joint_state_broadcaster
+ros2 pkg list | grep forward_command_controller
+ros2 pkg list | grep joy
+ros2 pkg list | grep xacro
+```
+If you miss one of them, pls follow:
+```bash
+sudo apt update
+sudo apt install \
+  ros-humble-ros-gz-sim \
+  ros-humble-ros-gz-bridge \
+  ros-humble-gz-ros2-control \
+  ros-humble-ros2-control \
+  ros-humble-ros2-controllers \
+  ros-humble-joint-state-broadcaster \
+  ros-humble-forward-command-controller \
+  ros-humble-joy \
+  ros-humble-xacro
+```
+Tranformation for Controller
+```bash
+sudo apt update
+sudo apt install python3-pip -y
+pip3 install --user tf-transformations transforms3d
 ```
 
+If the command above fails, try these
+```bash
+sudo apt update
+sudo apt install ros-humble-tf-transformations
+```
 
-## Run from source
+Install topic_tools
+```bash
+sudo apt update
+sudo apt install ros-<ros2-distro>-topic-tools
+```
+Replace <ros2-distro> with your installed ROS 2 distribution (e.g., humble, jazzy).
 
-> **Note:** BUILDED AND TESTED FROM ROS2 JAZZY, UBUNTU 22.04.
+## Launch Quadruped Robot 
+if you are in branch: controller, main
+```bash
+ros2 launch 41068_ignition_bringup main.launch.py rviz:=true
+```
+## To use the teleop (keyboard to control)
+```bash
+source install/local_setup.bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/robot1/cmd_vel
+```
+# 41068 Ignition Bringup
 
-> **Note:** Before launching, ensure that you install all dependencies and build the project using `colcon build`.
+Bringup for *41068 Robotics Studio I*. Launches a Husky robot in a custom simulation world with trees and grass. We use **ROS2 Humble** and **Ignition Gazebo Fortress**.ros2 run 41068_ignition_bringup world_gen.py --size 30 --oaks 12 --pines 10 --rocks 8 --walls
 
----
 
-## Setup and Installation
+Worlds are build from [Gazebo Fuel](https://app.gazebosim.org/fuel/models).
 
-### Clone the Repository and Build
+## Installation
+
+First install some dependencies:
+
+* If you haven't already, install ROS2 Humble. Follow the instructions here: https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html
+* Install Gazebo
+  ```bash
+  sudo apt-get update && sudo apt-get install wget
+  sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+  wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+  sudo apt-get update && sudo apt-get install ignition-fortress
+  ```
+* Install development tools and robot localisation
+  ```bash
+  sudo apt install ros-dev-tools ros-humble-robot-localization
+  sudo apt install ros-humble-ros-ign ros-humble-ros-ign-interfaces
+  sudo apt install ros-humble-turtlebot4-simulator ros-humble-irobot-create-nodes
+  ```
+* Make sure that your installation is up to date. This is particularly important if you installed ROS a long time ago, such as in another subject. If you get errors here, make sure to resolve these before continuing.
+  ```bash
+  sudo apt upgrade
+  sudo apt update
+  ```  
+
+Now install this package:
+* Create a new colcon workspace
+  ```bash
+  mkdir -p 41068_ws/src
+  ```
+* Copy this package to the `src` directory in this workspace
+* Build package. If you get an error suggesting a missing dependency, make sure you have followed all of the above installation instructions correctly.
+  ```bash
+  source /opt/ros/humble/setup.bash
+  cd 41068_ws
+  colcon build --symlink-install
+  ```
+* Source workspace (if you add this to your ~/.bashrc, then you don't need to do this each time)
+  ```bash
+  source ~/41068_ws/install/setup.bash
+  ```
+* Launch basic trees world. It might take a little while to load the first time you run it since it is downloading world model resources. If it crashes the first time, try running it again.
+  ```bash
+  ros2 launch 41068_ignition_bringup 41068_ignition.launch.py
+  ```
+* As above with SLAM and autonomous navigation
+  ```bash
+  ros2 launch 41068_ignition_bringup 41068_ignition.launch.py slam:=true nav2:=true rviz:=true
+  ```
+* Change world with `world` argument. Must be the name of a `.sdf` file in `worlds`, but without file extension. Note this might also take a while the first time you run it since it is downloading extra model resources.
+  ```bash
+  ros2 launch 41068_ignition_bringup 41068_ignition.launch.py world:=large_demo
+  ```
+* And similarly, the larger world, and with SLAM and navigation:
+  ```bash
+  ros2 launch 41068_ignition_bringup 41068_ignition.launch.py slam:=true nav2:=true rviz:=true world:=large_demo
+  ```
+* When launching with rviz, you can send a waypoint to the robot by clicking the "2D Goal pose" and then a location in the map. The robot is navigating using the nav2 package. If it gets stuck, you can try the buttons in the Navigation 2 panel in the top right of RVIZ.
+
+* You can also drive the robot using keyboard teleoperation by running the following in a separate terminal, then use the keys listed in the instructions to move the robot:
+  ```bash
+  ros2 run teleop_twist_keyboard teleop_twist_keyboard
+  ```
+
+
+
+## Errors
+
+If you are getting errors, first check you are following the instructions correctly. Otherwise, read the error messages carefully and google it or discuss with your team or the teaching staff. Here's two errors I came across and fixes.
+
+### Jump back in time
+
+If you continuously get an error like:
 
 ```bash
-mkdir -p ~/go_sim/src
-cd ~/go_sim/src
-git clone https://github.com/abutalipovvv/go_sim_py.git .
+Detected jump back in time. Clearing TF buffer
+```
+
+and you probably see things flashing in rviz, then this is probably due to the simulation clock time being reset constantly. This is likely caused by multiple gazebo instances running, perhaps a crashed gazebo in the background that didn't close properly. 
+
+To fix this, I suggest restarting the computer. 
+
+### Ogre Exception
+
+If you get an error like:
+
+```bash
+[Ogre2RenderEngine.cc:989]  Unable to create the rendering window: OGRE EXCEPTION(3:RenderingAPIException): currentGLContext was specified with no current GL context in GLXWindow::create at /build/ogre-next-UFfg83/ogre-next-2.2.5+dfsg3/RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp (line 163)
+```
+
+I found [this thread](https://robotics.stackexchange.com/questions/111547/gazebo-crashes-immediately-segmentation-fault-address-not-mapped-to-object-0) which suggests to set a bash variable before launching Gazebo:
+
+
+## Quaruped Robot
+Currently, in this project, 4 packages need to be integrated into 41068_ws/src including 41068_ignition_bringup, robot_control, robot_description, UI. A new launch python file is created to launch the quadruped robot + controller with forest sim
+### First step: Install some neccessary stuffs support for the quadruped robot in ros2 Humble
+
+sudo apt update
+sudo apt install \
+  ros-humble-ros-gz-sim \
+  ros-humble-ros-gz-bridge \
+  ros-humble-gz-ros2-control \
+  ros-humble-ros2-control \
+  ros-humble-ros2-controllers \
+  ros-humble-joint-state-broadcaster \
+  ros-humble-forward-command-controller \
+  ros-humble-joy \
+  ros-humble-xacro
+
+  pip3 install --user tf-transformations transforms3d
+
+### Second Step: Launch robot model and its controller (I have not installed the rviz yet)
+
+cd git/PreyPath_RS1/41068_ws/src
+source /opt/ros/humble/setup.bash
 cd ..
 colcon build --symlink-install
-```
+source install/setup.bash
 
-### Install Dependencies
+#### To Launch the robot with simple world
+ros2 launch 41068_ignition_bringup 41068_quadruped.launch.py
 
+#### With Newest version of quadruped
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py
+#### TO Launch the robot with large world 
+ros2 launch 41068_ignition_bringup 41068_quadruped.launch.py world:=large_demo
+
+### Thrid Step: Launch GUI (In new terminal) (I would like to import this GUI into the rviz, right now it work seperately)
+
+cd src/UI
+python3 controller.py
+
+
+
+#### With Newest version of quadruped
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py world:=large_demo
+ros2 launch 41068_ignition_bringup spawn_quadruped_forest.launch.py slam:=true nav2:=true rviz:=true
 ```bash
-cd ~/go_sim
-rosdep update
-rosdep install --from-paths src --ignore-src -r -y
+export QT_QPA_PLATFORM=xcb
 ```
-
-## Environment Configuration
-
-### Export Gazebo Models Path
-
-Before running the simulation, export the path to your Gazebo models:
-
-```bash
-export GZ_SIM_RESOURCE_PATH=~/go_sim/src/gazebo_sim/models
-```
-(Replace with the correct path to your models.)
-
-### Configure CycloneDDS
-
-To support multiple topics, configure CycloneDDS by creating a configuration file (e.g., cyclonedds.xml) with the following content:
-
-```bash
-<CycloneDDS>
-  <Domain>
-    <General>
-      <Interfaces>
-        <NetworkInterface name="lo" multicast="true" />
-      </Interfaces>
-      <DontRoute>true</DontRoute>
-    </General>
-    <Discovery>
-      <ParticipantIndex>auto</ParticipantIndex>
-      <MaxAutoParticipantIndex>100</MaxAutoParticipantIndex>
-    </Discovery>
-  </Domain>
-</CycloneDDS>
-```
-Then, set the environment variable to point to this file:
-
-```bash
-export CYCLONEDDS_URI=file://path_to_cyclonedds.xml
-```
-
-(Replace `path_to_cyclonedds.xml` with the actual file path.)
-
-## Running the Simulation
-
-```bash
-#Navigate to the project directory:
-
-cd ~/go_sim
-
-#Source the environment setup:
-
-source install/local_setup.bash
-
-#Launch the simulation:
-
-ros2 launch gazebo_sim launch.py
-```
-
-## Controlling the Robot
-
-### Moving the Robot
-
-The robot moves by publishing velocity commands to the `<robot_namespace>/cmd_vel` topic. By default, the robot is named robot1.
-
-Example using `teleop_twist_keyboard`:
-
-```bash
-source install/local_setup.bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/robot1/cmd_vel
-```
-
-
-![](./media/robot_move.gif)
-
-Robot Modes
-
-The robot supports several modes:
-
-    REST – Default position in which the robot cannot move.
-    STAND – Mode in which the robot can rotate in place.
-    TROT – Walking mode.
-
-The robot operates with 12 degrees of freedom. To enable rotation, switch the mode to "STAND" by publishing to the robot_mode topic.
-
-Example (for a robot with namespace `robot1`):
-
-```bash
-ros2 topic pub /robot1/robot_mode quadropted_msgs/msg/RobotModeCommand "{mode: 'STAND', robot_id: 1}"
-```
-
-After switching modes, control the robot using velocity commands:
-
-```bash
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/robot1/cmd_vel
-```
-
-
-![](./media/move1.gif)
-
-### Changing Robot Behavior
-
-The robot can sit and stand using the `robot_behavior_command` service.
-
-Example command:
-
-```bash
-ros2 service call /robot1/robot_behavior_command quadropted_msgs/srv/RobotBehaviorCommand "{command: 'walk'}"
-```
-
-Possible commands:
-
-    walk – The robot stands up (REST) and can walk (TROT).
-    up – The robot stands up (REST) and locks movement.
-    sit – The robot sits down (STAND).
-
-![](./media/sitUp.gif)
-
-## Multi-Robot Setup and Model Switching
-
-### Changing Robot Models
-
-You can change between robot models (e.g., go2, go1) in gazebo_multi_nav2_world.launch.py file 102 str:
-
-![](./media/switch.png)
-
-for go2: use "go2_description" 
-for go1: use "go1_description"
-
-Running Multiple Robots Simultaneously
-![](./media/go1multi.png)
-![](./media/go2multi.png)
-### The repository supports simultaneous operation of multiple robots. Each robot has access to nav2. In the robot.config file, add the robot’s namespace and spawn coordinates in the world.
-![](./media/robot_config.png)
-
-### NAV2 work demonstration: 
-![](./media/robot-nav2.gif)
-
-
-## Credits, thaks for all
-
-    mike4192: (SpotMicro)[https://github.com/mike4192/spotMicro]
-    Unitree Robotics: (A1 ROS)[https://github.com/unitreerobotics/a1_ros]
-    QUADRUPED ROBOTICS: (Quadruped)[https://quadruped.de]
-    lnotspotl: (GitHub)[https://github.com/lnotspotl]
-    anujjain-dev: (Unitree-go2 ROS2)[https://github.com/anujjain-dev/unitree-go2-ros2]
-
-## TODO
-
-    Add Gazebo Classic support (physics and inertial parameters for URDF).
-    Perform odometry calibration 
