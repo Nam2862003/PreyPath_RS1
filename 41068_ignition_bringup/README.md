@@ -53,6 +53,13 @@ sudo apt update
 sudo apt install python3-pip -y
 pip3 install --user tf-transformations transforms3d
 ```
+
+If the command above fails, try these
+```bash
+sudo apt update
+sudo apt install ros-humble-tf-transformations
+```
+
 Install topic_tools
 ```bash
 sudo apt update
