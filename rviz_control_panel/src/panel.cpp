@@ -62,7 +62,7 @@ namespace rviz_control_panel
       auto *grid = new QGridLayout();
       auto *lbl_x = new QLabel("X:");
       auto *lbl_y = new QLabel("Y:");
-      auto *lbl_r = new QLabel("R:");
+      auto *lbl_r = new QLabel("L:");
       lbl_x->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
       lbl_y->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
       lbl_r->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
@@ -71,7 +71,7 @@ namespace rviz_control_panel
       edit_r_ = new QLineEdit();
       edit_x_->setPlaceholderText("global coordiantes");
       edit_y_->setPlaceholderText("global coordiantes");
-      edit_r_->setPlaceholderText("patrol radius");
+      edit_r_->setPlaceholderText("patrol area");
       edit_x_->setValidator(num_validator_);
       edit_y_->setValidator(num_validator_);
       edit_r_->setValidator(num_validator_);
@@ -274,10 +274,41 @@ namespace rviz_control_panel
     rtb_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/return_to_base", 10);
     manual_enable_pub_ = node->create_publisher<std_msgs::msg::Bool>("/behavior/manual_enable", 10);
     manual_cmd_pub_ = node->create_publisher<geometry_msgs::msg::Twist>("/behavior/manual_cmd", 10);
+    // Subscribe to behavior status and split into:
+    //  - comms_ (human text)
+    //  - status_ (concise mode: IDLE/MANUAL/TRAVERSING/ESTOPPED)
+    // Heuristics:
+    //  - If message contains "->" (e.g., "Manual mode disabled -> IDLE"),
+    //    left side goes to comms_, right side to status_.
+    //  - Else if message contains "Mode=XYZ", set status_ to XYZ and
+    //    comms_ to the text before "Mode=" (trimmed).
     behavior_status_sub_ = node->create_subscription<std_msgs::msg::String>(
-        "/behavior/status", 10, [this](std_msgs::msg::String::ConstSharedPtr msg)
-        { QMetaObject::invokeMethod(comms_, [this, msg]
-                                    { comms_->setText(QString::fromStdString(msg->data)); }); });
+        "/behavior/status", 10, [this](std_msgs::msg::String::ConstSharedPtr msg) {
+          const QString text = QString::fromStdString(msg->data);
+          QString commsText = text;
+          QString statusText;
+
+          const int arrowIdx = text.indexOf("->");
+          if (arrowIdx >= 0) {
+            commsText = text.left(arrowIdx).trimmed();
+            statusText = text.mid(arrowIdx + 2).trimmed();
+          } else {
+            const int modeIdx = text.indexOf("Mode=");
+            if (modeIdx >= 0) {
+              statusText = text.mid(modeIdx + 5).trimmed();
+              commsText = text.left(modeIdx).trimmed();
+              if (commsText.isEmpty())
+                commsText = text; // fallback: show full message in comms
+            }
+          }
+
+          // Update comms label always
+          QMetaObject::invokeMethod(comms_, [this, commsText] { comms_->setText(commsText); });
+          // Update status label only if we parsed a mode
+          if (!statusText.isEmpty()) {
+            QMetaObject::invokeMethod(status_, [this, statusText] { status_->setText(statusText); });
+          }
+        });
   }
 
   // --- E-Stop: publish Bool(true) ---

@@ -194,14 +194,14 @@ void BehaviorController::manualEnableCallback(const std_msgs::msg::Bool::SharedP
         active_goal_.reset();
       }
       mode_ = RobotMode::MANUAL;
-      publishStatus("Manual mode enabled");
+      publishStatus("Manual mode enabled. Mode=" + modeString());
       publishZeroTwist(); // start from rest
     }
   } else {
     if (mode_ == RobotMode::MANUAL) {
       publishZeroTwist();
       mode_ = RobotMode::IDLE;
-      publishStatus("Manual mode disabled -> IDLE");
+      publishStatus("Manual mode disabled. Mode=" + modeString());
     }
   }
 }
