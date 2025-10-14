@@ -46,7 +46,7 @@
         </material>
         <plugin filename="ignition-gazebo-thermal-system"
                 name="ignition::gazebo::systems::Thermal">
-          <temperature>305.15</temperature>
+          <temperature>300.15</temperature>
           <emissivity>0.95</emissivity>
         </plugin>
       </visual>
