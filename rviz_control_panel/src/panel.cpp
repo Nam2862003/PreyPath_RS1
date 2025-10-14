@@ -203,8 +203,8 @@ namespace rviz_control_panel
       connect(btn_stop_, &QPushButton::clicked, this, [this]{ publishManualCmd(0.0, 0.0); });
       connect(btn_f_left_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(VF, +WF); });
       connect(btn_f_right_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(VF, -WF); });
-      connect(btn_b_left_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(-VF, +WF); });
-      connect(btn_b_right_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(-VF, -WF); });
+      connect(btn_b_left_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(-VF, -WF); });
+      connect(btn_b_right_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(-VF, +WF); });
     }
 
     // --- Styles (add inputs + keep your existing look) ---
@@ -320,11 +320,18 @@ namespace rviz_control_panel
     msg.data = true;
     estop_pub_->publish(msg);
     comms_->setText("E-stop sent");
+
+    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
   }
 
   // --- Return-to-Base: sends stored home_x_, home_y_, home_yaw_deg_ ---
   void ControlPanel::onReturnBaseClicked()
   {
+    // Guard: do not allow RTB while manual is enabled
+    if (cb_manual_control_ && cb_manual_control_->isChecked()) {
+      comms_->setText("RTB disabled in Manual mode");
+      return;
+    }
     if (!rtb_pub_)
     {
       comms_->setText("RTB publisher not ready");
@@ -341,6 +348,8 @@ namespace rviz_control_panel
     pose.pose.orientation.w = std::cos(yaw * 0.5);
     rtb_pub_->publish(pose);
     comms_->setText("RTB goal published to controller");
+
+    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
   }
 
   // --- Manual control toggle (unchanged) ---
@@ -356,10 +365,25 @@ namespace rviz_control_panel
     {
       std_msgs::msg::Bool b; b.data = enabled; manual_enable_pub_->publish(b);
     }
+    // UI policy: While Manual is ON, disable autonomous goal inputs and RTB
+    const char *tooltip = "Disabled while Manual Control is enabled";
+    if (edit_x_) { edit_x_->setEnabled(!enabled); edit_x_->setToolTip(enabled ? tooltip : ""); }
+    if (edit_y_) { edit_y_->setEnabled(!enabled); edit_y_->setToolTip(enabled ? tooltip : ""); }
+    if (edit_r_) { edit_r_->setEnabled(!enabled); edit_r_->setToolTip(enabled ? tooltip : ""); }
+    if (btn_inspect_exec_) { btn_inspect_exec_->setEnabled(!enabled); btn_inspect_exec_->setToolTip(enabled ? tooltip : ""); }
+    if (btn_rtb_) { btn_rtb_->setEnabled(!enabled); btn_rtb_->setToolTip(enabled ? tooltip : ""); }
     // Safety: send zero twist when disabling
     if (!enabled)
       publishManualCmd(0.0, 0.0);
-    comms_->setText("Manual control " + QString(enabled ? "activated" : "disabled"));
+    // Visible feedback about traverse gating
+    if (enabled) {
+      comms_->setText("Manual control activated. Traverse/RTB disabled");
+      if (status_) status_->setText("MANUAL");
+    } else {
+      comms_->setText("Manual control disabled. You can set traverse/RTB goals");
+    }
+
+    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
   }
 
   void ControlPanel::publishManualCmd(double lin, double ang)
@@ -372,6 +396,12 @@ namespace rviz_control_panel
   // --- New: Send Nav2 goal to (x,y) from the input boxes ---
   void ControlPanel::onInspectExecute()
   {
+
+    // Guard: do not allow traverse while manual is enabled
+    if (cb_manual_control_ && cb_manual_control_->isChecked()) {
+      comms_->setText("Traverse disabled in Manual mode");
+      return;
+    }
     bool okx = false, oky = false;
     const double x = edit_x_->text().toDouble(&okx);
     const double y = edit_y_->text().toDouble(&oky);
@@ -395,6 +425,8 @@ namespace rviz_control_panel
     pose.pose.orientation.w = 1.0;
     traverse_pub_->publish(pose);
     comms_->setText(QString("Traverse goal published (%1, %2)").arg(x, 0, 'f', 2).arg(y, 0, 'f', 2));
+
+    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
   }
 
   void ControlPanel::save(rviz_common::Config config) const
@@ -425,6 +457,16 @@ namespace rviz_control_panel
       edit_x_->setText(sx);
     if (config.mapGetString("inspect_y", &sy) && edit_y_)
       edit_y_->setText(sy);
+  }
+
+  void resetInspectPlaceholders(QLineEdit *edit_x_, QLineEdit *edit_y_, QLineEdit *edit_r_)
+  {
+    edit_x_->clear();
+    edit_y_->clear();
+    edit_r_->clear();
+    edit_x_->setPlaceholderText("global coordiantes");
+    edit_y_->setPlaceholderText("global coordiantes");
+    edit_r_->setPlaceholderText("patrol area");
   }
 } // namespace rviz_control_panel
 

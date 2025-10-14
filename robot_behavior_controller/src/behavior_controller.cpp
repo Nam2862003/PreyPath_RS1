@@ -151,6 +151,11 @@ void BehaviorController::estopCallback(const std_msgs::msg::Bool::SharedPtr msg)
 void BehaviorController::traverseGoalCallback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
   // Accept new traverse goal regardless of prior e-stop (momentary model)
   if (!msg) return;
+  // If manual control is active, do not accept autonomous traverse goals
+  if (mode_ == RobotMode::MANUAL) {
+    publishStatus("Traverse goal ignored -> MANUAL");
+    return;
+  }
   publishStatus("Received traverse goal: (" +
                 std::to_string(msg->pose.position.x) + ", " +
                 std::to_string(msg->pose.position.y) + ")");
@@ -166,6 +171,11 @@ void BehaviorController::traverseGoalCallback(const geometry_msgs::msg::PoseStam
  */
 void BehaviorController::returnBaseCallback(const geometry_msgs::msg::PoseStamped::SharedPtr msg) {
   if (!msg) return;
+  // If manual control is active, do not accept RTB goals
+  if (mode_ == RobotMode::MANUAL) {
+    publishStatus("RTB goal ignored -> MANUAL");
+    return;
+  }
   publishStatus("Received RTB goal: (" + std::to_string(msg->pose.position.x) + ", " +
                 std::to_string(msg->pose.position.y) + ")");
   sendTraverseGoal(*msg);

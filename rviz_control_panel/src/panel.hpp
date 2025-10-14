@@ -95,4 +95,6 @@ namespace rviz_control_panel
     double home_yaw_deg_{0.0};
   };
 
+  void resetInspectPlaceholders(QLineEdit *edit_x, QLineEdit *edit_y, QLineEdit *edit_r);
+
 } // namespace rviz_control_panel
