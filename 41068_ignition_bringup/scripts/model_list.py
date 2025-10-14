@@ -1,13 +1,7 @@
 OAK_URI  = "model://Oak tree"
 PINE_URI = "model://Pine Tree"
-ROCK_URIS = [
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%201",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%202",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%203",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%204",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%205",
-    "https://fuel.gazebosim.org/1.0/OpenRobotics/models/Falling%20Rock%206",
-]
+ROCK_URI = "model://falling_rock1"
+
 
 PERSON_URI = "model://person_walking"
 GUN_URI    = "model://gun"

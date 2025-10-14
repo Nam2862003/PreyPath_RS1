@@ -256,8 +256,7 @@ def build_world_xml(size, oaks, pines, rocks, md_oak, md_pine, md_rock,
     # Rocks
     for i, (x,y) in enumerate(rock_pts, 1):
         yaw = random.uniform(-math.pi, math.pi)
-        uri = ROCK_URIS[(i-1) % len(ROCK_URIS)]
-        xml += include_block(uri, f"rock_{i}", x, y, yaw=yaw)
+        xml += include_block(ROCK_URI, f"rock_{i}", x, y, yaw=yaw)
 
     # footer
     xml += f"""
