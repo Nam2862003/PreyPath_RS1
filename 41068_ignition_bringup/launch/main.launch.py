@@ -24,7 +24,7 @@ def generate_launch_description():
 
     rviz_flag = LaunchConfiguration('rviz')
     nav2_flag = LaunchConfiguration('nav2')
-    ld.add_action(DeclareLaunchArgument('rviz', default_value='false', description='Launch RViz'))
+    ld.add_action(DeclareLaunchArgument('rviz', default_value='true', description='Launch RViz'))
     ld.add_action(DeclareLaunchArgument('nav2', default_value='true', description='Launch Nav2'))
 
     # -------------------
