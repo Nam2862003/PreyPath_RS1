@@ -180,13 +180,13 @@
     </joint>
 
     <link name="camera_link">
-    <visual>
+    <!-- <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-        <box size="0.02 0.08 0.05"/>
+        <box size="0.01 0.01 0.01"/>
         </geometry>
         <material name="dark"/>
-    </visual>
+    </visual> -->
     </link>
 
     <!-- ================= RGB CAMERA ================= -->
@@ -219,6 +219,16 @@
     </joint>
     <link name="camera_depth_optical_frame"/>
 
+      <!-- ================= THERMAL CAMERA ================= -->
+  <joint name="thermal_joint" type="fixed">
+    <origin xyz="0.33 0.0 0.03" rpy="0 0 0"/> <!-- Adjust position -->
+    <parent link="base_link"/>
+    <child link="thermal_link"/>
+  </joint>
+
+  <link name="thermal_link">
+
+  </link>
 
 
     <xacro:leg name="rf" mirror="-1" mirror_dae= "False" front_hind="1"  front_hind_dae="True"  />
