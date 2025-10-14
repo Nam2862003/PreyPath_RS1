@@ -2,9 +2,6 @@
   <model name="Pine Tree">
     <static>true</static>
     <link name="link">
-      <thermal>
-        <temperature>300.15</temperature>
-      </thermal>
       <collision name="collision">
         <geometry>
           <mesh>
@@ -36,6 +33,11 @@
             </metal>
           </pbr>
         </material>
+        <plugin filename="ignition-gazebo-thermal-system"
+                name="ignition::gazebo::systems::Thermal">
+          <temperature>300.15</temperature>
+          <emissivity>0.95</emissivity>
+        </plugin>
       </visual>
       <visual name="bark">
         <geometry>
@@ -60,6 +62,11 @@
             </metal>
           </pbr>
         </material>
+        <plugin filename="ignition-gazebo-thermal-system"
+                name="ignition::gazebo::systems::Thermal">
+          <temperature>295.15</temperature>
+          <emissivity>0.95</emissivity>
+        </plugin>
       </visual>
     </link>
   </model>

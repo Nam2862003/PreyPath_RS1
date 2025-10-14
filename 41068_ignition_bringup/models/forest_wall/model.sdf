@@ -2,9 +2,6 @@
 <model name="forest_wall">
     <static>true</static>
     <link name="link">
-        <thermal>
-            <temperature>300.15</temperature>
-        </thermal>
         <!--<collision name="collision">
             <geometry>
             <plane>

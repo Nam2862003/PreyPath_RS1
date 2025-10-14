@@ -3,15 +3,37 @@
   <model name="gun">
     <static>true</static>
     <link name="link">
-      <thermal>
-        <temperature>323.15</temperature>
-      </thermal>
+      <!-- Thermal override visual for thermal camera -->
+      <visual name="heat_mesh">
+        <geometry>
+          <mesh>
+            <uri>model://gun/meshes/gun.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <transparency>1.0</transparency>
+        </material>
+        <plugin filename="ignition-gazebo-thermal-system"
+                name="ignition::gazebo::systems::Thermal">
+          <temperature>323.15</temperature>
+          <emissivity>0.95</emissivity>
+        </plugin>
+      </visual>
       <visual name="visual">
         <geometry>
           <mesh>
             <uri>model://gun/meshes/gun.obj</uri>
           </mesh>
         </geometry>
+        <plugin filename="ignition-gazebo-thermal-system"
+                name="ignition::gazebo::systems::Thermal">
+          <temperature>300.15</temperature>
+          <emissivity>0.95</emissivity>
+        </plugin>
       </visual>
 
 

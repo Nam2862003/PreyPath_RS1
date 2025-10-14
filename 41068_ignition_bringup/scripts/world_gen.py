@@ -26,11 +26,19 @@ except Exception:
 
 # ---------- helpers ----------
 def resolve_worlds_dir(package: str) -> Path:
-    """Return the worlds directory in the source tree."""
-    here = Path(__file__).resolve()
-    src_worlds = here.parent.parent / "worlds"
-    src_worlds.mkdir(parents=True, exist_ok=True)
-    return src_worlds
+  """Return the worlds directory, preferring installed share if available."""
+  if get_package_share_directory is not None:
+    try:
+      share_dir = Path(get_package_share_directory(package))
+      share_worlds = share_dir / "worlds"
+      share_worlds.mkdir(parents=True, exist_ok=True)
+      return share_worlds
+    except Exception:
+      pass
+  here = Path(__file__).resolve()
+  src_worlds = here.parent.parent / "worlds"
+  src_worlds.mkdir(parents=True, exist_ok=True)
+  return src_worlds
 
 
 def sample_points(n, half_size, min_dist, keepouts=None, max_tries=10000):
@@ -218,7 +226,19 @@ def build_world_xml(size, oaks, pines, rocks, md_oak, md_pine, md_rock,
       <surface_model>EARTH_WGS84</surface_model>
     </spherical_coordinates>
 
+    <include>
+      <uri>{PERSON_URI}</uri>
+      <name>Actor_1</name>
+      <pose>1 2 0 0 0 0</pose>
+      <static>true</static>
+    </include>
 
+    <include>
+      <uri>{GUN_URI}</uri>
+      <name>Gun_1</name>
+      <pose>-1 2 0 0 0 0</pose>
+      <static>true</static>
+    </include>
 """ 
     # Ground creation
     xml += create_ground(size)
@@ -242,8 +262,9 @@ def build_world_xml(size, oaks, pines, rocks, md_oak, md_pine, md_rock,
     # footer
     xml += f"""
     <!-- Debug info -->
-    <model name="seed_marker" static="true">
+    <model name="seed_marker">
       <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
       <link name="seed">
         <visual name="txt"><geometry><box><size>0.001 0.001 0.001</size></box></geometry></visual>
       </link>
