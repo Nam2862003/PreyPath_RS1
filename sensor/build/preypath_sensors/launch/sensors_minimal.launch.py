@@ -1,1 +1,0 @@
-/home/jonathan/git/PreyPath_RS1/sensor/src/preypath_sensors/launch/sensors_minimal.launch.py

@@ -1,6 +1,0 @@
-Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam': /usr/bin/cmake /home/jonathan/git/PreyPath_RS1/sensor/src/preypath_slam -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam
-Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam' returned '0': /usr/bin/cmake /home/jonathan/git/PreyPath_RS1/sensor/src/preypath_slam -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCATKIN_SYMLINK_INSTALL=ON -DCMAKE_INSTALL_PREFIX=/home/jonathan/git/PreyPath_RS1/sensor/install/preypath_slam
-Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam': /usr/bin/cmake --build /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam -- -j8 -l8
-Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam' returned '0': /usr/bin/cmake --build /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam -- -j8 -l8
-Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam': /usr/bin/cmake --install /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam
-Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam' returned '0': /usr/bin/cmake --install /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam

@@ -1,4 +1,0 @@
-Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam': /usr/bin/cmake --build /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam -- -j8 -l8
-Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam' returned '0': /usr/bin/cmake --build /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam -- -j8 -l8
-Invoking command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam': /usr/bin/cmake --install /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam
-Invoked command in '/home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam' returned '0': /usr/bin/cmake --install /home/jonathan/git/PreyPath_RS1/sensor/build/preypath_slam
