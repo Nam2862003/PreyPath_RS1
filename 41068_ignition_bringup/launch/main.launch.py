@@ -88,4 +88,22 @@ def generate_launch_description():
     )
     ld.add_action(rviz_delayed)
 
+    # -------------------
+    # 5. Behavior Controller (always on)
+    # -------------------
+    behavior_controller = Node(
+        package='robot_behavior_controller',
+        executable='behavior_controller_node',
+        name='behavior_controller',
+        output='screen',
+        parameters=[{'use_sim_time': use_sim_time}]
+    )
+
+    # Optionally delay a bit to allow world and robot to spawn
+    behavior_controller_delayed = TimerAction(
+        period=5.0,
+        actions=[behavior_controller]
+    )
+    ld.add_action(behavior_controller_delayed)
+
     return ld
