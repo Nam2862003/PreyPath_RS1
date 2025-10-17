@@ -334,16 +334,16 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /robot1/thermal/image
       Value: true
-    - Class: rviz_default_plugins/Marker
+    - Class: rviz_default_plugins/MarkerArray
       Enabled: true
       Name: Icons
       Namespaces:
         base: true
+        person: true
       Topic:
         Depth: 5
         Durability Policy: Transient Local
-        Filter size: 10
-        History Policy: Keep All
+        History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /icons
       Value: true

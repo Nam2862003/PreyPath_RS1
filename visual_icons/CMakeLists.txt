@@ -22,7 +22,7 @@ if(BUILD_TESTING)
 endif()
 
 add_executable(icon_publisher src/icon_publisher.cpp)
-ament_target_dependencies(icon_publisher rclcpp visualization_msgs)
+ament_target_dependencies(icon_publisher rclcpp visualization_msgs geometry_msgs)
 
 # Install meshes/textures so "package://" URIs work
 install(DIRECTORY meshes/
