@@ -1,0 +1,27 @@
+# Usage: pip install -r requirements.txt
+
+# === Core ROS2 Python packages ===
+rclpy>=3.1.0
+cv_bridge>=3.2.1
+sensor_msgs
+std_msgs
+geometry_msgs
+ament_index_python
+
+# === Computer vision & AI ===
+ultralytics>=8.2.50
+opencv-python>=4.8.0
+torch>=2.0.0
+torchvision>=0.15.0
+
+# === Utility packages ===
+# NumPy 2.x breaks tf_transformations and older transforms3d
+numpy>=1.23.0,<2.0
+# Safe version of transforms3d (0.4.2+ fixes np.float issue)
+transforms3d>=0.4.2,<0.5.0
+Pillow>=9.0.0
+PyYAML>=6.0
+tqdm>=4.65.0
+
+# === Visualization & debugging (optional but useful) ===
+matplotlib>=3.7.0
