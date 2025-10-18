@@ -8,65 +8,97 @@ from cv_bridge import CvBridge
 from ament_index_python.packages import get_package_share_directory
 import os
 
-from yolov8_msgs.msg import InferenceResult
-from yolov8_msgs.msg import Yolov8Inference
+from yolov8_msgs.msg import InferenceResult, Yolov8Inference
 
 bridge = CvBridge()
 
-class Camera_subscriber(Node):
+class CameraSubscriber(Node):
 
     def __init__(self):
         super().__init__('camera_subscriber')
-        
+
+        # -------------------------------
         # Load YOLOv8 model
+        # -------------------------------
         package_share = get_package_share_directory('robot_recognition')
         model_path = os.path.join(package_share, 'models', 'yolov8n.pt')
         self.model = YOLO(model_path)
-        self.get_logger().info(f"Model loaded from {model_path}")
+        self.get_logger().info(f"✅ YOLOv8 model loaded from: {model_path}")
 
-        self.yolov8_inference = Yolov8Inference()
+        # -------------------------------
+        # ROS topics
+        # -------------------------------
         self.subscription = self.create_subscription(
             Image,
-            '/robot1/camera/image',
+            '/robot1/camera/image',  # ✅ your robot’s RGB camera
             self.camera_callback,
             10)
-        self.subscription 
+        self.subscription
 
-        self.yolov8_pub = self.create_publisher(Yolov8Inference, "/Yolov8_Inference", 1)
-        self.img_pub = self.create_publisher(Image, "/inference_result", 1)
+        # Publishers
+        self.yolov8_pub = self.create_publisher(Yolov8Inference, '/Yolov8_Inference', 1)
+        self.img_pub = self.create_publisher(Image, '/inference_result', 1)
+
+        # Data holder
+        self.yolov8_inference = Yolov8Inference()
 
     def camera_callback(self, data):
+        try:
+            # -------------------------------
+            # Convert ROS Image → OpenCV
+            # -------------------------------
+            img = bridge.imgmsg_to_cv2(data, "bgr8")
 
-        img = bridge.imgmsg_to_cv2(data, "bgr8")
-        results = self.model(img)
+            # -------------------------------
+            # Run YOLOv8 inference
+            # -------------------------------
+            results = self.model(img)
 
-        self.yolov8_inference.header.frame_id = "inference"
-        self.yolov8_inference.header.stamp = camera_subscriber.get_clock().now().to_msg()
+            # -------------------------------
+            # Build custom message
+            # -------------------------------
+            self.yolov8_inference.header.frame_id = data.header.frame_id
+            self.yolov8_inference.header.stamp = self.get_clock().now().to_msg()
 
-        for r in results:
-            boxes = r.boxes
-            for box in boxes:
-                self.inference_result = InferenceResult()
-                b = box.xyxy[0].to('cpu').detach().numpy().copy()  # get box coordinates in (top, left, bottom, right) format
-                c = box.cls
-                self.inference_result.class_name = self.model.names[int(c)]
-                self.inference_result.top = int(b[0])
-                self.inference_result.left = int(b[1])
-                self.inference_result.bottom = int(b[2])
-                self.inference_result.right = int(b[3])
-                self.yolov8_inference.yolov8_inference.append(self.inference_result)
+            for r in results:
+                boxes = r.boxes
+                for box in boxes:
+                    inference_result = InferenceResult()
+                    b = box.xyxy[0].to('cpu').detach().numpy().copy()
+                    c = int(box.cls)
+                    inference_result.class_name = self.model.names[c]
+                    inference_result.top = int(b[0])
+                    inference_result.left = int(b[1])
+                    inference_result.bottom = int(b[2])
+                    inference_result.right = int(b[3])
+                    self.yolov8_inference.yolov8_inference.append(inference_result)
 
-            #camera_subscriber.get_logger().info(f"{self.yolov8_inference}")
+            # -------------------------------
+            # Annotate image and publish
+            # -------------------------------
+            annotated_frame = results[0].plot()
+            img_msg = bridge.cv2_to_imgmsg(annotated_frame, encoding="bgr8")
+            img_msg.header = data.header  # ✅ keep same camera frame
 
-        annotated_frame = results[0].plot()
-        img_msg = bridge.cv2_to_imgmsg(annotated_frame)  
+            # Publish both messages
+            self.img_pub.publish(img_msg)
+            self.yolov8_pub.publish(self.yolov8_inference)
 
-        self.img_pub.publish(img_msg)
-        self.yolov8_pub.publish(self.yolov8_inference)
-        self.yolov8_inference.yolov8_inference.clear()
+            # Clear for next frame
+            self.yolov8_inference.yolov8_inference.clear()
+
+        except Exception as e:
+            self.get_logger().error(f"❌ YOLO callback error: {e}")
+
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = CameraSubscriber()
+    node.get_logger().info("🚀 YOLOv8 ROS2 node started. Listening to /robot1/camera/image ...")
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
 
 if __name__ == '__main__':
-    rclpy.init(args=None)
-    camera_subscriber = Camera_subscriber()
-    rclpy.spin(camera_subscriber)
-    rclpy.shutdown()
+    main()
