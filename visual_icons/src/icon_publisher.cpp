@@ -23,43 +23,16 @@ public:
 
         // publishPersonIcon();
 
-        geometry_msgs::msg::Pose person1;
-        person1.position.x = 5.0;
-        person1.position.y = 0.0;
-        person1.position.z = 0.0;
-
-        geometry_msgs::msg::Pose person2;
-        person2.position.x = -3.0;
-        person2.position.y = 3.0;
-        person2.position.z = 0.0;
-
-        detected_people.poses.push_back(person1);
-        detected_people.poses.push_back(person2);
+        populate_people();
+        populate_hunters();
 
         produceMarkerArray();
     }
 
-    // void publishBaseIcon()
-    // {
-    //     publishIcon("base", 0,
-    //                 "package://visual_icons/meshes/home_green.glb",
-    //                 0.0, 0.0, 0.0, // x,y,z (slightly above ground to avoid z-fighting)
-    //                 3.0            // scale in meters (uniform)
-    //     );
-    // }
-
-    // void publishPersonIcon()
-    // {
-    //     publishIcon("person", 1,
-    //                 "package://visual_icons/meshes/person.glb",
-    //                 5.0, 0.0, 0.0, // x,y,z (slightly above ground to avoid z-fighting)
-    //                 3.0            // scale in meters (uniform)
-    //     );
-    // }
-
     void produceMarkerArray()
     {
         visualization_msgs::msg::MarkerArray marker_array;
+        int id = 0;
 
         marker_array.markers.push_back(
             produceIcon("base", 0,
@@ -67,12 +40,26 @@ public:
                         0.0, 0.0, 0.0,
                         3.0));
 
-        for (size_t i = 0; i < detected_people.poses.size(); ++i)
+        id++;
+
+        for (size_t i = 0; i < detected_people_.poses.size(); ++i)
         {
-            const auto &pose = detected_people.poses[i];
+            const auto &pose = detected_people_.poses[i];
             marker_array.markers.push_back(
-                produceIcon("person", i + 1,
+                produceIcon("person", id++,
                             "package://visual_icons/meshes/person.glb",
+                            pose.position.x,
+                            pose.position.y,
+                            pose.position.z,
+                            3.0));
+        }
+
+        for (size_t i = 0; i < detected_hunters_.poses.size(); ++i)
+        {
+            const auto &pose = detected_hunters_.poses[i];
+            marker_array.markers.push_back(
+                produceIcon("person", id++,
+                            "package://visual_icons/meshes/hunter_eye.glb",
                             pose.position.x,
                             pose.position.y,
                             pose.position.z,
@@ -120,10 +107,42 @@ public:
         return m;
     }
 
+    void populate_hunters()
+    {
+        geometry_msgs::msg::Pose hunter1;
+        hunter1.position.x = -5.0;
+        hunter1.position.y = -2.0;
+        hunter1.position.z = 0.0;
+
+        geometry_msgs::msg::Pose hunter2;
+        hunter2.position.x = 2.0;
+        hunter2.position.y = 4.0;
+        hunter2.position.z = 0.0;
+
+        detected_hunters_.poses.push_back(hunter1);
+        detected_hunters_.poses.push_back(hunter2);
+    }
+
+    void populate_people()
+    {
+        geometry_msgs::msg::Pose person1;
+        person1.position.x = 5.0;
+        person1.position.y = 0.0;
+        person1.position.z = 0.0;
+
+        geometry_msgs::msg::Pose person2;
+        person2.position.x = -3.0;
+        person2.position.y = 3.0;
+        person2.position.z = 0.0;
+
+        detected_people_.poses.push_back(person1);
+        detected_people_.poses.push_back(person2);
+    }
+
 private:
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pub_;
-    // visualization_msgs::msg::MarkerArray markers_;
-    geometry_msgs::msg::PoseArray detected_people;
+    geometry_msgs::msg::PoseArray detected_people_;
+    geometry_msgs::msg::PoseArray detected_hunters_;
 };
 
 int main(int argc, char **argv)
