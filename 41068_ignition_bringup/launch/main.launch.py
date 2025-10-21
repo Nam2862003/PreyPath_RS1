@@ -81,6 +81,21 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
         condition=IfCondition(rviz_flag)
     )
+
+    # -------------------
+    # 5. Visual Icons Publisher
+    # -------------------
+    visual_icons_node = Node(
+        package='visual_icons',
+        executable='icon_publisher',
+        name='icon_publisher',
+        output='screen',
+        parameters=[{'use_sim_time': use_sim_time}],
+        condition=IfCondition(rviz_flag)
+    )
+    ld.add_action(visual_icons_node)
+
+
     # Delay RViz a bit more (Nav2 gets 10s, so give RViz 12s)
     rviz_delayed = TimerAction(
         period=12.0,  # Nav2 gets 10s, RViz starts a bit later
