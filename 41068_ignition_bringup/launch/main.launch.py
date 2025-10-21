@@ -7,7 +7,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
 from launch.conditions import IfCondition
 from launch_ros.substitutions import FindPackageShare
-from launch.event_handlers import OnProcessExit
+from launch.event_handlers import OnProcessExit, OnProcessStart
 
 def generate_launch_description():
     ld = LaunchDescription()
@@ -53,7 +53,12 @@ def generate_launch_description():
             'use_sim_time': LaunchConfiguration('use_sim_time'),
         }.items()
     )
-    ld.add_action(quadruped_spawn)
+    # Delay robot spawn to let world load
+    delayed_robot_spawn = TimerAction(
+        period=5.0,  # seconds
+        actions=[quadruped_spawn]
+    )
+    ld.add_action(delayed_robot_spawn)
 
     # -------------------
     # 3. Nav2 + SLAM (delayed start to wait for setup)
