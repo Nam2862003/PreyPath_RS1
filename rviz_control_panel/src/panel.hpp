@@ -19,6 +19,7 @@
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <std_msgs/msg/string.hpp>
 #include <geometry_msgs/msg/twist.hpp>
+#include <std_msgs/msg/float64.hpp>
 
 // (Keep the pluginlib include in the .cpp where you EXPORT_CLASS)
 #include <pluginlib/class_list_macros.hpp>
@@ -80,11 +81,13 @@ namespace rviz_control_panel
   // Behavior controller interface (new): publish traverse goals & receive status
   rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr traverse_pub_;
   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr behavior_status_sub_;
+  rclcpp::Subscription<std_msgs::msg::String>::SharedPtr behavior_comms_sub_;
   // New: Return-to-base publisher (PoseStamped) handled by behavior controller
   rclcpp::Publisher<geometry_msgs::msg::PoseStamped>::SharedPtr rtb_pub_;
   // Manual control publishers
   rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr manual_enable_pub_;
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr manual_cmd_pub_;
+  rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr inspect_len_pub_;
 
   // Helper to publish a manual velocity command
   void publishManualCmd(double lin_x, double ang_z);

@@ -26,7 +26,8 @@ if(BUILD_TESTING)
 endif()
 
 add_executable(behavior_controller_node
-  src/behavior_controller.cpp)
+  src/behavior_controller.cpp
+  src/patrolling_waypoints.cpp)
 target_include_directories(behavior_controller_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
