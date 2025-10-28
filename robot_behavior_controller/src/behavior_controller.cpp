@@ -10,6 +10,7 @@
  */
 
 #include "robot_behavior_controller/behavior_controller.hpp"
+#include "robot_behavior_controller/patrolling_waypoints.hpp"
 #include <chrono>
 #include <cmath>
 
@@ -20,11 +21,13 @@ namespace robot_behavior_controller {
 BehaviorController::BehaviorController()
   : rclcpp::Node("behavior_controller")   // Create ROS 2 node with a fixed name.
 {
-  // STATUS PUBLISHER --------------------------------------------------------------
-  // Human‑readable status text.
-  //  * Consumers: RViz panel (live feedback), logs.
-  //  * QoS depth 10: we only care about recent events; losing old messages is acceptable.
-  status_pub_ = this->create_publisher<std_msgs::msg::String>("/behavior/status", 10);
+  // STATUS PUBLISHERS --------------------------------------------------------------
+  // Split into two channels:
+  //  * /behavior/status : current mode as a plain string (e.g., "IDLE")
+  //  * /behavior/comms  : human‑readable comments/messages
+  // QoS depth 10: only recent messages matter.
+  status_mode_pub_ = this->create_publisher<std_msgs::msg::String>("/behavior/status", 10);
+  comms_pub_ = this->create_publisher<std_msgs::msg::String>("/behavior/comms", 10);
 
   // TRAVERSE GOAL SUBSCRIPTION ----------------------------------------------------
   // High‑level navigation targets produced by UI or autonomy planners.
@@ -53,6 +56,11 @@ BehaviorController::BehaviorController()
     "/behavior/manual_cmd", 10,
     std::bind(&BehaviorController::manualCmdCallback, this, std::placeholders::_1));
 
+  // INSPECTION LENGTH SUBSCRIPTION ----------------------------------------------
+  inspect_len_sub_ = this->create_subscription<std_msgs::msg::Float64>(
+    "/behavior/inspect_length", 10,
+    std::bind(&BehaviorController::inspectLengthCallback, this, std::placeholders::_1));
+
   // MANUAL VELOCITY OUTPUT --------------------------------------------------------
   // Single publisher used both to: (a) forward manual commands, (b) send zero on mode changes
   // or E‑STOP. Centralizing this makes future velocity smoothing easier.
@@ -77,33 +85,43 @@ BehaviorController::BehaviorController()
       this->get_node_waitables_interface(),
       "navigate_to_pose"); // Standard Nav2 action name.
 
+  // Waypoints action client
+  wps_client_ = rclcpp_action::create_client<FollowWaypoints>(
+      this->get_node_base_interface(),
+      this->get_node_graph_interface(),
+      this->get_node_logging_interface(),
+      this->get_node_waitables_interface(),
+      "follow_waypoints");
+
   // INITIAL STATUS ----------------------------------------------------------------
   // Helps UI show a non-empty label and confirms node startup.
-  publishStatus("BehaviorController started. Mode=" + modeString());
+  publishComms("BehaviorController started");
+  publishMode();
 }
 
 //
-// Helper: publish a status string to both the topic and the node logger.
+// Helper: publish mode and comments via separate topics.
 //
-/**
- * @brief Publish a human readable status message and mirror it to the node logger.
- *
- * Centralizing *all* user-facing strings here ensures consistency and makes it trivial
- * to later add structured logging or throttling. If you internationalize, this is where
- * you'd route messages.
- *
- * @param text Arbitrary descriptive string (keep short for UI labels if used there).
- */
-void BehaviorController::publishStatus(const std::string &text) {
+void BehaviorController::publishMode() {
+  if (!status_mode_pub_) return;
+  std_msgs::msg::String msg;
+  msg.data = modeString();
+  status_mode_pub_->publish(msg);
+  RCLCPP_INFO(this->get_logger(), "Mode=%s", msg.data.c_str());
+}
+
+void BehaviorController::publishComms(const std::string &text) {
+  if (!comms_pub_) return;
   std_msgs::msg::String msg;
   msg.data = text;
-  status_pub_->publish(msg);
+  comms_pub_->publish(msg);
   RCLCPP_INFO(this->get_logger(), "%s", text.c_str());
 }
 
 std::string BehaviorController::modeString() const {
   switch (mode_) {
     case RobotMode::IDLE:        return "IDLE";
+    case RobotMode::PATROLLING:  return "PATROLLING";
     case RobotMode::TRAVERSING:  return "TRAVERSING";
     case RobotMode::MANUAL:      return "MANUAL";
     case RobotMode::ESTOPPED:    return "ESTOPPED"; // retained for future if needed
@@ -137,7 +155,9 @@ void BehaviorController::estopCallback(const std_msgs::msg::Bool::SharedPtr msg)
     mode_ = RobotMode::IDLE; // drop to idle from autonomous nav
   }
   publishZeroTwist();
-  publishStatus("E-STOP pressed: goals canceled, motion halted");
+  clearInspection("E-STOP");
+  publishComms("E-STOP pressed: goals canceled, motion halted");
+  publishMode();
 }
 
 /**
@@ -153,12 +173,14 @@ void BehaviorController::traverseGoalCallback(const geometry_msgs::msg::PoseStam
   if (!msg) return;
   // If manual control is active, do not accept autonomous traverse goals
   if (mode_ == RobotMode::MANUAL) {
-    publishStatus("Traverse goal ignored -> MANUAL");
+    publishComms("Traverse goal ignored -> MANUAL");
     return;
   }
-  publishStatus("Received traverse goal: (" +
+  publishComms("Received traverse goal: (" +
                 std::to_string(msg->pose.position.x) + ", " +
                 std::to_string(msg->pose.position.y) + ")");
+  // Remember center for potential inspection
+  last_traverse_goal_ = *msg;
   sendTraverseGoal(*msg);
 }
 
@@ -173,10 +195,10 @@ void BehaviorController::returnBaseCallback(const geometry_msgs::msg::PoseStampe
   if (!msg) return;
   // If manual control is active, do not accept RTB goals
   if (mode_ == RobotMode::MANUAL) {
-    publishStatus("RTB goal ignored -> MANUAL");
+    publishComms("RTB goal ignored -> MANUAL");
     return;
   }
-  publishStatus("Received RTB goal: (" + std::to_string(msg->pose.position.x) + ", " +
+  publishComms("Received RTB goal: (" + std::to_string(msg->pose.position.x) + ", " +
                 std::to_string(msg->pose.position.y) + ")");
   sendTraverseGoal(*msg);
 }
@@ -204,14 +226,18 @@ void BehaviorController::manualEnableCallback(const std_msgs::msg::Bool::SharedP
         active_goal_.reset();
       }
       mode_ = RobotMode::MANUAL;
-      publishStatus("Manual mode enabled. Mode=" + modeString());
+      publishComms("Manual mode enabled");
       publishZeroTwist(); // start from rest
+      clearInspection("Manual enabled");
+      publishMode();
     }
   } else {
     if (mode_ == RobotMode::MANUAL) {
       publishZeroTwist();
       mode_ = RobotMode::IDLE;
-      publishStatus("Manual mode disabled. Mode=" + modeString());
+      publishComms("Manual mode disabled");
+      publishMode();
+      // Do not auto-resume inspection; require new input
     }
   }
 }
@@ -272,7 +298,7 @@ void BehaviorController::sendTraverseGoal(const geometry_msgs::msg::PoseStamped 
   //  - Publish a special degraded status
   //  - Trigger a recovery behavior
   if (!nav_client_->wait_for_action_server(500ms)) {
-    publishStatus("Nav2 action server not available");
+    publishComms("Nav2 action server not available");
     return;
   }
 
@@ -286,11 +312,17 @@ void BehaviorController::sendTraverseGoal(const geometry_msgs::msg::PoseStamped 
   // Triggered exactly once: either accepted (handle valid) or rejected (null handle).
   opts.goal_response_callback = [this](std::shared_ptr<GoalHandleNav> handle) {
     if (!handle) {
-      publishStatus("Traverse goal rejected by server");
+      publishComms("Traverse goal rejected by server");
     } else {
       active_goal_ = handle;
-      mode_ = RobotMode::TRAVERSING;
-      publishStatus("Traverse goal accepted. Mode=" + modeString());
+      // If we're in a patrol sequence, keep high-level mode as PATROLLING
+      if (inspecting_) {
+        mode_ = RobotMode::PATROLLING;
+      } else {
+        mode_ = RobotMode::TRAVERSING;
+      }
+      publishComms("Traverse goal accepted");
+      publishMode();
     }
   };
 
@@ -307,10 +339,15 @@ void BehaviorController::sendTraverseGoal(const geometry_msgs::msg::PoseStamped 
       default:                                   outcome = "UNKNOWN";   break;
     }
     active_goal_.reset();
-    // Simplistic: always return to IDLE (even if ESTOP triggered mid-way we would
-    // have canceled earlier). If you add more modes, handle transitions carefully.
+    // After a traverse completes, return to IDLE; patrol (if any) will update mode on accept
     mode_ = RobotMode::IDLE;
-    publishStatus("Traverse result: " + outcome + ". Mode=" + modeString());
+    publishComms("Traverse result: " + outcome);
+    publishMode();
+
+    // On success, if an inspection was requested and not yet started, start it.
+    if (res.code == rclcpp_action::ResultCode::SUCCEEDED) {
+      startInspectionIfRequested();
+    }
   };
 
   // (Future) FEEDBACK CALLBACK ----------------------------------------------------
@@ -320,6 +357,84 @@ void BehaviorController::sendTraverseGoal(const geometry_msgs::msg::PoseStamped 
   // };
 
   nav_client_->async_send_goal(goal, opts);
+}
+
+
+
+
+
+
+
+// ---------------- INSPECTION FLOW ----------------------------------------------
+void BehaviorController::inspectLengthCallback(const std_msgs::msg::Float64::SharedPtr msg) {
+  if (!msg) return;
+  pending_inspect_L_ = std::max(0.0, msg->data);
+  if (pending_inspect_L_ > 0.0) {
+    publishComms("Inspection requested: L=" + std::to_string(pending_inspect_L_) + " m");
+  }
+}
+
+void BehaviorController::startInspectionIfRequested() {
+  if (pending_inspect_L_ <= 0.0) return;
+  // Generate waypoints for an LxL square centered at last traverse goal
+  auto waypoints = generate_patrol_waypoints(last_traverse_goal_, pending_inspect_L_);
+  // Consume the request regardless of outcome
+  pending_inspect_L_ = 0.0;
+  if (waypoints.empty()) {
+    publishComms("Inspection requested but no waypoints generated");
+    return;
+  }
+  publishComms("Patrolling in progress. Waypoints=" + std::to_string(waypoints.size()));
+  sendWaypointList(waypoints);
+}
+
+// (sequential fallback removed for simplicity; FollowWaypoints handles the sequence)
+
+void BehaviorController::sendWaypointList(const std::vector<geometry_msgs::msg::PoseStamped> &poses) {
+  if (!wps_client_ || !wps_client_->wait_for_action_server(500ms)) {
+    publishComms("FollowWaypoints server not available; cannot start patrolling");
+    return;
+  }
+
+  FollowWaypoints::Goal goal;
+  goal.poses = poses;
+
+  auto opts = rclcpp_action::Client<FollowWaypoints>::SendGoalOptions();
+  opts.goal_response_callback = [this](std::shared_ptr<GoalHandleWps> handle){
+    if (!handle) {
+      publishComms("Patrolling goal rejected");
+    } else {
+      mode_ = RobotMode::PATROLLING;
+      publishComms("Patrolling in progress");
+      publishMode();
+    }
+  };
+  opts.feedback_callback = [this](GoalHandleWps::SharedPtr, const std::shared_ptr<const FollowWaypoints::Feedback> & fb){
+    (void)fb; // Optionally report progress
+  };
+  opts.result_callback = [this](const GoalHandleWps::WrappedResult &res){
+    std::string outcome;
+    switch (res.code) {
+      case rclcpp_action::ResultCode::SUCCEEDED: outcome = "SUCCEEDED"; break;
+      case rclcpp_action::ResultCode::ABORTED: outcome = "ABORTED"; break;
+      case rclcpp_action::ResultCode::CANCELED: outcome = "CANCELED"; break;
+      default: outcome = "UNKNOWN"; break;
+    }
+    // Patrol complete/terminated; return to IDLE for next command
+    mode_ = RobotMode::IDLE;
+    publishComms("Patrolling result: " + outcome);
+    publishMode();
+    clearInspection("Patrolling done");
+  };
+
+  wps_client_->async_send_goal(goal, opts);
+}
+
+void BehaviorController::clearInspection(const char *reason) {
+  inspecting_ = false;
+  waypoint_queue_.clear();
+  pending_inspect_L_ = 0.0;
+  if (reason) publishComms(std::string("Inspection cleared: ") + reason);
 }
 
 } // namespace robot_behavior_controller
