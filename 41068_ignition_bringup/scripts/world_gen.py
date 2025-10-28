@@ -239,6 +239,29 @@ def build_world_xml(size, oaks, pines, rocks, md_oak, md_pine, md_rock,
       <pose>-1 2 0 0 0 0</pose>
       <static>true</static>
     </include>
+    
+    <!-- Hot patch to act as a human heat source (~36 °C = 309.15 K) -->
+    <model name="human_test_patch_309K">
+      <pose>3 0 1 0 0 0</pose>
+      <static>true</static>
+      <link name="patch_link">
+        <visual name="patch_vis">
+          <geometry>
+            <box><size>1.0 0.5 1.8</size></box>
+          </geometry>
+          <material>
+            <ambient>0 0 0 0</ambient>
+            <diffuse>0 0 0 0</diffuse>
+            <specular>0 0 0 0</specular>
+            <emissive>0 0 0 0</emissive>
+          </material>
+        </visual>
+        <thermal>
+          <temperature>309.15</temperature>
+          <emissivity>0.98</emissivity>
+        </thermal>
+      </link>
+    </model>
 """ 
     # Ground creation
     xml += create_ground(size)
