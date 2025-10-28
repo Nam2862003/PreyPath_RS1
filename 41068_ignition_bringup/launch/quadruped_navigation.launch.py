@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, TimerAction
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
@@ -14,28 +14,11 @@ def generate_launch_description():
     use_sim_time = LaunchConfiguration('use_sim_time')
     use_sim_time_launch_arg = DeclareLaunchArgument(
         'use_sim_time',
-        default_value='True',
+        default_value='true',
         description='Flag to enable use_sim_time'
     )
 
-    # slam = Node(
-    #     package="slam_toolbox",
-    #     executable="async_slam_toolbox_node",
-    #     name="slam_toolbox",
-    #     output="screen",
-    #     namespace="robot1",   # keep consistent namespace
-    #     parameters=[
-    #         {"use_sim_time": use_sim_time},
-    #         PathJoinSubstitution([config_path, "slam_params.yaml"])
-    #     ],
-    #     remappings=[
-    #         ("/scan", "/robot1/scan"),
-    #         ("/odom", "/robot1/odometry")   # matches EKF output
-    #     ]
-    # )
-
-
-       # Start Simultaneous Localisation and Mapping (SLaM)
+    # Start Simultaneous Localisation and Mapping (SLaM)
     slam = IncludeLaunchDescription(
         PathJoinSubstitution([FindPackageShare('slam_toolbox'),
                              'launch', 'online_async_launch.py']),
@@ -56,5 +39,8 @@ def generate_launch_description():
     ld.add_action(use_sim_time_launch_arg)
     ld.add_action(slam)
     ld.add_action(navigation)
+    # # Delay Nav2 after SLAM (so /map & TF are ready)
+    # nav2_delayed = TimerAction(period=.0, actions=[navigation])
+    # ld.add_action(nav2_delayed)
 
     return ld
