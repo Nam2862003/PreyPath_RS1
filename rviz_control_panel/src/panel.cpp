@@ -274,40 +274,19 @@ namespace rviz_control_panel
     rtb_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/return_to_base", 10);
     manual_enable_pub_ = node->create_publisher<std_msgs::msg::Bool>("/behavior/manual_enable", 10);
     manual_cmd_pub_ = node->create_publisher<geometry_msgs::msg::Twist>("/behavior/manual_cmd", 10);
-    // Subscribe to behavior status and split into:
-    //  - comms_ (human text)
-    //  - status_ (concise mode: IDLE/MANUAL/TRAVERSING/ESTOPPED)
-    // Heuristics:
-    //  - If message contains "->" (e.g., "Manual mode disabled -> IDLE"),
-    //    left side goes to comms_, right side to status_.
-    //  - Else if message contains "Mode=XYZ", set status_ to XYZ and
-    //    comms_ to the text before "Mode=" (trimmed).
+  // Publish inspection length (L) to behavior controller
+  inspect_len_pub_ = node->create_publisher<std_msgs::msg::Float64>("/behavior/inspect_length", 10);
+    // Subscribe to behavior status (mode only) and comms (human-readable comments)
     behavior_status_sub_ = node->create_subscription<std_msgs::msg::String>(
         "/behavior/status", 10, [this](std_msgs::msg::String::ConstSharedPtr msg) {
+          const QString mode = QString::fromStdString(msg->data).trimmed();
+          QMetaObject::invokeMethod(status_, [this, mode] { status_->setText(mode); });
+        });
+
+    behavior_comms_sub_ = node->create_subscription<std_msgs::msg::String>(
+        "/behavior/comms", 10, [this](std_msgs::msg::String::ConstSharedPtr msg) {
           const QString text = QString::fromStdString(msg->data);
-          QString commsText = text;
-          QString statusText;
-
-          const int arrowIdx = text.indexOf("->");
-          if (arrowIdx >= 0) {
-            commsText = text.left(arrowIdx).trimmed();
-            statusText = text.mid(arrowIdx + 2).trimmed();
-          } else {
-            const int modeIdx = text.indexOf("Mode=");
-            if (modeIdx >= 0) {
-              statusText = text.mid(modeIdx + 5).trimmed();
-              commsText = text.left(modeIdx).trimmed();
-              if (commsText.isEmpty())
-                commsText = text; // fallback: show full message in comms
-            }
-          }
-
-          // Update comms label always
-          QMetaObject::invokeMethod(comms_, [this, commsText] { comms_->setText(commsText); });
-          // Update status label only if we parsed a mode
-          if (!statusText.isEmpty()) {
-            QMetaObject::invokeMethod(status_, [this, statusText] { status_->setText(statusText); });
-          }
+          QMetaObject::invokeMethod(comms_, [this, text] { comms_->setText(text); });
         });
   }
 
@@ -405,6 +384,8 @@ namespace rviz_control_panel
     bool okx = false, oky = false;
     const double x = edit_x_->text().toDouble(&okx);
     const double y = edit_y_->text().toDouble(&oky);
+  bool okl = false;
+  const double L = edit_r_ ? edit_r_->text().toDouble(&okl) : 0.0;
     if (!okx || !oky)
     {
       comms_->setText("Enter valid X/Y (meters in map)");
@@ -415,6 +396,10 @@ namespace rviz_control_panel
       comms_->setText("Traverse publisher not ready");
       return;
     }
+    // If L provided and positive, publish it so controller plans patrol after arrival
+    if (inspect_len_pub_ && okl && L > 0.0) {
+      std_msgs::msg::Float64 lmsg; lmsg.data = L; inspect_len_pub_->publish(lmsg);
+    }
     geometry_msgs::msg::PoseStamped pose;
     pose.header.frame_id = "map";
     pose.header.stamp =
@@ -424,7 +409,12 @@ namespace rviz_control_panel
     pose.pose.orientation.z = 0.0;
     pose.pose.orientation.w = 1.0;
     traverse_pub_->publish(pose);
-    comms_->setText(QString("Traverse goal published (%1, %2)").arg(x, 0, 'f', 2).arg(y, 0, 'f', 2));
+    if (okl && L > 0.0) {
+      comms_->setText(QString("Traverse goal published (%1, %2), then patrol L=%3 m")
+                        .arg(x, 0, 'f', 2).arg(y, 0, 'f', 2).arg(L, 0, 'f', 2));
+    } else {
+      comms_->setText(QString("Traverse goal published (%1, %2)").arg(x, 0, 'f', 2).arg(y, 0, 'f', 2));
+    }
 
     resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
   }
