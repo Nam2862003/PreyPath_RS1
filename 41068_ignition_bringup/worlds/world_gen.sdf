@@ -51,7 +51,7 @@
     <include>
       <uri>model://gun</uri>
       <name>Gun_1</name>
-      <pose>-1 2 0 0 0 0</pose>
+      <pose>-1 -2 0 0 0 0</pose>
       <static>true</static>
     </include>
  <include> 
