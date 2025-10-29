@@ -347,6 +347,19 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /icons
       Value: true
+    - Class: rviz_default_plugins/Marker
+      Enabled: true
+      Name: Patrol area
+      Namespaces:
+        inspect: true
+      Topic:
+        Depth: 1
+        Durability Policy: Transient Local
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /patrol_marker
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -393,7 +406,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 40.430458068847656
+      Distance: 53.396549224853516
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1

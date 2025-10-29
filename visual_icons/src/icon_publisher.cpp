@@ -3,8 +3,12 @@
 #include <visualization_msgs/msg/marker.hpp>
 #include <geometry_msgs/msg/pose_array.hpp>
 #include <geometry_msgs/msg/pose.hpp>
+#include <geometry_msgs/msg/pose_stamped.hpp>
+#include <std_msgs/msg/float64.hpp>
 
+using geometry_msgs::msg::PoseStamped;
 using visualization_msgs::msg::Marker;
+using visualization_msgs::msg::MarkerArray;
 
 class IconPublisher : public rclcpp::Node
 {
@@ -15,21 +19,33 @@ public:
         // Transient local keeps last message for late subscribers (RViz)
         auto qos = rclcpp::QoS(1).transient_local().reliable();
         pub_ = create_publisher<visualization_msgs::msg::MarkerArray>("icons", qos);
-        // markers_ = visualization_msgs::msg::MarkerArray();
+        pub_patrol_ = create_publisher<visualization_msgs::msg::Marker>("patrol_marker", qos);
 
-        // publishBaseIcon();
-        //  Example: publish more icons later (detections, etc.)
-        //  publishIcon("hotspot", 1, "package://my_visual_icons/meshes/detection_hotspot.dae", 12.3, 4.5, 0.06, 0.8);
+        sub_goal_ = create_subscription<PoseStamped>(
+            "/behavior/traverse_goal", 10,
+            [this](const PoseStamped::SharedPtr msg)
+            {
+                inspect_goal_ = *msg; // keep full header (frame_id)
+                goal_received_ = true;
+                publishPatrolArea(); // update RViz immediately
+            });
 
-        // publishPersonIcon();
+        sub_len_ = create_subscription<std_msgs::msg::Float64>(
+            "/behavior/inspect_length", 10,
+            [this](const std_msgs::msg::Float64::SharedPtr msg)
+            {
+                inspect_length_ = std::max(1.0, msg->data); // clamp to non-negative
+                length_received_ = true;
+                publishPatrolArea();
+            });
 
         populate_people();
         populate_hunters();
 
-        produceMarkerArray();
+        publishMarkerArray();
     }
 
-    void produceMarkerArray()
+    void publishMarkerArray()
     {
         visualization_msgs::msg::MarkerArray marker_array;
         int id = 0;
@@ -81,7 +97,7 @@ public:
         m.action = Marker::ADD;
         m.mesh_resource = mesh_uri;
         m.mesh_use_embedded_materials = true; // use texture/material from DAE
-        // m.texture_resource = "fiel://home/greese/41068_ws/src/visual_icons/meshes/textures/circle.png"; // not used with embedded materials
+        // m.texture_resource = "file://home/greese/41068_ws/src/visual_icons/meshes/textures/circle.png"; // not used with embedded materials
         m.pose.position.x = x;
         m.pose.position.y = y;
         m.pose.position.z = z;
@@ -90,13 +106,6 @@ public:
         // Set scale to resize the mesh (xyz all set)
         m.scale.x = m.scale.y = m.scale.z = scale;
 
-        // If your DAE uses embedded material/texture, alpha still must be >0
-        // m.color.a = 1.0;
-        // m.color.r = m.color.g = m.color.b = 1.0; // ignored if embedded materials
-        // m.color.r = 1.0;
-        // m.color.g = 0.0;
-        // m.color.b = 0.0;
-
         m.pose.orientation.x = -0.5; // 90 deg around X axis
         m.pose.orientation.y = 0.5;  // to
         m.pose.orientation.z = 0.5;
@@ -104,7 +113,60 @@ public:
 
         m.lifetime = rclcpp::Duration(0, 0); // forever
 
+        // Reset marker params after use
+        // TODO
+
         return m;
+    }
+
+    void publishPatrolArea()
+    {
+        if (goal_received_)
+        {
+            Marker patrol_area = producePatrolArea(0);
+            pub_patrol_->publish(patrol_area);
+
+            if (length_received_)
+            {
+                inspect_length_ = 1.0; // reset to default after use
+                length_received_ = false;
+                goal_received_ = false;
+            }
+        }
+    }
+
+    Marker producePatrolArea(int id)
+    {
+        if (inspect_goal_.header.frame_id.empty())
+            return Marker(); // no goal yet
+
+        Marker cube;
+        cube.header = inspect_goal_.header; // keep goal's frame_id & time
+        cube.header.stamp = now();          // refresh stamp
+        cube.ns = "inspect";
+        // cube.id = INSPECT_ID;
+        cube.id = id;
+        cube.type = Marker::CUBE;
+        cube.action = Marker::ADD;
+
+        // Pose from goal
+        cube.pose = inspect_goal_.pose;
+
+        // Edge size = inspect_length_ (fallback to 1.0 if unset/zero)
+        const double L = (inspect_length_ > 1.0) ? inspect_length_ : 1.0;
+        cube.scale.x = L;
+        cube.scale.y = L;
+        cube.scale.z = 0.1;
+
+        // Color (cyan)
+        cube.color.a = 0.3;
+        cube.color.r = 1.0;
+        cube.color.g = 0.65;
+        cube.color.b = 0.0;
+
+        cube.lifetime = rclcpp::Duration(0, 0);
+
+        return cube;
     }
 
     void populate_hunters()
@@ -141,8 +203,16 @@ public:
 
 private:
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pub_;
+    rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr pub_patrol_;
     geometry_msgs::msg::PoseArray detected_people_;
     geometry_msgs::msg::PoseArray detected_hunters_;
+
+    rclcpp::Subscription<geometry_msgs::msg::PoseStamped>::SharedPtr sub_goal_;
+    rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr sub_len_;
+    geometry_msgs::msg::PoseStamped inspect_goal_;
+    double inspect_length_{1.0};
+    bool length_received_{false};
+    bool goal_received_{false};
 };
 
 int main(int argc, char **argv)
