@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 15
+names: ['Blue cow', 'Boar', 'Deer', 'Donkey', 'Elephant', 'Fox', 'Goat', 'Lion', 'Pig', 'Rabbit', 'Sheep', 'Tiger', 'antelope', 'cow', 'leopard']
+
+roboflow:
+  workspace: agriguard
+  project: animal-pf31l
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/agriguard/animal-pf31l/dataset/3

@@ -1,0 +1,6 @@
+path: /home/greese/git/PreyPath_RS1/ml_training/dataset
+train: train/images
+val: valid/images
+
+nc: 3
+names: ['person', 'animal', 'rifle']
