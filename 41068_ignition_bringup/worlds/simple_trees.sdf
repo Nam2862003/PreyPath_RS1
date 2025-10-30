@@ -93,7 +93,7 @@
     <include>
       <uri>model://person_walking</uri>
       <name>person_walking</name>
-      <pose>3 3 0 0 0 0</pose>
+      <pose>3 0 0 0 0 0</pose>
     </include>
   </world>
 </sdf>

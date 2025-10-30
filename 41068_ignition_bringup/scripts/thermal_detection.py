@@ -37,35 +37,34 @@ class ThermalDepthAuto(Node):
 
         human_mask = (thermal >= 308.0) & (thermal < 310.5)
         if not np.any(human_mask):
-            return
+            self.get_logger().warn("No human detected.")
+            return 
 
         y, x = np.mean(np.column_stack(np.where(human_mask)), axis=0)
-        h_t, w_t = thermal.shape
-        h_d, w_d = depth.shape
-
-        # map thermal pixel → depth pixel (scaled)
-        u_d = int(x * w_d / w_t)
-        v_d = int(y * h_d / h_t)
-        u_d = np.clip(u_d, 0, w_d - 1)
-        v_d = np.clip(v_d, 0, h_d - 1)
-
+        u_d = int(x)
+        v_d = int(y)
+        u_d = np.clip(u_d, 0, depth.shape[1] - 1)
+        v_d = np.clip(v_d, 0, depth.shape[0] - 1)
         depth_value = float(depth[v_d, u_d])
-        if np.isnan(depth_value) or depth_value <= 0.05:
+        if np.isnan(depth_value) or depth_value <= 0.01:
             self.get_logger().warn("Invalid depth, skipping.")
             return
 
         fx, fy, cx, cy = dinfo.k[0], dinfo.k[4], dinfo.k[2], dinfo.k[5]
-        # Z = depth_value
-        # X = (u_d - cx) * depth_value / fx 
-        # Y = (v_d - cy) * depth_value / fy
 
         pt_cam = PointStamped()
-        pt_cam.header.frame_id = dinfo.header.frame_id  # depth frame
+        pt_cam.header.frame_id = dinfo.header.frame_id  # typically "camera_depth_optical_frame"
         pt_cam.header.stamp = self.get_clock().now().to_msg()
 
-        pt_cam.point.x = (u_d - cx) * depth_value / fx   # X (right)
-        pt_cam.point.y = -(v_d - cy) * depth_value / fy   # Y (down)
-        pt_cam.point.z = depth_value                     # Z (forward)
+        # Convert from optical → camera frame convention
+        X_opt = (u_d - cx) * depth_value / fx
+        Y_opt = (v_d - cy) * depth_value / fy
+        Z_opt = depth_value
+
+        pt_cam.point.x = X_opt
+        pt_cam.point.y = Y_opt
+        pt_cam.point.z = Z_opt
+
 
 
         try:
@@ -73,7 +72,7 @@ class ThermalDepthAuto(Node):
             pt_world = do_transform_point(pt_cam, tf)
             self.get_logger().info(
                 f"👤 Human | pixel=({int(x)},{int(y)}) | depth={depth_value:.2f} m "
-                f"| world≈({pt_world.point.x:.2f}, {pt_world.point.y:.2f}, {pt_world.point.z:.2f})"
+                f"| world≈({pt_world.point.z:.2f}, {pt_world.point.y:.2f}, {pt_world.point.x:.2f})"
             )
         except Exception as e:
             self.get_logger().warn(f"TF fail: {e}")
