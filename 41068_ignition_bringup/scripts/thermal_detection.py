@@ -1,82 +1,106 @@
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import Image
+from sensor_msgs.msg import Image, CameraInfo
 from cv_bridge import CvBridge
 import numpy as np
 import cv2
+import tf2_ros
+from geometry_msgs.msg import PointStamped
+from tf2_geometry_msgs import do_transform_point
+from message_filters import ApproximateTimeSynchronizer, Subscriber
 
-class ThermalDetection(Node):
+
+class ThermalDepthAuto(Node):
     def __init__(self):
-        super().__init__('thermal_detection')
+        super().__init__('thermal_depth_auto')
         self.bridge = CvBridge()
-        self.subscription = self.create_subscription(
-            Image,
-            '/robot1/thermal/image',
-            self.image_callback,
-            10
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
+
+        self.thermal_sub = Subscriber(self, Image, '/robot1/thermal/image')
+        self.depth_sub = Subscriber(self, Image, '/robot1/camera/depth/image')
+        self.thermal_info = Subscriber(self, CameraInfo, '/robot1/thermal/camera_info')
+        self.depth_info = Subscriber(self, CameraInfo, '/robot1/camera/camera_info')
+
+        self.ts = ApproximateTimeSynchronizer(
+            [self.thermal_sub, self.depth_sub, self.thermal_info, self.depth_info],
+            queue_size=10,
+            slop=0.2
         )
-        self.get_logger().info("🔥 Thermal detection node started — listening to /robot1/thermal/image")
+        self.ts.registerCallback(self.callback)
+        self.get_logger().info("Thermal-Depth auto node ready.")
 
-    def image_callback(self, msg):
-        # Convert the ROS2 Image (mono16) to numpy array
-        frame = self.bridge.imgmsg_to_cv2(msg, desired_encoding='mono16').astype(np.float32)
+    def callback(self, thermal_msg, depth_msg, tinfo, dinfo):
+        thermal = self.bridge.imgmsg_to_cv2(thermal_msg, 'mono16').astype(np.float32) / 100.0
+        depth = self.bridge.imgmsg_to_cv2(depth_msg, 'passthrough').astype(np.float32)
 
-        # Gazebo thermal camera values are in Kelvin
-        temp_kelvin = frame/100
+        human_mask = (thermal >= 308.0) & (thermal < 310.5)
+        if not np.any(human_mask):
+            return
 
-        # Compute frame statistics
-        min_temp = np.min(temp_kelvin)
-        mean_temp = np.mean(temp_kelvin)
-        max_temp = np.max(temp_kelvin)
+        y, x = np.mean(np.column_stack(np.where(human_mask)), axis=0)
+        h_t, w_t = thermal.shape
+        h_d, w_d = depth.shape
 
-        self.get_logger().info(
-            f"🌡 Frame stats → min: {min_temp:.2f} K | mean: {mean_temp:.2f} K | max: {max_temp:.2f} K"
-        )
+        # map thermal pixel → depth pixel (scaled)
+        u_d = int(x * w_d / w_t)
+        v_d = int(y * h_d / h_t)
+        u_d = np.clip(u_d, 0, w_d - 1)
+        v_d = np.clip(v_d, 0, h_d - 1)
 
-        # Threshold: detect anything warmer than ~308 K (~35 °C)
-        human_mask = (temp_kelvin >= 308.0) & (temp_kelvin < 310.15) # up to ~37 °C for human body temp
+        depth_value = float(depth[v_d, u_d])
+        if np.isnan(depth_value) or depth_value <= 0.05:
+            self.get_logger().warn("Invalid depth, skipping.")
+            return
 
-        if np.any(human_mask):
-            # Get centroid of the detected hot region
-            coords = np.column_stack(np.where(human_mask))
-            y, x = np.mean(coords, axis=0)
+        fx, fy, cx, cy = dinfo.k[0], dinfo.k[4], dinfo.k[2], dinfo.k[5]
+        # Z = depth_value
+        # X = (u_d - cx) * depth_value / fx 
+        # Y = (v_d - cy) * depth_value / fy
 
-            # Get temperature of hottest spot
-            max_temp = np.max(temp_kelvin)
+        pt_cam = PointStamped()
+        pt_cam.header.frame_id = dinfo.header.frame_id  # depth frame
+        pt_cam.header.stamp = self.get_clock().now().to_msg()
 
-            # Normalize to image coordinates
-            height, width = frame.shape
-            x_norm = (x - width / 2) / width
-            y_norm = (y - height / 2) / height
+        pt_cam.point.x = (u_d - cx) * depth_value / fx   # X (right)
+        pt_cam.point.y = -(v_d - cy) * depth_value / fy   # Y (down)
+        pt_cam.point.z = depth_value                     # Z (forward)
 
+
+        try:
+            tf = self.tf_buffer.lookup_transform('odom', pt_cam.header.frame_id, rclpy.time.Time())
+            pt_world = do_transform_point(pt_cam, tf)
             self.get_logger().info(
-                f"👤 Human detected at (x={x_norm:.2f}, y={y_norm:.2f}) | Peak ≈ {max_temp:.2f} K"
+                f"👤 Human | pixel=({int(x)},{int(y)}) | depth={depth_value:.2f} m "
+                f"| world≈({pt_world.point.x:.2f}, {pt_world.point.y:.2f}, {pt_world.point.z:.2f})"
             )
+        except Exception as e:
+            self.get_logger().warn(f"TF fail: {e}")
 
-            # Optional visualization
-            vis = cv2.applyColorMap(
-                np.uint8(np.clip((temp_kelvin - 309.15) * 2, 0, 255)), cv2.COLORMAP_JET
-            )
-            # Create a red overlay where the human_mask is true
-            overlay = vis.copy()
-            overlay[human_mask] = [0, 0, 255]  # Pure red in BGR
-            # Blend the overlay with the original visualization
-            alpha = 0.6  # transparency factor (0–1)
-            vis = cv2.addWeighted(overlay, alpha, vis, 1 - alpha, 0)
-            cv2.circle(vis, (int(x), int(y)), 8, (255, 255, 255), 2)
-            cv2.imshow("Thermal Detection", vis)
-            cv2.waitKey(1)
-        else:
-            self.get_logger().info("No warm object detected.")
+        # Optional visualization
+        vis = cv2.applyColorMap(
+            np.uint8(np.clip((thermal - 309.15) * 2, 0, 255)), cv2.COLORMAP_JET
+        )
+        # Create a red overlay where the human_mask is true
+        overlay = vis.copy()
+        overlay[human_mask] = [0, 0, 255]  # Pure red in BGR
+        # Blend the overlay with the original visualization
+        alpha = 0.6  # transparency factor (0–1)
+        vis = cv2.addWeighted(overlay, alpha, vis, 1 - alpha, 0)
+        cv2.circle(vis, (int(x), int(y)), 8, (255, 255, 255), 2)
+        cv2.imshow("Thermal Detection", vis)
+        cv2.waitKey(1)
 
-def main(args=None):
-    rclpy.init(args=args)
-    node = ThermalDetection()
+
+def main():
+    rclpy.init()
+    node = ThermalDepthAuto()
     rclpy.spin(node)
     node.destroy_node()
     cv2.destroyAllWindows()
     rclpy.shutdown()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
