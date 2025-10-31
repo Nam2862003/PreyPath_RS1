@@ -28,7 +28,8 @@ private:
         visualization_msgs::msg::MarkerArray marker_array;
         marker_array.markers.push_back(produceIcon(
             "base", 0, "package://visual_icons/meshes/home_green.glb",
-            0.0, 0.0, 0.0, 3.0));
+            0.0, 0.0, 0.0, 3.0,
+        "map"));
         pub_->publish(marker_array);
     }
 
@@ -39,19 +40,21 @@ private:
             "human", 1, "package://visual_icons/meshes/person.glb",
             msg->point.x, // X world
             msg->point.y, // Y World
-            0, // Ignore Z
-            3.0));
+            msg->point.z, // Z World (should be 0)
+            3.0,
+            "camera_depth_optical_frame"));
         pub_->publish(marker_array);
         
-        RCLCPP_INFO(this->get_logger(), "🧍 Human icon added at (%.2f, %.2f, %.2f)",
-                    msg->point.x, msg->point.y, 0);
+        RCLCPP_INFO(this->get_logger(), "Human icon added at (%.2f, %.2f, %.2f)",
+                    msg->point.x, msg->point.y, msg->point.z);
     }
 
     Marker produceIcon(const std::string &ns, int id, const std::string &mesh_uri,
-                       double x, double y, double z, double scale)
+                       double x, double y, double z, double scale,
+                       const std::string &frame_id)
     {
         Marker m;
-        m.header.frame_id = "map";  // or "odom" if your TF tree uses that
+        m.header.frame_id = frame_id;  // or "odom" if your TF tree uses that
         m.header.stamp = now();
         m.ns = ns;
         m.id = id;
