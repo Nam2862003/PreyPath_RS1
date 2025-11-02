@@ -7,6 +7,8 @@ namespace rviz_control_panel
   ControlPanel::ControlPanel(QWidget *parent)
       : rviz_common::Panel(parent)
   {
+     // initialize detection timer reference time
+    last_detection_time_ = std::chrono::steady_clock::now();
     // Scope styles to this panel only
     this->setObjectName("ControlPanelRoot");
 
@@ -288,6 +290,34 @@ namespace rviz_control_panel
           const QString text = QString::fromStdString(msg->data);
           QMetaObject::invokeMethod(comms_, [this, text] { comms_->setText(text); });
         });
+
+    // Human detection
+    // --- Timer to reset detection label if no updates recently ---
+    detection_reset_timer_ = node->create_wall_timer(
+        std::chrono::seconds(2),
+        [this]() {
+          const auto now = std::chrono::steady_clock::now();
+          if (std::chrono::duration_cast<std::chrono::seconds>(
+                  now - last_detection_time_)
+                  .count() > 2) {
+            QMetaObject::invokeMethod(detection_, [this] {
+              detection_->setText("No people detected.");
+            });
+          }
+        });
+
+    human_pose_sub_ = node->create_subscription<geometry_msgs::msg::PointStamped>(
+    "/human_pose", 10,
+    [this](geometry_msgs::msg::PointStamped::ConstSharedPtr msg) {
+      // Format nicely for UI
+      const QString info = QString("Human detected at (%1, %2)")
+                       .arg(msg->point.x, 0, 'f', 2)
+                       .arg(msg->point.y, 0, 'f', 2);
+
+      QMetaObject::invokeMethod(detection_, [this, info] {
+        detection_->setText(info);
+      });
+    });
   }
 
   // --- E-Stop: publish Bool(true) ---

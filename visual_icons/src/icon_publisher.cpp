@@ -2,7 +2,6 @@
 #include <visualization_msgs/msg/marker_array.hpp>
 #include <visualization_msgs/msg/marker.hpp>
 #include <geometry_msgs/msg/point_stamped.hpp>
-#include <geometry_msgs/msg/pose_stamped.hpp>
 
 using visualization_msgs::msg::Marker;
 
@@ -14,10 +13,13 @@ public:
         auto qos = rclcpp::QoS(1).transient_local().reliable();
         pub_ = create_publisher<visualization_msgs::msg::MarkerArray>("icons", qos);
 
-        // Subscribe to human pose from Python node
         sub_ = create_subscription<geometry_msgs::msg::PointStamped>(
             "/human_pose", 10,
             std::bind(&IconPublisher::humanCallback, this, std::placeholders::_1));
+
+        // Timer to check if human detection timed out
+        timer_ = this->create_wall_timer(std::chrono::seconds(2),
+            std::bind(&IconPublisher::checkTimeout, this));
 
         publishHomeIcon();
     }
@@ -28,25 +30,41 @@ private:
         visualization_msgs::msg::MarkerArray marker_array;
         marker_array.markers.push_back(produceIcon(
             "base", 0, "package://visual_icons/meshes/home_green.glb",
-            0.0, 0.0, 0.0, 3.0,
-        "map"));
+            0.0, 0.0, 0.0, 3.0, "map"));
         pub_->publish(marker_array);
     }
 
     void humanCallback(const geometry_msgs::msg::PointStamped::SharedPtr msg)
     {
+        last_human_time_ = this->now();
+
         visualization_msgs::msg::MarkerArray marker_array;
         marker_array.markers.push_back(produceIcon(
             "human", 1, "package://visual_icons/meshes/person.glb",
-            msg->point.x, // X world
-            msg->point.y, // Y World
-            msg->point.z, // Z World (should be 0)
-            3.0,
-            "camera_depth_optical_frame"));
+            msg->point.x, msg->point.y, 0.0, 3.0, "map"));
         pub_->publish(marker_array);
-        
-        RCLCPP_INFO(this->get_logger(), "Human icon added at (%.2f, %.2f, %.2f)",
-                    msg->point.x, msg->point.y, msg->point.z);
+
+        // RCLCPP_INFO(this->get_logger(), "Human icon added at (%.2f, %.2f)", msg->point.x, msg->point.y);
+        human_present_ = true;
+    }
+
+    void checkTimeout()
+    {
+        if (human_present_ && (this->now() - last_human_time_).seconds() > 1.0)
+        {
+            // No human detected recently → delete marker
+            visualization_msgs::msg::MarkerArray marker_array;
+            Marker m;
+            m.header.frame_id = "map";
+            m.header.stamp = this->now();
+            m.ns = "human";
+            m.id = 1;
+            m.action = Marker::DELETE;
+            marker_array.markers.push_back(m);
+            pub_->publish(marker_array);
+            // RCLCPP_INFO(this->get_logger(), "Human icon removed (timeout)");
+            human_present_ = false;
+        }
     }
 
     Marker produceIcon(const std::string &ns, int id, const std::string &mesh_uri,
@@ -54,7 +72,7 @@ private:
                        const std::string &frame_id)
     {
         Marker m;
-        m.header.frame_id = frame_id;  // or "odom" if your TF tree uses that
+        m.header.frame_id = frame_id;
         m.header.stamp = now();
         m.ns = ns;
         m.id = id;
@@ -65,18 +83,21 @@ private:
         m.pose.position.x = x;
         m.pose.position.y = y;
         m.pose.position.z = z;
-        m.pose.orientation.w = 1.0;
-        m.scale.x = m.scale.y = m.scale.z = scale;
         m.pose.orientation.x = -0.5;
         m.pose.orientation.y = 0.5;
         m.pose.orientation.z = 0.5;
         m.pose.orientation.w = -0.5;
-        m.lifetime = rclcpp::Duration(0, 0);  // forever
+        m.scale.x = m.scale.y = m.scale.z = scale;
+        m.lifetime = rclcpp::Duration(0, 0);  // persistent until deleted
         return m;
     }
 
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pub_;
     rclcpp::Subscription<geometry_msgs::msg::PointStamped>::SharedPtr sub_;
+    rclcpp::TimerBase::SharedPtr timer_;
+
+    rclcpp::Time last_human_time_;
+    bool human_present_ = false;
 };
 
 int main(int argc, char **argv)

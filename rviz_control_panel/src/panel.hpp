@@ -20,7 +20,7 @@
 #include <std_msgs/msg/string.hpp>
 #include <geometry_msgs/msg/twist.hpp>
 #include <std_msgs/msg/float64.hpp>
-
+#include <geometry_msgs/msg/point_stamped.hpp>   // for human pose
 // (Keep the pluginlib include in the .cpp where you EXPORT_CLASS)
 #include <pluginlib/class_list_macros.hpp>
 
@@ -88,6 +88,17 @@ namespace rviz_control_panel
   rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr manual_enable_pub_;
   rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr manual_cmd_pub_;
   rclcpp::Publisher<std_msgs::msg::Float64>::SharedPtr inspect_len_pub_;
+
+//Human Report
+// Timer to reset detection text
+  rclcpp::TimerBase::SharedPtr detection_reset_timer_;
+
+  // Last time a detection message was received
+  std::chrono::steady_clock::time_point last_detection_time_;
+
+  // Subscription for human pose messages
+  rclcpp::Subscription<geometry_msgs::msg::PointStamped>::SharedPtr human_pose_sub_;
+
 
   // Helper to publish a manual velocity command
   void publishManualCmd(double lin_x, double ang_z);

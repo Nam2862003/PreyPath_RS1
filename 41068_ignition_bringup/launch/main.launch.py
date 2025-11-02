@@ -7,7 +7,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
 from launch.conditions import IfCondition
 from launch_ros.substitutions import FindPackageShare
-from launch.event_handlers import OnProcessExit, OnProcessStart
+from launch.event_handlers import OnProcessExit
 
 def generate_launch_description():
     ld = LaunchDescription()
@@ -24,7 +24,7 @@ def generate_launch_description():
 
     rviz_flag = LaunchConfiguration('rviz')
     nav2_flag = LaunchConfiguration('nav2')
-    ld.add_action(DeclareLaunchArgument('rviz', default_value='false', description='Launch RViz'))
+    ld.add_action(DeclareLaunchArgument('rviz', default_value='true', description='Launch RViz'))
     ld.add_action(DeclareLaunchArgument('nav2', default_value='true', description='Launch Nav2'))
 
     # -------------------
@@ -53,9 +53,8 @@ def generate_launch_description():
             'use_sim_time': LaunchConfiguration('use_sim_time'),
         }.items()
     )
-    # Delay robot spawn to let world load
     delayed_robot_spawn = TimerAction(
-        period=25.0,  # seconds
+        period=2.0,  # seconds
         actions=[quadruped_spawn]
     )
     ld.add_action(delayed_robot_spawn)
@@ -69,9 +68,9 @@ def generate_launch_description():
         condition=IfCondition(nav2_flag)
     )
 
-    # Delay Nav2/SLAM start by 15s to give robot setup time
+    # Delay Nav2/SLAM start by 10s to give robot setup time
     nav2_delayed = TimerAction(
-        period=40.0,
+        period=10.0,
         actions=[navigation]
     )
     ld.add_action(nav2_delayed)
@@ -86,14 +85,9 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
         condition=IfCondition(rviz_flag)
     )
-    # Delay RViz a bit more (Nav2 gets 10s, so give RViz 12s)
-    rviz_delayed = TimerAction(
-        period=52.0,  # Nav2 gets 10s, RViz starts a bit later
-        actions=[rviz]
-    )
-    ld.add_action(rviz_delayed)
-     # -------------------
-    # 6. Visual Icons Publisher
+
+    # -------------------
+    # 5. Visual Icons Publisher
     # -------------------
     visual_icons_node = Node(
         package='visual_icons',
@@ -103,14 +97,18 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
         condition=IfCondition(rviz_flag)
     )
+    ld.add_action(visual_icons_node)
+
+
     # Delay RViz a bit more (Nav2 gets 10s, so give RViz 12s)
-    visual_icons_node_delayed = TimerAction(
-        period=55.0,  # Nav2 gets 10s, RViz starts a bit later
-        actions=[visual_icons_node]
+    rviz_delayed = TimerAction(
+        period=12.0,  # Nav2 gets 10s, RViz starts a bit later
+        actions=[rviz]
     )
-    ld.add_action(visual_icons_node_delayed)
+    ld.add_action(rviz_delayed)
+
     # -------------------
-    # 7. Behavior Controller (always on)
+    # 6. Behavior Controller (always on)
     # -------------------
     behavior_controller = Node(
         package='robot_behavior_controller',
@@ -122,7 +120,7 @@ def generate_launch_description():
 
     # Optionally delay a bit to allow world and robot to spawn
     behavior_controller_delayed = TimerAction(
-        period=55.0,
+        period=5.0,
         actions=[behavior_controller]
     )
     ld.add_action(behavior_controller_delayed)
