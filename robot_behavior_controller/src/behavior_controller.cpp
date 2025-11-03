@@ -425,6 +425,20 @@ void BehaviorController::sendWaypointList(const std::vector<geometry_msgs::msg::
     publishComms("Patrolling result: " + outcome);
     publishMode();
     clearInspection("Patrolling done");
+
+    // If patrol succeeded, send a final traverse goal to the base at (0,0)
+    if (res.code == rclcpp_action::ResultCode::SUCCEEDED) {
+      publishComms("Returning to base (0,0)");
+      geometry_msgs::msg::PoseStamped base_pose;
+      base_pose.header.frame_id = "map";
+      base_pose.header.stamp = this->now();
+      base_pose.pose.position.x = 0.0;
+      base_pose.pose.position.y = 0.0;
+      base_pose.pose.orientation.z = 0.0;
+      base_pose.pose.orientation.w = 1.0;
+      // sendTraverseGoal will set mode and publish mode on accept
+      sendTraverseGoal(base_pose);
+    }
   };
 
   wps_client_->async_send_goal(goal, opts);
