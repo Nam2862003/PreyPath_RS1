@@ -24,8 +24,10 @@ def generate_launch_description():
 
     rviz_flag = LaunchConfiguration('rviz')
     nav2_flag = LaunchConfiguration('nav2')
+    yolo_flag = LaunchConfiguration('yolo')
     ld.add_action(DeclareLaunchArgument('rviz', default_value='true', description='Launch RViz'))
     ld.add_action(DeclareLaunchArgument('nav2', default_value='true', description='Launch Nav2'))
+    ld.add_action(DeclareLaunchArgument('yolo', default_value='false', description='Launch YOLO'))
 
     # -------------------
     # 1. Forest world
@@ -102,7 +104,7 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
         condition=IfCondition(rviz_flag)
     )
-    ld.add_action(visual_icons_node)
+    # ld.add_action(visual_icons_node)
 
 
     # Delay RViz a bit more (Nav2 gets 10s, so give RViz 12s)
@@ -110,7 +112,7 @@ def generate_launch_description():
         period=10.0,  # Nav2 gets 10s, RViz starts a bit later
         actions=[visual_icons_node]
     )
-    ld.add_action(rviz_delayed)
+    ld.add_action(visual_icons_node_delayed)
 
     # -------------------
     # 6. Behavior Controller (always on)
@@ -129,6 +131,7 @@ def generate_launch_description():
         name="yolo8",
         output="screen",
         parameters=[{'use_sim_time': use_sim_time}],
+        condition=IfCondition(yolo_flag)
     )
     ld.add_action(yolo8_node)
 
