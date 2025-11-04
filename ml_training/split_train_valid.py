@@ -4,7 +4,7 @@ import shutil
 from pathlib import Path
 
 # --- SETTINGS ---
-BASE_DIR = Path("rifle2")    # your dataset root
+BASE_DIR = Path("sim")    # your dataset root
 SPLIT_RATIO = 0.15           # 15% of training data -> valid set
 IMG_EXT = ".jpg"             # or ".png" if needed
 

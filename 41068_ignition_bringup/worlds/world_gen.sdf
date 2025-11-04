@@ -54,6 +54,13 @@
       <pose>1 1.8 1 0 0 1.57</pose>
       <static>true</static>
     </include>
+
+    <include>
+      <uri>model://gun</uri>
+      <name>Gun_2</name>
+      <pose>11 11 0.01 0 1.57 1.57</pose>
+      <static>true</static>
+    </include>
  <include> 
                           <uri>model://forest_plane</uri> 
                           <name>forest_plane0_0</name>
