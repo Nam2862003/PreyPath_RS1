@@ -13,9 +13,13 @@ public:
         auto qos = rclcpp::QoS(1).transient_local().reliable();
         pub_ = create_publisher<visualization_msgs::msg::MarkerArray>("icons", qos);
 
-        sub_ = create_subscription<geometry_msgs::msg::PointStamped>(
+        sub_human_ = create_subscription<geometry_msgs::msg::PointStamped>(
             "/human_pose", 10,
             std::bind(&IconPublisher::humanCallback, this, std::placeholders::_1));
+
+        sub_hunter_ = create_subscription<geometry_msgs::msg::PointStamped>(
+            "/hunter_pose", 10,
+            std::bind(&IconPublisher::hunterCallback, this, std::placeholders::_1));
 
         // Timer to check if human detection timed out
         timer_ = this->create_wall_timer(std::chrono::seconds(2),
@@ -48,6 +52,19 @@ private:
         human_present_ = true;
     }
 
+    void hunterCallback(const geometry_msgs::msg::PointStamped::SharedPtr msg)
+    {
+        last_hunter_time_ = this->now();
+
+        visualization_msgs::msg::MarkerArray marker_array;
+        marker_array.markers.push_back(produceIcon(
+            "hunter", 2, "package://visual_icons/meshes/hunter_eye.glb",
+            msg->point.x, msg->point.y, 0.0, 3.0, "map"));
+        pub_->publish(marker_array);
+
+        hunter_present_ = true;
+    }
+
     void checkTimeout()
     {
         if (human_present_ && (this->now() - last_human_time_).seconds() > 1.0)
@@ -64,6 +81,21 @@ private:
             pub_->publish(marker_array);
             // RCLCPP_INFO(this->get_logger(), "Human icon removed (timeout)");
             human_present_ = false;
+        }
+
+        if (hunter_present_ && (this->now() - last_hunter_time_).seconds() > 1.0)
+        {
+            // No hunter detected recently → delete marker
+            visualization_msgs::msg::MarkerArray marker_array;
+            Marker m;
+            m.header.frame_id = "map";
+            m.header.stamp = this->now();
+            m.ns = "hunter";
+            m.id = 2;
+            m.action = Marker::DELETE;
+            marker_array.markers.push_back(m);
+            pub_->publish(marker_array);
+            hunter_present_ = false;
         }
     }
 
@@ -93,11 +125,14 @@ private:
     }
 
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pub_;
-    rclcpp::Subscription<geometry_msgs::msg::PointStamped>::SharedPtr sub_;
+    rclcpp::Subscription<geometry_msgs::msg::PointStamped>::SharedPtr sub_human_;
+    rclcpp::Subscription<geometry_msgs::msg::PointStamped>::SharedPtr sub_hunter_;
     rclcpp::TimerBase::SharedPtr timer_;
 
     rclcpp::Time last_human_time_;
     bool human_present_ = false;
+    rclcpp::Time last_hunter_time_;
+    bool hunter_present_ = false;
 };
 
 int main(int argc, char **argv)
