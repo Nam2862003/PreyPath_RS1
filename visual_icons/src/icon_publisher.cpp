@@ -2,8 +2,10 @@
 #include <visualization_msgs/msg/marker_array.hpp>
 #include <visualization_msgs/msg/marker.hpp>
 #include <geometry_msgs/msg/point_stamped.hpp>
-
+#include <geometry_msgs/msg/pose_stamped.hpp>
+using geometry_msgs::msg::PoseStamped;
 using visualization_msgs::msg::Marker;
+using visualization_msgs::msg::MarkerArray;
 
 class IconPublisher : public rclcpp::Node
 {

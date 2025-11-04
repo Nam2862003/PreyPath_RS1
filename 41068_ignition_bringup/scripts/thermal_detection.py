@@ -104,20 +104,20 @@ class ThermalDepthAuto(Node):
             self.hunter_alert_pub.publish(alert)
 
         # --- Visualization (for debugging only) ---
-        vis = cv2.applyColorMap(
-            np.uint8(np.clip((thermal - 309.15) * 2, 0, 255)), cv2.COLORMAP_JET
-        )
-        overlay = vis.copy()
-        # Red for human, Green for hunter
-        overlay[human_mask] = [0, 0, 255]
-        overlay[hunter_mask] = [0, 255, 0]
-        vis = cv2.addWeighted(overlay, 0.6, vis, 0.4, 0)
-        if human_px is not None:
-            cv2.circle(vis, human_px, 8, (255, 255, 255), 2)
-        if hunter_px is not None:
-            cv2.circle(vis, hunter_px, 10, (0, 255, 0), 2)
-        cv2.imshow("Thermal Detection", vis)
-        cv2.waitKey(1)
+        # vis = cv2.applyColorMap(
+        #     np.uint8(np.clip((thermal - 309.15) * 2, 0, 255)), cv2.COLORMAP_JET
+        # )
+        # overlay = vis.copy()
+        # # Red for human, Green for hunter
+        # overlay[human_mask] = [0, 0, 255]
+        # overlay[hunter_mask] = [0, 255, 0]
+        # vis = cv2.addWeighted(overlay, 0.6, vis, 0.4, 0)
+        # if human_px is not None:
+        #     cv2.circle(vis, human_px, 8, (255, 255, 255), 2)
+        # if hunter_px is not None:
+        #     cv2.circle(vis, hunter_px, 10, (0, 255, 0), 2)
+        # cv2.imshow("Thermal Detection", vis)
+        # cv2.waitKey(1)
 
 
 def main():

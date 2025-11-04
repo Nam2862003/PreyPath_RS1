@@ -24,8 +24,10 @@ def generate_launch_description():
 
     rviz_flag = LaunchConfiguration('rviz')
     nav2_flag = LaunchConfiguration('nav2')
+    yolo_flag = LaunchConfiguration('yolo')
     ld.add_action(DeclareLaunchArgument('rviz', default_value='true', description='Launch RViz'))
     ld.add_action(DeclareLaunchArgument('nav2', default_value='true', description='Launch Nav2'))
+    ld.add_action(DeclareLaunchArgument('yolo', default_value='false', description='Launch YOLOv8'))
 
     # -------------------
     # 1. Forest world
@@ -54,7 +56,7 @@ def generate_launch_description():
         }.items()
     )
     delayed_robot_spawn = TimerAction(
-        period=2.0,  # seconds
+        period=5.0,  # seconds
         actions=[quadruped_spawn]
     )
     ld.add_action(delayed_robot_spawn)
@@ -67,10 +69,9 @@ def generate_launch_description():
         launch_arguments={'use_sim_time': use_sim_time}.items(),
         condition=IfCondition(nav2_flag)
     )
-
     # Delay Nav2/SLAM start by 10s to give robot setup time
     nav2_delayed = TimerAction(
-        period=10.0,
+        period=7.0,
         actions=[navigation]
     )
     ld.add_action(nav2_delayed)
@@ -85,9 +86,14 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
         condition=IfCondition(rviz_flag)
     )
-
-    # -------------------
-    # 5. Visual Icons Publisher
+    # Delay RViz a bit more (Nav2 gets 10s, so give RViz 12s)
+    rviz_delayed = TimerAction(
+        period=10.0,  # Nav2 gets 10s, RViz starts a bit later
+        actions=[rviz]
+    )
+    ld.add_action(rviz_delayed)
+     # -------------------
+    # 6. Visual Icons Publisher
     # -------------------
     visual_icons_node = Node(
         package='visual_icons',
@@ -97,15 +103,12 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}],
         condition=IfCondition(rviz_flag)
     )
-    ld.add_action(visual_icons_node)
-
-
     # Delay RViz a bit more (Nav2 gets 10s, so give RViz 12s)
-    rviz_delayed = TimerAction(
-        period=12.0,  # Nav2 gets 10s, RViz starts a bit later
-        actions=[rviz]
+    visual_icons_node_delayed = TimerAction(
+        period=10.0,  # Nav2 gets 10s, RViz starts a bit later
+        actions=[visual_icons_node]
     )
-    ld.add_action(rviz_delayed)
+    ld.add_action(visual_icons_node_delayed)
 
     # -------------------
     # 6. Behavior Controller (always on)
@@ -117,12 +120,26 @@ def generate_launch_description():
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}]
     )
-
-    # Optionally delay a bit to allow world and robot to spawn
+        # Optionally delay a bit to allow world and robot to spawn
     behavior_controller_delayed = TimerAction(
-        period=5.0,
+        period=10.0,
         actions=[behavior_controller]
     )
     ld.add_action(behavior_controller_delayed)
+    # -------------------
+    # 7. YOLOv8 Object Detection Node
+    # -------------------       
+    yolo8_node = Node(
+        package="robot_recognition",
+        executable="yolov8_ros2_pt.py",
+        name="yolo8",
+        output="screen",
+        parameters=[{'use_sim_time': use_sim_time}],
+        condition=IfCondition(yolo_flag)
+    )
+    ld.add_action(yolo8_node)
+
+
+
 
     return ld
