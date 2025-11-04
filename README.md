@@ -1,3 +1,21 @@
+# Machine Learning ( YoloV8)
+Install ros dependencies
+```bash
+sudo apt install ros-humble-cv-bridge ros-humble-image-transport python3-colcon-common-extensions
+```
+Install neccessary python libraries for yolo
+```bash
+cd git/PreyPath_RS1
+```
+```bash
+pip install -r src/requirements.txt
+```
+To Run the yolov8 (new terminal) 
+```bash
+source install/setup.bash
+ros2 launch robot_recognition launch_yolov8.launch.py
+```
+Note: to open the view in rviz for yolo, go " display - add - Image", in the image setting, navigate topic /inference_result and click enter
 # Path for dowloaded models ( Fixed Thermal Camera )
 ```bash
 export GZ_SIM_RESOURCE_PATH=~/41068_ws/src/41068_ignition_bringup/models

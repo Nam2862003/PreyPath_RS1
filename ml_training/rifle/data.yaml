@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['Rifle']
+
+roboflow:
+  workspace: divyanshi-me21b
+  project: rifle-5jjak
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/divyanshi-me21b/rifle-5jjak/dataset/2
