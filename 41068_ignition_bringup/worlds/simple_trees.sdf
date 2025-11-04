@@ -89,6 +89,11 @@
       <name>pine1</name>
       <pose>5.0 0.0 0 0 0 0</pose>
     </include>
-
+        <!-- Walking person actor (visible in RGB, animated) -->
+    <include>
+      <uri>model://person_walking</uri>
+      <name>person_walking</name>
+      <pose>3 3 0 0 0 0</pose>
+    </include>
   </world>
 </sdf>

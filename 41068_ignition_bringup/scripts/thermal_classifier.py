@@ -9,7 +9,9 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
 from sensor_msgs.msg import Image
 from std_msgs.msg import String
-from geometry_msgs.msg import PointStamped
+from geometry_msgs.msg import PointStamped, Point
+import tf2_ros
+from rclpy.time import Time
 
 
 class ThermalClassifier(Node):
@@ -34,6 +36,7 @@ class ThermalClassifier(Node):
         self.sub = self.create_subscription(Image, topic, self.cb, qos)
         self.pub_txt = self.create_publisher(String, '/thermal_human', 10)
         self.pub_dir = self.create_publisher(PointStamped, '/thermal/human_dir', 10)
+        self.pub_world = self.create_publisher(PointStamped, '/thermal/human_world', 10)
 
         # ---- Parameters ----
         self.declare_parameter('scale_hint', 'auto')        # auto|x100|x10|x1
@@ -48,6 +51,10 @@ class ThermalClassifier(Node):
         self.declare_parameter('enable_fallback', True)
         self.declare_parameter('min_fraction_in_band', 0.25)
         self.declare_parameter('min_delta_k', 4.0)          # min peak above ambient mean
+        # World projection params
+        self.declare_parameter('world_frame', 'world')
+        self.declare_parameter('target_plane_z', 1.0)       # intersection plane height (m)
+        self.declare_parameter('min_world_range_m', 1.5)    # reject hits too close to robot
 
         # ---- Load params ----
         self.scale_hint = str(self.get_parameter('scale_hint').value)
@@ -63,6 +70,13 @@ class ThermalClassifier(Node):
         self.enable_fallback = bool(self.get_parameter('enable_fallback').value)
         self.min_fraction_in_band = float(self.get_parameter('min_fraction_in_band').value)
         self.min_delta_k = float(self.get_parameter('min_delta_k').value)
+        self.world_frame = str(self.get_parameter('world_frame').value)
+        self.target_plane_z = float(self.get_parameter('target_plane_z').value)
+        self.min_world_range_m = float(self.get_parameter('min_world_range_m').value)
+
+        # TF buffer/listener to transform camera rays to world
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
 
         # debug mask publisher (no cv_bridge dependency)
         self.pub_mask = self.create_publisher(Image, '/thermal/debug_mask', 1)
@@ -184,10 +198,22 @@ class ThermalClassifier(Node):
             cxv = math.cos(el) * math.sin(az)
             cyv = math.sin(el)
 
-            txt = (
-                f"human detected: pixel=({cx},{cy}) az={math.degrees(az):.1f}deg el={math.degrees(el):.1f}deg, "
-                f"box={w}x{h}, band_avg={mean_k:.2f}K [{min_k:.2f},{max_k:.2f}], frac={frac_in_band:.2f}, Δamb={max_k-ambient_mean:.2f}K"
-            )
+            # Compute world position by intersecting camera ray with z = target_plane_z
+            world_pt = self._ray_to_world(msg.header, cxv, cyv, cz)
+            if world_pt is not None:
+                wx, wy, wz = world_pt
+                psw = PointStamped()
+                psw.header = msg.header
+                psw.header.frame_id = self.world_frame
+                psw.point = Point(x=float(wx), y=float(wy), z=float(wz))
+                self.pub_world.publish(psw)
+                # Simple message following actual world location (rounded to ints)
+                txt = f"human detected at {int(round(wx))},{int(round(wy))},{int(round(wz))}"
+            else:
+                txt = (
+                    f"No Human: pixel=({cx},{cy}) az={math.degrees(az):.1f}deg el={math.degrees(el):.1f}deg, "
+                    f"box={w}x{h}, band_avg={mean_k:.2f}K [{min_k:.2f},{max_k:.2f}], frac={frac_in_band:.2f}, Δamb={max_k-ambient_mean:.2f}K"
+                )
             self.pub_txt.publish(String(data=txt))
             self.get_logger().info(txt)
 
@@ -213,10 +239,20 @@ class ThermalClassifier(Node):
                 cxv = math.cos(el) * math.sin(az)
                 cyv = math.sin(el)
 
-                txt = (
-                    f"human detected (fallback): pixel=({xx},{yy}) az={math.degrees(az):.1f}deg el={math.degrees(el):.1f}deg, "
-                    f"hot={max_k:.2f}K, Δamb={max_k-ambient_mean:.2f}K"
-                )
+                world_pt = self._ray_to_world(msg.header, cxv, cyv, cz)
+                if world_pt is not None:
+                    wx, wy, wz = world_pt
+                    psw = PointStamped()
+                    psw.header = msg.header
+                    psw.header.frame_id = self.world_frame
+                    psw.point = Point(x=float(wx), y=float(wy), z=float(wz))
+                    self.pub_world.publish(psw)
+                    txt = f"human detected at {int(round(wx))},{int(round(wy))},{int(round(wz))}"
+                else:
+                    txt = (
+                        f"human detected (fallback): pixel=({xx},{yy}) az={math.degrees(az):.1f}deg el={math.degrees(el):.1f}deg, "
+                        f"hot={max_k:.2f}K, Δamb={max_k-ambient_mean:.2f}K"
+                    )
                 self.pub_txt.publish(String(data=txt))
                 self.get_logger().info(txt)
                 ps = PointStamped()
@@ -225,6 +261,68 @@ class ThermalClassifier(Node):
                 ps.point.y = cyv
                 ps.point.z = cz
                 self.pub_dir.publish(ps)
+
+    def _ray_to_world(self, header, cxv: float, cyv: float, czv: float):
+        """Transform camera-frame unit ray to world frame and intersect with z = target_plane_z.
+
+        Returns (wx, wy, wz) in a resolved world-like frame, or None if TF is unavailable/degenerate.
+        """
+        src_frame = header.frame_id if header.frame_id else 'thermal_link'
+        # Use latest available TF (time=0) to avoid stamp mismatch issues from bridged images
+        stamp = Time()
+
+        # Resolve a usable world-like frame
+        world_candidates = [self.world_frame, 'world', 'map', 'odom']
+        target_frame = None
+        for wf in world_candidates:
+            if not wf:
+                continue
+            try:
+                _ = self.tf_buffer.lookup_transform(wf, src_frame, stamp)
+                target_frame = wf
+                break
+            except Exception:
+                continue
+        if target_frame is None:
+            return None
+
+        try:
+            tf = self.tf_buffer.lookup_transform(target_frame, src_frame, stamp)
+        except Exception:
+            return None
+
+        tx = tf.transform.translation.x
+        ty = tf.transform.translation.y
+        tz = tf.transform.translation.z
+        qx = tf.transform.rotation.x
+        qy = tf.transform.rotation.y
+        qz = tf.transform.rotation.z
+        qw = tf.transform.rotation.w
+
+        # Quaternion to rotation matrix (camera -> world)
+        R = np.array([
+            [1 - 2*(qy*qy + qz*qz), 2*(qx*qy - qz*qw),       2*(qx*qz + qy*qw)],
+            [2*(qx*qy + qz*qw),       1 - 2*(qx*qx + qz*qz), 2*(qy*qz - qx*qw)],
+            [2*(qx*qz - qy*qw),       2*(qy*qz + qx*qw),     1 - 2*(qx*qx + qy*qy)]
+        ], dtype=np.float64)
+
+        cam_pos = np.array([tx, ty, tz], dtype=np.float64)
+        cam_dir_local = np.array([cxv, cyv, czv], dtype=np.float64)
+        ray_world = R @ cam_dir_local
+        dz = ray_world[2]
+        if abs(dz) < 1e-6:
+            return None
+        t = (self.target_plane_z - cam_pos[2]) / dz
+        if t <= 0:
+            return None
+        hit = cam_pos + t * ray_world
+        # Enforce minimum horizontal range from camera to avoid self-detections (robot body)
+        horiz = hit[:2] - cam_pos[:2]
+        if float(np.linalg.norm(horiz)) < self.min_world_range_m:
+            return None
+        # Update to the actually used frame
+        self.world_frame = target_frame
+        return float(hit[0]), float(hit[1]), float(hit[2])
 
 
 def main() -> None:

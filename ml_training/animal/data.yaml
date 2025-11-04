@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 15
+names: ['Giraffa', 'bear', 'bird', 'cat', 'cow', 'deer', 'dog', 'elephant', 'horse', 'kangaru', 'lion', 'ow', 'panda', 'tiger', 'zebra']
+
+roboflow:
+  workspace: test-e42pz
+  project: animal-3czxe
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/test-e42pz/animal-3czxe/dataset/2
