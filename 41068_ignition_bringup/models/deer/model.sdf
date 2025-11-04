@@ -1,0 +1,47 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="deer">
+    <static>true</static>
+    <link name="link">
+      <!-- Thermal override visual for d">thermal camera -->
+      <!-- <visual name="heat_mesh">
+        <geometry>
+          <mesh>
+            <uri>model://deer/meshes/deer.obj</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 0 0</ambient>
+          <diffuse>0 0 0 0</diffuse>
+          <specular>0 0 0 0</specular>
+          <transparency>1.0</transparency>
+        </material>
+        <plugin filename="ignition-gazebo-thermal-system"
+                name="ignition::gazebo::systems::Thermal">
+          <temperature>323.15</temperature>
+          <emissivity>0.95</emissivity>
+        </plugin>
+      </visual> -->
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://deer/meshes/deer.obj</uri>
+          </mesh>
+        </geometry>
+        <plugin filename="ignition-gazebo-thermal-system"
+                name="ignition::gazebo::systems::Thermal">
+          <temperature>307.15</temperature>
+          <emissivity>0.95</emissivity>
+        </plugin>
+      </visual>
+
+
+      <collision name="collision">
+        <geometry>
+          <mesh><uri>model://deer/meshes/deer.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

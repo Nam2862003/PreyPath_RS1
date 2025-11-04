@@ -49,6 +49,13 @@
     </include>
 
     <include>
+      <uri>model://deer</uri>
+      <name>deer</name>
+      <pose>0 2 0 0 0 0</pose>
+      <static>true</static>
+    </include>
+
+    <include>
       <uri>model://gun</uri>
       <name>Gun_1</name>
       <pose>1 1.8 1 0 0 1.57</pose>
