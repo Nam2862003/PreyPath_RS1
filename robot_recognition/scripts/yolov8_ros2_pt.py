@@ -21,9 +21,11 @@ class CameraSubscriber(Node):
         # Load YOLOv8 model
         # -------------------------------
         package_share = get_package_share_directory('robot_recognition')
-        model_path = os.path.join(package_share, 'models', 'yolov8n.pt')
+        model_path = os.path.join(package_share, 'models', 'final.pt')
         self.model = YOLO(model_path)
         self.get_logger().info(f"✅ YOLOv8 model loaded from: {model_path}")
+
+        self.frame_idx = 0
 
         # -------------------------------
         # ROS topics
@@ -43,6 +45,11 @@ class CameraSubscriber(Node):
         self.yolov8_inference = Yolov8Inference()
 
     def camera_callback(self, data):
+
+        self.frame_idx += 1
+        if self.frame_idx % 2 != 0:   # process ~every 6th frame (reduce load)
+            return
+        
         try:
             # -------------------------------
             # Convert ROS Image → OpenCV

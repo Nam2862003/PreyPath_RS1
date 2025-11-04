@@ -231,7 +231,7 @@ controller_server:
       linear_granularity: 0.05
       angular_granularity: 0.025
       transform_tolerance: 0.2
-      xy_goal_tolerance: 0.5
+      xy_goal_tolerance: 0.4
       trans_stopped_velocity: 0.25
       short_circuit_trajectory_evaluation: True
       limit_vel_cmd_in_traj: False
@@ -310,9 +310,9 @@ global_costmap:
       # resolution: 0.1
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
-      #rolling_window: true
-      #width: 50
-      #height: 50
+      # rolling_window: false
+      # width: 80.0
+      # height: 80.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -341,7 +341,7 @@ map_server:
     use_sim_time: True
     # Overridden in launch by the "map" launch configuration or provided default value.
     # To use in yaml, remove the default "map" value in the tb3_simulation_launch.py file & provide full path to map below.
-    yaml_filename: ""
+    yaml_filename: "/home/mlkezarev /41068_ws/src/41068_ignition_bringup/maps/forest_empty_map.yaml"
 
 map_saver:
   ros__parameters:
