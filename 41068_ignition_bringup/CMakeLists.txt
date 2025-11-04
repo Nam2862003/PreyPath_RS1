@@ -33,7 +33,7 @@ install(
     scripts/world_gen.py
     scripts/model_list.py
     scripts/thermal_classifier.py
-    scripts/cost_map_gen.py
+    scripts/thermal_detection.py
   DESTINATION lib/${PROJECT_NAME}
 
 )
