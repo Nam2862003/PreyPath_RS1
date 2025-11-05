@@ -120,14 +120,14 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}]
     )
 
-    yolo8_node = Node(
-        package="robot_recognition",
-        executable="yolov8_ros2_pt.py",
-        name="yolo8",
-        output="screen",
-        parameters=[{'use_sim_time': use_sim_time}],
-    )
-    ld.add_action(yolo8_node)
+    # yolo8_node = Node(
+    #     package="robot_recognition",
+    #     executable="yolov8_ros2_pt.py",
+    #     name="yolo8",
+    #     output="screen",
+    #     parameters=[{'use_sim_time': use_sim_time}],
+    # )
+    # ld.add_action(yolo8_node)
 
 
     # Optionally delay a bit to allow world and robot to spawn

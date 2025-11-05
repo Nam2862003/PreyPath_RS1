@@ -41,20 +41,19 @@
       <surface_model>EARTH_WGS84</surface_model>
     </spherical_coordinates>
 
-
-  <!-- Human + deers + guns -->
+    <!-- Human + deers + guns -->
 
     <!-- Human with a gun (together) -->
     <include>
       <uri>model://person_walking</uri>
       <name>Actor_1</name>
-      <pose>12.4 -15.7 0 0 0 5.91</pose>
+      <pose>10.4 -12.7 0 0 0 5.91</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://gun</uri>
       <name>Gun_1</name>
-      <pose>12.4 -15.9 1 0 0 7.48</pose>
+      <pose>10.4 -12.9 1 0 0 7.48</pose>
       <static>true</static>
     </include>
 
@@ -76,21 +75,21 @@
     <include>
       <uri>model://deer</uri>
       <name>deer_1</name>
-      <pose>-17.6 -3.2 0 0 0 4.12</pose>
+      <pose>-9.6 -3.2 0 0 0 4.12</pose>
       <static>true</static>
     </include>
 
     <include>
       <uri>model://deer</uri>
       <name>deer_2</name>
-      <pose>7.9 19.4 0 0 0 1.12</pose>
+      <pose>7.9 10.4 0 0 0 1.12</pose>
       <static>true</static>
     </include>
 
     <include>
       <uri>model://deer</uri>
       <name>deer_3</name>
-      <pose>-13.8 9.5 0 0 0 3.57</pose>
+      <pose>-11.8 9.5 0 0 0 3.57</pose>
       <static>true</static>
     </include>
 
@@ -98,7 +97,7 @@
     <include>
       <uri>model://gun</uri>
       <name>Gun_3</name>
-      <pose>16.3 -12.7 0.01 0 1.57 0.85</pose>
+      <pose>12.3 -12.7 0.01 0 1.57 0.85</pose>
       <static>true</static>
     </include>
 
@@ -113,9 +112,11 @@
     <include>
       <uri>model://person_walking</uri>
       <name>Actor_4</name>
-      <pose>19.2 -2.3 0 0 0 0.43</pose>
+      <pose>13.2 -2.3 0 0 0 0.43</pose>
       <static>true</static>
     </include>
+
+
     
  <include> 
                           <uri>model://forest_plane</uri> 
@@ -125,151 +126,103 @@
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_top_0</name>
-      <pose>-20.833 25.000 2.000 1.570796 0 0</pose>
+      <pose>-11.250 15.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_bottom_0</name>
-      <pose>-20.833 -25.000 2.000 1.570796 0 3.141592653589793</pose>
+      <pose>-11.250 -15.000 2.000 1.570796 0 3.141592653589793</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_top_1</name>
-      <pose>-12.500 25.000 2.000 1.570796 0 0</pose>
+      <pose>-3.750 15.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_bottom_1</name>
-      <pose>-12.500 -25.000 2.000 1.570796 0 3.141592653589793</pose>
+      <pose>-3.750 -15.000 2.000 1.570796 0 3.141592653589793</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_top_2</name>
-      <pose>-4.167 25.000 2.000 1.570796 0 0</pose>
+      <pose>3.750 15.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_bottom_2</name>
-      <pose>-4.167 -25.000 2.000 1.570796 0 3.141592653589793</pose>
+      <pose>3.750 -15.000 2.000 1.570796 0 3.141592653589793</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_top_3</name>
-      <pose>4.167 25.000 2.000 1.570796 0 0</pose>
+      <pose>11.250 15.000 2.000 1.570796 0 0</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_bottom_3</name>
-      <pose>4.167 -25.000 2.000 1.570796 0 3.141592653589793</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>model://forest_wall</uri>
-      <name>forest_wall_top_4</name>
-      <pose>12.500 25.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>model://forest_wall</uri>
-      <name>forest_wall_bottom_4</name>
-      <pose>12.500 -25.000 2.000 1.570796 0 3.141592653589793</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>model://forest_wall</uri>
-      <name>forest_wall_top_5</name>
-      <pose>20.833 25.000 2.000 1.570796 0 0</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>model://forest_wall</uri>
-      <name>forest_wall_bottom_5</name>
-      <pose>20.833 -25.000 2.000 1.570796 0 3.141592653589793</pose>
+      <pose>11.250 -15.000 2.000 1.570796 0 3.141592653589793</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_right_0</name>
-      <pose>25.000 -20.833 2.000 1.570796 0 -1.570796</pose>
+      <pose>15.000 -11.250 2.000 1.570796 0 -1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_left_0</name>
-      <pose>-25.000 -20.833 2.000 1.570796 0 1.570796</pose>
+      <pose>-15.000 -11.250 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_right_1</name>
-      <pose>25.000 -12.500 2.000 1.570796 0 -1.570796</pose>
+      <pose>15.000 -3.750 2.000 1.570796 0 -1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_left_1</name>
-      <pose>-25.000 -12.500 2.000 1.570796 0 1.570796</pose>
+      <pose>-15.000 -3.750 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_right_2</name>
-      <pose>25.000 -4.167 2.000 1.570796 0 -1.570796</pose>
+      <pose>15.000 3.750 2.000 1.570796 0 -1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_left_2</name>
-      <pose>-25.000 -4.167 2.000 1.570796 0 1.570796</pose>
+      <pose>-15.000 3.750 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_right_3</name>
-      <pose>25.000 4.167 2.000 1.570796 0 -1.570796</pose>
+      <pose>15.000 11.250 2.000 1.570796 0 -1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://forest_wall</uri>
       <name>forest_wall_left_3</name>
-      <pose>-25.000 4.167 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>model://forest_wall</uri>
-      <name>forest_wall_right_4</name>
-      <pose>25.000 12.500 2.000 1.570796 0 -1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>model://forest_wall</uri>
-      <name>forest_wall_left_4</name>
-      <pose>-25.000 12.500 2.000 1.570796 0 1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>model://forest_wall</uri>
-      <name>forest_wall_right_5</name>
-      <pose>25.000 20.833 2.000 1.570796 0 -1.570796</pose>
-      <static>true</static>
-    </include>
-    <include>
-      <uri>model://forest_wall</uri>
-      <name>forest_wall_left_5</name>
-      <pose>-25.000 20.833 2.000 1.570796 0 1.570796</pose>
+      <pose>-15.000 11.250 2.000 1.570796 0 1.570796</pose>
       <static>true</static>
     </include>
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_1</name>
-      <pose>-5.364 11.135 -0.300 0 0 -2.025441</pose>
+      <pose>-10.814 -5.690 -0.300 0 0 -1.638410</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -277,7 +230,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_2</name>
-      <pose>10.632 -11.383 -0.300 0 0 0.417710</pose>
+      <pose>-8.006 11.759 -0.300 0 0 1.719132</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -285,7 +238,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_3</name>
-      <pose>0.308 3.154 -0.300 0 0 3.080496</pose>
+      <pose>-11.179 3.290 -0.300 0 0 0.952953</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -293,7 +246,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_4</name>
-      <pose>1.543 -5.699 -0.300 0 0 -1.010417</pose>
+      <pose>1.466 6.781 -0.300 0 0 -2.652060</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -301,7 +254,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_5</name>
-      <pose>7.575 12.904 -0.300 0 0 -2.592385</pose>
+      <pose>13.403 -9.785 -0.300 0 0 -1.550590</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -309,7 +262,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_6</name>
-      <pose>3.184 18.705 -0.300 0 0 2.501500</pose>
+      <pose>-11.520 -10.946 -0.300 0 0 -0.936128</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -317,7 +270,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_7</name>
-      <pose>24.905 12.521 -0.300 0 0 1.055682</pose>
+      <pose>-9.218 -14.790 -0.300 0 0 -1.477472</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -325,7 +278,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_8</name>
-      <pose>-15.912 13.395 -0.300 0 0 -1.752937</pose>
+      <pose>-13.946 11.468 -0.300 0 0 -0.285449</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -333,7 +286,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_9</name>
-      <pose>-7.233 -0.090 -0.300 0 0 -2.083738</pose>
+      <pose>-0.078 -9.789 -0.300 0 0 1.091458</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -341,7 +294,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_10</name>
-      <pose>24.950 1.348 -0.300 0 0 2.598096</pose>
+      <pose>12.675 2.428 -0.300 0 0 1.691064</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -349,7 +302,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_11</name>
-      <pose>16.611 16.871 -0.300 0 0 -1.677218</pose>
+      <pose>-3.116 7.862 -0.300 0 0 0.607769</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -357,7 +310,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_12</name>
-      <pose>15.465 -10.482 -0.300 0 0 0.662601</pose>
+      <pose>14.440 -5.448 -0.300 0 0 -3.031322</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -365,7 +318,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_13</name>
-      <pose>3.100 -14.392 -0.300 0 0 -0.897761</pose>
+      <pose>11.666 9.981 -0.300 0 0 -1.000960</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -373,7 +326,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_14</name>
-      <pose>-13.927 7.001 -0.300 0 0 -1.511966</pose>
+      <pose>3.235 3.023 -0.300 0 0 -0.345961</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -381,7 +334,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_15</name>
-      <pose>12.431 -1.958 -0.300 0 0 -2.627281</pose>
+      <pose>0.419 -4.414 -0.300 0 0 0.647353</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -389,7 +342,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_16</name>
-      <pose>15.545 -7.417 -0.300 0 0 -1.202554</pose>
+      <pose>1.257 -12.521 -0.300 0 0 -0.871765</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -397,7 +350,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_17</name>
-      <pose>15.986 -0.826 -0.300 0 0 1.974177</pose>
+      <pose>-11.290 12.036 -0.300 0 0 0.549368</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -405,103 +358,7 @@
     <include>
       <uri>model://Oak tree</uri>
       <name>oak_18</name>
-      <pose>4.971 9.896 -0.300 0 0 -0.113367</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_19</name>
-      <pose>-19.882 -21.989 -0.300 0 0 0.038380</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_20</name>
-      <pose>17.261 -21.664 -0.300 0 0 1.710768</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_21</name>
-      <pose>-6.129 23.240 -0.300 0 0 2.939343</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_22</name>
-      <pose>11.603 -14.387 -0.300 0 0 1.698820</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_23</name>
-      <pose>16.659 -4.521 -0.300 0 0 2.130084</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_24</name>
-      <pose>-23.850 10.657 -0.300 0 0 -1.312557</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_25</name>
-      <pose>20.812 4.949 -0.300 0 0 -0.292686</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_26</name>
-      <pose>-5.354 -23.392 -0.300 0 0 -1.422266</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_27</name>
-      <pose>4.318 0.124 -0.300 0 0 -0.048553</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_28</name>
-      <pose>24.875 -18.101 -0.300 0 0 -0.259888</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_29</name>
-      <pose>-2.690 -0.234 -0.300 0 0 -1.452535</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Oak tree</uri>
-      <name>oak_30</name>
-      <pose>2.029 -19.990 -0.300 0 0 1.215674</pose>
+      <pose>-0.222 2.388 -0.300 0 0 -1.733877</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -509,7 +366,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_1</name>
-      <pose>18.418 5.086 0.000 0 0 -2.255418</pose>
+      <pose>12.145 0.804 0.000 0 0 2.194867</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -517,7 +374,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_2</name>
-      <pose>-13.500 -2.155 0.000 0 0 2.764539</pose>
+      <pose>-0.731 -9.223 0.000 0 0 1.135269</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -525,7 +382,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_3</name>
-      <pose>-6.770 -15.472 0.000 0 0 1.400176</pose>
+      <pose>-4.910 -0.270 0.000 0 0 -1.988680</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -533,7 +390,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_4</name>
-      <pose>-7.610 -22.646 0.000 0 0 0.668116</pose>
+      <pose>-5.448 2.228 0.000 0 0 -2.782218</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -541,7 +398,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_5</name>
-      <pose>2.522 -3.173 0.000 0 0 2.554217</pose>
+      <pose>8.744 11.999 0.000 0 0 -1.315738</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -549,7 +406,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_6</name>
-      <pose>22.976 -6.279 0.000 0 0 1.691286</pose>
+      <pose>-9.819 0.013 0.000 0 0 -1.145482</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -557,7 +414,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_7</name>
-      <pose>7.492 24.942 0.000 0 0 0.319127</pose>
+      <pose>9.434 7.258 0.000 0 0 -1.728629</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -565,7 +422,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_8</name>
-      <pose>23.691 1.931 0.000 0 0 -0.095134</pose>
+      <pose>-14.540 -9.075 0.000 0 0 1.194747</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -573,7 +430,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_9</name>
-      <pose>-14.549 0.337 0.000 0 0 -2.759226</pose>
+      <pose>6.565 -2.056 0.000 0 0 0.271384</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -581,7 +438,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_10</name>
-      <pose>-1.062 5.974 0.000 0 0 2.188532</pose>
+      <pose>2.796 -12.480 0.000 0 0 -1.099643</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -589,7 +446,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_11</name>
-      <pose>12.555 -14.730 0.000 0 0 -0.274999</pose>
+      <pose>-2.736 3.247 0.000 0 0 -1.817733</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -597,7 +454,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_12</name>
-      <pose>-24.761 4.235 0.000 0 0 1.105979</pose>
+      <pose>14.941 7.126 0.000 0 0 0.807198</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -605,7 +462,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_13</name>
-      <pose>20.772 -18.511 0.000 0 0 -2.201064</pose>
+      <pose>11.326 10.754 0.000 0 0 -2.496343</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -613,7 +470,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_14</name>
-      <pose>-21.541 -5.753 0.000 0 0 1.181815</pose>
+      <pose>-13.548 -1.925 0.000 0 0 -1.026153</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -621,7 +478,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_15</name>
-      <pose>-12.070 -18.055 0.000 0 0 -2.601397</pose>
+      <pose>-0.143 3.419 0.000 0 0 2.857768</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -629,7 +486,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_16</name>
-      <pose>16.119 -23.645 0.000 0 0 -0.337513</pose>
+      <pose>13.639 -3.433 0.000 0 0 -0.309640</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -637,7 +494,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_17</name>
-      <pose>24.018 12.460 0.000 0 0 -1.314326</pose>
+      <pose>-12.960 4.951 0.000 0 0 -2.654730</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -645,103 +502,7 @@
     <include>
       <uri>model://Pine Tree</uri>
       <name>pine_18</name>
-      <pose>1.546 -8.700 0.000 0 0 2.779782</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_19</name>
-      <pose>23.781 -20.634 0.000 0 0 -1.800996</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_20</name>
-      <pose>23.889 -23.548 0.000 0 0 -3.055780</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_21</name>
-      <pose>-18.629 -9.679 0.000 0 0 1.192035</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_22</name>
-      <pose>18.197 -5.540 0.000 0 0 2.448642</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_23</name>
-      <pose>8.964 20.126 0.000 0 0 -3.105198</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_24</name>
-      <pose>-2.427 -9.687 0.000 0 0 0.840795</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_25</name>
-      <pose>-9.552 13.719 0.000 0 0 -1.635199</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_26</name>
-      <pose>18.765 24.602 0.000 0 0 1.908586</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_27</name>
-      <pose>-14.949 -18.190 0.000 0 0 0.034421</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_28</name>
-      <pose>-19.563 16.620 0.000 0 0 0.358349</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_29</name>
-      <pose>23.505 -17.456 0.000 0 0 0.403828</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://Pine Tree</uri>
-      <name>pine_30</name>
-      <pose>-9.724 -20.426 0.000 0 0 2.964123</pose>
+      <pose>9.802 -10.789 0.000 0 0 -1.116154</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -749,7 +510,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_1</name>
-      <pose>6.165 13.590 0.000 0 0 2.096746</pose>
+      <pose>-6.398 -4.224 0.000 0 0 -1.558004</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -757,7 +518,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_2</name>
-      <pose>14.882 6.468 0.000 0 0 -1.218187</pose>
+      <pose>-8.414 -11.919 0.000 0 0 1.728407</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -765,7 +526,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_3</name>
-      <pose>12.938 -9.829 0.000 0 0 1.304355</pose>
+      <pose>6.057 -12.108 0.000 0 0 -0.694119</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -773,7 +534,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_4</name>
-      <pose>8.703 13.598 0.000 0 0 1.773153</pose>
+      <pose>6.196 2.323 0.000 0 0 0.116820</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -781,7 +542,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_5</name>
-      <pose>0.335 -8.779 0.000 0 0 2.439736</pose>
+      <pose>-11.233 9.265 0.000 0 0 0.759200</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -789,7 +550,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_6</name>
-      <pose>-22.636 -21.493 0.000 0 0 -2.347481</pose>
+      <pose>11.557 1.535 0.000 0 0 -1.752697</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -797,7 +558,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_7</name>
-      <pose>-19.899 1.632 0.000 0 0 -0.626692</pose>
+      <pose>14.871 -8.467 0.000 0 0 -0.167949</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -805,7 +566,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_8</name>
-      <pose>-8.356 2.609 0.000 0 0 1.354931</pose>
+      <pose>3.187 -14.419 0.000 0 0 0.875816</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -813,7 +574,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_9</name>
-      <pose>3.266 -6.911 0.000 0 0 1.415242</pose>
+      <pose>-9.999 4.065 0.000 0 0 -2.851250</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -821,7 +582,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_10</name>
-      <pose>-24.316 -6.280 0.000 0 0 -1.940210</pose>
+      <pose>3.039 0.588 0.000 0 0 -0.543555</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -829,7 +590,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_11</name>
-      <pose>-8.836 10.792 0.000 0 0 0.449494</pose>
+      <pose>2.130 -11.186 0.000 0 0 1.270277</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -837,7 +598,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_12</name>
-      <pose>-7.658 -6.049 0.000 0 0 -2.580717</pose>
+      <pose>-14.754 -4.582 0.000 0 0 -0.786997</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -845,7 +606,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_13</name>
-      <pose>20.838 -11.275 0.000 0 0 2.102316</pose>
+      <pose>-2.939 -0.866 0.000 0 0 -2.081337</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -853,7 +614,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_14</name>
-      <pose>16.977 11.726 0.000 0 0 1.753017</pose>
+      <pose>9.396 -4.457 0.000 0 0 -1.325038</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -861,7 +622,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_15</name>
-      <pose>1.973 -24.825 0.000 0 0 2.830645</pose>
+      <pose>-10.573 2.554 0.000 0 0 0.833662</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -869,7 +630,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_16</name>
-      <pose>-19.458 -7.577 0.000 0 0 -2.409131</pose>
+      <pose>-0.021 11.898 0.000 0 0 1.852936</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -877,7 +638,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_17</name>
-      <pose>-13.042 17.158 0.000 0 0 -0.171731</pose>
+      <pose>12.094 -2.650 0.000 0 0 -2.029437</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
@@ -885,103 +646,7 @@
     <include>
       <uri>model://falling_rock1</uri>
       <name>rock_18</name>
-      <pose>2.098 13.352 0.000 0 0 -1.072751</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_19</name>
-      <pose>5.858 -23.581 0.000 0 0 2.445533</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_20</name>
-      <pose>-3.891 12.877 0.000 0 0 1.607310</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_21</name>
-      <pose>7.684 -1.016 0.000 0 0 -0.008097</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_22</name>
-      <pose>8.726 -14.494 0.000 0 0 -0.518107</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_23</name>
-      <pose>9.509 -21.178 0.000 0 0 -2.556722</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_24</name>
-      <pose>6.156 -21.391 0.000 0 0 1.119339</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_25</name>
-      <pose>9.027 -17.731 0.000 0 0 1.875161</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_26</name>
-      <pose>-3.832 17.099 0.000 0 0 1.421984</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_27</name>
-      <pose>23.318 -13.608 0.000 0 0 -1.499492</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_28</name>
-      <pose>22.119 10.477 0.000 0 0 0.373884</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_29</name>
-      <pose>12.037 -17.497 0.000 0 0 0.526628</pose>
-      <static>true</static>
-      <self_collide>false</self_collide>
-      <allow_auto_disable>true</allow_auto_disable>
-    </include>
-    <include>
-      <uri>model://falling_rock1</uri>
-      <name>rock_30</name>
-      <pose>-11.912 13.063 0.000 0 0 0.939270</pose>
+      <pose>9.797 -13.828 0.000 0 0 1.029147</pose>
       <static>true</static>
       <self_collide>false</self_collide>
       <allow_auto_disable>true</allow_auto_disable>
