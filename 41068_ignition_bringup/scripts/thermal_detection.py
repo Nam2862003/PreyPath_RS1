@@ -69,7 +69,7 @@ class ThermalDepthAuto(Node):
             Y_cam = ray[1] * d
             Z_cam = d
             pt_cam = PointStamped()
-            pt_cam.header.frame_id = 'camera_optical_frame'
+            pt_cam.header.frame_id = 'camera_depth_optical_frame'
             pt_cam.header.stamp = self.get_clock().now().to_msg()
             pt_cam.point.x = X_cam
             pt_cam.point.y = Y_cam

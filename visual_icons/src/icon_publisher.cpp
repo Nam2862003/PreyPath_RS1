@@ -24,8 +24,8 @@ public:
             std::bind(&IconPublisher::hunterCallback, this, std::placeholders::_1));
 
         // Timer to check if human detection timed out
-        timer_ = this->create_wall_timer(std::chrono::seconds(2),
-            std::bind(&IconPublisher::checkTimeout, this));
+        // timer_ = this->create_wall_timer(std::chrono::seconds(2),
+        //     std::bind(&IconPublisher::checkTimeout, this));
 
         publishHomeIcon();
     }
@@ -61,45 +61,45 @@ private:
         visualization_msgs::msg::MarkerArray marker_array;
         marker_array.markers.push_back(produceIcon(
             "hunter", 2, "package://visual_icons/meshes/hunter_eye.glb",
-            msg->point.x, msg->point.y, 0.0, 3.0, "camera_depth_optical_frame"));
+            msg->point.x, msg->point.y, 0.0, 3.0, "map"));
         pub_->publish(marker_array);
 
         hunter_present_ = true;
     }
 
-    void checkTimeout()
-    {
-        if (human_present_ && (this->now() - last_human_time_).seconds() > 1.0)
-        {
-            // No human detected recently → delete marker
-            visualization_msgs::msg::MarkerArray marker_array;
-            Marker m;
-            m.header.frame_id = "map";
-            m.header.stamp = this->now();
-            m.ns = "human";
-            m.id = 1;
-            m.action = Marker::DELETE;
-            marker_array.markers.push_back(m);
-            pub_->publish(marker_array);
-            // RCLCPP_INFO(this->get_logger(), "Human icon removed (timeout)");
-            human_present_ = false;
-        }
+    // void checkTimeout()
+    // {
+    //     if (human_present_ && (this->now() - last_human_time_).seconds() > 1.0)
+    //     {
+    //         // No human detected recently → delete marker
+    //         visualization_msgs::msg::MarkerArray marker_array;
+    //         Marker m;
+    //         m.header.frame_id = "map";
+    //         m.header.stamp = this->now();
+    //         m.ns = "human";
+    //         m.id = 1;
+    //         m.action = Marker::DELETE;
+    //         marker_array.markers.push_back(m);
+    //         pub_->publish(marker_array);
+    //         // RCLCPP_INFO(this->get_logger(), "Human icon removed (timeout)");
+    //         human_present_ = false;
+    //     }
 
-        if (hunter_present_ && (this->now() - last_hunter_time_).seconds() > 1.0)
-        {
-            // No hunter detected recently → delete marker
-            visualization_msgs::msg::MarkerArray marker_array;
-            Marker m;
-            m.header.frame_id = "map";
-            m.header.stamp = this->now();
-            m.ns = "hunter";
-            m.id = 2;
-            m.action = Marker::DELETE;
-            marker_array.markers.push_back(m);
-            pub_->publish(marker_array);
-            hunter_present_ = false;
-        }
-    }
+    //     if (hunter_present_ && (this->now() - last_hunter_time_).seconds() > 1.0)
+    //     {
+    //         // No hunter detected recently → delete marker
+    //         visualization_msgs::msg::MarkerArray marker_array;
+    //         Marker m;
+    //         m.header.frame_id = "map";
+    //         m.header.stamp = this->now();
+    //         m.ns = "hunter";
+    //         m.id = 2;
+    //         m.action = Marker::DELETE;
+    //         marker_array.markers.push_back(m);
+    //         pub_->publish(marker_array);
+    //         hunter_present_ = false;
+    //     }
+    // }
 
     Marker produceIcon(const std::string &ns, int id, const std::string &mesh_uri,
                        double x, double y, double z, double scale,
