@@ -3,19 +3,18 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image, CameraInfo
 from std_msgs.msg import String, Int32MultiArray
-from geometry_msgs.msg import PointStamped
+from geometry_msgs.msg import PoseArray, Pose, PointStamped
 from cv_bridge import CvBridge
 import numpy as np
-import cv2
 import tf2_ros
 from tf2_geometry_msgs import do_transform_point
 from message_filters import ApproximateTimeSynchronizer, Subscriber
 import image_geometry
-from collections import deque
+
 
 class ThermalDepthAuto(Node):
     def __init__(self):
-        super().__init__('thermal_depth_auto')
+        super().__init__('thermal_depth_auto_static')
         self.bridge = CvBridge()
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
@@ -28,11 +27,10 @@ class ThermalDepthAuto(Node):
 
         self.human_uv_sub = self.create_subscription(Int32MultiArray, '/human_pixel_uv', self.human_uv_callback, 10)
         self.hunter_uv_sub = self.create_subscription(Int32MultiArray, '/hunter_pixel_uv', self.hunter_uv_callback, 10)
-        self.gun_uv_sub = self.create_subscription(Int32MultiArray, '/gun_pixel_uv', self.gun_uv_callback, 10)
 
         # --- Publishers ---
-        self.human_pose_pub = self.create_publisher(PointStamped, '/human_pose', 10)
-        self.hunter_pose_pub = self.create_publisher(PointStamped, '/hunter_pose', 10)
+        self.human_pose_pub = self.create_publisher(PoseArray, '/human_pose', 10)
+        self.hunter_pose_pub = self.create_publisher(PoseArray, '/hunter_pose', 10)
         self.hunter_alert_pub = self.create_publisher(String, '/hunter_alert', 10)
 
         # --- Synchronizer ---
@@ -42,21 +40,14 @@ class ThermalDepthAuto(Node):
         )
         self.ts.registerCallback(self.sync_callback)
 
+        # --- Camera model ---
         self.camera_model = None
 
-        # --- Detection lists ---
-        self.last_human_uvs = []
-        self.last_hunter_uvs = []
-        self.last_gun_uvs = []
+        # --- Cache ---
+        self.detected_humans = {}   # {id: np.array([x, y, z])}
+        self.detected_hunters = {}  # {id: np.array([x, y, z])}
 
-        # --- Rolling pose buffers ---
-        self.human_poses = deque(maxlen=100)
-        self.hunter_poses = deque(maxlen=100)
-
-        self.human_avg_published = False
-        self.hunter_avg_published = False
-
-        self.get_logger().info("🔥 ThermalDepthAuto with averaging ready!")
+        self.get_logger().info("🔥 ThermalDepthAuto Static Mode ready!")
 
     # ----------------------------------------------------------
     # YOLO Callbacks
@@ -67,11 +58,8 @@ class ThermalDepthAuto(Node):
     def hunter_uv_callback(self, msg):
         self.last_hunter_uvs = [(msg.data[i], msg.data[i + 1]) for i in range(0, len(msg.data), 2)]
 
-    def gun_uv_callback(self, msg):
-        self.last_gun_uvs = [(msg.data[i], msg.data[i + 1]) for i in range(0, len(msg.data), 2)]
-
     # ----------------------------------------------------------
-    # Core synchronized callback
+    # Main synchronized callback
     # ----------------------------------------------------------
     def sync_callback(self, thermal_msg, depth_msg, tinfo, dinfo):
         try:
@@ -85,38 +73,46 @@ class ThermalDepthAuto(Node):
 
             HUMAN_RANGE = (308.0, 310.5)
             HUNTER_RANGE = (308.0, 310.5)
-            GUN_RANGE = (314.0, 318.0)
 
-            # Process Humans
-            for (u, v) in self.last_human_uvs:
-                if not self._valid_pixel(u, v, depth): 
+            # --- Detect Humans ---
+            for i, (u, v) in enumerate(getattr(self, 'last_human_uvs', [])):
+                if i in self.detected_humans:  # already frozen
+                    continue
+                if not self._valid_pixel(u, v, depth):
                     continue
                 temp = float(thermal[int(v), int(u)])
                 if HUMAN_RANGE[0] <= temp <= HUMAN_RANGE[1]:
                     pt = self.project_to_world(u, v, depth, dinfo)
                     if pt:
-                        self.human_poses.append([pt.point.x, pt.point.y, pt.point.z])
-                        if len(self.human_poses) >= 50 and not self.human_avg_published:
-                            avg_pose = np.mean(self.human_poses, axis=0)
-                            self.publish_average(avg_pose, self.human_pose_pub, "👤 Human")
-                            self.human_avg_published = True
+                        self.detected_humans[i] = np.array([pt.point.x, pt.point.y, pt.point.z])
+                        self.get_logger().info(
+                            f"🧍 Human {i} locked at map=({pt.point.x:.2f}, {pt.point.y:.2f}, {pt.point.z:.2f})"
+                        )
 
-            # Process Hunters
-            for (u, v) in self.last_hunter_uvs:
-                if not self._valid_pixel(u, v, depth): 
+            # --- Detect Hunters ---
+            for i, (u, v) in enumerate(getattr(self, 'last_hunter_uvs', [])):
+                if i in self.detected_hunters:  # already frozen
+                    continue
+                if not self._valid_pixel(u, v, depth):
                     continue
                 temp = float(thermal[int(v), int(u)])
                 if HUNTER_RANGE[0] <= temp <= HUNTER_RANGE[1]:
                     pt = self.project_to_world(u, v, depth, dinfo)
                     if pt:
-                        self.hunter_poses.append([pt.point.x, pt.point.y, pt.point.z])
-                        if len(self.hunter_poses) >= 50 and not self.hunter_avg_published:
-                            avg_pose = np.mean(self.hunter_poses, axis=0)
-                            self.publish_average(avg_pose, self.hunter_pose_pub, "⚠️ Hunter")
-                            self.hunter_avg_published = True
-                            alert = String()
-                            alert.data = "⚠️ Hunter detected (averaged position)"
-                            self.hunter_alert_pub.publish(alert)
+                        self.detected_hunters[i] = np.array([pt.point.x, pt.point.y, pt.point.z])
+                        self.get_logger().info(
+                            f"🎯 Hunter {i} locked at map=({pt.point.x:.2f}, {pt.point.y:.2f}, {pt.point.z:.2f})"
+                        )
+
+            # --- Publish ---
+            self.publish_pose_array(self.detected_humans, self.human_pose_pub, "👤 Human")
+            self.publish_pose_array(self.detected_hunters, self.hunter_pose_pub, "⚠️ Hunter")
+
+            # --- Alert ---
+            if self.detected_hunters:
+                alert = String()
+                alert.data = f"⚠️ {len(self.detected_hunters)} Hunter(s) detected!"
+                self.hunter_alert_pub.publish(alert)
 
         except Exception as e:
             self.get_logger().error(f"❌ sync_callback error: {e}")
@@ -140,19 +136,31 @@ class ThermalDepthAuto(Node):
             pt_cam.header.frame_id = info.header.frame_id
             pt_cam.header.stamp = self.get_clock().now().to_msg()
             pt_cam.point.x, pt_cam.point.y, pt_cam.point.z = X_cam, Y_cam, Z_cam
-            tf = self.tf_buffer.lookup_transform('map', pt_cam.header.frame_id, rclpy.time.Time())
+
+            # Project once at detection time only
+            tf = self.tf_buffer.lookup_transform(
+                'map', info.header.frame_id, rclpy.time.Time(seconds=0)
+            )
             return do_transform_point(pt_cam, tf)
+
         except Exception as e:
             self.get_logger().warn(f"TF/project error: {e}")
             return None
 
-    def publish_average(self, avg_xyz, pub, label):
-        avg_point = PointStamped()
-        avg_point.header.frame_id = 'map'
-        avg_point.header.stamp = self.get_clock().now().to_msg()
-        avg_point.point.x, avg_point.point.y, avg_point.point.z = avg_xyz
-        pub.publish(avg_point)
-        self.get_logger().info(f"✅ Averaged {label} pose published → map=({avg_xyz[0]:.2f}, {avg_xyz[1]:.2f}, {avg_xyz[2]:.2f})")
+    def publish_pose_array(self, detections, pub, label):
+        pose_array = PoseArray()
+        pose_array.header.frame_id = 'map'
+        pose_array.header.stamp = self.get_clock().now().to_msg()
+
+        for pos in detections.values():
+            pose = Pose()
+            pose.position.x, pose.position.y, pose.position.z = pos
+            pose_array.poses.append(pose)
+
+        if pose_array.poses:
+            pub.publish(pose_array)
+            self.get_logger().info(f"✅ Published {len(pose_array.poses)} locked {label} poses.")
+
 
 def main():
     rclpy.init()
@@ -160,6 +168,7 @@ def main():
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
+
 
 if __name__ == "__main__":
     main()
