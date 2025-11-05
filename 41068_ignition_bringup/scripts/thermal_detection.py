@@ -45,7 +45,7 @@ class ThermalDepthAuto(Node):
         # Convert to numpy
         thermal = self.bridge.imgmsg_to_cv2(thermal_msg, 'mono16').astype(np.float32) / 100.0
         depth = self.bridge.imgmsg_to_cv2(depth_msg, 'passthrough').astype(np.float32)
-
+ 
         # Detect hot regions
         human_mask = (thermal >= 308.0) & (thermal < 310.5)
         hunter_mask = (thermal >= 320.0) & (thermal <= 324.0)
@@ -55,7 +55,7 @@ class ThermalDepthAuto(Node):
             self.camera_model = image_geometry.PinholeCameraModel()
             self.camera_model.fromCameraInfo(dinfo)
             self.get_logger().info("Camera model initialized from depth_info.")
-
+ 
         def project_and_publish(mask, pose_pub, label):
             if not np.any(mask):
                 return None
@@ -67,9 +67,9 @@ class ThermalDepthAuto(Node):
             ray = self.camera_model.projectPixelTo3dRay((u, v))
             X_cam = ray[0] * d
             Y_cam = ray[1] * d
-            Z_cam = ray[2] * d
+            Z_cam = d
             pt_cam = PointStamped()
-            pt_cam.header.frame_id = dinfo.header.frame_id
+            pt_cam.header.frame_id = 'camera_optical_frame'
             pt_cam.header.stamp = self.get_clock().now().to_msg()
             pt_cam.point.x = X_cam
             pt_cam.point.y = Y_cam
@@ -80,13 +80,13 @@ class ThermalDepthAuto(Node):
                 out = PointStamped()
                 out.header.frame_id = 'map'
                 out.header.stamp = self.get_clock().now().to_msg()
-                out.point.x = pt_world.point.z
+                out.point.x = pt_world.point.x
                 out.point.y = pt_world.point.y
-                out.point.z = pt_world.point.x
+                out.point.z = pt_world.point.z
                 pose_pub.publish(out)
                 self.get_logger().info(
                     f"{label} | pixel=({int(xx)}, {int(yy)}) | depth={d:.2f} m "
-                    f"| map=({pt_world.point.z:.2f}, {pt_world.point.y:.2f}, {pt_world.point.x:.2f})"
+                    f"| map=({pt_world.point.x:.2f}, {pt_world.point.y:.2f}, {pt_world.point.z:.2f})"
                 )
                 return int(xx), int(yy)
             except Exception as e:
@@ -104,20 +104,20 @@ class ThermalDepthAuto(Node):
             self.hunter_alert_pub.publish(alert)
 
         # --- Visualization (for debugging only) ---
-        # vis = cv2.applyColorMap(
-        #     np.uint8(np.clip((thermal - 309.15) * 2, 0, 255)), cv2.COLORMAP_JET
-        # )
-        # overlay = vis.copy()
-        # # Red for human, Green for hunter
-        # overlay[human_mask] = [0, 0, 255]
-        # overlay[hunter_mask] = [0, 255, 0]
-        # vis = cv2.addWeighted(overlay, 0.6, vis, 0.4, 0)
-        # if human_px is not None:
-        #     cv2.circle(vis, human_px, 8, (255, 255, 255), 2)
-        # if hunter_px is not None:
-        #     cv2.circle(vis, hunter_px, 10, (0, 255, 0), 2)
-        # cv2.imshow("Thermal Detection", vis)
-        # cv2.waitKey(1)
+        vis = cv2.applyColorMap(
+            np.uint8(np.clip((thermal - 309.15) * 2, 0, 255)), cv2.COLORMAP_JET
+        )
+        overlay = vis.copy()
+        # Red for human, Green for hunter
+        overlay[human_mask] = [0, 0, 255]
+        overlay[hunter_mask] = [0, 255, 0]
+        vis = cv2.addWeighted(overlay, 0.6, vis, 0.4, 0)
+        if human_px is not None:
+            cv2.circle(vis, human_px, 8, (255, 255, 255), 2)
+        if hunter_px is not None:
+            cv2.circle(vis, hunter_px, 10, (0, 255, 0), 2)
+        cv2.imshow("Thermal Detection", vis)
+        cv2.waitKey(1)
 
 
 def main():

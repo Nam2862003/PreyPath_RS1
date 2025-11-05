@@ -61,7 +61,7 @@ private:
         visualization_msgs::msg::MarkerArray marker_array;
         marker_array.markers.push_back(produceIcon(
             "hunter", 2, "package://visual_icons/meshes/hunter_eye.glb",
-            msg->point.x, msg->point.y, 0.0, 3.0, "map"));
+            msg->point.x, msg->point.y, 0.0, 3.0, "camera_depth_optical_frame"));
         pub_->publish(marker_array);
 
         hunter_present_ = true;

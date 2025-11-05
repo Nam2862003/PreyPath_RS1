@@ -144,14 +144,14 @@
     </link>
     <!-- ================= RGB CAMERA ================= -->
     <joint name="camera_rgb_joint" type="fixed">
-    <origin xyz="0.005 0.018 0.013" rpy="0 0 0"/> <!-- offsets similar to Husky -->
+    <origin xyz="0.005 0 0" rpy="0 0 0"/> <!-- offsets similar to Husky -->
     <parent link="camera_link"/>
     <child link="camera_rgb_frame"/>
     </joint>
     <link name="camera_rgb_frame"/>
 
     <joint name="camera_rgb_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
     <parent link="camera_rgb_frame"/>
     <child link="camera_rgb_optical_frame"/>
     </joint>
@@ -159,14 +159,14 @@
 
     <!-- ================= DEPTH CAMERA ================= -->
     <joint name="camera_depth_joint" type="fixed">
-    <origin xyz="0.005 0.018 0.013" rpy="0 0 0"/> <!-- offset by depth_offset -->
+    <origin xyz="0.005 0 0" rpy="0 0 0"/> <!-- offset by depth_offset -->
     <parent link="camera_link"/>
     <child link="camera_depth_frame"/>
     </joint>
     <link name="camera_depth_frame"/>
 
     <joint name="camera_depth_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
     <parent link="camera_depth_frame"/>
     <child link="camera_depth_optical_frame"/>
     </joint>
@@ -174,14 +174,14 @@
 
       <!-- ================= THERMAL CAMERA ================= -->
     <joint name="thermal_joint" type="fixed">
-    <origin xyz="0.005 0.018 0.013" rpy="0 0 0"/> <!-- Adjust position -->
+    <origin xyz="0.005 0 0" rpy="0 0 0"/> <!-- Adjust position -->
     <parent link="camera_link"/>
     <child link="thermal_link"/>
     </joint>
     <link name="thermal_link"/>
 
     <joint name="thermal_optical_joint" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
     <parent link="thermal_link"/>
     <child link="thermal_optical_frame"/>
     </joint>
