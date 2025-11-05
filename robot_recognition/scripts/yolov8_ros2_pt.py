@@ -70,15 +70,26 @@ class CameraSubscriber(Node):
             for r in results:
                 boxes = r.boxes
                 for box in boxes:
-                    inference_result = InferenceResult()
+                    # Confidence from YOLO
+                    try:
+                        conf = float(box.conf[0].item())
+                    except Exception:
+                        # Fallback if conf is a scalar tensor
+                        conf = float(box.conf)
+
                     b = box.xyxy[0].to('cpu').detach().numpy().copy()
                     c = int(box.cls)
-                    inference_result.class_name = self.model.names[c]
-                    inference_result.top = int(b[0])
-                    inference_result.left = int(b[1])
-                    inference_result.bottom = int(b[2])
-                    inference_result.right = int(b[3])
-                    self.yolov8_inference.yolov8_inference.append(inference_result)
+                    class_name = self.model.names[c]
+
+                    # Publish only rifle above 0.75 confidence to trigger hunter logic downstream
+                    if class_name.lower() == 'rifle' and conf >= 0.75:
+                        inference_result = InferenceResult()
+                        inference_result.class_name = class_name
+                        inference_result.top = int(b[0])
+                        inference_result.left = int(b[1])
+                        inference_result.bottom = int(b[2])
+                        inference_result.right = int(b[3])
+                        self.yolov8_inference.yolov8_inference.append(inference_result)
 
             # -------------------------------
             # Annotate image and publish
