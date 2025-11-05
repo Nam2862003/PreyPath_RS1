@@ -1,3 +1,7 @@
+# Thermal + Yolo for hunter and human detection
+```bash
+ros2 run 41068_ignition_bringup thermal_classifier.py
+```
 # Machine Learning ( YoloV8)
 Install ros dependencies
 ```bash
