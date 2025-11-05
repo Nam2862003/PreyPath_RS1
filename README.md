@@ -1,3 +1,12 @@
+# Thermal + Yolo for hunter and human detection
+Launch the simulation in first terimal with flag for ML:
+```bash
+ros2 launch 41068_ignition_bringup main.launch.py yolo:=true world:=world_gen
+```
+In new terminal
+```bash
+ros2 run 41068_ignition_bringup thermal_classifier.py
+```
 # Machine Learning ( YoloV8)
 Install ros dependencies
 ```bash
