@@ -2,6 +2,7 @@
 #include <visualization_msgs/msg/marker_array.hpp>
 #include <visualization_msgs/msg/marker.hpp>
 #include <geometry_msgs/msg/point_stamped.hpp>
+#include <cmath>
 
 using visualization_msgs::msg::Marker;
 
@@ -26,6 +27,8 @@ public:
             std::bind(&IconPublisher::checkTimeout, this));
 
         publishHomeIcon();
+        proximity_thresh_ = 0.6; // meters (kept but no longer required for suppression)
+        suppress_window_sec_ = 1.0; // while hunter is recent, suppress human icon
     }
 
 private:
@@ -41,6 +44,28 @@ private:
     void humanCallback(const geometry_msgs::msg::PointStamped::SharedPtr msg)
     {
         last_human_time_ = this->now();
+        last_human_pose_ = *msg;
+
+        // If hunter is currently in sight (recent), suppress human icon entirely
+        bool hunter_recent = hunter_present_ && (this->now() - last_hunter_time_).seconds() <= suppress_window_sec_;
+        if (hunter_recent)
+        {
+            // Ensure any previous human icon is removed
+            if (human_present_)
+            {
+                visualization_msgs::msg::MarkerArray del_array;
+                Marker del;
+                del.header.frame_id = "map";
+                del.header.stamp = this->now();
+                del.ns = "human";
+                del.id = 1;
+                del.action = Marker::DELETE;
+                del_array.markers.push_back(del);
+                pub_->publish(del_array);
+                human_present_ = false;
+            }
+            return; // do not publish human while hunter is present
+        }
 
         visualization_msgs::msg::MarkerArray marker_array;
         marker_array.markers.push_back(produceIcon(
@@ -57,9 +82,32 @@ private:
         last_hunter_time_ = this->now();
 
         visualization_msgs::msg::MarkerArray marker_array;
+        // If a human icon is present, remove it immediately when hunter is in sight
+        if (human_present_)
+        {
+            Marker del;
+            del.header.frame_id = "map";
+            del.header.stamp = this->now();
+            del.ns = "human";
+            del.id = 1;
+            del.action = Marker::DELETE;
+            marker_array.markers.push_back(del);
+            human_present_ = false;
+        }
+
         marker_array.markers.push_back(produceIcon(
             "hunter", 2, "package://visual_icons/meshes/hunter_eye.glb",
             msg->point.x, msg->point.y, 0.0, 3.0, "map"));
+
+        // Save the first-seen hunter as a permanent marker
+        if (!hunter_saved_)
+        {
+            saved_hunter_pose_ = *msg;
+            hunter_saved_ = true;
+            marker_array.markers.push_back(produceIcon(
+                "hunter_saved", 100, "package://visual_icons/meshes/hunter_eye.glb",
+                msg->point.x, msg->point.y, 0.0, 3.0, "map"));
+        }
         pub_->publish(marker_array);
 
         hunter_present_ = true;
@@ -133,6 +181,12 @@ private:
     bool human_present_ = false;
     rclcpp::Time last_hunter_time_;
     bool hunter_present_ = false;
+    geometry_msgs::msg::PointStamped last_human_pose_;
+    double proximity_thresh_;
+    double suppress_window_sec_;
+    // Persistent first-hunter storage
+    bool hunter_saved_ = false;
+    geometry_msgs::msg::PointStamped saved_hunter_pose_;
 };
 
 int main(int argc, char **argv)

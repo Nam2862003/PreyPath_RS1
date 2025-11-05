@@ -11,6 +11,7 @@ from geometry_msgs.msg import PointStamped
 from tf2_geometry_msgs import do_transform_point
 from message_filters import ApproximateTimeSynchronizer, Subscriber
 import image_geometry
+from yolov8_msgs.msg import Yolov8Inference
 
 
 class ThermalDepthAuto(Node):
@@ -26,8 +27,16 @@ class ThermalDepthAuto(Node):
         self.thermal_info = Subscriber(self, CameraInfo, '/robot1/thermal/camera_info')
         self.depth_info = Subscriber(self, CameraInfo, '/robot1/camera/camera_info')
         self.pose_pub = self.create_publisher(PointStamped, '/human_pose', 10)
-        # New: separate outputs for hunter detection
         self.hunter_pose_pub = self.create_publisher(PointStamped, '/hunter_pose', 10)
+
+        # YOLO gun detection subscriber (confidence filtering done upstream)
+        self.gun_labels = {"gun", "pistol", "rifle", "weapon"}
+        self.gun_seen_time = None
+        self.gun_timeout_sec = 1.0
+        self.yolo_sub = self.create_subscription(
+            Yolov8Inference, '/Yolov8_Inference', self.yolo_callback, 10
+        )
+        # New: alert topic (optional consumer can announce)
         self.hunter_alert_pub = self.create_publisher(String, '/hunter_alert', 10)
 
         # Synchronizer
@@ -46,9 +55,8 @@ class ThermalDepthAuto(Node):
         thermal = self.bridge.imgmsg_to_cv2(thermal_msg, 'mono16').astype(np.float32) / 100.0
         depth = self.bridge.imgmsg_to_cv2(depth_msg, 'passthrough').astype(np.float32)
 
-        # Detect hot regions
+        # Detect hot region (only human via temperature)
         human_mask = (thermal >= 308.0) & (thermal < 310.5)
-        hunter_mask = (thermal >= 320.0) & (thermal <= 324.0)
 
         # Initialize camera model (only once)
         if self.camera_model is None:
@@ -93,24 +101,38 @@ class ThermalDepthAuto(Node):
                 self.get_logger().warn(f"TF transform failed: {e}")
                 return None
 
-        # Process each target independently
-        human_px = project_and_publish(human_mask, self.pose_pub, "👤 Human")
-        hunter_px = project_and_publish(hunter_mask, self.hunter_pose_pub, "⚠️ Hunter")
+        # Determine if a recent YOLO gun detection exists
+        now = self.get_clock().now()
+        gun_recent = False
+        if self.gun_seen_time is not None:
+            dt = (now - self.gun_seen_time).nanoseconds / 1e9
+            gun_recent = dt <= self.gun_timeout_sec
 
-        # Sound/alert message when hunter detected
-        if hunter_px is not None:
-            alert = String()
-            alert.data = "hunter detected"
-            self.hunter_alert_pub.publish(alert)
+        # Publish either hunter or human (mutually exclusive)
+        # If YOLO saw a gun recently and thermal says human present, publish hunter
+        if gun_recent and np.any(human_mask):
+            hunter_px = project_and_publish(human_mask, self.hunter_pose_pub, "⚠️ Hunter")
+            # Optional alert string for sound/UI
+            try:
+                if hunter_px is not None:
+                    self.hunter_alert_pub.publish(String(data="hunter detected"))
+            except Exception:
+                pass
+            human_px = None
+        else:
+            human_px = project_and_publish(human_mask, self.pose_pub, "👤 Human")
+            hunter_px = None
 
         # --- Visualization (for debugging only) ---
         vis = cv2.applyColorMap(
             np.uint8(np.clip((thermal - 309.15) * 2, 0, 255)), cv2.COLORMAP_JET
         )
         overlay = vis.copy()
-        # Red for human, Green for hunter
+        # Red for human
         overlay[human_mask] = [0, 0, 255]
-        overlay[hunter_mask] = [0, 255, 0]
+        # If treating as hunter (YOLO gun recent + thermal human), paint green as cue
+        if gun_recent and np.any(human_mask):
+            overlay[human_mask] = [0, 255, 0]
         vis = cv2.addWeighted(overlay, 0.6, vis, 0.4, 0)
         if human_px is not None:
             cv2.circle(vis, human_px, 8, (255, 255, 255), 2)
@@ -118,6 +140,14 @@ class ThermalDepthAuto(Node):
             cv2.circle(vis, hunter_px, 10, (0, 255, 0), 2)
         cv2.imshow("Thermal Detection", vis)
         cv2.waitKey(1)
+
+    def yolo_callback(self, msg: Yolov8Inference):
+        # Track last time a gun-like class was detected. Confidence filtering
+        # should be done at the YOLO publisher; here we just check class labels.
+        for det in msg.yolov8_inference:
+            if det.class_name and det.class_name.strip().lower() in self.gun_labels:
+                self.gun_seen_time = self.get_clock().now()
+                break
 
 
 def main():

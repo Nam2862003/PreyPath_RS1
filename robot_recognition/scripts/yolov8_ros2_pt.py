@@ -47,7 +47,7 @@ class CameraSubscriber(Node):
     def camera_callback(self, data):
 
         self.frame_idx += 1
-        if self.frame_idx % 2 != 0:   # process ~every 6th frame (reduce load)
+        if self.frame_idx % 6 != 0:   # process ~every 6th frame (reduce load)
             return
         
         try:
