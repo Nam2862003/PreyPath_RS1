@@ -340,7 +340,7 @@ void BehaviorController::clearInspection(const char *reason) {
 // HUMAN DETECTION CALLBACK — triggers only once per mission
 //
 void BehaviorController::detectionCallback(const geometry_msgs::msg::PointStamped::SharedPtr msg) {
-  if (!msg || human_abort_triggered_) return;  // ignore if already triggered
+  if (!msg || human_abort_triggered_ || mode_ == RobotMode::MANUAL) return;  // ignore if already triggered
 
   // Mark that we’ve already reacted to this detection
   human_abort_triggered_ = true;
