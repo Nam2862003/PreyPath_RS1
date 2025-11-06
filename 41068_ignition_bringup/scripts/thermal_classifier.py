@@ -86,7 +86,7 @@ class ThermalDepthAuto(Node):
                     if pt:
                         self.detected_humans[i] = np.array([pt.point.x, pt.point.y, pt.point.z])
                         self.get_logger().info(
-                            f"🧍 Human {i} locked at map=({pt.point.x:.2f}, {pt.point.y:.2f}, {pt.point.z:.2f})"
+                            f"🧍 Human {i} locked at map=({pt.point.x:.2f}, {pt.point.y:.2f})"
                         )
 
             # --- Detect Hunters ---
@@ -100,19 +100,21 @@ class ThermalDepthAuto(Node):
                     pt = self.project_to_world(u, v, depth, dinfo)
                     if pt:
                         self.detected_hunters[i] = np.array([pt.point.x, pt.point.y, pt.point.z])
-                        self.get_logger().info(
-                            f"🎯 Hunter {i} locked at map=({pt.point.x:.2f}, {pt.point.y:.2f}, {pt.point.z:.2f})"
-                        )
+                        alert = String()
+                        alert.data = f"Hunter {i} locked at map=({pt.point.x:.2f}, {pt.point.y:.2f}, {pt.point.z:.2f})"
+                        
+                        self.get_logger().info(alert.data)
+                        self.hunter_alert_pub.publish(alert)
 
             # --- Publish ---
             self.publish_pose_array(self.detected_humans, self.human_pose_pub, "👤 Human")
             self.publish_pose_array(self.detected_hunters, self.hunter_pose_pub, "⚠️ Hunter")
 
             # --- Alert ---
-            if self.detected_hunters:
-                alert = String()
-                alert.data = f"⚠️ {len(self.detected_hunters)} Hunter(s) detected!"
-                self.hunter_alert_pub.publish(alert)
+            # if self.detected_hunters:
+            #     alert = String()
+            #     alert.data = f"⚠️ {len(self.detected_hunters)} Hunter(s) detected!"
+            #     self.hunter_alert_pub.publish(alert)
 
         except Exception as e:
             self.get_logger().error(f"❌ sync_callback error: {e}")

@@ -93,10 +93,10 @@ class CameraSubscriber(Node):
                     if dist <= self.hunter_threshold_px and conf_h > 70 and conf_g > 70:
                         is_hunter = True
                         hunters.append(((uh, vh), conf_h))
-                        alert = String()
-                        alert.data = f"⚠️ Hunter detected! ({uh, vh}) dist={dist:.1f}px | Human={conf_h:.1f}% | Gun={conf_g:.1f}%"
-                        self.hunter_alert_pub.publish(alert)
-                        self.get_logger().warn(alert.data)
+                        # alert = String()
+                        # alert.data = f"⚠️ Hunter detected! ({uh, vh}) dist={dist:.1f}px | Human={conf_h:.1f}% | Gun={conf_g:.1f}%"
+                        # self.hunter_alert_pub.publish(alert)
+                        # self.get_logger().warn(alert.data)
                         break  # found gun close enough
 
                 # only add to safe_humans if not near any gun

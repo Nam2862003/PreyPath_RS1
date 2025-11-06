@@ -30,7 +30,7 @@ namespace rviz_control_panel
 
       auto *detection_label = new QLabel("Detection: ");
       detection_label->setObjectName("StatusLabel");
-      detection_ = new QLabel("No people detected.");
+      detection_ = new QLabel("No hunters detected.");
       detection_->setMinimumWidth(200);
 
       grid->addWidget(status_label, 0, 0);
@@ -305,23 +305,27 @@ namespace rviz_control_panel
         {
           const QString text = QString::fromStdString(msg->data);
           last_detection_time_ = std::chrono::steady_clock::now();
+          //detection_->setTextFormat(Qt::RichText);
+
+          detection_->setStyleSheet("color: red; font-weight: bold;");
+
           QMetaObject::invokeMethod(detection_, [this, text] { detection_->setText(text); }); });
 
     // Human detection
     // --- Timer to reset detection label if no updates recently ---
-    detection_reset_timer_ = node->create_wall_timer(
-        std::chrono::seconds(10),
-        [this]()
-        {
-          const auto now = std::chrono::steady_clock::now();
-          if (std::chrono::duration_cast<std::chrono::seconds>(
-                  now - last_detection_time_)
-                  .count() > 2)
-          {
-            QMetaObject::invokeMethod(detection_, [this]
-                                      { detection_->setText("No people detected."); });
-          }
-        });
+    // detection_reset_timer_ = node->create_wall_timer(
+    //     std::chrono::seconds(10),
+    //     [this]()
+    //     {
+    //       const auto now = std::chrono::steady_clock::now();
+    //       if (std::chrono::duration_cast<std::chrono::seconds>(
+    //               now - last_detection_time_)
+    //               .count() > 2)
+    //       {
+    //         QMetaObject::invokeMethod(detection_, [this]
+    //                                   { detection_->setText("No people detected."); });
+    //       }
+    //     });
 
     human_pose_sub_ = node->create_subscription<geometry_msgs::msg::PointStamped>(
         "/human_pose", 10,
