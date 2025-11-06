@@ -7,7 +7,7 @@ namespace rviz_control_panel
   ControlPanel::ControlPanel(QWidget *parent)
       : rviz_common::Panel(parent)
   {
-     // initialize detection timer reference time
+    // initialize detection timer reference time
     last_detection_time_ = std::chrono::steady_clock::now();
     // Scope styles to this panel only
     this->setObjectName("ControlPanelRoot");
@@ -154,8 +154,8 @@ namespace rviz_control_panel
       for (auto btn : {btn_forward_, btn_backward_, btn_left_, btn_right_, btn_stop_,
                        btn_f_left_, btn_f_right_, btn_b_left_, btn_b_right_})
       {
-        btn->setMinimumHeight(50);
-        btn->setMinimumWidth(50);
+        btn->setMinimumHeight(80);
+        btn->setMinimumWidth(80);
         btn->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         btn->setEnabled(false);
       }
@@ -194,19 +194,28 @@ namespace rviz_control_panel
       connect(cb_manual_control_, &QCheckBox::toggled, this, &ControlPanel::onManualControlToggled);
 
       // Manual movement button bindings (single-shot commands)
-      const double V = 0.4;  // linear speed m/s
-      const double W = 1.0;  // angular speed rad/s
+      const double V = 0.4;      // linear speed m/s
+      const double W = 1.0;      // angular speed rad/s
       const double VF = 0.7 * V; // diagonal blend
       const double WF = 0.7 * W;
-      connect(btn_forward_, &QPushButton::clicked, this, [this, V]{ publishManualCmd(V, 0.0); });
-      connect(btn_backward_, &QPushButton::clicked, this, [this, V]{ publishManualCmd(-V, 0.0); });
-      connect(btn_left_, &QPushButton::clicked, this, [this, W]{ publishManualCmd(0.0, +W); });
-      connect(btn_right_, &QPushButton::clicked, this, [this, W]{ publishManualCmd(0.0, -W); });
-      connect(btn_stop_, &QPushButton::clicked, this, [this]{ publishManualCmd(0.0, 0.0); });
-      connect(btn_f_left_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(VF, +WF); });
-      connect(btn_f_right_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(VF, -WF); });
-      connect(btn_b_left_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(-VF, -WF); });
-      connect(btn_b_right_, &QPushButton::clicked, this, [this, VF, WF]{ publishManualCmd(-VF, +WF); });
+      connect(btn_forward_, &QPushButton::clicked, this, [this, V]
+              { publishManualCmd(V, 0.0); });
+      connect(btn_backward_, &QPushButton::clicked, this, [this, V]
+              { publishManualCmd(-V, 0.0); });
+      connect(btn_left_, &QPushButton::clicked, this, [this, W]
+              { publishManualCmd(0.0, +W); });
+      connect(btn_right_, &QPushButton::clicked, this, [this, W]
+              { publishManualCmd(0.0, -W); });
+      connect(btn_stop_, &QPushButton::clicked, this, [this]
+              { publishManualCmd(0.0, 0.0); });
+      connect(btn_f_left_, &QPushButton::clicked, this, [this, VF, WF]
+              { publishManualCmd(VF, +WF); });
+      connect(btn_f_right_, &QPushButton::clicked, this, [this, VF, WF]
+              { publishManualCmd(VF, -WF); });
+      connect(btn_b_left_, &QPushButton::clicked, this, [this, VF, WF]
+              { publishManualCmd(-VF, -WF); });
+      connect(btn_b_right_, &QPushButton::clicked, this, [this, VF, WF]
+              { publishManualCmd(-VF, +WF); });
     }
 
     // --- Styles (add inputs + keep your existing look) ---
@@ -276,48 +285,49 @@ namespace rviz_control_panel
     rtb_pub_ = node->create_publisher<geometry_msgs::msg::PoseStamped>("/behavior/return_to_base", 10);
     manual_enable_pub_ = node->create_publisher<std_msgs::msg::Bool>("/behavior/manual_enable", 10);
     manual_cmd_pub_ = node->create_publisher<geometry_msgs::msg::Twist>("/behavior/manual_cmd", 10);
-  // Publish inspection length (L) to behavior controller
-  inspect_len_pub_ = node->create_publisher<std_msgs::msg::Float64>("/behavior/inspect_length", 10);
+    // Publish inspection length (L) to behavior controller
+    inspect_len_pub_ = node->create_publisher<std_msgs::msg::Float64>("/behavior/inspect_length", 10);
     // Subscribe to behavior status (mode only) and comms (human-readable comments)
     behavior_status_sub_ = node->create_subscription<std_msgs::msg::String>(
-        "/behavior/status", 10, [this](std_msgs::msg::String::ConstSharedPtr msg) {
+        "/behavior/status", 10, [this](std_msgs::msg::String::ConstSharedPtr msg)
+        {
           const QString mode = QString::fromStdString(msg->data).trimmed();
-          QMetaObject::invokeMethod(status_, [this, mode] { status_->setText(mode); });
-        });
+          QMetaObject::invokeMethod(status_, [this, mode] { status_->setText(mode); }); });
 
     behavior_comms_sub_ = node->create_subscription<std_msgs::msg::String>(
-        "/behavior/comms", 10, [this](std_msgs::msg::String::ConstSharedPtr msg) {
+        "/behavior/comms", 10, [this](std_msgs::msg::String::ConstSharedPtr msg)
+        {
           const QString text = QString::fromStdString(msg->data);
-          QMetaObject::invokeMethod(comms_, [this, text] { comms_->setText(text); });
-        });
+          QMetaObject::invokeMethod(comms_, [this, text] { comms_->setText(text); }); });
 
     // Human detection
     // --- Timer to reset detection label if no updates recently ---
     detection_reset_timer_ = node->create_wall_timer(
         std::chrono::seconds(2),
-        [this]() {
+        [this]()
+        {
           const auto now = std::chrono::steady_clock::now();
           if (std::chrono::duration_cast<std::chrono::seconds>(
                   now - last_detection_time_)
-                  .count() > 2) {
-            QMetaObject::invokeMethod(detection_, [this] {
-              detection_->setText("No people detected.");
-            });
+                  .count() > 2)
+          {
+            QMetaObject::invokeMethod(detection_, [this]
+                                      { detection_->setText("No people detected."); });
           }
         });
 
     human_pose_sub_ = node->create_subscription<geometry_msgs::msg::PointStamped>(
-    "/human_pose", 10,
-    [this](geometry_msgs::msg::PointStamped::ConstSharedPtr msg) {
-      // Format nicely for UI
-      const QString info = QString("Human detected at (%1, %2)")
-                       .arg(msg->point.x, 0, 'f', 2)
-                       .arg(msg->point.y, 0, 'f', 2);
+        "/human_pose", 10,
+        [this](geometry_msgs::msg::PointStamped::ConstSharedPtr msg)
+        {
+          // Format nicely for UI
+          const QString info = QString("Human detected at (%1, %2)")
+                                   .arg(msg->point.x, 0, 'f', 2)
+                                   .arg(msg->point.y, 0, 'f', 2);
 
-      QMetaObject::invokeMethod(detection_, [this, info] {
-        detection_->setText(info);
-      });
-    });
+          QMetaObject::invokeMethod(detection_, [this, info]
+                                    { detection_->setText(info); });
+        });
   }
 
   // --- E-Stop: publish Bool(true) ---
@@ -330,14 +340,15 @@ namespace rviz_control_panel
     estop_pub_->publish(msg);
     comms_->setText("E-stop sent");
 
-    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
+    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_);
   }
 
   // --- Return-to-Base: sends stored home_x_, home_y_, home_yaw_deg_ ---
   void ControlPanel::onReturnBaseClicked()
   {
     // Guard: do not allow RTB while manual is enabled
-    if (cb_manual_control_ && cb_manual_control_->isChecked()) {
+    if (cb_manual_control_ && cb_manual_control_->isChecked())
+    {
       comms_->setText("RTB disabled in Manual mode");
       return;
     }
@@ -358,7 +369,7 @@ namespace rviz_control_panel
     rtb_pub_->publish(pose);
     comms_->setText("RTB goal published to controller");
 
-    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
+    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_);
   }
 
   // --- Manual control toggle (unchanged) ---
@@ -372,34 +383,63 @@ namespace rviz_control_panel
     // Publish manual enable flag
     if (manual_enable_pub_)
     {
-      std_msgs::msg::Bool b; b.data = enabled; manual_enable_pub_->publish(b);
+      std_msgs::msg::Bool b;
+      b.data = enabled;
+      manual_enable_pub_->publish(b);
     }
     // UI policy: While Manual is ON, disable autonomous goal inputs and RTB
     const char *tooltip = "Disabled while Manual Control is enabled";
-    if (edit_x_) { edit_x_->setEnabled(!enabled); edit_x_->setToolTip(enabled ? tooltip : ""); }
-    if (edit_y_) { edit_y_->setEnabled(!enabled); edit_y_->setToolTip(enabled ? tooltip : ""); }
-    if (edit_r_) { edit_r_->setEnabled(!enabled); edit_r_->setToolTip(enabled ? tooltip : ""); }
-    if (btn_inspect_exec_) { btn_inspect_exec_->setEnabled(!enabled); btn_inspect_exec_->setToolTip(enabled ? tooltip : ""); }
-    if (btn_rtb_) { btn_rtb_->setEnabled(!enabled); btn_rtb_->setToolTip(enabled ? tooltip : ""); }
+    if (edit_x_)
+    {
+      edit_x_->setEnabled(!enabled);
+      edit_x_->setToolTip(enabled ? tooltip : "");
+    }
+    if (edit_y_)
+    {
+      edit_y_->setEnabled(!enabled);
+      edit_y_->setToolTip(enabled ? tooltip : "");
+    }
+    if (edit_r_)
+    {
+      edit_r_->setEnabled(!enabled);
+      edit_r_->setToolTip(enabled ? tooltip : "");
+    }
+    if (btn_inspect_exec_)
+    {
+      btn_inspect_exec_->setEnabled(!enabled);
+      btn_inspect_exec_->setToolTip(enabled ? tooltip : "");
+    }
+    if (btn_rtb_)
+    {
+      btn_rtb_->setEnabled(!enabled);
+      btn_rtb_->setToolTip(enabled ? tooltip : "");
+    }
     // Safety: send zero twist when disabling
     if (!enabled)
       publishManualCmd(0.0, 0.0);
     // Visible feedback about traverse gating
-    if (enabled) {
+    if (enabled)
+    {
       comms_->setText("Manual control activated. Traverse/RTB disabled");
-      if (status_) status_->setText("MANUAL");
-    } else {
+      if (status_)
+        status_->setText("MANUAL");
+    }
+    else
+    {
       comms_->setText("Manual control disabled. You can set traverse/RTB goals");
     }
 
-    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
+    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_);
   }
 
   void ControlPanel::publishManualCmd(double lin, double ang)
   {
     if (!manual_cmd_pub_ || !cb_manual_control_ || !cb_manual_control_->isChecked())
       return; // Only send if manual enabled
-    geometry_msgs::msg::Twist t; t.linear.x = lin; t.angular.z = ang; manual_cmd_pub_->publish(t);
+    geometry_msgs::msg::Twist t;
+    t.linear.x = lin;
+    t.angular.z = ang;
+    manual_cmd_pub_->publish(t);
   }
 
   // --- New: Send Nav2 goal to (x,y) from the input boxes ---
@@ -407,15 +447,16 @@ namespace rviz_control_panel
   {
 
     // Guard: do not allow traverse while manual is enabled
-    if (cb_manual_control_ && cb_manual_control_->isChecked()) {
+    if (cb_manual_control_ && cb_manual_control_->isChecked())
+    {
       comms_->setText("Traverse disabled in Manual mode");
       return;
     }
     bool okx = false, oky = false;
     const double x = edit_x_->text().toDouble(&okx);
     const double y = edit_y_->text().toDouble(&oky);
-  bool okl = false;
-  const double L = edit_r_ ? edit_r_->text().toDouble(&okl) : 0.0;
+    bool okl = false;
+    const double L = edit_r_ ? edit_r_->text().toDouble(&okl) : 0.0;
     if (!okx || !oky)
     {
       comms_->setText("Enter valid X/Y (meters in map)");
@@ -427,8 +468,11 @@ namespace rviz_control_panel
       return;
     }
     // If L provided and positive, publish it so controller plans patrol after arrival
-    if (inspect_len_pub_ && okl && L > 0.0) {
-      std_msgs::msg::Float64 lmsg; lmsg.data = L; inspect_len_pub_->publish(lmsg);
+    if (inspect_len_pub_ && okl && L > 0.0)
+    {
+      std_msgs::msg::Float64 lmsg;
+      lmsg.data = L;
+      inspect_len_pub_->publish(lmsg);
     }
     geometry_msgs::msg::PoseStamped pose;
     pose.header.frame_id = "map";
@@ -439,14 +483,19 @@ namespace rviz_control_panel
     pose.pose.orientation.z = 0.0;
     pose.pose.orientation.w = 1.0;
     traverse_pub_->publish(pose);
-    if (okl && L > 0.0) {
+    if (okl && L > 0.0)
+    {
       comms_->setText(QString("Traverse goal published (%1, %2), then patrol L=%3 m")
-                        .arg(x, 0, 'f', 2).arg(y, 0, 'f', 2).arg(L, 0, 'f', 2));
-    } else {
+                          .arg(x, 0, 'f', 2)
+                          .arg(y, 0, 'f', 2)
+                          .arg(L, 0, 'f', 2));
+    }
+    else
+    {
       comms_->setText(QString("Traverse goal published (%1, %2)").arg(x, 0, 'f', 2).arg(y, 0, 'f', 2));
     }
 
-    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_); 
+    resetInspectPlaceholders(edit_x_, edit_y_, edit_r_);
   }
 
   void ControlPanel::save(rviz_common::Config config) const
