@@ -300,10 +300,17 @@ namespace rviz_control_panel
           const QString text = QString::fromStdString(msg->data);
           QMetaObject::invokeMethod(comms_, [this, text] { comms_->setText(text); }); });
 
+    behavior_detection_sub_ = node->create_subscription<std_msgs::msg::String>(
+        "/hunter_alert", 10, [this](std_msgs::msg::String::ConstSharedPtr msg)
+        {
+          const QString text = QString::fromStdString(msg->data);
+          last_detection_time_ = std::chrono::steady_clock::now();
+          QMetaObject::invokeMethod(detection_, [this, text] { detection_->setText(text); }); });
+
     // Human detection
     // --- Timer to reset detection label if no updates recently ---
     detection_reset_timer_ = node->create_wall_timer(
-        std::chrono::seconds(2),
+        std::chrono::seconds(10),
         [this]()
         {
           const auto now = std::chrono::steady_clock::now();
