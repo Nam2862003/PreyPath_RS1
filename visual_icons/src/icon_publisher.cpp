@@ -4,6 +4,7 @@
 #include <geometry_msgs/msg/point_stamped.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <geometry_msgs/msg/pose_array.hpp>
+#include <std_msgs/msg/float64.hpp>
 using geometry_msgs::msg::PoseArray;
 using geometry_msgs::msg::PoseStamped;
 using visualization_msgs::msg::Marker;
@@ -24,6 +25,36 @@ public:
         sub_hunter_ = create_subscription<PoseArray>(
             "/hunter_pose", 10,
             std::bind(&IconPublisher::hunterCallback, this, std::placeholders::_1));
+
+        pub_patrol_ = create_publisher<visualization_msgs::msg::Marker>("patrol_marker", qos);
+
+        sub_goal_ = create_subscription<PoseStamped>(
+
+            "/behavior/traverse_goal", 10,
+
+            [this](const PoseStamped::SharedPtr msg)
+
+            {
+                inspect_goal_ = *msg; // keep full header (frame_id)
+
+                goal_received_ = true;
+
+                publishPatrolArea(); // update RViz immediately
+            });
+
+        sub_len_ = create_subscription<std_msgs::msg::Float64>(
+
+            "/behavior/inspect_length", 10,
+
+            [this](const std_msgs::msg::Float64::SharedPtr msg)
+
+            {
+                inspect_length_ = std::max(1.0, msg->data); // clamp to non-negative
+
+                length_received_ = true;
+
+                publishPatrolArea();
+            });
 
         publishIcons();
     }
@@ -93,13 +124,98 @@ private:
         return m;
     }
 
+    void publishPatrolArea()
+
+    {
+
+        if (goal_received_)
+
+        {
+
+            Marker patrol_area = producePatrolArea(0);
+
+            pub_patrol_->publish(patrol_area);
+
+            if (length_received_)
+
+            {
+
+                inspect_length_ = 1.0; // reset to default after use
+
+                length_received_ = false;
+
+                goal_received_ = false;
+            }
+        }
+    }
+
+    Marker producePatrolArea(int id)
+
+    {
+
+        if (inspect_goal_.header.frame_id.empty())
+
+            return Marker(); // no goal yet
+
+        Marker cube;
+
+        cube.header = inspect_goal_.header; // keep goal's frame_id & time
+
+        cube.header.stamp = now(); // refresh stamp
+
+        cube.ns = "inspect";
+
+        // cube.id = INSPECT_ID;
+
+        cube.id = id;
+
+        cube.type = Marker::CUBE;
+
+        cube.action = Marker::ADD;
+
+        // Pose from goal
+
+        cube.pose = inspect_goal_.pose;
+
+        // Edge size = inspect_length_ (fallback to 1.0 if unset/zero)
+
+        const double L = (inspect_length_ > 1.0) ? inspect_length_ : 1.0;
+
+        cube.scale.x = L;
+
+        cube.scale.y = L;
+
+        cube.scale.z = 0.1;
+
+        // Color (cyan)
+
+        cube.color.a = 0.3;
+
+        cube.color.r = 1.0;
+
+        cube.color.g = 0.65;
+
+        cube.color.b = 0.0;
+
+        cube.lifetime = rclcpp::Duration(0, 0);
+
+        return cube;
+    }
+
     rclcpp::Publisher<MarkerArray>::SharedPtr pub_;
     rclcpp::Subscription<PoseArray>::SharedPtr sub_human_;
     rclcpp::Subscription<PoseArray>::SharedPtr sub_hunter_;
     rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Publisher<Marker>::SharedPtr pub_patrol_;
+    rclcpp::Subscription<PoseStamped>::SharedPtr sub_goal_;
+    rclcpp::Subscription<std_msgs::msg::Float64>::SharedPtr sub_len_;
 
     PoseArray last_human_msg_;
     PoseArray last_hunter_msg_;
+    geometry_msgs::msg::PoseStamped inspect_goal_;
+    double inspect_length_{1.0};
+    bool length_received_{false};
+    bool goal_received_{false};
 };
 
 int main(int argc, char **argv)
