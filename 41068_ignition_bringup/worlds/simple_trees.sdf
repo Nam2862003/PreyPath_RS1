@@ -60,40 +60,34 @@
       </link>
     </model>    
 
-    <!-- Oak tree -->
-    <include>
-      <uri>
-        https://fuel.gazebosim.org/1.0/OpenRobotics/models/Oak%20tree
-      </uri>
-      <name>oak1</name>
-      <pose>0 3.0 0 0 0 0</pose>
-    </include>
-
-
-    <model name="oak1_override">
-      <pose>0 3.0 0 0 0 0</pose>
-      <link name="link">
-        <thermal>
-          <temperature>310</temperature> <!-- 37 °C -->
-        </thermal>
-      </link>
-    </model>
-
-  
-    
-    <!-- Pine tree -->
-    <include>
-      <uri>
-        https://fuel.gazebosim.org/1.0/OpenRobotics/models/Pine%20tree
-      </uri>
-      <name>pine1</name>
-      <pose>5.0 0.0 0 0 0 0</pose>
-    </include>
         <!-- Walking person actor (visible in RGB, animated) -->
     <include>
       <uri>model://person_walking</uri>
       <name>person_walking</name>
-      <pose>3 3 0 0 0 0</pose>
+      <pose>3 0 0 0 0 0</pose>
     </include>
+
+     <!-- Hunter -->
+    <include>
+      <uri>model://person_walking</uri>
+      <name>Actor_1</name>
+      <pose>2 2 0 0 0 0</pose>
+      <static>true</static>
+    </include>
+    <include>
+      <uri>model://gun</uri>
+      <name>Gun_1</name>
+      <pose>2 1.8 1 0 0 1.57</pose>
+      <static>true</static>
+    </include>
+
+      <!-- Gun only -->
+    <include>
+      <uri>model://gun</uri>
+      <name>Gun_2</name>
+      <pose>2 -1 0 0 0 1.57</pose>
+      <static>true</static>
+    </include>
+
   </world>
 </sdf>

@@ -46,6 +46,12 @@
     <!-- Human with a gun (together) -->
     <include>
       <uri>model://person_walking</uri>
+      <name>person_walking</name>
+      <pose>3 6 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://person_walking</uri>
       <name>Actor_1</name>
       <pose>10.4 -12.7 0 0 0 5.91</pose>
       <static>true</static>

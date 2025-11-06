@@ -148,6 +148,18 @@ def generate_launch_description():
             'enable_odom_tf': False,
         }],
     )
+    # camera_tf_pub = Node(
+    # package='tf2_ros',
+    # executable='static_transform_publisher',
+    # name='camera_optical_tf',
+    # namespace=namespace,
+    # arguments=[
+    #     '0', '0', '0', '-1.5708', '0', '-1.5708',
+    #     'camera_link', 'camera_optical_frame'
+    # ],
+    # output='screen'
+    # )
+
     cmd_vel_pub = Node(
         package='quadropted_controller',
         executable='cmd_vel_pub.py',
@@ -188,6 +200,7 @@ def generate_launch_description():
                     cmd_vel_pub,
                     odom,
                     robot_localization_node,
+                    # camera_tf_pub,
                     relay_nav2_cmd,
                     relay_teleop_cmd
                 ]
